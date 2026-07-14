@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Kind of Argument Is This?</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, system-ui, -apple-system, sans-serif;
+      background: #f5f5f3;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+      background: #ffffff;
+      border: 1px solid #d8d8d4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    /* Header bar */
+    .header {
+      background: #1e2530;
+      color: #ffffff;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .header-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #c8cdd6;
+      flex-shrink: 0;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .progress-text {
+      font-size: 13px;
+      color: #9aa0ac;
+      white-space: nowrap;
+    }
+
+    .score-badge {
+      background: #2c3547;
+      border: 1px solid #3a4560;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #e8eaf0;
+      white-space: nowrap;
+    }
+
+    /* Progress bar */
+    .progress-bar-track {
+      height: 4px;
+      background: #e0e0dc;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: #1e2530;
+      transition: width 0.35s ease;
+    }
+
+    /* Main content area */
+    .content {
+      padding: 24px 24px 20px;
+    }
+
+    /* Argument display box */
+    .argument-box {
+      background: #f9f8f5;
+      border: 1px solid #dddbd4;
+      border-left: 4px solid #1e2530;
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 22px;
+    }
+
+    .argument-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888880;
+      margin-bottom: 10px;
+    }
+
+    .argument-text {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: #1a1a1a;
+    }
+
+    /* Classification prompt */
+    .classify-prompt {
+      font-size: 14px;
+      color: #444440;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    /* Type buttons */
+    .type-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .type-btn {
+      flex: 1 1 140px;
+      padding: 11px 16px;
+      border: 2px solid #1e2530;
+      border-radius: 4px;
+      background: #1e2530;
+      color: #ffffff;
+      font-family: Arial, system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .type-btn:hover:not(:disabled) {
+      background: #2c3a50;
+      border-color: #2c3a50;
+      transform: translateY(-1px);
+    }
+
+    .type-btn:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    .type-btn:disabled {
+      cursor: default;
+      opacity: 0.45;
+    }
+
+    .type-btn.selected-correct {
+      background: #2d7a2d;
+      border-color: #2d7a2d;
+      opacity: 1;
+    }
+
+    .type-btn.selected-incorrect {
+      background: #a02020;
+      border-color: #a02020;
+      opacity: 1;
+    }
+
+    .type-btn.revealed-correct {
+      background: #2d7a2d;
+      border-color: #2d7a2d;
+      opacity: 1;
+    }
+
+    /* Feedback box */
+    .feedback-box {
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    .feedback-box.correct {
+      background: #eef7ee;
+      border: 1px solid #a3cfa3;
+    }
+
+    .feedback-box.incorrect {
+      background: #fdf0f0;
+      border: 1px solid #d4a0a0;
+    }
+
+    .feedback-verdict {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .feedback-box.correct .feedback-verdict {
+      color: #2d7a2d;
+    }
+
+    .feedback-box.incorrect .feedback-verdict {
+      color: #a02020;
+    }
+
+    .feedback-explanation {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #333330;
+    }
+
+    /* Next button */
+    .next-btn {
+      display: none;
+      width: 100%;
+      padding: 12px 20px;
+      background: #1e2530;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-family: Arial, system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: background 0.15s ease;
+    }
+
+    .next-btn:hover {
+      background: #2c3a50;
+    }
+
+    /* Results screen */
+    .results-screen {
+      display: none;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .results-heading {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .results-score-display {
+      font-size: 52px;
+      font-weight: 700;
+      color: #1e2530;
+      line-height: 1.1;
+      margin: 18px 0 8px;
+    }
+
+    .results-score-label {
+      font-size: 15px;
+      color: #666660;
+      margin-bottom: 22px;
+    }
+
+    .results-message {
+      font-size: 15px;
+      color: #444440;
+      line-height: 1.6;
+      max-width: 420px;
+      margin: 0 auto 28px;
+    }
+
+    .try-again-btn {
+      display: inline-block;
+      padding: 12px 36px;
+      background: #1e2530;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-family: Arial, system-ui, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: background 0.15s ease;
+    }
+
+    .try-again-btn:hover {
+      background: #2c3a50;
+    }
+
+    .results-divider {
+      border: none;
+      border-top: 1px solid #e0e0dc;
+      margin: 22px 0;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 12px 16px;
+      }
+
+      .header-right {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .content {
+        padding: 18px 16px 16px;
+      }
+
+      .argument-text {
+        font-size: 15px;
+      }
+
+      .type-btn {
+        flex: 1 1 100%;
+      }
+
+      .results-screen {
+        padding: 20px 16px;
+      }
+
+      .results-score-display {
+        font-size: 44px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="app">
+
+  <!-- Question screen -->
+  <div id="question-screen">
+    <div class="header">
+      <span class="header-title">What Kind of Argument Is This?</span>
+      <div class="header-right">
+        <span class="progress-text" id="progress-text">Argument 1 of 8</span>
+        <span class="score-badge" id="score-badge">Score: 0 / 0</span>
+      </div>
+    </div>
+
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="progress-bar-fill" style="width: 0%"></div>
+    </div>
+
+    <div class="content">
+      <div class="argument-box">
+        <div class="argument-label">Argument</div>
+        <p class="argument-text" id="argument-text"></p>
+      </div>
+
+      <p class="classify-prompt">Classify this argument:</p>
+
+      <div class="type-buttons">
+        <button class="type-btn" id="btn-deductive" onclick="handleAnswer('Deductive')">Deductive</button>
+        <button class="type-btn" id="btn-inductive" onclick="handleAnswer('Inductive')">Inductive</button>
+        <button class="type-btn" id="btn-abductive" onclick="handleAnswer('Abductive')">Abductive</button>
+      </div>
+
+      <div class="feedback-box" id="feedback-box">
+        <div class="feedback-verdict" id="feedback-verdict"></div>
+        <div class="feedback-explanation" id="feedback-explanation"></div>
+      </div>
+
+      <button class="next-btn" id="next-btn" onclick="handleNext()">
+        Next Argument &rarr;
+      </button>
+    </div>
+  </div>
+
+  <!-- Results screen -->
+  <div class="results-screen" id="results-screen">
+    <div class="results-heading">Quiz Complete</div>
+    <div class="results-score-display" id="final-score-display"></div>
+    <div class="results-score-label">correct out of 8</div>
+    <hr class="results-divider">
+    <p class="results-message" id="results-message"></p>
+    <button class="try-again-btn" onclick="resetQuiz()">Try Again</button>
+  </div>
+
+</div>
+
+<script>
+  var arguments_data = [
+    {
+      text: "All prime numbers greater than 2 are odd. The number 17 is a prime number greater than 2. Therefore, 17 is odd.",
+      correct: "Deductive",
+      explanation: "This is a deductive argument because the premises guarantee the conclusion with logical necessity — if both premises are true, the conclusion cannot possibly be false. The form is a standard categorical syllogism, the foundational structure of Aristotelian deductive logic."
+    },
+    {
+      text: "In every experiment conducted over the past century, heating a gas in a sealed container increases its pressure. Therefore, heating a gas in a sealed container will increase its pressure.",
+      correct: "Inductive",
+      explanation: "This is an inductive argument: the premise is a generalization from many observed cases. The conclusion is supported and highly probable, but it is not guaranteed — it is conceivable (though not currently believed) that future experiments could differ. Inductive arguments are evaluated as strong or weak, not valid or invalid."
+    },
+    {
+      text: "The office window is cracked, there is glass on the floor inside, and a baseball is lying nearby. The most probable explanation is that a baseball broke the window.",
+      correct: "Abductive",
+      explanation: "This is an abductive argument — inference to the best explanation. Rather than generalizing from multiple cases or guaranteeing a conclusion, the reasoner observes a specific situation and infers the most probable cause. Abductive reasoning is the logic of diagnosis, investigation, and hypothesis formation."
+    },
+    {
+      text: "If a figure is a square, then it has four equal sides. This figure is a square. Therefore, this figure has four equal sides.",
+      correct: "Deductive",
+      explanation: "This is a deductive argument in the form called modus ponens: 'If P then Q; P; therefore Q.' The conclusion follows with logical necessity — given the two premises, it is impossible for the conclusion to be false. This is one of the most fundamental valid argument forms."
+    },
+    {
+      text: "Every student surveyed in all twelve sections of this course over the past three years has reported spending more time on the second unit than on the first. The second unit is therefore likely more time-consuming than the first.",
+      correct: "Inductive",
+      explanation: "This is an inductive argument based on a generalization from a large sample. The evidence is substantial, making this a relatively strong inductive argument — but the conclusion is still only probable. A single counterexample would not refute it, but a pattern of counterexamples would weaken it significantly."
+    },
+    {
+      text: "The patient presents with a high fever, a distinctive rash on the trunk, and sensitivity to light. Taken together, these symptoms are most consistently explained by a specific viral infection. The most probable diagnosis is that viral infection.",
+      correct: "Abductive",
+      explanation: "This is an abductive argument: the reasoner is inferring the best explanation for a specific set of observations (the patient's current symptoms). This is not a generalization from many cases — it is an inference about this particular situation. Medical diagnosis is a paradigm case of abductive reasoning."
+    },
+    {
+      text: "No reptile is warm-blooded. The Komodo dragon is a reptile. Therefore, the Komodo dragon is not warm-blooded.",
+      correct: "Deductive",
+      explanation: "This is a deductive argument. Although it mentions a category ('reptile'), it does not generalize from observed cases — it applies a universal claim ('No reptile is warm-blooded') to a specific case. If the premises are true, the conclusion is guaranteed. The key test: could the conclusion be false while both premises are true? No — so the argument is deductive."
+    },
+    {
+      text: "Every time I have arrived at this café in the past, the chairs outside have been stacked when it is closed. The chairs are stacked right now. The café is probably closed.",
+      correct: "Abductive",
+      explanation: "This is an abductive argument. Although past observations are mentioned, the conclusion is an inference about a present situation — the reasoner is explaining what they observe right now (the stacked chairs) by inferring the most probable cause (the café is currently closed). Induction generalizes to new cases; abduction explains a specific current observation."
+    }
+  ];
+
+  var state = {
+    currentIndex: 0,
+    score: 0,
+    answered: false,
+    answeredCount: 0
+  };
+
+  function render() {
+    var q = arguments_data[state.currentIndex];
+    var total = arguments_data.length;
+
+    // Progress
+    document.getElementById('progress-text').textContent =
+      'Argument ' + (state.currentIndex + 1) + ' of ' + total;
+    document.getElementById('score-badge').textContent =
+      'Score: ' + state.score + ' / ' + state.answeredCount;
+
+    var pct = (state.currentIndex / total) * 100;
+    document.getElementById('progress-bar-fill').style.width = pct + '%';
+
+    // Argument text
+    document.getElementById('argument-text').textContent = q.text;
+
+    // Reset buttons
+    var buttons = ['btn-deductive', 'btn-inductive', 'btn-abductive'];
+    for (var i = 0; i < buttons.length; i++) {
+      var btn = document.getElementById(buttons[i]);
+      btn.disabled = false;
+      btn.className = 'type-btn';
+    }
+
+    // Reset feedback
+    var fb = document.getElementById('feedback-box');
+    fb.style.display = 'none';
+    fb.className = 'feedback-box';
+    document.getElementById('feedback-verdict').textContent = '';
+    document.getElementById('feedback-explanation').textContent = '';
+
+    // Reset next button
+    document.getElementById('next-btn').style.display = 'none';
+
+    state.answered = false;
+  }
+
+  function handleAnswer(chosen) {
+    if (state.answered) return;
+    state.answered = true;
+    state.answeredCount++;
+
+    var q = arguments_data[state.currentIndex];
+    var isCorrect = (chosen === q.correct);
+
+    if (isCorrect) {
+      state.score++;
+    }
+
+    // Update score badge immediately
+    document.getElementById('score-badge').textContent =
+      'Score: ' + state.score + ' / ' + state.answeredCount;
+
+    // Style buttons
+    var map = {
+      'Deductive': 'btn-deductive',
+      'Inductive': 'btn-inductive',
+      'Abductive': 'btn-abductive'
+    };
+
+    // Disable all buttons
+    var allBtnIds = ['btn-deductive', 'btn-inductive', 'btn-abductive'];
+    for (var i = 0; i < allBtnIds.length; i++) {
+      document.getElementById(allBtnIds[i]).disabled = true;
+    }
+
+    // Style chosen button
+    var chosenBtn = document.getElementById(map[chosen]);
+    chosenBtn.className = 'type-btn ' + (isCorrect ? 'selected-correct' : 'selected-incorrect');
+
+    // If wrong, reveal the correct answer
+    if (!isCorrect) {
+      var correctBtn = document.getElementById(map[q.correct]);
+      correctBtn.className = 'type-btn revealed-correct';
+    }
+
+    // Show feedback
+    var fb = document.getElementById('feedback-box');
+    fb.style.display = 'block';
+    fb.className = 'feedback-box ' + (isCorrect ? 'correct' : 'incorrect');
+
+    var verdict = document.getElementById('feedback-verdict');
+    if (isCorrect) {
+      verdict.textContent = 'Correct — this is a ' + q.correct + ' argument.';
+    } else {
+      verdict.textContent = 'Not quite. This is a ' + q.correct + ' argument.';
+    }
+
+    document.getElementById('feedback-explanation').textContent = q.explanation;
+
+    // Show next button (or finish button on last)
+    var nextBtn = document.getElementById('next-btn');
+    nextBtn.style.display = 'block';
+    if (state.currentIndex === arguments_data.length - 1) {
+      nextBtn.textContent = 'See Results';
+    } else {
+      nextBtn.textContent = 'Next Argument →';
+    }
+  }
+
+  function handleNext() {
+    state.currentIndex++;
+    if (state.currentIndex >= arguments_data.length) {
+      showResults();
+    } else {
+      render();
+    }
+  }
+
+  function showResults() {
+    document.getElementById('question-screen').style.display = 'none';
+    var resultsScreen = document.getElementById('results-screen');
+    resultsScreen.style.display = 'block';
+
+    document.getElementById('final-score-display').textContent = state.score;
+
+    var pct = state.score / arguments_data.length;
+    var msg;
+    if (pct === 1) {
+      msg = "Perfect score. You correctly identified all eight argument types, including the two deliberately tricky ones that test whether you can distinguish universal premises from observed generalizations.";
+    } else if (pct >= 0.75) {
+      msg = "Strong work. You correctly classified most of these arguments. Review the ones you missed — pay particular attention to whether the premises guarantee the conclusion (deductive) or merely support it (inductive/abductive).";
+    } else if (pct >= 0.5) {
+      msg = "A solid start. The distinction between inductive and abductive arguments tends to trip people up at first — both involve probability rather than certainty, but they work differently. Re-read the explanations for the arguments you missed, then try again.";
+    } else {
+      msg = "These distinctions take practice. Focus on the core test: does the argument guarantee its conclusion (deductive), generalize from many cases (inductive), or explain a specific observation (abductive)? Read the explanations carefully and give it another try.";
+    }
+    document.getElementById('results-message').textContent = msg;
+  }
+
+  function resetQuiz() {
+    state.currentIndex = 0;
+    state.score = 0;
+    state.answered = false;
+    state.answeredCount = 0;
+
+    document.getElementById('results-screen').style.display = 'none';
+    document.getElementById('question-screen').style.display = 'block';
+
+    // Reset progress bar
+    document.getElementById('progress-bar-fill').style.width = '0%';
+
+    render();
+  }
+
+  // Initialize
+  render();
+</script>
+
+</body>
+</html>

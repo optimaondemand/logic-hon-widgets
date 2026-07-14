@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Type of Statement Is This?</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, system-ui, -apple-system, sans-serif;
+      background: #f5f5f3;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+      background: #ffffff;
+      border: 1px solid #d8d8d4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .header {
+      background: #1e2530;
+      color: #ffffff;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .header-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #c8cdd6;
+      flex-shrink: 0;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .progress-text { font-size: 13px; color: #9aa0ac; white-space: nowrap; }
+
+    .score-badge {
+      background: #2c3547;
+      border: 1px solid #3a4560;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #e8eaf0;
+      white-space: nowrap;
+    }
+
+    .progress-bar-track { height: 4px; background: #e0e0dc; }
+    .progress-bar-fill { height: 100%; background: #1e2530; transition: width 0.35s ease; }
+
+    .content { padding: 24px 24px 20px; }
+
+    .statement-box {
+      background: #f9f8f5;
+      border: 1px solid #dddbd4;
+      border-left: 4px solid #1e2530;
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 22px;
+    }
+
+    .statement-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888880;
+      margin-bottom: 10px;
+    }
+
+    .statement-text {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: #1a1a1a;
+    }
+
+    .classify-prompt {
+      font-size: 14px;
+      color: #444440;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .type-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .type-btn {
+      padding: 12px 16px;
+      border: 2px solid #1e2530;
+      border-radius: 4px;
+      background: #1e2530;
+      color: #ffffff;
+      font-family: Arial, system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease;
+      letter-spacing: 0.02em;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .type-btn:hover:not(:disabled) { background: #2c3a50; border-color: #2c3a50; transform: translateY(-1px); }
+    .type-btn:active:not(:disabled) { transform: translateY(0); }
+    .type-btn:disabled { cursor: default; opacity: 0.45; }
+    .type-btn.selected-correct { background: #2d7a2d; border-color: #2d7a2d; opacity: 1; }
+    .type-btn.selected-incorrect { background: #a02020; border-color: #a02020; opacity: 1; }
+    .type-btn.revealed-correct { background: #2d7a2d; border-color: #2d7a2d; opacity: 1; }
+
+    .feedback-box {
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    .feedback-box.correct { background: #eef7ee; border: 1px solid #a3cfa3; }
+    .feedback-box.incorrect { background: #fdf0f0; border: 1px solid #d4a0a0; }
+
+    .feedback-verdict { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .feedback-box.correct .feedback-verdict { color: #2d7a2d; }
+    .feedback-box.incorrect .feedback-verdict { color: #a02020; }
+    .feedback-explanation { font-size: 14px; line-height: 1.6; color: #333330; }
+
+    .next-btn {
+      display: none;
+      width: 100%;
+      padding: 12px 20px;
+      background: #1e2530;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-family: Arial, system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: background 0.15s ease;
+    }
+
+    .next-btn:hover { background: #2c3a50; }
+
+    .results-screen {
+      display: none;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .results-heading { font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; }
+    .results-score-display { font-size: 52px; font-weight: 700; color: #1e2530; line-height: 1.1; margin: 18px 0 8px; }
+    .results-score-label { font-size: 15px; color: #666660; margin-bottom: 22px; }
+    .results-message { font-size: 15px; color: #444440; line-height: 1.6; max-width: 440px; margin: 0 auto 28px; }
+
+    .try-again-btn {
+      display: inline-block;
+      padding: 12px 36px;
+      background: #1e2530;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-family: Arial, system-ui, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: background 0.15s ease;
+    }
+
+    .try-again-btn:hover { background: #2c3a50; }
+    .results-divider { border: none; border-top: 1px solid #e0e0dc; margin: 22px 0; }
+
+    @media (max-width: 480px) {
+      .header { flex-direction: column; align-items: flex-start; }
+      .header-right { width: 100%; justify-content: space-between; }
+      .content { padding: 18px 16px 16px; }
+      .type-buttons { grid-template-columns: 1fr 1fr; }
+      .statement-text { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="app">
+
+  <div id="question-screen">
+    <div class="header">
+      <span class="header-title">What Type of Statement Is This?</span>
+      <div class="header-right">
+        <span class="progress-text" id="progress-text">Statement 1 of 10</span>
+        <span class="score-badge" id="score-badge">Score: 0 / 0</span>
+      </div>
+    </div>
+
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="progress-bar-fill" style="width: 0%"></div>
+    </div>
+
+    <div class="content">
+      <div class="statement-box">
+        <div class="statement-label">Categorical Statement</div>
+        <p class="statement-text" id="statement-text"></p>
+      </div>
+
+      <p class="classify-prompt">Identify the statement type:</p>
+
+      <div class="type-buttons">
+        <button class="type-btn" id="btn-A" onclick="handleAnswer('A')">A — Universal<br>Affirmative<br><em style="font-weight:400;font-size:11px">"All S are P"</em></button>
+        <button class="type-btn" id="btn-E" onclick="handleAnswer('E')">E — Universal<br>Negative<br><em style="font-weight:400;font-size:11px">"No S are P"</em></button>
+        <button class="type-btn" id="btn-I" onclick="handleAnswer('I')">I — Particular<br>Affirmative<br><em style="font-weight:400;font-size:11px">"Some S are P"</em></button>
+        <button class="type-btn" id="btn-O" onclick="handleAnswer('O')">O — Particular<br>Negative<br><em style="font-weight:400;font-size:11px">"Some S are not P"</em></button>
+      </div>
+
+      <div class="feedback-box" id="feedback-box">
+        <div class="feedback-verdict" id="feedback-verdict"></div>
+        <div class="feedback-explanation" id="feedback-explanation"></div>
+      </div>
+
+      <button class="next-btn" id="next-btn" onclick="handleNext()">Next Statement &rarr;</button>
+    </div>
+  </div>
+
+  <div class="results-screen" id="results-screen">
+    <div class="results-heading">Quiz Complete</div>
+    <div class="results-score-display" id="final-score-display"></div>
+    <div class="results-score-label">correct out of 10</div>
+    <hr class="results-divider">
+    <p class="results-message" id="results-message"></p>
+    <button class="try-again-btn" onclick="resetQuiz()">Try Again</button>
+  </div>
+
+</div>
+
+<script>
+  var statements_data = [
+    {
+      text: "All prime numbers greater than 2 are odd numbers.",
+      correct: "A",
+      explanation: "This is an A statement (Universal Affirmative). The quantifier 'All' and the affirmative copula 'are' place the entire subject class inside the predicate class. S (prime numbers greater than 2) is distributed; P (odd numbers) is not distributed — the statement says nothing about odd numbers that are not prime."
+    },
+    {
+      text: "No mammal is a cold-blooded creature.",
+      correct: "E",
+      explanation: "This is an E statement (Universal Negative). 'No mammal' signals a complete exclusion of the subject class from the predicate class. Both S (mammals) and P (cold-blooded creatures) are distributed — the statement covers all mammals and rules out every member of the cold-blooded class as a mammal."
+    },
+    {
+      text: "Some historical arguments are not sound arguments.",
+      correct: "O",
+      explanation: "This is an O statement (Particular Negative). 'Some... are not' is the standard form of the particular negative. S (historical arguments) is not distributed — only some are addressed. P (sound arguments) IS distributed — the historical arguments described are excluded from the entire sound-argument class."
+    },
+    {
+      text: "Some classical philosophers were also mathematicians.",
+      correct: "I",
+      explanation: "This is an I statement (Particular Affirmative). 'Some' with an affirmative copula asserts that the intersection of the two classes is non-empty. Neither S (classical philosophers) nor P (mathematicians) is distributed — the statement speaks about only some members of each class."
+    },
+    {
+      text: "Every equilateral triangle is an equiangular figure.",
+      correct: "A",
+      explanation: "This is an A statement. 'Every' is a natural-language signal for the universal quantifier 'All.' Standard form: 'All equilateral triangles are equiangular figures.' S (equilateral triangles) is distributed; P (equiangular figures) is not — the statement does not address equiangular figures that are not equilateral triangles."
+    },
+    {
+      text: "Not every law is a just law.",
+      correct: "O",
+      explanation: "This is an O statement. 'Not every' is a common natural-language form of the particular negative — it means 'Some ... are not.' Standard form: 'Some laws are not just laws.' S (laws) is not distributed; P (just laws) is distributed — those laws described are fully excluded from the just-law class."
+    },
+    {
+      text: "No fallacy is a valid form of reasoning.",
+      correct: "E",
+      explanation: "This is an E statement (Universal Negative). 'No fallacy' signals complete exclusion. Standard form is already clear. Both S (fallacies) and P (valid forms of reasoning) are distributed. Because both are distributed, the statement converts simply: 'No valid form of reasoning is a fallacy' says exactly the same thing."
+    },
+    {
+      text: "There are geometric figures that are not triangles.",
+      correct: "O",
+      explanation: "This is an O statement. The existential 'there are... that are not' signals a particular negative. Standard form: 'Some geometric figures are not triangles.' S (geometric figures) is not distributed; P (triangles) is distributed — those figures described are excluded from the entire triangle class."
+    },
+    {
+      text: "Some arguments contain hidden premises.",
+      correct: "I",
+      explanation: "This is an I statement (Particular Affirmative). Standard form is already clear: 'Some arguments are arguments that contain hidden premises.' Neither S (arguments) nor P (arguments with hidden premises) is distributed. The statement makes the minimal affirmative claim: the intersection is non-empty."
+    },
+    {
+      text: "Triangles and circles are mutually exclusive figures.",
+      correct: "E",
+      explanation: "This is an E statement. 'Mutually exclusive' signals complete separation between two classes — exactly what the E statement expresses. Standard form: 'No triangles are circular figures.' Both S and P are distributed. The statement also converts simply: 'No circular figures are triangles' is logically equivalent."
+    }
+  ];
+
+  var state = { currentIndex: 0, score: 0, answered: false, answeredCount: 0 };
+
+  function render() {
+    var q = statements_data[state.currentIndex];
+    var total = statements_data.length;
+
+    document.getElementById('progress-text').textContent = 'Statement ' + (state.currentIndex + 1) + ' of ' + total;
+    document.getElementById('score-badge').textContent = 'Score: ' + state.score + ' / ' + state.answeredCount;
+
+    var pct = (state.currentIndex / total) * 100;
+    document.getElementById('progress-bar-fill').style.width = pct + '%';
+
+    document.getElementById('statement-text').textContent = q.text;
+
+    var ids = ['btn-A', 'btn-E', 'btn-I', 'btn-O'];
+    for (var i = 0; i < ids.length; i++) {
+      var btn = document.getElementById(ids[i]);
+      btn.disabled = false;
+      btn.className = 'type-btn';
+    }
+
+    var fb = document.getElementById('feedback-box');
+    fb.style.display = 'none';
+    fb.className = 'feedback-box';
+    document.getElementById('feedback-verdict').textContent = '';
+    document.getElementById('feedback-explanation').textContent = '';
+    document.getElementById('next-btn').style.display = 'none';
+
+    state.answered = false;
+  }
+
+  function handleAnswer(chosen) {
+    if (state.answered) return;
+    state.answered = true;
+    state.answeredCount++;
+
+    var q = statements_data[state.currentIndex];
+    var isCorrect = (chosen === q.correct);
+    if (isCorrect) state.score++;
+
+    document.getElementById('score-badge').textContent = 'Score: ' + state.score + ' / ' + state.answeredCount;
+
+    var map = { 'A': 'btn-A', 'E': 'btn-E', 'I': 'btn-I', 'O': 'btn-O' };
+    var ids = ['btn-A', 'btn-E', 'btn-I', 'btn-O'];
+    for (var i = 0; i < ids.length; i++) { document.getElementById(ids[i]).disabled = true; }
+
+    document.getElementById(map[chosen]).className = 'type-btn ' + (isCorrect ? 'selected-correct' : 'selected-incorrect');
+    if (!isCorrect) { document.getElementById(map[q.correct]).className = 'type-btn revealed-correct'; }
+
+    var fb = document.getElementById('feedback-box');
+    fb.style.display = 'block';
+    fb.className = 'feedback-box ' + (isCorrect ? 'correct' : 'incorrect');
+
+    document.getElementById('feedback-verdict').textContent = isCorrect
+      ? 'Correct — this is an ' + q.correct + ' statement.'
+      : 'Not quite. This is an ' + q.correct + ' statement.';
+    document.getElementById('feedback-explanation').textContent = q.explanation;
+
+    var nextBtn = document.getElementById('next-btn');
+    nextBtn.style.display = 'block';
+    nextBtn.textContent = state.currentIndex === statements_data.length - 1 ? 'See Results' : 'Next Statement →';
+  }
+
+  function handleNext() {
+    state.currentIndex++;
+    if (state.currentIndex >= statements_data.length) { showResults(); } else { render(); }
+  }
+
+  function showResults() {
+    document.getElementById('question-screen').style.display = 'none';
+    document.getElementById('results-screen').style.display = 'block';
+    document.getElementById('final-score-display').textContent = state.score;
+
+    var pct = state.score / statements_data.length;
+    var msg;
+    if (pct === 1) {
+      msg = "Perfect score. You correctly identified all ten statement types, including the natural-language forms that require translation before classification.";
+    } else if (pct >= 0.8) {
+      msg = "Strong work. Review the statements you missed — pay close attention to natural-language signals like 'every,' 'not all,' 'never,' and 'there are ... that are not,' each of which points to a specific statement type.";
+    } else if (pct >= 0.6) {
+      msg = "Good effort. The trickiest classifications are usually the O statement disguised as 'not every' or 'not all,' and the E statement hiding as 'mutually exclusive.' Re-read those lessons and try again.";
+    } else {
+      msg = "Review Lessons 3.03a–3.03d, paying close attention to the natural-language forms of each statement type and the AEIO mnemonic. The goal is to recognize A, E, I, O automatically in any surface form.";
+    }
+    document.getElementById('results-message').textContent = msg;
+  }
+
+  function resetQuiz() {
+    state.currentIndex = 0; state.score = 0; state.answered = false; state.answeredCount = 0;
+    document.getElementById('results-screen').style.display = 'none';
+    document.getElementById('question-screen').style.display = 'block';
+    document.getElementById('progress-bar-fill').style.width = '0%';
+    render();
+  }
+
+  render();
+</script>
+
+</body>
+</html>

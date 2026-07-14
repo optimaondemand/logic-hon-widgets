@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal or Particular?</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, system-ui, -apple-system, sans-serif;
+      background: #f5f5f3;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 660px;
+      background: #ffffff;
+      border: 1px solid #d8d8d4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .header {
+      background: #1e2530;
+      color: #ffffff;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .header-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #c8cdd6;
+    }
+
+    .header-right { display: flex; align-items: center; gap: 16px; }
+    .progress-text { font-size: 13px; color: #9aa0ac; white-space: nowrap; }
+    .score-badge {
+      background: #2c3547;
+      border: 1px solid #3a4560;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #e8eaf0;
+      white-space: nowrap;
+    }
+
+    .progress-bar-track { height: 4px; background: #e0e0dc; }
+    .progress-bar-fill { height: 100%; background: #1e2530; transition: width 0.35s ease; }
+
+    .content { padding: 24px 24px 20px; }
+
+    .context-line {
+      font-size: 12px;
+      color: #888;
+      font-style: italic;
+      margin-bottom: 6px;
+      font-family: Georgia, serif;
+    }
+
+    .term-box {
+      background: #f9f8f5;
+      border: 1px solid #dddbd4;
+      border-left: 4px solid #1e2530;
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+
+    .term-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888880;
+      margin-bottom: 8px;
+    }
+
+    .term-text {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 18px;
+      font-weight: bold;
+      color: #1a1a1a;
+    }
+
+    .classify-prompt { font-size: 14px; color: #444440; margin-bottom: 14px; font-weight: 500; }
+
+    .type-buttons { display: flex; gap: 10px; margin-bottom: 18px; }
+
+    .type-btn {
+      flex: 1;
+      padding: 13px 16px;
+      border: 2px solid #1e2530;
+      border-radius: 4px;
+      background: #1e2530;
+      color: #ffffff;
+      font-family: Arial, system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .type-btn:hover:not(:disabled) { background: #2c3a50; border-color: #2c3a50; transform: translateY(-1px); }
+    .type-btn:active:not(:disabled) { transform: translateY(0); }
+    .type-btn:disabled { cursor: default; opacity: 0.45; }
+    .type-btn.selected-correct { background: #2d7a2d; border-color: #2d7a2d; opacity: 1; }
+    .type-btn.selected-incorrect { background: #a02020; border-color: #a02020; opacity: 1; }
+    .type-btn.revealed-correct { background: #2d7a2d; border-color: #2d7a2d; opacity: 1; }
+
+    .feedback-box {
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    .feedback-box.correct { background: #eef7ee; border: 1px solid #a3cfa3; }
+    .feedback-box.incorrect { background: #fdf0f0; border: 1px solid #d4a0a0; }
+    .feedback-verdict { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .feedback-box.correct .feedback-verdict { color: #2d7a2d; }
+    .feedback-box.incorrect .feedback-verdict { color: #a02020; }
+    .feedback-explanation { font-size: 14px; line-height: 1.6; color: #333330; }
+
+    .next-btn {
+      display: none;
+      width: 100%;
+      padding: 12px 20px;
+      background: #1e2530;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-family: Arial, system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .next-btn:hover { background: #2c3a50; }
+
+    .results-screen { display: none; padding: 24px; text-align: center; }
+    .results-heading { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .results-score-display { font-size: 52px; font-weight: 700; color: #1e2530; line-height: 1.1; margin: 18px 0 8px; }
+    .results-score-label { font-size: 15px; color: #666660; margin-bottom: 22px; }
+    .results-message { font-size: 15px; color: #444440; line-height: 1.6; max-width: 420px; margin: 0 auto 28px; }
+    .results-divider { border: none; border-top: 1px solid #e0e0dc; margin: 22px 0; }
+
+    .try-again-btn {
+      display: inline-block;
+      padding: 12px 36px;
+      background: #1e2530;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-family: Arial, system-ui, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .try-again-btn:hover { background: #2c3a50; }
+  </style>
+</head>
+<body>
+
+<div class="container" id="app">
+
+  <div id="question-screen">
+    <div class="header">
+      <span class="header-title">Universal or Particular?</span>
+      <div class="header-right">
+        <span class="progress-text" id="progress-text">Term 1 of 10</span>
+        <span class="score-badge" id="score-badge">Score: 0 / 0</span>
+      </div>
+    </div>
+
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="progress-bar-fill" style="width: 0%"></div>
+    </div>
+
+    <div class="content">
+      <div class="context-line" id="context-line"></div>
+
+      <div class="term-box">
+        <div class="term-label">Term</div>
+        <div class="term-text" id="term-text"></div>
+      </div>
+
+      <p class="classify-prompt">Classify this term's typical scope:</p>
+
+      <div class="type-buttons">
+        <button class="type-btn" id="btn-U" onclick="handleAnswer('Universal')">Universal<br><span style="font-weight:400;font-size:11px">refers to all members<br>of a class</span></button>
+        <button class="type-btn" id="btn-P" onclick="handleAnswer('Particular')">Particular<br><span style="font-weight:400;font-size:11px">refers to some or<br>one member(s)</span></button>
+      </div>
+
+      <div class="feedback-box" id="feedback-box">
+        <div class="feedback-verdict" id="feedback-verdict"></div>
+        <div class="feedback-explanation" id="feedback-explanation"></div>
+      </div>
+
+      <button class="next-btn" id="next-btn" onclick="handleNext()">Next Term &rarr;</button>
+    </div>
+  </div>
+
+  <div class="results-screen" id="results-screen">
+    <div class="results-heading">Quiz Complete</div>
+    <div class="results-score-display" id="final-score-display"></div>
+    <div class="results-score-label">correct out of 10</div>
+    <hr class="results-divider">
+    <p class="results-message" id="results-message"></p>
+    <button class="try-again-btn" onclick="resetQuiz()">Try Again</button>
+  </div>
+
+</div>
+
+<script>
+  var terms_data = [
+    {
+      term: "every mammal",
+      context: "As used in: 'Every mammal is a warm-blooded creature.'",
+      correct: "Universal",
+      explanation: "Universal. 'Every mammal' refers to all members of the mammal class without exception. The quantifier 'every' signals universal scope. When this expression appears as a subject term, the subject is distributed."
+    },
+    {
+      term: "some philosophers",
+      context: "As used in: 'Some philosophers were also mathematicians.'",
+      correct: "Particular",
+      explanation: "Particular. 'Some philosophers' refers to an unspecified subset of the philosopher class — at least one, but not all. The quantifier 'some' signals particular scope. The subject term is not distributed."
+    },
+    {
+      term: "no act of genuine deception",
+      context: "As used in: 'No act of genuine deception is an act of honesty.'",
+      correct: "Universal",
+      explanation: "Universal. 'No act of genuine deception' is a universal term in the context of an E statement — it refers to the entire class of deceptive acts and excludes all of them from the predicate class. Universal scope; subject is distributed."
+    },
+    {
+      term: "a few classical texts",
+      context: "As used in: 'A few classical texts address the theory of fallacies directly.'",
+      correct: "Particular",
+      explanation: "Particular. 'A few classical texts' refers to some — a small subset — of the classical texts class. 'A few' is a natural-language expression of particular scope, equivalent to 'some' in standard categorical form."
+    },
+    {
+      term: "all valid arguments",
+      context: "As used in: 'All valid arguments preserve truth from premises to conclusion.'",
+      correct: "Universal",
+      explanation: "Universal. 'All valid arguments' explicitly quantifies the entire class of valid arguments. The universal quantifier 'all' makes the scope clear: every member of the class is included. Subject is distributed."
+    },
+    {
+      term: "the largest prime number less than 100",
+      context: "As a subject term in a categorical statement.",
+      correct: "Particular",
+      explanation: "Particular — in fact, singular. 'The largest prime number less than 100' refers to exactly one thing: 97. Singular terms refer to one specific member of a class, not all members. In standard categorical form, singular terms function as particular terms."
+    },
+    {
+      term: "not every geometric figure",
+      context: "As used in: 'Not every geometric figure is a polygon.'",
+      correct: "Particular",
+      explanation: "Particular. 'Not every geometric figure' is a natural-language form of the particular negative — it means 'some geometric figures are not polygons.' The scope is particular: we are picking out some figures (circles, ellipses), not all of them."
+    },
+    {
+      term: "mortal beings",
+      context: "As the predicate term in: 'All philosophers are mortal beings.'",
+      correct: "Universal",
+      explanation: "Tricky — but Universal in its intension. 'Mortal beings' as a term names a class that potentially covers all its members. In this A statement, however, the predicate is not distributed — the statement says nothing about all mortal beings. Note: whether a term's scope is universal or particular depends on the term itself, not on whether it happens to be distributed in a given statement."
+    },
+    {
+      term: "some arguments with true premises",
+      context: "As used in: 'Some arguments with true premises are not sound arguments.'",
+      correct: "Particular",
+      explanation: "Particular. 'Some arguments with true premises' picks out a subset of the full class of arguments with true premises. The quantifier 'some' restricts the scope to at least one, not all. This is the subject of an O statement; it is not distributed."
+    },
+    {
+      term: "every member of the subject class",
+      context: "As used in: 'Every member of the subject class is referred to by a universal term.'",
+      correct: "Universal",
+      explanation: "Universal. 'Every member of the subject class' quantifies over all members of a given class — all of them, without exception. 'Every' is a universal quantifier. This term has universal scope and, as a subject, is distributed."
+    }
+  ];
+
+  var state = { currentIndex: 0, score: 0, answered: false, answeredCount: 0 };
+
+  function render() {
+    var q = terms_data[state.currentIndex];
+    var total = terms_data.length;
+
+    document.getElementById('progress-text').textContent = 'Term ' + (state.currentIndex + 1) + ' of ' + total;
+    document.getElementById('score-badge').textContent = 'Score: ' + state.score + ' / ' + state.answeredCount;
+    document.getElementById('progress-bar-fill').style.width = ((state.currentIndex / total) * 100) + '%';
+
+    document.getElementById('context-line').textContent = q.context;
+    document.getElementById('term-text').textContent = q.term;
+
+    var ids = ['btn-U', 'btn-P'];
+    for (var i = 0; i < ids.length; i++) {
+      var btn = document.getElementById(ids[i]);
+      btn.disabled = false;
+      btn.className = 'type-btn';
+    }
+
+    var fb = document.getElementById('feedback-box');
+    fb.style.display = 'none';
+    fb.className = 'feedback-box';
+    document.getElementById('feedback-verdict').textContent = '';
+    document.getElementById('feedback-explanation').textContent = '';
+    document.getElementById('next-btn').style.display = 'none';
+    state.answered = false;
+  }
+
+  function handleAnswer(chosen) {
+    if (state.answered) return;
+    state.answered = true;
+    state.answeredCount++;
+
+    var q = terms_data[state.currentIndex];
+    var isCorrect = (chosen === q.correct);
+    if (isCorrect) state.score++;
+
+    document.getElementById('score-badge').textContent = 'Score: ' + state.score + ' / ' + state.answeredCount;
+
+    var map = { 'Universal': 'btn-U', 'Particular': 'btn-P' };
+    document.getElementById('btn-U').disabled = true;
+    document.getElementById('btn-P').disabled = true;
+    document.getElementById(map[chosen]).className = 'type-btn ' + (isCorrect ? 'selected-correct' : 'selected-incorrect');
+    if (!isCorrect) { document.getElementById(map[q.correct]).className = 'type-btn revealed-correct'; }
+
+    var fb = document.getElementById('feedback-box');
+    fb.style.display = 'block';
+    fb.className = 'feedback-box ' + (isCorrect ? 'correct' : 'incorrect');
+    document.getElementById('feedback-verdict').textContent = isCorrect
+      ? 'Correct — ' + q.correct + ' scope.'
+      : 'Not quite. This is a ' + q.correct + ' term.';
+    document.getElementById('feedback-explanation').textContent = q.explanation;
+
+    var nextBtn = document.getElementById('next-btn');
+    nextBtn.style.display = 'block';
+    nextBtn.textContent = state.currentIndex === terms_data.length - 1 ? 'See Results' : 'Next Term →';
+  }
+
+  function handleNext() {
+    state.currentIndex++;
+    if (state.currentIndex >= terms_data.length) { showResults(); } else { render(); }
+  }
+
+  function showResults() {
+    document.getElementById('question-screen').style.display = 'none';
+    document.getElementById('results-screen').style.display = 'block';
+    document.getElementById('final-score-display').textContent = state.score;
+
+    var pct = state.score / terms_data.length;
+    var msg;
+    if (pct === 1) {
+      msg = "Perfect score. You correctly classified all ten terms, including the two tricky ones — the singular term and the predicate-term case that tests whether scope is a property of the term or of its position in the statement.";
+    } else if (pct >= 0.8) {
+      msg = "Strong work. Review the terms you missed — pay special attention to singular terms (which are particular) and to natural-language expressions like 'not every' and 'a few,' which signal particular scope.";
+    } else {
+      msg = "Re-read Lessons 3.02a and 3.02b on universal and particular terms, focusing on the natural-language signals for each scope type. The key test: does the expression refer to all members of a class or only to some?";
+    }
+    document.getElementById('results-message').textContent = msg;
+  }
+
+  function resetQuiz() {
+    state.currentIndex = 0; state.score = 0; state.answered = false; state.answeredCount = 0;
+    document.getElementById('results-screen').style.display = 'none';
+    document.getElementById('question-screen').style.display = 'block';
+    document.getElementById('progress-bar-fill').style.width = '0%';
+    render();
+  }
+
+  render();
+</script>
+
+</body>
+</html>

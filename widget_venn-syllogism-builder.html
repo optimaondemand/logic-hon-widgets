@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venn Diagram Builder: Syllogism Validity</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, system-ui, -apple-system, sans-serif;
+    background: #f5f5f3;
+    color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 640px;
+    background: #ffffff;
+    border: 1px solid #d8d8d4;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .header {
+    background: #1e2530;
+    color: #ffffff;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .header-title { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #c8cdd6; }
+  .score-badge { background: #2c3547; border: 1px solid #3a4560; border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: 600; color: #e8eaf0; white-space: nowrap; }
+
+  .content { padding: 22px 24px 20px; }
+
+  .syllogism-box {
+    background: #f9f8f5;
+    border: 1px solid #dddbd4;
+    border-left: 4px solid #1e2530;
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15.5px;
+    line-height: 1.6;
+  }
+  .syllogism-box .term-key { font-family: Arial, sans-serif; font-size: 12.5px; color: #666; margin-top: 8px; }
+
+  .instructions { font-size: 13.5px; color: #555; text-align: center; margin-bottom: 14px; line-height: 1.5; }
+
+  .diagram-wrap { display: flex; justify-content: center; margin-bottom: 10px; }
+  .zone-hit { fill: transparent; cursor: pointer; }
+  .zone-hit:hover { fill: rgba(30,37,48,0.07); }
+
+  .legend { display: flex; justify-content: center; gap: 20px; font-size: 12px; color: #555; margin-bottom: 16px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-swatch { width: 15px; height: 15px; border-radius: 3px; border: 1px solid #bbb; display: inline-block; }
+
+  .action-row { display: flex; gap: 10px; margin-bottom: 14px; }
+  .btn { flex: 1; padding: 11px 14px; border: 2px solid #1e2530; border-radius: 4px; background: #1e2530; color: #fff; font-family: Arial, sans-serif; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+  .btn:hover { background: #2c3a50; }
+  .btn.secondary { background: #fff; color: #1e2530; }
+  .btn.secondary:hover { background: #f2f3f5; }
+  .btn:disabled { opacity: 0.45; cursor: default; background: #1e2530; }
+
+  .feedback-box { border-radius: 4px; padding: 14px 16px; margin-bottom: 8px; display: none; }
+  .feedback-box.correct { background: #eef7ee; border: 1px solid #a3cfa3; }
+  .feedback-box.incorrect { background: #fdf0f0; border: 1px solid #d4a0a0; }
+  .feedback-box.verdict-valid { background: #eaf2fb; border: 1px solid #a9c8e8; }
+  .feedback-box.verdict-invalid { background: #fdf4e8; border: 1px solid #e0c090; }
+  .feedback-verdict { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .feedback-box.correct .feedback-verdict { color: #2d7a2d; }
+  .feedback-box.incorrect .feedback-verdict { color: #a02020; }
+  .feedback-box.verdict-valid .feedback-verdict { color: #1a4a7a; }
+  .feedback-box.verdict-invalid .feedback-verdict { color: #8a5a10; }
+  .feedback-explanation { font-size: 13.5px; line-height: 1.55; color: #333330; }
+
+  @media (max-width: 480px) {
+    .content { padding: 16px 16px 14px; }
+    .action-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <span class="header-title">Venn Diagram Builder: Syllogisms</span>
+    <span class="score-badge" id="score-badge">Score: 0 / 0</span>
+  </div>
+
+  <div class="content">
+    <div class="syllogism-box" id="syllogism-box">
+      <div id="premise1"></div>
+      <div id="premise2"></div>
+      <div id="conclusion" style="margin-top:6px;"></div>
+      <div class="term-key" id="term-key"></div>
+    </div>
+
+    <p class="instructions">Diagram <strong>only the two premises</strong> — click a region to cycle it: blank &rarr; shaded &rarr; X &rarr; blank. Universal premises shade; particular premises get an X. Then check your diagram, and reveal whether the syllogism is valid.</p>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 360 280" width="340" height="262" id="venn-svg">
+        <defs>
+          <mask id="mS"><rect width="360" height="280" fill="black"/><circle cx="120" cy="120" r="90" fill="white"/></mask>
+          <mask id="mP"><rect width="360" height="280" fill="black"/><circle cx="240" cy="120" r="90" fill="white"/></mask>
+          <mask id="mM"><rect width="360" height="280" fill="black"/><circle cx="180" cy="190" r="90" fill="white"/></mask>
+          <mask id="mNotS"><rect width="360" height="280" fill="white"/><circle cx="120" cy="120" r="90" fill="black"/></mask>
+          <mask id="mNotP"><rect width="360" height="280" fill="white"/><circle cx="240" cy="120" r="90" fill="black"/></mask>
+          <mask id="mNotM"><rect width="360" height="280" fill="white"/><circle cx="180" cy="190" r="90" fill="black"/></mask>
+        </defs>
+
+        <!-- Shaded region layers: nested masks compute true intersections -->
+        <g id="shade-Sonly" style="display:none"><g mask="url(#mS)"><g mask="url(#mNotP)"><g mask="url(#mNotM)"><rect width="360" height="280" fill="#808080" fill-opacity="0.4"/></g></g></g></g>
+        <g id="shade-Ponly" style="display:none"><g mask="url(#mNotS)"><g mask="url(#mP)"><g mask="url(#mNotM)"><rect width="360" height="280" fill="#808080" fill-opacity="0.4"/></g></g></g></g>
+        <g id="shade-Monly" style="display:none"><g mask="url(#mNotS)"><g mask="url(#mNotP)"><g mask="url(#mM)"><rect width="360" height="280" fill="#808080" fill-opacity="0.4"/></g></g></g></g>
+        <g id="shade-SP" style="display:none"><g mask="url(#mS)"><g mask="url(#mP)"><g mask="url(#mNotM)"><rect width="360" height="280" fill="#808080" fill-opacity="0.4"/></g></g></g></g>
+        <g id="shade-SM" style="display:none"><g mask="url(#mS)"><g mask="url(#mNotP)"><g mask="url(#mM)"><rect width="360" height="280" fill="#808080" fill-opacity="0.4"/></g></g></g></g>
+        <g id="shade-PM" style="display:none"><g mask="url(#mNotS)"><g mask="url(#mP)"><g mask="url(#mM)"><rect width="360" height="280" fill="#808080" fill-opacity="0.4"/></g></g></g></g>
+        <g id="shade-SPM" style="display:none"><g mask="url(#mS)"><g mask="url(#mP)"><g mask="url(#mM)"><rect width="360" height="280" fill="#808080" fill-opacity="0.4"/></g></g></g></g>
+
+        <!-- Outlines -->
+        <circle cx="120" cy="120" r="90" fill="none" stroke="#333" stroke-width="2"/>
+        <circle cx="240" cy="120" r="90" fill="none" stroke="#333" stroke-width="2"/>
+        <circle cx="180" cy="190" r="90" fill="none" stroke="#333" stroke-width="2"/>
+
+        <!-- X marks -->
+        <text id="x-Sonly" x="60" y="108" text-anchor="middle" font-family="Arial" font-size="19" font-weight="bold" fill="#2a5a9b" style="display:none">X</text>
+        <text id="x-Ponly" x="300" y="108" text-anchor="middle" font-family="Arial" font-size="19" font-weight="bold" fill="#2a5a9b" style="display:none">X</text>
+        <text id="x-Monly" x="180" y="248" text-anchor="middle" font-family="Arial" font-size="19" font-weight="bold" fill="#2a5a9b" style="display:none">X</text>
+        <text id="x-SP" x="180" y="90" text-anchor="middle" font-family="Arial" font-size="19" font-weight="bold" fill="#2a5a9b" style="display:none">X</text>
+        <text id="x-SM" x="115" y="185" text-anchor="middle" font-family="Arial" font-size="19" font-weight="bold" fill="#2a5a9b" style="display:none">X</text>
+        <text id="x-PM" x="245" y="185" text-anchor="middle" font-family="Arial" font-size="19" font-weight="bold" fill="#2a5a9b" style="display:none">X</text>
+        <text id="x-SPM" x="180" y="160" text-anchor="middle" font-family="Arial" font-size="19" font-weight="bold" fill="#2a5a9b" style="display:none">X</text>
+
+        <!-- Labels -->
+        <text x="55" y="55" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#1a1a1a">S</text>
+        <text x="290" y="55" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#1a1a1a">P</text>
+        <text x="172" y="278" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#1a1a1a">M</text>
+
+        <!-- Click hotspots -->
+        <circle class="zone-hit" data-zone="Sonly" cx="60" cy="108" r="30"/>
+        <circle class="zone-hit" data-zone="Ponly" cx="300" cy="108" r="30"/>
+        <circle class="zone-hit" data-zone="Monly" cx="180" cy="248" r="28"/>
+        <circle class="zone-hit" data-zone="SP" cx="180" cy="90" r="26"/>
+        <circle class="zone-hit" data-zone="SM" cx="115" cy="185" r="26"/>
+        <circle class="zone-hit" data-zone="PM" cx="245" cy="185" r="26"/>
+        <circle class="zone-hit" data-zone="SPM" cx="180" cy="160" r="22"/>
+      </svg>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="legend-swatch" style="background:#c0c0c0;"></span> Shaded = empty</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#fff; color:#2a5a9b; font-weight:bold; text-align:center; line-height:13px;">X</span> Occupied</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#fff;"></span> Blank = no claim</div>
+    </div>
+
+    <div class="action-row">
+      <button class="btn secondary" onclick="clearDiagram()">Clear</button>
+      <button class="btn" id="check-btn" onclick="checkDiagram()">Check Diagram</button>
+    </div>
+
+    <div class="feedback-box" id="diagram-feedback"></div>
+
+    <div class="action-row" id="reveal-row" style="display:none">
+      <button class="btn" onclick="revealValidity()">Reveal Validity &rarr;</button>
+    </div>
+
+    <div class="feedback-box" id="validity-feedback"></div>
+
+    <div class="action-row" id="next-row" style="display:none">
+      <button class="btn" onclick="nextSyllogism()">Next Syllogism &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  var ZONES = ['Sonly', 'Ponly', 'Monly', 'SP', 'SM', 'PM', 'SPM'];
+
+  var syllogisms = [
+    {
+      p1: "All M are P. (All reptiles are cold-blooded.)",
+      p2: "All S are M. (All lizards are reptiles.)",
+      concl: "Therefore, all S are P. (All lizards are cold-blooded.)",
+      key: "S = lizards, P = cold-blooded things, M = reptiles",
+      target: { Sonly: "shade", Ponly: "blank", Monly: "shade", SP: "shade", SM: "shade", PM: "blank", SPM: "blank" },
+      valid: true,
+      explainDiagram: "\"All M are P\" shades everything in M outside P (M-only and S∩M). \"All S are M\" shades everything in S outside M (S-only and S∩P). Together: S-only, M-only, S∩M, and S∩P are shaded; P-only and P∩M stay blank.",
+      explainValidity: "Every part of S that lies outside P (S-only and S∩M, both outside P here since S∩M is shaded meaning empty, and S∩P is also shaded) is shaded — the conclusion \"All S are P\" is already shown. VALID (Barbara, AAA-1)."
+    },
+    {
+      p1: "All P are M. (All triangles are polygons.)",
+      p2: "No S are M. (No circles are polygons.)",
+      concl: "Therefore, no S are P. (No circles are triangles.)",
+      key: "S = circles, P = triangles, M = polygons",
+      target: { Sonly: "blank", Ponly: "shade", Monly: "blank", SP: "shade", SM: "shade", PM: "blank", SPM: "shade" },
+      valid: true,
+      explainDiagram: "\"All P are M\" shades everything in P outside M (P-only and S∩P). \"No S are M\" shades all of S∩M (both S∩M and S∩P∩M).",
+      explainValidity: "The conclusion \"No S are P\" requires all of S∩P shaded. S∩P-only is shaded (from the A-premise) and S∩P∩M is shaded (from the E-premise) — both sub-regions of S∩P are shaded. VALID (Camestres, AEE-2)."
+    },
+    {
+      p1: "Some M are P. (Some mammals are carnivores.)",
+      p2: "Some S are M. (Some reptiles are mammals.)",
+      concl: "Therefore, some S are P. (Some reptiles are carnivores.)",
+      key: "S = reptiles, P = carnivores, M = mammals",
+      target: { Sonly: "blank", Ponly: "blank", Monly: "blank", SP: "blank", SM: "blank", PM: "blank", SPM: "blank" },
+      valid: false,
+      explainDiagram: "Both premises are particular, so nothing is shaded. \"Some M are P\" places an X on the boundary of M∩P (between P∩M and S∩P∩M, since neither is shaded). \"Some S are M\" places an X on the boundary of S∩M (between S∩M and S∩P∩M). For this widget, mark both boundary X's in the S∩P∩M zone to represent an unresolved boundary placement.",
+      explainValidity: "Neither X is definitely inside S∩P — each could just as easily be in a region outside it. Two particular premises can never pin an X into the conclusion's required region. INVALID (undistributed middle / two-particular-premises case)."
+    }
+  ];
+
+  var order = [];
+  var idx = 0;
+  var score = 0;
+  var answeredCount = 0;
+  var current = null;
+  var zoneState = {};
+  var diagramChecked = false;
+  var validityRevealed = false;
+
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function resetZoneState() {
+    zoneState = {};
+    ZONES.forEach(function (z) { zoneState[z] = 'blank'; });
+  }
+
+  function loadSyllogism() {
+    if (idx >= order.length) { order = shuffle([0, 1, 2]); idx = 0; }
+    current = syllogisms[order[idx]];
+    idx++;
+
+    resetZoneState();
+    diagramChecked = false;
+    validityRevealed = false;
+
+    document.getElementById('premise1').textContent = "Major premise: " + current.p1;
+    document.getElementById('premise2').textContent = "Minor premise: " + current.p2;
+    document.getElementById('conclusion').innerHTML = "<em>" + current.concl + "</em>";
+    document.getElementById('term-key').textContent = current.key;
+
+    document.getElementById('check-btn').disabled = false;
+    document.getElementById('diagram-feedback').style.display = 'none';
+    document.getElementById('validity-feedback').style.display = 'none';
+    document.getElementById('reveal-row').style.display = 'none';
+    document.getElementById('next-row').style.display = 'none';
+
+    renderZones();
+  }
+
+  function renderZones() {
+    ZONES.forEach(function (z) {
+      var state = zoneState[z];
+      document.getElementById('shade-' + z).style.display = (state === 'shade') ? 'block' : 'none';
+      document.getElementById('x-' + z).style.display = (state === 'x') ? 'block' : 'none';
+    });
+  }
+
+  document.querySelectorAll('.zone-hit').forEach(function (el) {
+    el.addEventListener('click', function () {
+      if (diagramChecked) return;
+      var z = el.getAttribute('data-zone');
+      var next = { blank: 'shade', shade: 'x', x: 'blank' };
+      zoneState[z] = next[zoneState[z]];
+      renderZones();
+    });
+  });
+
+  function checkDiagram() {
+    if (diagramChecked) return;
+    diagramChecked = true;
+    answeredCount++;
+
+    var allCorrect = ZONES.every(function (z) { return zoneState[z] === current.target[z]; });
+    if (allCorrect) score++;
+    document.getElementById('score-badge').textContent = 'Score: ' + score + ' / ' + answeredCount;
+
+    var fb = document.getElementById('diagram-feedback');
+    fb.style.display = 'block';
+    fb.className = 'feedback-box ' + (allCorrect ? 'correct' : 'incorrect');
+    fb.innerHTML = '<div class="feedback-verdict">' + (allCorrect ? 'Diagram matches the premises.' : 'Not quite — here is the correct diagram logic.') + '</div>' +
+      '<div class="feedback-explanation">' + current.explainDiagram + '</div>';
+
+    document.getElementById('check-btn').disabled = true;
+    document.getElementById('reveal-row').style.display = 'flex';
+
+    // Snap the displayed diagram to the correct target so validity is read from the right picture
+    zoneState = Object.assign({}, current.target);
+    renderZones();
+  }
+
+  function revealValidity() {
+    if (validityRevealed) return;
+    validityRevealed = true;
+
+    var fb = document.getElementById('validity-feedback');
+    fb.style.display = 'block';
+    fb.className = 'feedback-box ' + (current.valid ? 'verdict-valid' : 'verdict-invalid');
+    fb.innerHTML = '<div class="feedback-verdict">' + (current.valid ? 'VALID' : 'INVALID') + '</div>' +
+      '<div class="feedback-explanation">' + current.explainValidity + '</div>';
+
+    document.getElementById('reveal-row').style.display = 'none';
+    document.getElementById('next-row').style.display = 'flex';
+  }
+
+  function clearDiagram() {
+    if (diagramChecked) return;
+    resetZoneState();
+    renderZones();
+  }
+
+  function nextSyllogism() { loadSyllogism(); }
+
+  order = shuffle([0, 1, 2]);
+  loadSyllogism();
+</script>
+
+</body>
+</html>

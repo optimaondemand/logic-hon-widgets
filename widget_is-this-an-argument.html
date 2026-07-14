@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is This an Argument?</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #f7f6f2;
+    color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  #app {
+    width: 100%;
+    max-width: 680px;
+    background: #fff;
+    border: 1px solid #d8d4cc;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+
+  /* Header */
+  #header {
+    background: #2a2a2a;
+    color: #fff;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  #header h1 {
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  #score-display {
+    font-family: Arial, sans-serif;
+    font-size: 0.88rem;
+    background: rgba(255,255,255,0.15);
+    padding: 3px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+
+  /* Progress bar */
+  #progress-bar-wrap {
+    background: #e8e5de;
+    height: 4px;
+  }
+  #progress-bar {
+    height: 4px;
+    background: #4a7fb5;
+    transition: width 0.3s ease;
+  }
+
+  /* Main content area */
+  #content {
+    padding: 24px 24px 20px;
+  }
+
+  #passage-counter {
+    font-family: Arial, sans-serif;
+    font-size: 0.78rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+
+  /* Passage card */
+  #passage-card {
+    background: #faf9f6;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    min-height: 90px;
+    transition: opacity 0.2s ease;
+    line-height: 1.75;
+    font-size: 0.97rem;
+  }
+
+  #passage-card.fade-out { opacity: 0; }
+
+  /* Buttons */
+  #btn-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .answer-btn {
+    font-family: Arial, sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 11px 28px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    min-width: 160px;
+    text-align: center;
+  }
+
+  .answer-btn:focus { outline: 3px solid #4a7fb5; outline-offset: 2px; }
+
+  #btn-argument {
+    background: #2a5a2a;
+    color: #fff;
+    border-color: #2a5a2a;
+  }
+  #btn-argument:hover { background: #1e4a1e; }
+
+  #btn-not-argument {
+    background: #fff;
+    color: #5a1a1a;
+    border-color: #c04040;
+  }
+  #btn-not-argument:hover { background: #fff0f0; }
+
+  .answer-btn:disabled { opacity: 0.45; cursor: default; }
+
+  /* Feedback */
+  #feedback {
+    min-height: 80px;
+    border-radius: 4px;
+    padding: 14px 18px;
+    font-size: 0.93rem;
+    line-height: 1.65;
+    display: none;
+    transition: opacity 0.2s ease;
+  }
+
+  #feedback.show { display: block; }
+
+  #feedback.correct {
+    background: #edfaed;
+    border: 1px solid #7ec87e;
+    color: #1a4a1a;
+  }
+
+  #feedback.incorrect {
+    background: #fdeaea;
+    border: 1px solid #e08888;
+    color: #5a1a1a;
+  }
+
+  #feedback .verdict {
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  #feedback.correct .verdict { color: #1a6a1a; }
+  #feedback.incorrect .verdict { color: #8a1a1a; }
+
+  /* Next button */
+  #btn-next-wrap {
+    text-align: right;
+    margin-top: 14px;
+    display: none;
+  }
+
+  #btn-next-wrap.show { display: block; }
+
+  #btn-next {
+    font-family: Arial, sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 9px 22px;
+    background: #4a7fb5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  #btn-next:hover { background: #3a6a9a; }
+  #btn-next:focus { outline: 3px solid #2a4a7a; outline-offset: 2px; }
+
+  /* Summary screen */
+  #summary {
+    display: none;
+    padding: 30px 24px;
+    text-align: center;
+  }
+
+  #summary.show { display: block; }
+
+  #summary h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  #summary .final-score {
+    font-family: Arial, sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #2a4a7a;
+    margin: 14px 0 8px;
+    line-height: 1;
+  }
+
+  #summary .final-score span {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 400;
+  }
+
+  #summary .summary-msg {
+    font-size: 0.96rem;
+    color: #444;
+    max-width: 420px;
+    margin: 0 auto 22px;
+    line-height: 1.7;
+  }
+
+  #btn-restart {
+    font-family: Arial, sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 11px 30px;
+    background: #2a2a2a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  #btn-restart:hover { background: #444; }
+  #btn-restart:focus { outline: 3px solid #4a7fb5; outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div id="header">
+    <h1>Is This an Argument?</h1>
+    <div id="score-display">Score: 0 / 8</div>
+  </div>
+  <div id="progress-bar-wrap">
+    <div id="progress-bar" style="width:0%"></div>
+  </div>
+
+  <div id="content">
+    <div id="passage-counter">Passage 1 of 8</div>
+    <div id="passage-card"></div>
+    <div id="btn-row">
+      <button class="answer-btn" id="btn-argument">Argument ✓</button>
+      <button class="answer-btn" id="btn-not-argument">Not an Argument ✗</button>
+    </div>
+    <div id="feedback"></div>
+    <div id="btn-next-wrap">
+      <button id="btn-next">Next Passage →</button>
+    </div>
+  </div>
+
+  <div id="summary">
+    <h2>Activity Complete</h2>
+    <div class="final-score" id="final-score-display">—</div>
+    <p class="summary-msg" id="summary-msg"></p>
+    <button id="btn-restart">Try Again</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var passages = [
+    {
+      text: "The hiking trail on the eastern ridge is closed until further notice. A section of the path suffered significant erosion during last month's heavy rains.",
+      isArgument: false,
+      explanation: "This passage reports two facts — that the trail is closed and that erosion occurred. No claim is being established through reasoning; neither statement is offered as support for the other. The second sentence explains the closure but does not argue that anything should be believed or done."
+    },
+    {
+      text: "All birds have wings. Penguins are birds. Therefore, penguins have wings.",
+      isArgument: true,
+      explanation: "This is a classic argument. Two premises — that all birds have wings and that penguins are birds — are offered in support of the conclusion that penguins have wings. The word \"therefore\" is a conclusion indicator that makes the structure explicit."
+    },
+    {
+      text: "What causes the northern lights?",
+      isArgument: false,
+      explanation: "A question does not make a claim and does not offer reasons for one. It invites an answer; it does not itself advance a conclusion. No argument is present."
+    },
+    {
+      text: "The bridge over the canyon was built in 1902 and has not undergone structural reinforcement since 1978. Bridge structures of this age and maintenance history typically develop stress fractures in load-bearing elements. This bridge should be inspected before the season's heavy traffic begins.",
+      isArgument: true,
+      explanation: "Two factual premises — the bridge's age and maintenance history, and the typical behavior of such structures — are offered in support of a concrete recommendation. The conclusion (the bridge should be inspected) is what the reasoning is driving toward. No indicator words are needed; the logical relationship is clear from the structure."
+    },
+    {
+      text: "Never leave a campfire unattended. Extinguish all embers before leaving the site. Carry all waste out with you.",
+      isArgument: false,
+      explanation: "These are instructions or commands — they tell you what to do. None of them is being offered as a reason to believe any other claim. Commands can be well-reasoned or poorly reasoned, but they are not themselves arguments."
+    },
+    {
+      text: "The glacier has retreated approximately 2.3 kilometers over the past forty years. Ice core data shows a consistent pattern of reduced annual accumulation since the 1970s. The glacier is losing mass faster than it is gaining it.",
+      isArgument: true,
+      explanation: "The first two statements present observational and scientific data as evidence for the conclusion stated in the third sentence. No indicator words appear, but the logical relationship is one of support: the measurement and core data are being offered as reasons to accept the conclusion about mass loss."
+    },
+    {
+      text: "The aurora borealis occurs when charged particles from the sun interact with gases in the upper atmosphere, causing those gases to emit light at various wavelengths.",
+      isArgument: false,
+      explanation: "This is an explanation — it accounts for why the aurora borealis occurs. Explanations differ from arguments: an explanation accounts for a phenomenon already known to occur; an argument provides reasons to accept a claim that might otherwise be doubted. This sentence is not trying to convince you that auroras exist; it is telling you how they work."
+    },
+    {
+      text: "The proposed new schedule would add twenty minutes to the average student's commute. Longer commutes are associated with increased fatigue and lower academic performance in published research. The schedule change should not be adopted without offering transportation alternatives.",
+      isArgument: true,
+      explanation: "Two premises — the impact on commute time and the research-backed effects of longer commutes — are offered in support of a policy recommendation. The conclusion is the final sentence. This is a genuine argument: reasons are given for a claim the author wants the reader to accept."
+    }
+  ];
+
+  var shuffled = passages.slice();
+
+  // Fisher-Yates shuffle
+  function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = tmp;
+    }
+    return arr;
+  }
+
+  var state = {
+    index: 0,
+    correct: 0,
+    answered: false
+  };
+
+  // DOM refs
+  var scoreDisplay = document.getElementById("score-display");
+  var progressBar = document.getElementById("progress-bar");
+  var passageCounter = document.getElementById("passage-counter");
+  var passageCard = document.getElementById("passage-card");
+  var btnRow = document.getElementById("btn-row");
+  var btnArgument = document.getElementById("btn-argument");
+  var btnNotArgument = document.getElementById("btn-not-argument");
+  var feedbackEl = document.getElementById("feedback");
+  var btnNextWrap = document.getElementById("btn-next-wrap");
+  var btnNext = document.getElementById("btn-next");
+  var contentEl = document.getElementById("content");
+  var summaryEl = document.getElementById("summary");
+  var finalScoreDisplay = document.getElementById("final-score-display");
+  var summaryMsg = document.getElementById("summary-msg");
+  var btnRestart = document.getElementById("btn-restart");
+
+  function updateProgress() {
+    var pct = ((state.index) / shuffled.length) * 100;
+    progressBar.style.width = pct + "%";
+    passageCounter.textContent = "Passage " + (state.index + 1) + " of " + shuffled.length;
+    scoreDisplay.textContent = "Score: " + state.correct + " / " + shuffled.length;
+  }
+
+  function loadPassage() {
+    state.answered = false;
+    feedbackEl.className = "";
+    feedbackEl.style.display = "none";
+    btnNextWrap.className = "";
+    btnArgument.disabled = false;
+    btnNotArgument.disabled = false;
+
+    updateProgress();
+
+    passageCard.classList.add("fade-out");
+    setTimeout(function () {
+      passageCard.textContent = shuffled[state.index].text;
+      passageCard.classList.remove("fade-out");
+    }, 200);
+  }
+
+  function handleAnswer(userSaidArgument) {
+    if (state.answered) return;
+    state.answered = true;
+
+    var item = shuffled[state.index];
+    var correct = (userSaidArgument === item.isArgument);
+
+    if (correct) { state.correct += 1; }
+
+    // Update score display immediately
+    scoreDisplay.textContent = "Score: " + state.correct + " / " + shuffled.length;
+
+    // Build feedback
+    feedbackEl.innerHTML =
+      "<span class='verdict'>" +
+      (correct ? "Correct" : "Incorrect") +
+      "</span>" +
+      "<strong>" + (item.isArgument ? "This is an argument." : "This is not an argument.") + "</strong> " +
+      item.explanation;
+
+    feedbackEl.className = correct ? "show correct" : "show incorrect";
+    btnNextWrap.className = "show";
+
+    // Disable buttons
+    btnArgument.disabled = true;
+    btnNotArgument.disabled = true;
+  }
+
+  function nextPassage() {
+    state.index += 1;
+    if (state.index >= shuffled.length) {
+      showSummary();
+    } else {
+      loadPassage();
+    }
+  }
+
+  function showSummary() {
+    // Update progress bar to 100%
+    progressBar.style.width = "100%";
+    scoreDisplay.textContent = "Score: " + state.correct + " / " + shuffled.length;
+
+    contentEl.style.display = "none";
+    summaryEl.className = "show";
+
+    var s = state.correct;
+    var t = shuffled.length;
+    finalScoreDisplay.innerHTML = s + " <span>out of " + t + "</span>";
+
+    var msg;
+    if (s === t) {
+      msg = "You identified every passage correctly. You have a clear grasp of the distinction between argument and non-argument — a foundation the rest of the course will build on directly.";
+    } else if (s >= t - 2) {
+      msg = "Strong work. The passages you missed are worth reviewing: they tend to involve the trickiest cases — explanations, confident assertions, or arguments without indicator words. Those are exactly the cases where careful reasoning matters most.";
+    } else if (s >= t / 2) {
+      msg = "A solid start. Review the explanations for any passages you found difficult, paying particular attention to the distinction between explanations (accounting for known facts) and arguments (providing reasons for contested claims).";
+    } else {
+      msg = "This skill takes practice. Review Lesson 1.02c and the worked examples in Lesson 1.02b, then try again. Focus especially on asking: Is there a claim being established, and are reasons being offered for it?";
+    }
+
+    summaryMsg.textContent = msg;
+  }
+
+  function restart() {
+    state.index = 0;
+    state.correct = 0;
+    state.answered = false;
+    shuffled = shuffle(passages.slice());
+
+    contentEl.style.display = "";
+    summaryEl.className = "";
+
+    loadPassage();
+  }
+
+  // Event listeners
+  btnArgument.addEventListener("click", function () { handleAnswer(true); });
+  btnNotArgument.addEventListener("click", function () { handleAnswer(false); });
+  btnNext.addEventListener("click", nextPassage);
+  btnRestart.addEventListener("click", restart);
+
+  // Keyboard support: Enter/Space on next button; A/N for answer
+  document.addEventListener("keydown", function (e) {
+    if (summaryEl.classList.contains("show")) return;
+    if (!state.answered) {
+      if (e.key === "a" || e.key === "A") { handleAnswer(true); }
+      if (e.key === "n" || e.key === "N") { handleAnswer(false); }
+    } else {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); nextPassage(); }
+    }
+  });
+
+  // Init
+  shuffled = shuffle(passages.slice());
+  loadPassage();
+})();
+</script>
+</body>
+</html>

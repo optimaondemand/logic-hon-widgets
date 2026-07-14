@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fallacy Identification Quiz</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, system-ui, -apple-system, sans-serif;
+    background: #f5f5f3;
+    color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 700px;
+    background: #ffffff;
+    border: 1px solid #d8d8d4;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .header {
+    background: #1e2530;
+    color: #ffffff;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .header-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #c8cdd6;
+    flex-shrink: 0;
+  }
+
+  .header-right { display: flex; align-items: center; gap: 16px; }
+
+  .progress-text { font-size: 13px; color: #9aa0ac; white-space: nowrap; }
+
+  .score-badge {
+    background: #2c3547;
+    border: 1px solid #3a4560;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #e8eaf0;
+    white-space: nowrap;
+  }
+
+  .progress-bar-track { height: 4px; background: #e0e0dc; }
+  .progress-bar-fill { height: 100%; background: #1e2530; transition: width 0.35s ease; }
+
+  .content { padding: 24px 24px 20px; }
+
+  .passage-box {
+    background: #f9f8f5;
+    border: 1px solid #dddbd4;
+    border-left: 4px solid #1e2530;
+    border-radius: 4px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+  }
+
+  .passage-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888880;
+    margin-bottom: 10px;
+  }
+
+  .passage-text {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #1a1a1a;
+  }
+
+  .classify-prompt {
+    font-size: 14px;
+    color: #444440;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .option-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .option-btn {
+    text-align: left;
+    padding: 12px 16px;
+    border: 2px solid #d8d8d4;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #1a1a1a;
+    font-family: Arial, system-ui, sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .option-btn:hover:not(:disabled) {
+    border-color: #1e2530;
+    background: #f2f3f5;
+  }
+
+  .option-btn:disabled { cursor: default; }
+
+  .option-btn.selected-correct {
+    background: #2d7a2d;
+    border-color: #2d7a2d;
+    color: #ffffff;
+  }
+
+  .option-btn.selected-incorrect {
+    background: #a02020;
+    border-color: #a02020;
+    color: #ffffff;
+  }
+
+  .option-btn.revealed-correct {
+    background: #2d7a2d;
+    border-color: #2d7a2d;
+    color: #ffffff;
+  }
+
+  .option-btn.dimmed { opacity: 0.5; }
+
+  .feedback-box {
+    border-radius: 4px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    display: none;
+  }
+
+  .feedback-box.correct { background: #eef7ee; border: 1px solid #a3cfa3; }
+  .feedback-box.incorrect { background: #fdf0f0; border: 1px solid #d4a0a0; }
+
+  .feedback-verdict { font-size: 14px; font-weight: 700; margin-bottom: 6px; letter-spacing: 0.02em; }
+  .feedback-box.correct .feedback-verdict { color: #2d7a2d; }
+  .feedback-box.incorrect .feedback-verdict { color: #a02020; }
+
+  .feedback-explanation { font-size: 14px; line-height: 1.6; color: #333330; }
+
+  .next-btn {
+    display: none;
+    width: 100%;
+    padding: 12px 20px;
+    background: #1e2530;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-family: Arial, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: background 0.15s ease;
+  }
+
+  .next-btn:hover { background: #2c3a50; }
+
+  .results-screen { display: none; padding: 24px; text-align: center; }
+  .results-heading { font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; }
+  .results-score-display { font-size: 52px; font-weight: 700; color: #1e2530; line-height: 1.1; margin: 18px 0 8px; }
+  .results-score-label { font-size: 15px; color: #666660; margin-bottom: 22px; }
+  .results-message { font-size: 15px; color: #444440; line-height: 1.6; max-width: 460px; margin: 0 auto 28px; }
+  .try-again-btn {
+    display: inline-block;
+    padding: 12px 36px;
+    background: #1e2530;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-family: Arial, system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: background 0.15s ease;
+  }
+  .try-again-btn:hover { background: #2c3a50; }
+  .results-divider { border: none; border-top: 1px solid #e0e0dc; margin: 22px 0; }
+
+  @media (max-width: 480px) {
+    .header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 12px 16px; }
+    .header-right { width: 100%; justify-content: space-between; }
+    .content { padding: 18px 16px 16px; }
+    .passage-text { font-size: 15px; }
+    .results-screen { padding: 20px 16px; }
+    .results-score-display { font-size: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container" id="app">
+
+  <div id="question-screen">
+    <div class="header">
+      <span class="header-title">Fallacy Identification Quiz</span>
+      <div class="header-right">
+        <span class="progress-text" id="progress-text">Question 1 of 10</span>
+        <span class="score-badge" id="score-badge">Score: 0 / 0</span>
+      </div>
+    </div>
+
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="progress-bar-fill" style="width: 0%"></div>
+    </div>
+
+    <div class="content">
+      <div class="passage-box">
+        <div class="passage-label">Passage</div>
+        <p class="passage-text" id="passage-text"></p>
+      </div>
+
+      <p class="classify-prompt">Which fallacy, if any, does this passage commit?</p>
+
+      <div class="option-list" id="option-list"></div>
+
+      <div class="feedback-box" id="feedback-box">
+        <div class="feedback-verdict" id="feedback-verdict"></div>
+        <div class="feedback-explanation" id="feedback-explanation"></div>
+      </div>
+
+      <button class="next-btn" id="next-btn" onclick="handleNext()">Next Question &rarr;</button>
+    </div>
+  </div>
+
+  <div class="results-screen" id="results-screen">
+    <div class="results-heading">Quiz Complete</div>
+    <div class="results-score-display" id="final-score-display"></div>
+    <div class="results-score-label">correct out of 10</div>
+    <hr class="results-divider">
+    <p class="results-message" id="results-message"></p>
+    <button class="try-again-btn" onclick="resetQuiz()">Try Again (New Set)</button>
+  </div>
+
+</div>
+
+<script>
+  var bank = [
+    {
+      text: "\"You can't trust anything Dr. Alvarez says about nutrition policy — she was caught exaggerating her research funding on a grant application years ago.\"",
+      correct: "Ad Hominem",
+      distractors: ["Straw Man", "Red Herring", "Appeal to Unreliable Authority"],
+      explanation: "This is an ad hominem: it dismisses Dr. Alvarez's claims about nutrition policy by attacking her character (an unrelated past dishonesty), rather than engaging with the substance of what she actually argues."
+    },
+    {
+      text: "\"My opponent wants to reduce the defense budget by five percent. In other words, she wants to leave our country defenseless and at the mercy of any nation that wishes to attack us.\"",
+      correct: "Straw Man",
+      distractors: ["Ad Hominem", "False Dilemma", "Appeal to Force"],
+      explanation: "This is a straw man: a modest five-percent reduction is replaced with an exaggerated caricature (\"leave our country defenseless\") that is far easier to attack than the actual proposal."
+    },
+    {
+      text: "\"Senator, you still haven't explained why you missed the vote. But let's talk about your opponent's record — he missed twice as many votes last term.\"",
+      correct: "Red Herring",
+      distractors: ["Straw Man", "Complex Question", "Ad Hominem"],
+      explanation: "This is a red herring: the original question (why the senator missed the vote) is never answered. Attention is diverted to a different, only loosely related topic — the opponent's record."
+    },
+    {
+      text: "\"No one has ever proven that a civilization more advanced than our own doesn't exist somewhere in the universe. Therefore, one almost certainly does.\"",
+      correct: "Argument from Ignorance",
+      distractors: ["False Cause", "Begging the Question", "Complex Question"],
+      explanation: "This is an argument from ignorance: the absence of a disproof is treated as if it were positive evidence for the claim. Not having been disproven is not the same as having been demonstrated."
+    },
+    {
+      text: "\"The sign said 'fine for littering.' So the town is fine with littering — they told me so themselves.\"",
+      correct: "Equivocation",
+      distractors: ["Amphiboly", "Appeal to Popularity", "False Cause"],
+      explanation: "This trades on two distinct meanings of the word \"fine\" — a monetary penalty versus \"acceptable.\" The same word is used, but the meaning silently shifts between the sign and the conclusion. That shift in a single word's meaning is equivocation."
+    },
+    {
+      text: "\"The brochure read: 'Visiting relatives can be tiresome.' We couldn't tell if it meant that relatives who visit are tiresome, or that the act of visiting relatives is tiresome.\"",
+      correct: "Amphiboly",
+      distractors: ["Equivocation", "Composition", "Division"],
+      explanation: "This is amphiboly: the ambiguity comes from the grammatical structure of the sentence itself (which noun does \"visiting\" modify?), not from a single word carrying two meanings. That structural, sentence-level ambiguity is what distinguishes amphiboly from equivocation."
+    },
+    {
+      text: "\"Every player on the team is excellent individually, so this must be an excellent team.\"",
+      correct: "Composition",
+      distractors: ["Division", "Amphiboly", "Argument from Ignorance"],
+      explanation: "This is the fallacy of composition: a property true of each individual part (excellent players) is assumed, without further support, to be true of the whole they compose (an excellent team) — but teamwork, chemistry, and coordination are separate matters a collection of good individuals doesn't guarantee."
+    },
+    {
+      text: "\"This corporation is enormously profitable, so every department within it, including the small research division, must be enormously profitable.\"",
+      correct: "Division",
+      distractors: ["Composition", "False Cause", "Appeal to Unreliable Authority"],
+      explanation: "This is the fallacy of division: a property true of the whole (the corporation's overall profitability) is assumed, without further support, to be true of each of its parts (every department) — the reverse error from composition."
+    },
+    {
+      text: "\"Reading builds vocabulary because it exposes you to more words, and we know it exposes you to more words because that's precisely why it builds vocabulary.\"",
+      correct: "Begging the Question",
+      distractors: ["False Cause", "Complex Question", "False Dilemma"],
+      explanation: "This is begging the question: the premise (\"exposes you to more words\") and the conclusion (\"builds vocabulary\") are just restatements of each other in a closed loop. The only reason offered for the premise is the conclusion itself, so no independent support has actually been given."
+    },
+    {
+      text: "\"Have you stopped skipping your assigned readings yet?\"",
+      correct: "Complex Question",
+      distractors: ["Begging the Question", "False Dilemma", "Straw Man"],
+      explanation: "This is a complex question: it is phrased so that any direct \"yes\" or \"no\" answer concedes an unproven assumption — that the person was in fact skipping their assigned readings before. The assumption needs to be challenged separately before the question can be fairly answered."
+    },
+    {
+      text: "\"Every time the rooster crows, the sun rises shortly after. The rooster's crowing must be causing the sunrise.\"",
+      correct: "False Cause",
+      distractors: ["Composition", "Argument from Ignorance", "Ad Hominem"],
+      explanation: "This is false cause: a reliable correlation (crowing followed by sunrise) is mistaken for a causal relationship, when in fact both are independently driven by a third factor — the Earth's rotation — with no causal link between them at all."
+    },
+    {
+      text: "\"Either we approve this budget exactly as written, or the entire department shuts down next month. There is no other option on the table.\"",
+      correct: "False Dilemma",
+      distractors: ["Appeal to Force", "Begging the Question", "False Cause"],
+      explanation: "This is a false dilemma: it presents only two stark options when in reality other possibilities almost certainly exist — a revised budget, a phased reduction, additional funding sources — that the framing has simply left out."
+    },
+    {
+      text: "\"You should agree with my proposal for the merger. If you don't, I'll make sure the board hears about every mistake you've made this year.\"",
+      correct: "Appeal to Force",
+      distractors: ["Appeal to Popularity", "Appeal to Pity", "Straw Man"],
+      explanation: "This is an appeal to force: agreement is being extracted through a threat of harm rather than through any reason to think the proposal is actually a good idea. The threat has no bearing on whether the merger proposal is sound."
+    },
+    {
+      text: "\"Nearly everyone in the office has already signed up for the new software. You'd be the only one still holding out.\"",
+      correct: "Appeal to Popularity",
+      distractors: ["Appeal to Force", "Appeal to Unreliable Authority", "Composition"],
+      explanation: "This is an appeal to popularity: the fact that many people have adopted the software is offered as if it were a reason to think it's good, rather than as a mere fact about current behavior. Popularity is not evidence of quality."
+    },
+    {
+      text: "\"Please don't dock points on my essay — I've had such a difficult month, and this grade would really hurt at the worst possible time.\"",
+      correct: "Appeal to Pity",
+      distractors: ["Appeal to Force", "Appeal to Popularity", "Begging the Question"],
+      explanation: "This is an appeal to pity: the request to raise a grade is grounded entirely in sympathy for the student's hardship, not in any claim about the essay's actual quality — the hardship and the essay's merit are logically unconnected."
+    },
+    {
+      text: "\"A well-known actor says this supplement improved his energy, and he's an expert on the human body, so it must genuinely work.\"",
+      correct: "Appeal to Unreliable Authority",
+      distractors: ["Appeal to Popularity", "Ad Hominem", "Composition"],
+      explanation: "This is an appeal to unreliable authority: an actor has no particular expertise in nutrition or physiology, so citing him as authoritative on a supplement's effectiveness invokes a credential (celebrity, not medical expertise) that doesn't actually qualify him to settle the question."
+    },
+    {
+      text: "\"The measured rainfall this month was 4.2 inches, compared to a historical average of 3.1 inches for the same month.\"",
+      correct: "No Fallacy",
+      distractors: ["False Cause", "Composition", "Argument from Ignorance"],
+      explanation: "This passage contains no argument at all — it simply reports two measurements side by side without drawing any inference from them. Since no conclusion is being argued for, no fallacy (which requires a flawed inference) can be present."
+    },
+    {
+      text: "\"The lab results are inconclusive, so the research team has recommended a larger follow-up study before drawing any conclusions.\"",
+      correct: "No Fallacy",
+      distractors: ["Argument from Ignorance", "False Cause", "Begging the Question"],
+      explanation: "This is not an argument from ignorance. The team is not concluding that a claim is true or false merely because it hasn't been proven — they are drawing the appropriately modest conclusion that more evidence is needed, which is exactly the right response to inconclusive data."
+    }
+  ];
+
+  var QUIZ_LENGTH = 10;
+  var quiz = [];
+  var state = { currentIndex: 0, score: 0, answered: false, answeredCount: 0 };
+
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function buildQuiz() {
+    var picked = shuffle(bank).slice(0, QUIZ_LENGTH);
+    quiz = picked.map(function (item) {
+      var options = shuffle([item.correct].concat(item.distractors));
+      return {
+        text: item.text,
+        correct: item.correct,
+        explanation: item.explanation,
+        options: options
+      };
+    });
+  }
+
+  function render() {
+    var q = quiz[state.currentIndex];
+    var total = quiz.length;
+
+    document.getElementById('progress-text').textContent = 'Question ' + (state.currentIndex + 1) + ' of ' + total;
+    document.getElementById('score-badge').textContent = 'Score: ' + state.score + ' / ' + state.answeredCount;
+    document.getElementById('progress-bar-fill').style.width = ((state.currentIndex / total) * 100) + '%';
+
+    document.getElementById('passage-text').textContent = q.text;
+
+    var list = document.getElementById('option-list');
+    list.innerHTML = '';
+    q.options.forEach(function (opt, i) {
+      var btn = document.createElement('button');
+      btn.className = 'option-btn';
+      btn.id = 'opt-' + i;
+      btn.textContent = opt;
+      btn.onclick = function () { handleAnswer(opt); };
+      list.appendChild(btn);
+    });
+
+    var fb = document.getElementById('feedback-box');
+    fb.style.display = 'none';
+    fb.className = 'feedback-box';
+    document.getElementById('feedback-verdict').textContent = '';
+    document.getElementById('feedback-explanation').textContent = '';
+
+    document.getElementById('next-btn').style.display = 'none';
+    state.answered = false;
+  }
+
+  function handleAnswer(chosen) {
+    if (state.answered) return;
+    state.answered = true;
+    state.answeredCount++;
+
+    var q = quiz[state.currentIndex];
+    var isCorrect = (chosen === q.correct);
+    if (isCorrect) state.score++;
+
+    document.getElementById('score-badge').textContent = 'Score: ' + state.score + ' / ' + state.answeredCount;
+
+    var buttons = document.querySelectorAll('.option-btn');
+    buttons.forEach(function (btn) {
+      btn.disabled = true;
+      if (btn.textContent === chosen) {
+        btn.className = 'option-btn ' + (isCorrect ? 'selected-correct' : 'selected-incorrect');
+      } else if (btn.textContent === q.correct) {
+        btn.className = 'option-btn revealed-correct';
+      } else {
+        btn.className = 'option-btn dimmed';
+      }
+    });
+
+    var fb = document.getElementById('feedback-box');
+    fb.style.display = 'block';
+    fb.className = 'feedback-box ' + (isCorrect ? 'correct' : 'incorrect');
+
+    var verdict = document.getElementById('feedback-verdict');
+    verdict.textContent = isCorrect
+      ? 'Correct — ' + q.correct + '.'
+      : 'Not quite — this is ' + (q.correct === 'No Fallacy' ? 'not a fallacy at all.' : q.correct + '.');
+    document.getElementById('feedback-explanation').textContent = q.explanation;
+
+    var nextBtn = document.getElementById('next-btn');
+    nextBtn.style.display = 'block';
+    nextBtn.textContent = (state.currentIndex === quiz.length - 1) ? 'See Results' : 'Next Question →';
+  }
+
+  function handleNext() {
+    state.currentIndex++;
+    if (state.currentIndex >= quiz.length) {
+      showResults();
+    } else {
+      render();
+    }
+  }
+
+  function showResults() {
+    document.getElementById('question-screen').style.display = 'none';
+    var screen = document.getElementById('results-screen');
+    screen.style.display = 'block';
+    document.getElementById('final-score-display').textContent = state.score;
+
+    var pct = state.score / quiz.length;
+    var msg;
+    if (pct === 1) {
+      msg = "Perfect score. You correctly told apart fallacies of relevance, ambiguity, and presumption — including the two passages that contained no fallacy at all.";
+    } else if (pct >= 0.75) {
+      msg = "Strong work. Review the ones you missed, paying attention to which broad family the fallacy belongs to — relevance, ambiguity, or presumption — since fallacies within the same family are the ones most often confused for each other.";
+    } else if (pct >= 0.5) {
+      msg = "A solid start. Composition/division and equivocation/amphiboly are the pairs students mix up most — go back to Weeks 4–5 and re-read the distinguishing test for each pair, then try again.";
+    } else {
+      msg = "This set draws on every fallacy from Weeks 3–6. Rather than memorizing names, focus on the diagnostic question each family asks: does the premise actually bear on the conclusion (relevance)? Does a term's meaning shift (ambiguity)? Is an assumption being smuggled in unearned (presumption)? Review the explanations, then try again.";
+    }
+    document.getElementById('results-message').textContent = msg;
+  }
+
+  function resetQuiz() {
+    state = { currentIndex: 0, score: 0, answered: false, answeredCount: 0 };
+    buildQuiz();
+    document.getElementById('results-screen').style.display = 'none';
+    document.getElementById('question-screen').style.display = 'block';
+    document.getElementById('progress-bar-fill').style.width = '0%';
+    render();
+  }
+
+  buildQuiz();
+  render();
+</script>
+
+</body>
+</html>

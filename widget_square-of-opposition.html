@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Square of Opposition — Interactive Inference Explorer</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, system-ui, -apple-system, sans-serif;
+      background: #f5f5f3;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 700px;
+      background: #ffffff;
+      border: 1px solid #d8d8d4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .header {
+      background: #1e2530;
+      color: #ffffff;
+      padding: 14px 20px;
+    }
+
+    .header h2 {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #c8cdd6;
+      margin-bottom: 4px;
+    }
+
+    .header p {
+      font-size: 12px;
+      color: #7a8291;
+      line-height: 1.4;
+    }
+
+    .instructions {
+      background: #f9f8f5;
+      border-bottom: 1px solid #e0e0dc;
+      padding: 12px 20px;
+      font-size: 13px;
+      color: #555550;
+      line-height: 1.5;
+    }
+
+    .square-wrapper {
+      padding: 24px 20px 16px;
+      position: relative;
+    }
+
+    /* The Square layout */
+    .sq-grid {
+      display: grid;
+      grid-template-columns: 180px 1fr 180px;
+      grid-template-rows: auto auto auto;
+      gap: 0;
+      position: relative;
+    }
+
+    .sq-corner {
+      background: #f2f2f2;
+      border: 2px solid #555;
+      border-radius: 4px;
+      padding: 10px 12px;
+      text-align: center;
+      min-height: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+      position: relative;
+    }
+
+    .sq-corner:hover { border-color: #1e2530; }
+
+    .sq-corner.given-true  { background: #d4edda; border-color: #2d7a2d; }
+    .sq-corner.given-false { background: #f8d7da; border-color: #a02020; }
+    .sq-corner.inferred-true  { background: #e8f5e9; border-color: #4caf50; }
+    .sq-corner.inferred-false { background: #ffebee; border-color: #ef5350; }
+    .sq-corner.undetermined { background: #f5f5f5; border-color: #aaa; }
+    .sq-corner.idle { background: #f2f2f2; border-color: #555; }
+
+    .sq-type-label {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1e2530;
+      line-height: 1;
+    }
+
+    .sq-name-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #666;
+      margin: 3px 0;
+    }
+
+    .sq-form-label {
+      font-size: 11px;
+      color: #555;
+      font-family: Georgia, serif;
+      font-style: italic;
+    }
+
+    .sq-truth-badge {
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      display: none;
+    }
+
+    .sq-corner.given-true  .sq-truth-badge { display: block; color: #1a5c1a; }
+    .sq-corner.given-false .sq-truth-badge { display: block; color: #7c1212; }
+    .sq-corner.inferred-true  .sq-truth-badge { display: block; color: #1a5c1a; }
+    .sq-corner.inferred-false .sq-truth-badge { display: block; color: #7c1212; }
+    .sq-corner.undetermined .sq-truth-badge { display: block; color: #777; }
+
+    .sq-rel-label {
+      font-size: 11px;
+      font-style: italic;
+      color: #555;
+      text-align: center;
+    }
+
+    .sq-rel-label.emphasized { color: #1e2530; font-weight: 600; }
+
+    /* Middle cells for relationship labels */
+    .sq-top-middle, .sq-bottom-middle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 8px;
+    }
+
+    .sq-left-side, .sq-right-side {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 8px;
+      writing-mode: horizontal-tb;
+    }
+
+    /* Cross diagonal lines */
+    .sq-center {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sq-center svg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0; left: 0;
+    }
+
+    .sq-center-text {
+      font-size: 10px;
+      color: #888;
+      text-align: center;
+      line-height: 1.3;
+      z-index: 1;
+      background: #fff;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    /* Control buttons */
+    .controls {
+      padding: 0 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .set-btn {
+      padding: 9px 18px;
+      border: 2px solid #1e2530;
+      border-radius: 4px;
+      background: #1e2530;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+      letter-spacing: 0.03em;
+    }
+
+    .set-btn:hover { background: #2c3a50; }
+    .set-btn.true-btn { background: #2d7a2d; border-color: #2d7a2d; }
+    .set-btn.true-btn:hover { background: #256625; }
+    .set-btn.false-btn { background: #a02020; border-color: #a02020; }
+    .set-btn.false-btn:hover { background: #8a1a1a; }
+    .set-btn.reset-btn { background: #555; border-color: #555; }
+    .set-btn.reset-btn:hover { background: #333; }
+
+    .selection-prompt {
+      font-size: 13px;
+      color: #444;
+      padding: 10px 14px;
+      background: #f2f6fb;
+      border: 1px solid #b0c4de;
+      border-radius: 4px;
+      display: none;
+    }
+
+    .inference-panel {
+      margin: 0 20px 20px;
+      background: #f9f8f5;
+      border: 1px solid #dddbd4;
+      border-radius: 4px;
+      padding: 14px 16px;
+      display: none;
+    }
+
+    .inference-panel h3 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #444;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #e0e0dc;
+      padding-bottom: 6px;
+    }
+
+    .inference-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .inf-type { font-weight: 700; width: 20px; flex-shrink: 0; }
+    .inf-rel { color: #666; font-style: italic; flex-shrink: 0; width: 130px; }
+    .inf-value { font-weight: 700; }
+    .inf-value.true  { color: #2d7a2d; }
+    .inf-value.false { color: #a02020; }
+    .inf-value.undetermined { color: #888; }
+
+    .legend {
+      margin: 0 20px 16px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 11px;
+    }
+
+    .legend-item { display: flex; align-items: center; gap: 5px; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+    .ld-given-true { background: #d4edda; border: 1px solid #2d7a2d; }
+    .ld-inferred-true { background: #e8f5e9; border: 1px solid #4caf50; }
+    .ld-given-false { background: #f8d7da; border: 1px solid #a02020; }
+    .ld-inferred-false { background: #ffebee; border: 1px solid #ef5350; }
+    .ld-undetermined { background: #f5f5f5; border: 1px solid #aaa; }
+
+    @media (max-width: 520px) {
+      .sq-corner { min-height: 75px; padding: 8px; }
+      .sq-type-label { font-size: 16px; }
+      .sq-grid { grid-template-columns: 140px 1fr 140px; }
+      .sq-form-label { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h2>Square of Opposition — Inference Explorer</h2>
+    <p>Select a corner and assign it TRUE or FALSE. The widget infers what follows for the other three statements using the five Square relationships.</p>
+  </div>
+
+  <div class="instructions">
+    Click a corner to select it, then choose TRUE or FALSE. The Square will display inferred values and the relationship used for each inference.
+  </div>
+
+  <div class="square-wrapper">
+    <div class="sq-grid">
+
+      <!-- Top row: A corner, top-middle (Contraries), E corner -->
+      <div class="sq-corner idle" id="corner-A" onclick="selectCorner('A')">
+        <div class="sq-type-label">A</div>
+        <div class="sq-name-label">Universal Affirmative</div>
+        <div class="sq-form-label">"All S are P"</div>
+        <div class="sq-truth-badge" id="badge-A"></div>
+      </div>
+
+      <div class="sq-top-middle">
+        <div class="sq-rel-label" id="rel-contraries">← Contraries →</div>
+      </div>
+
+      <div class="sq-corner idle" id="corner-E" onclick="selectCorner('E')">
+        <div class="sq-type-label">E</div>
+        <div class="sq-name-label">Universal Negative</div>
+        <div class="sq-form-label">"No S are P"</div>
+        <div class="sq-truth-badge" id="badge-E"></div>
+      </div>
+
+      <!-- Middle row: subalternation labels, center diagonals, subalternation labels -->
+      <div class="sq-left-side">
+        <div class="sq-rel-label" id="rel-sub-left" style="text-align:center;line-height:1.6">
+          ↓ Subalternation<br><span style="font-size:.9em;color:#aaa">↑ Superalternation</span>
+        </div>
+      </div>
+
+      <div class="sq-center" style="min-height:70px;position:relative;">
+        <svg viewBox="0 0 100 70" preserveAspectRatio="none" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+          <line x1="0" y1="0" x2="100" y2="70" stroke="#ccc" stroke-width="1.5"/>
+          <line x1="100" y1="0" x2="0" y2="70" stroke="#ccc" stroke-width="1.5"/>
+        </svg>
+        <div class="sq-center-text">Contradictories<br>(diagonals)</div>
+      </div>
+
+      <div class="sq-right-side">
+        <div class="sq-rel-label" id="rel-sub-right" style="text-align:center;line-height:1.6">
+          ↓ Subalternation<br><span style="font-size:.9em;color:#aaa">↑ Superalternation</span>
+        </div>
+      </div>
+
+      <!-- Bottom row: I corner, bottom-middle (Subcontraries), O corner -->
+      <div class="sq-corner idle" id="corner-I" onclick="selectCorner('I')">
+        <div class="sq-type-label">I</div>
+        <div class="sq-name-label">Particular Affirmative</div>
+        <div class="sq-form-label">"Some S are P"</div>
+        <div class="sq-truth-badge" id="badge-I"></div>
+      </div>
+
+      <div class="sq-bottom-middle">
+        <div class="sq-rel-label" id="rel-subcontraries">← Subcontraries →</div>
+      </div>
+
+      <div class="sq-corner idle" id="corner-O" onclick="selectCorner('O')">
+        <div class="sq-type-label">O</div>
+        <div class="sq-name-label">Particular Negative</div>
+        <div class="sq-form-label">"Some S are not P"</div>
+        <div class="sq-truth-badge" id="badge-O"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="selection-prompt" id="selection-prompt">
+      Selected: <strong id="selected-label">—</strong> — Choose a truth value:
+    </div>
+    <div class="btn-row">
+      <button class="set-btn true-btn" onclick="assignValue(true)" id="btn-true" disabled>Set TRUE</button>
+      <button class="set-btn false-btn" onclick="assignValue(false)" id="btn-false" disabled>Set FALSE</button>
+      <button class="set-btn reset-btn" onclick="resetAll()">Reset</button>
+    </div>
+  </div>
+
+  <div class="inference-panel" id="inference-panel">
+    <h3>Inference Results</h3>
+    <div id="inference-rows"></div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot ld-given-true"></div> Given (True)</div>
+    <div class="legend-item"><div class="legend-dot ld-inferred-true"></div> Inferred True</div>
+    <div class="legend-item"><div class="legend-dot ld-given-false"></div> Given (False)</div>
+    <div class="legend-item"><div class="legend-dot ld-inferred-false"></div> Inferred False</div>
+    <div class="legend-item"><div class="legend-dot ld-undetermined"></div> Undetermined</div>
+  </div>
+
+</div>
+
+<script>
+  var selected = null;
+
+  /* Inference lookup table.
+     Format: { E: [value, relationship], I: [...], O: [...] }
+     value: 'true', 'false', 'undetermined'
+  */
+  var INFERENCES = {
+    'A-true':  { E: ['false','Contrary'], I: ['true','Subalternation'], O: ['false','Contradictory'] },
+    'A-false': { E: ['undetermined','Contrary'], I: ['undetermined','Subalternation*'], O: ['true','Contradictory'] },
+    'E-true':  { A: ['false','Contrary'], I: ['false','Contradictory'], O: ['true','Subalternation'] },
+    'E-false': { A: ['undetermined','Contrary'], I: ['true','Contradictory'], O: ['undetermined','Subalternation*'] },
+    'I-true':  { A: ['undetermined','Superalternation*'], E: ['false','Contradictory'], O: ['undetermined','Subcontrary'] },
+    'I-false': { A: ['false','Superalternation'], E: ['true','Contradictory'], O: ['true','Subcontrary'] },
+    'O-true':  { A: ['false','Contradictory'], E: ['undetermined','Contrary*'], I: ['undetermined','Subcontrary'] },
+    'O-false': { A: ['true','Contradictory'], E: ['false','Contrary'], I: ['true','Subcontrary + Subalternation'] }
+  };
+
+  var REL_NOTES = {
+    'Subalternation*': 'Subalternation (falsity of universal ≠ falsity of particular)',
+    'Superalternation*': 'Superalternation (truth of particular ≠ truth of universal)',
+    'Contrary*': 'Contrary (determined via contradictory chain)'
+  };
+
+  function selectCorner(c) {
+    selected = c;
+    document.getElementById('selection-prompt').style.display = 'block';
+    document.getElementById('selected-label').textContent = c + ' statement';
+    document.getElementById('btn-true').disabled = false;
+    document.getElementById('btn-false').disabled = false;
+  }
+
+  function assignValue(isTrue) {
+    if (!selected) return;
+    resetAll(true);
+
+    var key = selected + '-' + (isTrue ? 'true' : 'false');
+    var corner = document.getElementById('corner-' + selected);
+    corner.className = 'sq-corner ' + (isTrue ? 'given-true' : 'given-false');
+    var badge = document.getElementById('badge-' + selected);
+    badge.textContent = 'GIVEN: ' + (isTrue ? 'TRUE' : 'FALSE');
+
+    var inferences = INFERENCES[key];
+    var rowsHTML = '';
+
+    for (var stmt in inferences) {
+      var val = inferences[stmt][0];
+      var rel = inferences[stmt][1];
+      var relDisplay = REL_NOTES[rel] || rel;
+
+      var cornerEl = document.getElementById('corner-' + stmt);
+      var badgeEl = document.getElementById('badge-' + stmt);
+
+      if (val === 'true') {
+        cornerEl.className = 'sq-corner inferred-true';
+        badgeEl.textContent = 'TRUE';
+      } else if (val === 'false') {
+        cornerEl.className = 'sq-corner inferred-false';
+        badgeEl.textContent = 'FALSE';
+      } else {
+        cornerEl.className = 'sq-corner undetermined';
+        badgeEl.textContent = 'UNDETERMINED';
+      }
+
+      var valClass = val === 'undetermined' ? 'undetermined' : val;
+      var valText = val === 'undetermined' ? 'Undetermined' : (val === 'true' ? 'TRUE' : 'FALSE');
+
+      rowsHTML += '<div class="inference-row">' +
+        '<div class="inf-type">' + stmt + '</div>' +
+        '<div class="inf-rel">' + relDisplay + '</div>' +
+        '<div class="inf-value ' + valClass + '">' + valText + '</div>' +
+        '</div>';
+    }
+
+    document.getElementById('inference-rows').innerHTML = rowsHTML;
+    document.getElementById('inference-panel').style.display = 'block';
+
+    document.getElementById('btn-true').disabled = true;
+    document.getElementById('btn-false').disabled = true;
+    document.getElementById('selection-prompt').style.display = 'none';
+    selected = null;
+  }
+
+  function resetAll(keepPrompt) {
+    var corners = ['A','E','I','O'];
+    for (var i = 0; i < corners.length; i++) {
+      document.getElementById('corner-' + corners[i]).className = 'sq-corner idle';
+      document.getElementById('badge-' + corners[i]).textContent = '';
+    }
+    document.getElementById('inference-panel').style.display = 'none';
+    document.getElementById('inference-rows').innerHTML = '';
+    if (!keepPrompt) {
+      selected = null;
+      document.getElementById('selection-prompt').style.display = 'none';
+      document.getElementById('btn-true').disabled = true;
+      document.getElementById('btn-false').disabled = true;
+    }
+  }
+</script>
+
+</body>
+</html>

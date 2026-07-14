@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venn Diagram Builder: Categorical Statements</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, system-ui, -apple-system, sans-serif;
+    background: #f5f5f3;
+    color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 620px;
+    background: #ffffff;
+    border: 1px solid #d8d8d4;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .header {
+    background: #1e2530;
+    color: #ffffff;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .header-title { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #c8cdd6; }
+  .score-badge { background: #2c3547; border: 1px solid #3a4560; border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: 600; color: #e8eaf0; white-space: nowrap; }
+
+  .content { padding: 22px 24px 20px; }
+
+  .statement-box {
+    background: #f9f8f5;
+    border: 1px solid #dddbd4;
+    border-left: 4px solid #1e2530;
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  .statement-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #888880; margin-bottom: 8px; }
+  .statement-text { font-family: Georgia, 'Times New Roman', serif; font-size: 19px; color: #1a1a1a; }
+
+  .instructions { font-size: 13.5px; color: #555; text-align: center; margin-bottom: 14px; line-height: 1.5; }
+
+  .diagram-wrap { display: flex; justify-content: center; margin-bottom: 10px; }
+
+  .zone { cursor: pointer; }
+  .zone-hit { fill: transparent; }
+  .zone-hit:hover { fill: rgba(30,37,48,0.06); }
+
+  .legend { display: flex; justify-content: center; gap: 22px; font-size: 12.5px; color: #555; margin-bottom: 18px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-swatch { width: 16px; height: 16px; border-radius: 3px; border: 1px solid #bbb; display: inline-block; }
+
+  .action-row { display: flex; gap: 10px; margin-bottom: 16px; }
+  .btn {
+    flex: 1;
+    padding: 11px 16px;
+    border: 2px solid #1e2530;
+    border-radius: 4px;
+    background: #1e2530;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .btn:hover { background: #2c3a50; }
+  .btn.secondary { background: #fff; color: #1e2530; }
+  .btn.secondary:hover { background: #f2f3f5; }
+
+  .feedback-box { border-radius: 4px; padding: 14px 16px; margin-bottom: 8px; display: none; }
+  .feedback-box.correct { background: #eef7ee; border: 1px solid #a3cfa3; }
+  .feedback-box.incorrect { background: #fdf0f0; border: 1px solid #d4a0a0; }
+  .feedback-verdict { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .feedback-box.correct .feedback-verdict { color: #2d7a2d; }
+  .feedback-box.incorrect .feedback-verdict { color: #a02020; }
+  .feedback-explanation { font-size: 13.5px; line-height: 1.55; color: #333330; }
+
+  @media (max-width: 480px) {
+    .content { padding: 16px 16px 14px; }
+    .statement-text { font-size: 17px; }
+    .action-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <span class="header-title">Venn Diagram Builder</span>
+    <span class="score-badge" id="score-badge">Score: 0 / 0</span>
+  </div>
+
+  <div class="content">
+    <div class="statement-box">
+      <div class="statement-label">Diagram this statement</div>
+      <div class="statement-text" id="statement-text">All S are P</div>
+    </div>
+
+    <p class="instructions">Click a region to cycle it: blank &rarr; shaded (empty) &rarr; X (occupied) &rarr; blank. When you're done, check your diagram.</p>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 300 170" width="280" height="159" id="venn-svg">
+        <defs>
+          <mask id="maskS"><rect x="0" y="0" width="300" height="170" fill="black"/><circle cx="115" cy="85" r="68" fill="white"/></mask>
+          <mask id="maskP"><rect x="0" y="0" width="300" height="170" fill="black"/><circle cx="205" cy="85" r="68" fill="white"/></mask>
+          <mask id="maskSonly"><rect x="0" y="0" width="300" height="170" fill="black"/><circle cx="115" cy="85" r="68" fill="white"/><circle cx="205" cy="85" r="68" fill="black"/></mask>
+          <mask id="maskPonly"><rect x="0" y="0" width="300" height="170" fill="black"/><circle cx="205" cy="85" r="68" fill="white"/><circle cx="115" cy="85" r="68" fill="black"/></mask>
+        </defs>
+
+        <!-- Shading layers, toggled via JS -->
+        <rect id="shade-Sonly" x="0" y="0" width="300" height="170" fill="#808080" fill-opacity="0.4" mask="url(#maskSonly)" style="display:none"/>
+        <g id="shade-overlap-group" style="display:none">
+          <g mask="url(#maskS)"><g mask="url(#maskP)"><rect x="0" y="0" width="300" height="170" fill="#808080" fill-opacity="0.4"/></g></g>
+        </g>
+        <rect id="shade-Ponly" x="0" y="0" width="300" height="170" fill="#808080" fill-opacity="0.4" mask="url(#maskPonly)" style="display:none"/>
+
+        <!-- Circle outlines -->
+        <circle cx="115" cy="85" r="68" fill="none" stroke="#333" stroke-width="2"/>
+        <circle cx="205" cy="85" r="68" fill="none" stroke="#333" stroke-width="2"/>
+
+        <!-- X marks -->
+        <text id="x-Sonly" x="80" y="92" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#2a5a9b" style="display:none">X</text>
+        <text id="x-overlap" x="160" y="92" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#2a5a9b" style="display:none">X</text>
+        <text id="x-Ponly" x="240" y="92" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#2a5a9b" style="display:none">X</text>
+
+        <!-- Labels -->
+        <text x="45" y="40" font-family="Georgia, serif" font-size="17" font-weight="bold" fill="#1a1a1a">S</text>
+        <text x="262" y="40" font-family="Georgia, serif" font-size="17" font-weight="bold" fill="#1a1a1a">P</text>
+
+        <!-- Click hotspots -->
+        <circle class="zone-hit zone" data-zone="Sonly" cx="80" cy="92" r="34"/>
+        <circle class="zone-hit zone" data-zone="overlap" cx="160" cy="92" r="30"/>
+        <circle class="zone-hit zone" data-zone="Ponly" cx="240" cy="92" r="34"/>
+      </svg>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="legend-swatch" style="background:#c0c0c0;"></span> Shaded = empty</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#fff; color:#2a5a9b; font-weight:bold; text-align:center; line-height:14px;">X</span> Occupied</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#fff;"></span> Blank = no claim</div>
+    </div>
+
+    <div class="action-row">
+      <button class="btn secondary" onclick="clearDiagram()">Clear</button>
+      <button class="btn" onclick="checkAnswer()">Check Diagram</button>
+    </div>
+
+    <div class="feedback-box" id="feedback-box">
+      <div class="feedback-verdict" id="feedback-verdict"></div>
+      <div class="feedback-explanation" id="feedback-explanation"></div>
+    </div>
+
+    <div class="action-row" id="next-row" style="display:none">
+      <button class="btn" onclick="nextStatement()">Next Statement &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  var statements = [
+    { text: "All S are P", type: "A", target: { Sonly: "shade", overlap: "blank", Ponly: "blank" },
+      explain: "\"All S are P\" says nothing is S without also being P — so the part of S outside P (S-only) must be shaded. The overlap and P-only are left blank, since the statement makes no claim about them." },
+    { text: "No S are P", type: "E", target: { Sonly: "blank", overlap: "shade", Ponly: "blank" },
+      explain: "\"No S are P\" says the overlap between S and P is empty — shade the overlap. S-only and P-only are left blank." },
+    { text: "Some S are P", type: "I", target: { Sonly: "blank", overlap: "x", Ponly: "blank" },
+      explain: "\"Some S are P\" asserts that at least one thing is both S and P — place an X in the overlap. No region is shaded, since no claim of emptiness is made anywhere." },
+    { text: "Some S are not P", type: "O", target: { Sonly: "x", overlap: "blank", Ponly: "blank" },
+      explain: "\"Some S are not P\" asserts that at least one S falls outside P — place an X in S-only, not in the overlap. No shading is used, since this is a particular (not universal) claim." }
+  ];
+
+  var order = [];
+  var idx = 0;
+  var score = 0;
+  var answeredCount = 0;
+  var current = null;
+  var zoneState = { Sonly: "blank", overlap: "blank", Ponly: "blank" };
+  var checked = false;
+
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function loadStatement() {
+    if (idx >= order.length) {
+      order = shuffle([0, 1, 2, 3]);
+      idx = 0;
+    }
+    current = statements[order[idx]];
+    idx++;
+    zoneState = { Sonly: "blank", overlap: "blank", Ponly: "blank" };
+    checked = false;
+    document.getElementById('statement-text').textContent = current.text;
+    document.getElementById('feedback-box').style.display = 'none';
+    document.getElementById('next-row').style.display = 'none';
+    renderZones();
+  }
+
+  function renderZones() {
+    ['Sonly', 'overlap', 'Ponly'].forEach(function (zone) {
+      var state = zoneState[zone];
+      var shadeEl = zone === 'overlap'
+        ? document.getElementById('shade-overlap-group')
+        : document.getElementById('shade-' + zone);
+      var xEl = document.getElementById('x-' + zone);
+      shadeEl.style.display = (state === 'shade') ? 'block' : 'none';
+      xEl.style.display = (state === 'x') ? 'block' : 'none';
+    });
+  }
+
+  function cycleZone(zone) {
+    if (checked) return;
+    var next = { blank: 'shade', shade: 'x', x: 'blank' };
+    zoneState[zone] = next[zoneState[zone]];
+    renderZones();
+  }
+
+  document.querySelectorAll('.zone').forEach(function (el) {
+    el.addEventListener('click', function () { cycleZone(el.getAttribute('data-zone')); });
+  });
+
+  function checkAnswer() {
+    if (checked) return;
+    checked = true;
+    answeredCount++;
+
+    var allCorrect = ['Sonly', 'overlap', 'Ponly'].every(function (z) {
+      return zoneState[z] === current.target[z];
+    });
+
+    if (allCorrect) score++;
+    document.getElementById('score-badge').textContent = 'Score: ' + score + ' / ' + answeredCount;
+
+    var fb = document.getElementById('feedback-box');
+    fb.style.display = 'block';
+    fb.className = 'feedback-box ' + (allCorrect ? 'correct' : 'incorrect');
+    document.getElementById('feedback-verdict').textContent = allCorrect
+      ? 'Correct diagram for "' + current.text + '" (' + current.type + ' statement).'
+      : 'Not quite yet for "' + current.text + '" (' + current.type + ' statement).';
+    document.getElementById('feedback-explanation').textContent = current.explain;
+
+    document.getElementById('next-row').style.display = 'flex';
+  }
+
+  function clearDiagram() {
+    if (checked) return;
+    zoneState = { Sonly: "blank", overlap: "blank", Ponly: "blank" };
+    renderZones();
+  }
+
+  function nextStatement() {
+    loadStatement();
+  }
+
+  order = shuffle([0, 1, 2, 3]);
+  loadStatement();
+</script>
+
+</body>
+</html>
