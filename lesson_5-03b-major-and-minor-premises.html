@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5.03b — Major and Minor Premises</title>
+<style>
+body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
+h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
+h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
+.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
+.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
+.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.error-example { background: #fff8f8; border: 1px solid #e8c0c0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+.error-example .label { font-weight: bold; font-size: 0.85em; color: #a04040; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
+.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
+.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+ol li, ul li { margin-bottom: 0.5em; }
+.syllogism-block { background: #f0f4f0; border-left: 4px solid #4a7a4a; padding: 14px 18px; margin: 1em 0; font-style: italic; border-radius: 0 3px 3px 0; }
+.syllogism-block strong { font-style: normal; }
+.nonstandard-block { background: #fdf6ec; border-left: 4px solid #c48b2a; padding: 14px 18px; margin: 1em 0; border-radius: 0 3px 3px 0; }
+</style>
+</head>
+<body>
+
+<h1>Lesson 5.03b — Major and Minor Premises</h1>
+
+<div class="benchmark">
+  <strong>CPALMS Benchmarks:</strong> ELA.11.R.2.3 — Analyze how an author develops and refines a claim; ELA.11.C.1.5 — Improve writing by planning, revising, and editing, attending to precision and clarity of argument
+</div>
+
+<p class="objective"><strong>Learning Objective:</strong> Students will be able to distinguish the major premise from the minor premise in both standard-form and non-standard-form syllogisms, and will be able to rewrite non-standard-form syllogisms in standard form.</p>
+
+<h2>Orientation</h2>
+
+<p>In the previous lesson, you learned to identify the three terms of a syllogism by their roles relative to the conclusion. The terms determine the premises: the premise containing the major term (P) is the major premise, and the premise containing the minor term (S) is the minor premise. This lesson examines how those premises are structured, what standard form requires, and why non-standard arrangements create real difficulties for analysis.</p>
+
+<h2>Intuitive Entry</h2>
+
+<p>When a teacher writes a proof on the board, there is a conventional order: the broader principles come first, the specific application of those principles comes second, and the result follows. If the proof were written backwards — specific case first, general rule second, result last — it would be technically valid but harder to follow and easier to misread. Logic has an analogous convention. The standard form of a categorical syllogism places the major premise first, the minor premise second, and the conclusion last. Arguments in real prose almost never follow this order — which is why reconstructing an argument into standard form is an essential analytical skill.</p>
+
+<h2>Standard Form: The Convention</h2>
+
+<p>A categorical syllogism is in <strong>standard form</strong> when its premises appear in the following order:</p>
+
+<ol>
+  <li><strong>Major premise</strong> — the premise containing the major term (P, the predicate of the conclusion)</li>
+  <li><strong>Minor premise</strong> — the premise containing the minor term (S, the subject of the conclusion)</li>
+  <li><strong>Conclusion</strong> — the statement being inferred</li>
+</ol>
+
+<p>The major premise is placed first not because it is more important, but because convention requires it. Standard form makes the structure of the argument visible and allows consistent application of the rules for figures and moods, which we will examine in the next lesson. When an argument is not in standard form, it must be rearranged before those rules can be applied.</p>
+
+<h2>Identifying the Premises</h2>
+
+<p>The method for identifying which premise is major and which is minor is straightforward: always start from the conclusion.</p>
+
+<ol>
+  <li>Find the conclusion (look for indicator words: "therefore," "thus," "hence," "so," "it follows that").</li>
+  <li>Identify the subject of the conclusion — this is the minor term (S).</li>
+  <li>Identify the predicate of the conclusion — this is the major term (P).</li>
+  <li>Whichever premise contains P is the <strong>major premise</strong>.</li>
+  <li>Whichever premise contains S is the <strong>minor premise</strong>.</li>
+</ol>
+
+<p>The middle term (M) is whatever term appears in both premises and not in the conclusion — it confirms you have identified the three terms correctly.</p>
+
+<div class="example">
+  <span class="label">Example 1 — Standard Form</span>
+  <div class="syllogism-block">
+    <strong>Major premise:</strong> All vertebrates have a spinal column.<br>
+    <strong>Minor premise:</strong> All trout are vertebrates.<br>
+    <strong>Conclusion:</strong> Therefore, all trout have a spinal column.
+  </div>
+  <p><strong>Analysis:</strong> Conclusion subject: <em>trout</em> (S = minor term). Conclusion predicate: <em>spinal column</em> (P = major term). Middle term: <em>vertebrates</em> (M). This syllogism is in standard form: the premise containing P ("spinal column") comes first; the premise containing S ("trout") comes second.</p>
+</div>
+
+<div class="example">
+  <span class="label">Example 2 — Non-Standard Form (Needs Rearranging)</span>
+  <div class="nonstandard-block">
+    "All oak trees are deciduous. Therefore, all oak trees shed their leaves annually, since all deciduous trees shed their leaves annually."
+  </div>
+  <p><strong>Step 1 — Find the conclusion:</strong> "Therefore, all oak trees shed their leaves annually." (conclusion indicator: "therefore")</p>
+  <p><strong>Step 2 — Identify terms:</strong> Subject of conclusion = <em>oak trees</em> (S). Predicate of conclusion = <em>shed their leaves annually</em> (P).</p>
+  <p><strong>Step 3 — Identify premises:</strong> "All deciduous trees shed their leaves annually" contains P → <strong>major premise</strong>. "All oak trees are deciduous" contains S → <strong>minor premise</strong>.</p>
+  <p><strong>Step 4 — Standard form:</strong></p>
+  <div class="syllogism-block">
+    <strong>Major premise:</strong> All deciduous trees shed their leaves annually.<br>
+    <strong>Minor premise:</strong> All oak trees are deciduous trees.<br>
+    <strong>Conclusion:</strong> Therefore, all oak trees shed their leaves annually.
+  </div>
+</div>
+
+<div class="error-example">
+  <span class="label">Common Error — Treating the First Statement as the Major Premise</span>
+  <p>It is tempting to treat whatever premise appears first in a passage as the major premise. In real arguments, this is unreliable. Authors write for effect, not for logical convenience: they may front-load the minor premise, bury the major premise, or interleave premises and conclusion. The only safe method is to identify the conclusion first, then determine which premise contains the major term (P) and which contains the minor term (S).</p>
+</div>
+
+<h2>Rewriting in Standard Form: A Procedure</h2>
+
+<p>When you encounter an argument in natural prose, converting it to standard form is a four-step process:</p>
+
+<ol>
+  <li><strong>Locate the conclusion.</strong> Conclusion indicators (therefore, thus, hence, so) help. If no indicator is present, ask: which statement is the argument trying to establish?</li>
+  <li><strong>Extract the premises.</strong> Whatever statements are offered in support of the conclusion are the premises. Premise indicators include: since, because, given that, for, as.</li>
+  <li><strong>Identify the three terms.</strong> From the conclusion, find S and P. M is whatever appears in both premises.</li>
+  <li><strong>Arrange in standard form.</strong> Major premise (containing P) first; minor premise (containing S) second; conclusion last.</li>
+</ol>
+
+<p>This procedure works whether the argument is presented clearly or embedded in a longer passage. The disciplined habit of reconstructing arguments in standard form is one of the most practically valuable skills this course teaches. Once an argument is in standard form, its logical structure is fully exposed and can be evaluated by the formal rules.</p>
+
+<h2>Connection to Argument Evaluation</h2>
+
+<p>Standard form is not merely a notational convention — it is an analytic tool. The rules for syllogistic validity (which we will study as we examine figures and moods) are formulated with respect to standard form. A syllogism that appears valid in non-standard order may reveal an error when properly rearranged. Conversely, an argument that seems confusing in prose often becomes clearly valid or invalid the moment it is placed in standard form. This is why Aristotle developed the syllogistic apparatus in the first place: to have a formal procedure for evaluating inferences that works independently of the stylistic choices of the person who made the argument.</p>
+
+<div class="practice">
+  <h2>Practice Problems</h2>
+
+  <p><strong>Part A — Identification.</strong> For each syllogism in standard form, identify: (a) the major term, (b) the minor term, (c) the middle term, (d) the major premise, (e) the minor premise.</p>
+
+  <ol>
+    <li>
+      All mammals nurse their young. All dolphins are mammals. Therefore, all dolphins nurse their young.
+    </li>
+    <li>
+      No insects are vertebrates. All beetles are insects. Therefore, no beetles are vertebrates.
+    </li>
+    <li>
+      Some athletes are scholars. All scholars are careful readers. Therefore, some athletes are careful readers.
+    </li>
+  </ol>
+
+  <p><strong>Part B — Conversion to Standard Form.</strong> Each argument below is stated in non-standard order. Rewrite each in standard form and label major premise, minor premise, and conclusion.</p>
+
+  <ol>
+    <li>"Since all squares are rectangles, and all rectangles have four right angles, it follows that all squares have four right angles."</li>
+    <li>"Some birds cannot fly, since penguins are birds, and all penguins are flightless."</li>
+    <li>"Given that only prime numbers have no divisors other than 1 and themselves, and 7 has no divisors other than 1 and itself, 7 must be prime."</li>
+  </ol>
+
+  <p><strong>Part C — Explanation.</strong> In 3–4 sentences, explain why converting an argument to standard form is analytically valuable. What would be lost if we simply evaluated arguments in whatever order their author presented them?</p>
+</div>
+
+<div class="looking-ahead">
+  <strong>Looking Ahead:</strong> With the three terms and two premises clearly in hand, the next lesson introduces the four figures of the syllogism — the four possible positions the middle term can occupy in the premises — which is the basis for classifying every categorical syllogism.
+</div>
+
+</body>
+</html>

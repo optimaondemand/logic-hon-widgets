@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6.02c — Argument Chains and Divergent Structures</title>
+<style>
+body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
+h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
+h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
+.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
+.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
+.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.error-example { background: #fff8f8; border: 1px solid #e8c0c0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+.error-example .label { font-weight: bold; font-size: 0.85em; color: #a04040; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
+.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
+.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+ol li, ul li { margin-bottom: 0.5em; }
+.syllogism-block { background: #f0f4f0; border-left: 4px solid #4a7a4a; padding: 14px 18px; margin: 1em 0; font-style: italic; border-radius: 0 3px 3px 0; }
+.syllogism-block strong { font-style: normal; }
+</style>
+</head>
+<body>
+
+<h1>Lesson 6.02c — Argument Chains and Divergent Structures</h1>
+
+<div class="benchmark">
+  <strong>CPALMS Benchmarks:</strong> ELA.11.R.3.3 — Analyze and evaluate the effectiveness of an author's argument; ELA.11.R.3.4 — Evaluate the reasoning in an author's argument; ELA.12.C.1.3 — Write arguments using sound reasoning; ELA.K12.EE.1.1 — Cite evidence to explain and justify reasoning
+</div>
+
+<p class="objective"><strong>Learning Objective:</strong> Students will be able to identify serial argument chains (where one conclusion serves as a premise for the next), divergent argument structures (where one premise supports multiple conclusions), and apply the weakest-link principle to evaluate where a chain argument is most vulnerable.</p>
+
+<h2>Orientation</h2>
+
+<p>You have now confirmed that the two premises of any categorical syllogism are linked — working as a unit to establish a single conclusion. This lesson addresses the dimension of time in an argument — how conclusions flow into subsequent arguments. In serial chains, reasoning moves forward: conclusion A becomes a premise for conclusion B, which becomes a premise for conclusion C. In divergent structures, a single claim radiates outward: one statement serves as a premise in multiple separate, complete syllogisms, each with its own distinct conclusion. Recognizing these structures is what allows you to map the complete logical architecture of an extended text.</p>
+
+<h2>Intuitive Entry Point</h2>
+
+<p>Consider how a mathematical proof works. You start from axioms, derive theorem 1, use theorem 1 (now an established result) to derive theorem 2, and so on. Each step's conclusion is the next step's premise. Remove or falsify any step, and every subsequent result built on it collapses. This is a serial chain — the most natural form of deductive argument when the goal is to move from well-established starting points to a distant conclusion through a sequence of individually valid inferences.</p>
+
+<p>Now consider a detective presenting evidence: the same fingerprint at the scene supports the conclusion that the suspect was present, and separately supports the conclusion that the suspect had access to the victim's keys. One piece of evidence radiates to support multiple conclusions. This is a divergent structure.</p>
+
+<h2>Serial Argument Chains</h2>
+
+<p>In a <strong>serial chain</strong>, the conclusion of one argument becomes a premise of the next. The structure is linear: A → B → C → D, where each arrow represents a valid inference. The final conclusion D is what the overall argument aims to establish, and it depends on every prior link in the chain being sound.</p>
+
+<p>The <strong>weakest-link principle</strong> applies to chains: a serial argument is only as strong as its weakest individual inference or its most vulnerable premise. Finding the weakest link — the step most likely to be false or the inference most likely to be invalid — identifies where the argument is most susceptible to objection. In practice, the weakest link is often the first link: if the opening premise is contestable, the entire chain is at risk regardless of how well each subsequent inference follows.</p>
+
+<h2>Divergent Structures</h2>
+
+<p>In a <strong>divergent structure</strong>, a single statement serves as a premise for more than one separate conclusion. This is common when a foundational principle or empirical finding is cited in support of multiple claims that are not themselves related to each other. Each conclusion depends on the shared premise; if the shared premise is undermined, all branches of the divergent structure are weakened simultaneously.</p>
+
+<h2>Worked Examples</h2>
+
+<div class="example">
+  <span class="label">Example 1 — Serial Chain</span>
+  <p><strong>Argument:</strong> "All organisms require energy to sustain life processes. All energy used by organisms ultimately derives from chemical bonds. All chemical bond energy in organisms ultimately derives from sunlight via photosynthesis. Therefore, all organisms depend ultimately on sunlight for their energy."</p>
+  <p><strong>Chain structure:</strong></p>
+  <div class="syllogism-block">
+    Link 1: All organisms require energy. + All organism energy derives from chemical bonds. → All organisms depend on chemical bond energy.<br>
+    Link 2: All chemical bond energy in organisms derives from sunlight via photosynthesis. + [All organisms depend on chemical bond energy.] → All organisms depend ultimately on sunlight.
+  </div>
+  <p><strong>Weakest link:</strong> Link 2's major premise — "All chemical bond energy in organisms ultimately derives from sunlight via photosynthesis" — is the most contestable, since chemosynthetic organisms (deep-sea vent communities) derive energy from chemical reactions not dependent on sunlight. This is the link where the chain is most vulnerable.</p>
+  <p><strong>Checking each link with a Venn diagram:</strong> A serial chain is only as trustworthy as its individual links, and each link is an ordinary categorical syllogism you can check exactly as you did in Week 2 — diagram its two premises and see whether its conclusion is already shown.</p>
+  <div style="display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin:1.2em 0;">
+    <div style="text-align:center;">
+      <svg viewBox="0 0 420 330" width="260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Venn diagram for Link 1: S minus M shaded, M minus P shaded">
+        <circle cx="140" cy="130" r="95" fill="#808080" fill-opacity="0.35"/>
+        <circle cx="210" cy="205" r="95" fill="#fff"/>
+        <defs><clipPath id="chain1-clipM"><circle cx="210" cy="205" r="95"/></clipPath></defs>
+        <circle cx="210" cy="205" r="95" fill="#808080" fill-opacity="0.35"/>
+        <circle cx="280" cy="130" r="95" fill="#fff" clip-path="url(#chain1-clipM)"/>
+        <circle cx="140" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <circle cx="280" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <circle cx="210" cy="205" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <text x="62" y="50" font-size="15" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">S</text>
+        <text x="348" y="50" font-size="15" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">P</text>
+        <text x="204" y="318" font-size="15" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">M</text>
+      </svg>
+      <p style="font-family:Arial,sans-serif;font-size:.8em;color:#555;max-width:260px;">Link 1: S = organisms, M = things requiring energy, P = things dependent on chemical-bond energy. Valid (Barbara).</p>
+    </div>
+    <div style="text-align:center;">
+      <svg viewBox="0 0 420 330" width="260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Venn diagram for Link 2: S minus M shaded, M minus P shaded">
+        <circle cx="140" cy="130" r="95" fill="#808080" fill-opacity="0.35"/>
+        <circle cx="210" cy="205" r="95" fill="#fff"/>
+        <defs><clipPath id="chain2-clipM"><circle cx="210" cy="205" r="95"/></clipPath></defs>
+        <circle cx="210" cy="205" r="95" fill="#808080" fill-opacity="0.35"/>
+        <circle cx="280" cy="130" r="95" fill="#fff" clip-path="url(#chain2-clipM)"/>
+        <circle cx="140" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <circle cx="280" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <circle cx="210" cy="205" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <text x="62" y="50" font-size="15" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">S</text>
+        <text x="348" y="50" font-size="15" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">P</text>
+        <text x="204" y="318" font-size="15" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">M</text>
+      </svg>
+      <p style="font-family:Arial,sans-serif;font-size:.8em;color:#555;max-width:260px;">Link 2: S = organisms, M = things dependent on chemical-bond energy (Link 1's conclusion, now reused as a premise), P = things dependent on sunlight. Valid (Barbara) — <em>if</em> the major premise holds.</p>
+    </div>
+  </div>
+  <p>Each link's diagram is individually valid — every S∩P-outside-M region is shaded in both. But a chain's overall reliability depends on more than validity: it also depends on every premise being true. The diagram for Link 2 confirms the <em>form</em> is sound; it says nothing about whether "all chemical bond energy in organisms derives from sunlight" is actually true, which is exactly the premise the weakest-link analysis above calls into question.</p>
+</div>
+
+<div class="example">
+  <span class="label">Example 2 — Divergent Structure</span>
+  <p><strong>Shared premise:</strong> "The Aristotelian logical tradition systematically organized the rules of valid inference."</p>
+  <p><strong>Conclusion 1:</strong> "The Aristotelian tradition provided the foundation for medieval Scholastic philosophy."</p>
+  <p><strong>Conclusion 2:</strong> "The Aristotelian tradition made it possible to evaluate the validity of legal reasoning formally."</p>
+  <p><strong>Conclusion 3:</strong> "The Aristotelian tradition is a precondition for the development of modern formal logic."</p>
+  <p><strong>Assessment:</strong> Three separate conclusions all rest on the shared premise. A challenger who successfully disputes the shared premise weakens all three conclusions simultaneously — a significant payoff for a single objection.</p>
+</div>
+
+<div class="error-example">
+  <span class="label">Common Error — Treating a Chain as a Single Syllogism</span>
+  <p>A common error is to identify the first premise and the last conclusion of a chain and treat the whole argument as one syllogism, ignoring the intermediate steps. This misrepresents the logical structure: the intermediate conclusions are doing real logical work. Skipping them makes the argument appear to have a larger inferential leap than it actually does, and prevents you from identifying where the chain's vulnerability actually lies.</p>
+</div>
+
+<h2>Argument Trees: Putting It Together</h2>
+
+<p>With serial chains, divergent structures, and linked premises all in hand, you can now draw a complete argument tree for any compound argument built from categorical syllogisms:</p>
+<ul>
+  <li>Main conclusion at the top (or root).</li>
+  <li>Each syllogism's two premises branch from its conclusion joined by a bracket, since they are always linked.</li>
+  <li>Intermediate conclusions at internal nodes, with their own supporting premises below them.</li>
+  <li>Basic premises (those not further supported) at the leaves.</li>
+  <li>Serial chain structures appear as a path from leaf through multiple intermediate nodes to the root.</li>
+  <li>Divergent structures appear as a single shared premise feeding separate arrows into more than one complete syllogism, each concluding to a different claim.</li>
+</ul>
+
+<h2>Connection to Argument</h2>
+
+<p>The complete argument tree is the map of an argument's logical architecture. It allows you to see at a glance where the argument is vulnerable (a serial chain running through a single contestable premise, or a linked pair with a weak premise at any node), and what kind of objection would be most damaging (attacking a shared premise in a divergent structure, so that every syllogism drawing on it is undermined at once, or breaking the first link in a chain). This is the analytical skill you will bring to bear on real texts in the next two weeks, and to your own argumentative writing in the Final Essay.</p>
+
+<div class="practice">
+  <h2>Practice Problems</h2>
+
+  <p><strong>Part A — Identify the Structure.</strong> For each passage, identify whether the argument is a serial chain, a divergent structure, or both. Label the key premises and conclusions.</p>
+
+  <ol>
+    <li>"All right triangles obey the Pythagorean theorem. This figure is a right triangle. Therefore, its sides obey a² + b² = c². Since a = 3 and b = 4, we have c² = 25, and therefore c = 5."</li>
+
+    <li>"The discovery of penicillin revolutionized medicine. Because of this, bacterial infections that were once fatal became treatable. Also because of this, surgery became far less dangerous, since post-surgical infection was no longer an inevitable risk. And the discovery further led to the development of an entire class of antibiotic compounds."</li>
+
+    <li>"Carbon dioxide is a greenhouse gas. All greenhouse gases contribute to atmospheric warming when their concentration increases. Atmospheric CO₂ concentration has increased significantly since industrialization. Therefore, industrialization has contributed to atmospheric warming. Since atmospheric warming drives changes in precipitation patterns, industrialization has also contributed to changes in global precipitation."</li>
+  </ol>
+
+  <p><strong>Part B — Weakest Link.</strong> For the serial chain you identified in Problem 3 of Part A, identify the weakest link — the premise or inference most vulnerable to challenge — and explain in 2–3 sentences why it is the weakest.</p>
+
+  <p><strong>Part C — Construction.</strong> Write an original compound argument that includes both a serial chain (at least two steps) and a divergent structure (one shared premise feeding into two separate complete syllogisms with different conclusions). Draw a simple labeled tree diagram showing the structure. Use a topic from science, mathematics, or history.</p>
+</div>
+
+<div class="looking-ahead">
+  <strong>Looking Ahead:</strong> This week closes with the Final Examination, cumulative over everything covered since Week 1. After the exam, Week 8 applies everything you have learned about argument analysis — identification, classification, reconstruction, and mapping — to real texts and media, and begins the Culminating Essay Project. You will practice locating arguments where they are embedded in surrounding prose, stripping away non-argumentative material, and reconstructing the underlying logical structure.
+</div>
+
+</body>
+</html>

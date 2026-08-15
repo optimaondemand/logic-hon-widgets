@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6.01c — Reconstructing Enthymemes</title>
+<style>
+body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
+h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
+h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
+.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
+.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
+.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.error-example { background: #fff8f8; border: 1px solid #e8c0c0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+.error-example .label { font-weight: bold; font-size: 0.85em; color: #a04040; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
+.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
+.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+ol li, ul li { margin-bottom: 0.5em; }
+.syllogism-block { background: #f0f4f0; border-left: 4px solid #4a7a4a; padding: 14px 18px; margin: 1em 0; font-style: italic; border-radius: 0 3px 3px 0; }
+.syllogism-block strong { font-style: normal; }
+.step-box { background: #f0f4f0; border: 1px solid #b0c8b0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+.step-box .step { font-family: Arial, sans-serif; font-size: 0.85em; font-weight: bold; color: #4a7a4a; display: block; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<h1>Lesson 6.01c — Reconstructing Enthymemes</h1>
+
+<div class="benchmark">
+  <strong>CPALMS Benchmarks:</strong> ELA.11.C.1.4 — Write arguments to support claims using valid reasoning; ELA.11.R.3.3 — Analyze and evaluate the effectiveness of an author's argument; ELA.12.R.3.4 — Evaluate an author's reasoning; ELA.K12.EE.1.1 — Cite evidence to explain and justify reasoning
+</div>
+
+<p class="objective"><strong>Learning Objective:</strong> Students will be able to apply the complete seven-step reconstruction procedure to any enthymeme, handle cases where the middle term is disguised by paraphrase or synonymy, and assess whether a reconstructed argument is valid and whether its premises are defensible.</p>
+
+<h2>Orientation</h2>
+
+<p>You can now identify the order of an enthymeme and supply a missing premise charitably. This lesson integrates those skills into a complete reconstruction procedure — a systematic method for converting any enthymematic argument in natural language into a fully explicit standard-form categorical syllogism. The procedure handles the complication most students find hardest: arguments where the middle term does not appear verbatim in both premises but is expressed through synonyms or paraphrase. Mastering this procedure prepares you directly for the applied argument analysis and construction work of Weeks 8 and 9.</p>
+
+<h2>Intuitive Entry Point</h2>
+
+<p>Imagine you receive a fragmentary legal brief: part of the argument is missing. A good lawyer does not simply note that the brief is incomplete — she reconstructs the missing portion, checks whether the reconstructed argument is valid, and identifies whether the missing premise is the argument's weak point. Then she decides whether to challenge the premise or to attack the argument's form. This is exactly what enthymeme reconstruction requires: disciplined reconstruction followed by disciplined evaluation. The procedure below is what that discipline looks like when applied to categorical logic.</p>
+
+<h2>The Complete Reconstruction Procedure</h2>
+
+<div class="step-box">
+  <span class="step">Step 1 — Find the Conclusion.</span>
+  Identify the claim the argument is trying to establish. Look for conclusion indicators ("therefore," "so," "thus," "hence," "it follows that") or ask: what is the arguer trying to convince you of?
+</div>
+
+<div class="step-box">
+  <span class="step">Step 2 — Identify the Stated Premise(s).</span>
+  Extract whatever the arguer explicitly offers as support. Convert it to a categorical statement in standard form if it is not already.
+</div>
+
+<div class="step-box">
+  <span class="step">Step 3 — Identify the Terms Present.</span>
+  Label the subject and predicate of the conclusion as S and P. Find M — the term that appears in the stated premise but not in the conclusion.
+</div>
+
+<div class="step-box">
+  <span class="step">Step 4 — Identify M When It Is Disguised.</span>
+  If no single term appears verbatim in both the stated premise and the conclusion, look for synonyms, paraphrases, or conceptual equivalents. Translate the argument into a common vocabulary before assigning term labels.
+</div>
+
+<div class="step-box">
+  <span class="step">Step 5 — Formulate the Missing Premise.</span>
+  Using M and the term from the conclusion not yet covered, write the missing categorical statement. Apply the Principle of Charity — make it as defensible as possible while still producing a valid inference.
+</div>
+
+<div class="step-box">
+  <span class="step">Step 6 — Arrange in Standard Form.</span>
+  Write the full syllogism: major premise (containing P) first, minor premise (containing S) second, conclusion last.
+</div>
+
+<div class="step-box">
+  <span class="step">Step 7 — Verify Validity and Evaluate Premises.</span>
+  Apply the five rules to check validity. Then evaluate each premise: is it true? Is it defensible? If a premise is false or highly contestable, note it — that is the argument's weak point.
+</div>
+
+<h2>Worked Examples</h2>
+
+<div class="example">
+  <span class="label">Example 1 — Standard Reconstruction</span>
+  <p><strong>Enthymeme:</strong> "Language shapes thought, because language determines the categories through which we perceive the world."</p>
+  <p><strong>Step 1 — Conclusion:</strong> "Language shapes thought." S = language; P = things that shape thought.</p>
+  <p><strong>Step 2 — Stated premise:</strong> "Language determines the categories through which we perceive the world." M = things that determine the categories through which we perceive the world.</p>
+  <p><strong>Step 3 — Terms:</strong> S = language; P = things that shape thought; M = things that determine the categories through which we perceive the world.</p>
+  <p><strong>Step 5 — Missing major premise:</strong> "All things that determine the categories through which we perceive the world are things that shape thought."</p>
+  <p><strong>Step 6 — Standard form:</strong></p>
+  <div class="syllogism-block">
+    All things that determine perceptual categories are things that shape thought.<br>
+    Language is something that determines perceptual categories.<br>
+    Therefore, language is something that shapes thought.
+  </div>
+  <p><strong>Step 7 — Validity:</strong> AAA-1 (Barbara). Valid. The major premise is philosophically contestable but not obviously false — it is the locus of genuine debate in philosophy of language.</p>
+  <div style="display:flex;justify-content:center;margin:1.2em 0;">
+    <svg viewBox="0 0 420 330" width="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Venn diagram confirming the reconstructed syllogism is valid: S minus M shaded, and M minus P shaded, leaving no room for S to be outside P">
+      <!-- S \ M (minor premise) -->
+      <circle cx="140" cy="130" r="95" fill="#808080" fill-opacity="0.35"/>
+      <circle cx="210" cy="205" r="95" fill="#fff"/>
+      <!-- M \ P (major premise), P white-out clipped to M so it doesn't erase S∩P-only -->
+      <defs><clipPath id="ent1-clipM"><circle cx="210" cy="205" r="95"/></clipPath></defs>
+      <circle cx="210" cy="205" r="95" fill="#808080" fill-opacity="0.35"/>
+      <circle cx="280" cy="130" r="95" fill="#fff" clip-path="url(#ent1-clipM)"/>
+      <circle cx="140" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="280" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="210" cy="205" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <text x="62" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">S</text>
+      <text x="348" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">P</text>
+      <text x="204" y="318" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">M</text>
+    </svg>
+  </div>
+  <p style="font-family:Arial,sans-serif;font-size:.85em;color:#555;text-align:center;">The minor premise shades every part of S outside M; the major premise shades every part of M outside P. Together they shade the entire S∩P-outside-M region as well as leaving no unshaded path from S to outside P — the conclusion "All S are P" is already visible in the diagram, confirming the reconstruction is valid.</p>
+</div>
+
+<div class="example">
+  <span class="label">Example 2 — Disguised Middle Term</span>
+  <p><strong>Enthymeme:</strong> "The treaty must have been effective — conflict between the two nations ceased within a year of its signing."</p>
+  <p><strong>Step 1 — Conclusion:</strong> "The treaty was effective." S = the treaty; P = effective agreements.</p>
+  <p><strong>Step 2 — Stated premise:</strong> "Conflict between the two nations ceased within a year of the treaty's signing."</p>
+  <p><strong>Step 4 — Disguised M:</strong> The stated premise mentions "conflict ceasing within a year of signing." The conclusion says the treaty was "effective." What connects them? The implied middle term: "agreements whose signing is followed by a cessation of conflict within a year." This is the characteristic of the treaty that the arguer treats as evidence of effectiveness. M = agreements followed by rapid cessation of conflict.</p>
+  <p><strong>Step 5 — Missing major premise:</strong> "All agreements followed by a rapid cessation of conflict are effective agreements."</p>
+  <p><strong>Step 6 — Standard form:</strong></p>
+  <div class="syllogism-block">
+    All agreements followed by a rapid cessation of conflict are effective agreements.<br>
+    This treaty was followed by a rapid cessation of conflict.<br>
+    Therefore, this treaty is an effective agreement.
+  </div>
+  <p><strong>Step 7 — Evaluation:</strong> Valid (AAA-1). But the major premise is highly contestable — conflict may cease for reasons independent of the treaty (exhaustion of both sides, change in leadership, economic pressure). This is the argument's weak point.</p>
+  <div style="display:flex;justify-content:center;margin:1.2em 0;">
+    <svg viewBox="0 0 420 330" width="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Venn diagram confirming the second reconstructed syllogism is valid, same AAA-1 pattern as Example 1">
+      <circle cx="140" cy="130" r="95" fill="#808080" fill-opacity="0.35"/>
+      <circle cx="210" cy="205" r="95" fill="#fff"/>
+      <defs><clipPath id="ent2-clipM"><circle cx="210" cy="205" r="95"/></clipPath></defs>
+      <circle cx="210" cy="205" r="95" fill="#808080" fill-opacity="0.35"/>
+      <circle cx="280" cy="130" r="95" fill="#fff" clip-path="url(#ent2-clipM)"/>
+      <circle cx="140" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="280" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="210" cy="205" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <text x="62" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">S</text>
+      <text x="348" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">P</text>
+      <text x="204" y="318" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">M</text>
+    </svg>
+  </div>
+  <p style="font-family:Arial,sans-serif;font-size:.85em;color:#555;text-align:center;">The same AAA-1 pattern as Example 1: shading everything in S outside M and everything in M outside P leaves the conclusion "This treaty is an effective agreement" already visible — the reconstruction's <em>form</em> is valid, independent of whether the major premise is actually true.</p>
+</div>
+
+<h2>Connection to Argument</h2>
+
+<p>Reconstruction reveals what an argument actually commits to. Many arguments that sound compelling in natural language turn out to rest on premises that, once made explicit, are obviously false or highly controversial. Equally, some arguments that sound vague or impressionistic turn out, on reconstruction, to have a clean valid form and defensible premises. The ability to see which is which — to distinguish genuinely good arguments from those that merely sound good — is what this entire course has been building toward. It is the practical payoff of formal logic as a discipline.</p>
+
+<div class="practice">
+  <h2>Practice Problems</h2>
+
+  <p><strong>Part A — Full Reconstruction.</strong> Apply all seven steps to each enthymeme. Show each step. At Step 7, state the mood-figure pair and identify the argument's weakest premise.</p>
+
+  <ol>
+    <li>"The specimen must be igneous — it shows a crystalline structure throughout."</li>
+    <li>"No act performed under complete ignorance of consequences can be blameworthy. He had no way of knowing what would happen."</li>
+    <li>"Euclid's geometry is deductive, since it derives all its theorems from a small set of axioms."</li>
+  </ol>
+
+  <p><strong>Part B — Disguised Terms.</strong> For each argument, identify the disguised middle term and translate the argument into consistent categorical vocabulary before reconstructing.</p>
+
+  <ol>
+    <li>"The proposed legislation cannot succeed — the public has no appetite for further regulation of this kind."</li>
+    <li>"His conclusion follows necessarily — he began from uncontested premises and each step followed from the last."</li>
+  </ol>
+
+  <p><strong>Part C — Reconstruction and Evaluation.</strong> Reconstruct the following enthymeme fully, then write a 3–4 sentence evaluation: Is the argument valid? Is the major premise defensible? If you were to challenge this argument, which element would you target and why?<br><br>
+  <em>"Free inquiry is essential to any healthy society, because only through the free exchange of ideas can truth emerge and prevail over error."</em></p>
+</div>
+
+<div class="looking-ahead">
+  <strong>Looking Ahead:</strong> Next week you extend enthymeme reconstruction to compound arguments — the more complex structures where multiple arguments are nested, chained, and interwoven in extended texts. The final two weeks of the course are dedicated practice: identifying and constructing arguments in real texts and preparing your Final Essay.
+</div>
+
+</body>
+</html>

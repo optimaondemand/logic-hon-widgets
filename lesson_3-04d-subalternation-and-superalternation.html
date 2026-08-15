@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3.04d — Subalternation and Superalternation</title>
+<style>
+body{font-family:Georgia,'Times New Roman',serif;max-width:820px;margin:0 auto;padding:24px 28px;line-height:1.7;color:#1a1a1a;background:#fff}
+h1{font-size:1.55em;border-bottom:2px solid #2a2a2a;padding-bottom:.3em;margin-bottom:.4em}
+h2{font-size:1.2em;margin-top:1.8em;margin-bottom:.4em;color:#1a1a1a}
+h3{font-size:1.05em;margin-top:1.4em;color:#1a1a1a}
+.benchmark{background:#f2f2f2;border-left:4px solid #555;padding:8px 14px;font-size:.88em;margin-bottom:.5em;font-family:Arial,sans-serif}
+.objective{font-style:italic;color:#333;margin-bottom:1.8em;font-size:.95em}
+.example{background:#f9f9f9;border:1px solid #ddd;padding:14px 18px;margin:1em 0;border-radius:3px}
+.example .label{font-weight:bold;font-size:.85em;color:#555;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:6px}
+.rule-box{background:#f0f7f0;border:1px solid #a0c8a0;border-left:4px solid #3a8a3a;padding:14px 18px;margin:1.2em 0;border-radius:3px}
+.practice{background:#f5f7fa;border:1px solid #d0d7e3;padding:18px 22px;margin:2em 0;border-radius:4px}
+.practice h2{margin-top:0;border-bottom:1px solid #d0d7e3;padding-bottom:.3em}
+.looking-ahead{background:#eef3f9;border-left:4px solid #4a7fb5;padding:12px 18px;margin-top:2.5em;font-style:italic;font-size:.95em;border-radius:0 4px 4px 0}
+.inference-table{width:100%;border-collapse:collapse;margin:1.2em 0;font-size:.92em}
+.inference-table th,.inference-table td{border:1px solid #ccc;padding:8px 12px;text-align:center}
+.inference-table th{background:#f0f0f0;font-weight:bold}
+.undetermined{color:#888;font-style:italic}
+.full-summary{width:100%;border-collapse:collapse;margin:1.4em 0;font-size:.9em}
+.full-summary th,.full-summary td{border:1px solid #bbb;padding:7px 11px;text-align:center}
+.full-summary th{background:#e8e8e8;font-weight:bold}
+ol li,ul li{margin-bottom:.5em}
+.square-container{margin:2em auto;max-width:560px;text-align:center}
+</style>
+</head>
+<body>
+
+<h1>Lesson 3.04d — Subalternation and Superalternation</h1>
+
+<div class="benchmark">
+  <strong>CPALMS Benchmarks:</strong> ELA.11.R.2.4 — Analyze claims and use evidence to evaluate them &nbsp;|&nbsp; ELA.K12.EE.1.1 — Cite evidence to explain and justify reasoning &nbsp;|&nbsp; ELA.11.C.5.1 — Improve reasoning through revision
+</div>
+
+<p class="objective"><strong>Learning Objective:</strong> Students will be able to state the rules of subalternation and superalternation, apply them to infer truth values of particular statements from universal statements (and vice versa), and complete a full inference analysis using all five Square of Opposition relationships together.</p>
+
+<h2>Where We Are</h2>
+
+<p>The three previous lessons covered the diagonal (contradictory) and horizontal (contrary and subcontrary) relationships on the Square. This lesson completes the Square with the vertical relationships: <strong>subalternation</strong>, which runs from the universal statements downward to the particular statements, and <strong>superalternation</strong>, which runs upward. Together, all five relationships now give you a complete inference map — the ability to determine, from any known truth value on the Square, what follows for each of the other three statements.</p>
+
+<h2>Intuitive Entry Point</h2>
+
+<p>Think about what it means to know something universal. If you know that every single mammal is warm-blooded, then you certainly know that <em>some</em> mammals are warm-blooded — the particular claim is guaranteed by the universal. The stronger claim implies the weaker. If all mammals are warm-blooded, then at minimum some are. The universal carries the particular inside it.</p>
+
+<p>Now consider the reverse. If you discover that it is false that some mammals are warm-blooded — that not a single mammal is warm-blooded — what does this tell you about the universal? If no mammals are warm-blooded (the particular is false), then certainly not all mammals are warm-blooded. Falsity of the particular refutes the corresponding universal. The particular cannot be false while the universal is true — the universal would be exposed as wrong the moment any counterexample appears.</p>
+
+<h2>Subalternation: Truth Flows Downward</h2>
+
+<p>The term <em>subalternation</em> comes from the Latin <em>sub</em> (under) and <em>alter</em> (other) — the statement "under" the other in the vertical pairing. On the Square, the particular statements (I and O) are the subalterns of their corresponding universals (A and E).</p>
+
+<div class="rule-box">
+  <strong>Subalternation Rule:</strong> If the universal is true, the particular must be true.<br><br>
+  — If A ("All S are P") is <em>true</em>, then I ("Some S are P") is <em>true</em>.<br>
+  — If E ("No S are P") is <em>true</em>, then O ("Some S are not P") is <em>true</em>.
+</div>
+
+<p>The reasoning: a universal claim covers all members of S. If all S are P, then certainly at least one S is P — the I statement follows necessarily. If no S are P, then certainly at least one S is not P — the O statement follows. The universal guarantees the particular because the particular asserts only the minimum that the universal guarantees.</p>
+
+<h2>Superalternation: Falsity Flows Upward</h2>
+
+<p>The superalternation relationship is the contrapositive of subalternation. If the universal's truth guarantees the particular's truth, then the particular's falsity guarantees the universal's falsity.</p>
+
+<div class="rule-box">
+  <strong>Superalternation Rule:</strong> If the particular is false, the universal must be false.<br><br>
+  — If I ("Some S are P") is <em>false</em>, then A ("All S are P") is <em>false</em>.<br>
+  — If O ("Some S are not P") is <em>false</em>, then E ("No S are P") is <em>false</em>.
+</div>
+
+<p>The reasoning: if "Some S are P" is false — if not a single S is P — then certainly not all S are P. The universal cannot survive the falsity of its particular. If the minimal claim (at least one) fails, the maximal claim (all) fails more severely.</p>
+
+<h2>The Undetermined Cases</h2>
+
+<p>The vertical relationships do not work symmetrically. Truth flows from universal down to particular; falsity flows from particular up to universal. The remaining two cases — falsity of the universal and truth of the particular — do not determine their counterpart:</p>
+
+<ul>
+  <li><strong>If A is false</strong> → I is <em>undetermined</em>. The A could be false because most S are P (I might be true) or because no S are P (I would be false). You cannot tell from A's falsity alone.</li>
+  <li><strong>If I is true</strong> → A is <em>undetermined</em>. Knowing some S are P does not tell you whether all S are P. The particular affirmative is compatible with the universal affirmative being either true or false.</li>
+  <li><strong>If E is false</strong> → O is <em>undetermined</em>. Same structure as the A–I case on the negative side.</li>
+  <li><strong>If O is true</strong> → E is <em>undetermined</em>. Knowing some S are not P does not tell you whether all S are not P.</li>
+</ul>
+
+<table class="inference-table">
+  <thead>
+    <tr><th>If you know this…</th><th>…then this follows (Subalternation A→I, E→O)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>A is <strong>True</strong></td><td>I is <strong>True</strong></td></tr>
+    <tr><td>I is <strong>False</strong></td><td>A is <strong>False</strong> (superalternation)</td></tr>
+    <tr><td>A is <strong>False</strong></td><td>I is <span class="undetermined">Undetermined</span></td></tr>
+    <tr><td>I is <strong>True</strong></td><td>A is <span class="undetermined">Undetermined</span></td></tr>
+    <tr><td>E is <strong>True</strong></td><td>O is <strong>True</strong></td></tr>
+    <tr><td>O is <strong>False</strong></td><td>E is <strong>False</strong> (superalternation)</td></tr>
+    <tr><td>E is <strong>False</strong></td><td>O is <span class="undetermined">Undetermined</span></td></tr>
+    <tr><td>O is <strong>True</strong></td><td>E is <span class="undetermined">Undetermined</span></td></tr>
+  </tbody>
+</table>
+
+<div class="example">
+  <span class="label">Worked Example — Subalternation</span>
+  <p><strong>Given (TRUE):</strong> "All right angles are angles measuring exactly 90 degrees." (A statement)</p>
+  <p><strong>By subalternation:</strong> "Some right angles are angles measuring exactly 90 degrees." (I statement) — <strong>True</strong>. Since the universal is true, the particular must be true. This is not a new discovery — it follows immediately from the universal by subalternation.</p>
+</div>
+
+<div class="example">
+  <span class="label">Worked Example — Superalternation</span>
+  <p><strong>Given (FALSE):</strong> "Some triangles are figures with more than three sides." (I statement — false, since all triangles have exactly three sides)</p>
+  <p><strong>By superalternation:</strong> "All triangles are figures with more than three sides." (A statement) — <strong>False</strong>. If the particular is false, the universal must be false. No triangle has more than three sides, so the "some" claim fails, and the "all" claim fails even more severely.</p>
+</div>
+
+<h2>A Note on Classical vs. Modern Logic</h2>
+
+<p>Subalternation depends on the assumption that the subject class is non-empty. If "All S are P" is true but S is an empty class (there are no S's), then "Some S are P" would be false — because there are no members of S to be P. In classical (traditional) logic, we follow Aristotle in assuming that subject classes are non-empty. Under this assumption, subalternation holds. Modern (Boolean) logic does not make this assumption, and subalternation does not hold in the modern square. This course follows the classical interpretation.</p>
+
+<h2>The Complete Square: A Final Visual Review</h2>
+
+<p>Before the summary table, look once more at the whole diagram with all five relationships in place. Every inference you have learned this week is a path along one of these five lines.</p>
+
+<div class="square-container">
+  <svg width="100%" height="420" viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Square of Opposition diagram with all five relationships labeled">
+    <!-- Diagonals (Contradictories) -->
+    <line x1="100" y1="70" x2="380" y2="330" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <line x1="380" y1="70" x2="100" y2="330" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <text x="175" y="145" font-family="Arial" font-size="12.5" fill="#666" text-anchor="middle">A &#8596; O</text>
+    <text x="175" y="160" font-family="Arial" font-size="11" fill="#666" text-anchor="middle">Contradictories</text>
+    <text x="305" y="145" font-family="Arial" font-size="12.5" fill="#666" text-anchor="middle">E &#8596; I</text>
+    <text x="305" y="160" font-family="Arial" font-size="11" fill="#666" text-anchor="middle">Contradictories</text>
+
+    <!-- Top edge: Contraries -->
+    <line x1="130" y1="60" x2="350" y2="60" stroke="#555" stroke-width="1.5"/>
+    <text x="240" y="42" font-family="Arial" font-size="13" fill="#333" text-anchor="middle">Contraries (A &#8596; E)</text>
+
+    <!-- Bottom edge: Subcontraries -->
+    <line x1="130" y1="340" x2="350" y2="340" stroke="#555" stroke-width="1.5"/>
+    <text x="240" y="378" font-family="Arial" font-size="13" fill="#333" text-anchor="middle">Subcontraries (I &#8596; O)</text>
+
+    <!-- Left edge: Subalternation/Superalternation A-I -->
+    <line x1="100" y1="90" x2="100" y2="310" stroke="#555" stroke-width="1.5"/>
+    <text x="55" y="195" font-family="Arial" font-size="11.5" fill="#333" text-anchor="middle" transform="rotate(-90 55 195)">Subalternation (A&#8595;I) / Superalternation (I&#8593;A)</text>
+
+    <!-- Right edge: Subalternation/Superalternation E-O -->
+    <line x1="380" y1="90" x2="380" y2="310" stroke="#555" stroke-width="1.5"/>
+    <text x="425" y="195" font-family="Arial" font-size="11.5" fill="#333" text-anchor="middle" transform="rotate(90 425 195)">Subalternation (E&#8595;O) / Superalternation (O&#8593;E)</text>
+
+    <!-- Corner boxes -->
+    <rect x="40" y="30" width="120" height="60" rx="4" fill="#f2f2f2" stroke="#555" stroke-width="1.5"/>
+    <text x="100" y="55" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="#1a1a1a" text-anchor="middle">A</text>
+    <text x="100" y="72" font-family="Arial" font-size="11" fill="#555" text-anchor="middle">"All S are P"</text>
+
+    <rect x="320" y="30" width="120" height="60" rx="4" fill="#f2f2f2" stroke="#555" stroke-width="1.5"/>
+    <text x="380" y="55" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="#1a1a1a" text-anchor="middle">E</text>
+    <text x="380" y="72" font-family="Arial" font-size="11" fill="#555" text-anchor="middle">"No S are P"</text>
+
+    <rect x="40" y="310" width="120" height="60" rx="4" fill="#f2f2f2" stroke="#555" stroke-width="1.5"/>
+    <text x="100" y="335" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="#1a1a1a" text-anchor="middle">I</text>
+    <text x="100" y="352" font-family="Arial" font-size="11" fill="#555" text-anchor="middle">"Some S are P"</text>
+
+    <rect x="320" y="310" width="120" height="60" rx="4" fill="#f2f2f2" stroke="#555" stroke-width="1.5"/>
+    <text x="380" y="335" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="#1a1a1a" text-anchor="middle">O</text>
+    <text x="380" y="352" font-family="Arial" font-size="11" fill="#555" text-anchor="middle">"Some S are not P"</text>
+  </svg>
+</div>
+
+<p>With all five relationships in hand, you can now determine the truth values of all four statements from the truth value of any one of them. The following table summarizes what follows from a given A statement being true:</p>
+
+<table class="full-summary">
+  <thead>
+    <tr><th>Given: A is TRUE</th><th>Statement</th><th>Truth Value</th><th>Relationship</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>A: "All S are P"</td><td>GIVEN</td><td>True</td><td>—</td></tr>
+    <tr><td>E: "No S are P"</td><td>Universal Negative</td><td>False</td><td>Contrary</td></tr>
+    <tr><td>I: "Some S are P"</td><td>Particular Affirmative</td><td>True</td><td>Subalternation</td></tr>
+    <tr><td>O: "Some S are not P"</td><td>Particular Negative</td><td>False</td><td>Contradictory</td></tr>
+  </tbody>
+</table>
+
+<p>When A is true: E is false (contrary), I is true (subalternation), O is false (contradictory). Four definite values from one starting point — because A is the strongest statement and its truth fully determines the others.</p>
+
+<div class="practice">
+  <h2>Practice</h2>
+
+  <p><strong>Part A — Subalternation.</strong> For each universal statement, determine what follows by subalternation. Write the particular statement and its truth value.</p>
+  <ol>
+    <li>Given TRUE: "All Euclidean triangles are figures with interior angles summing to 180 degrees." → I statement?</li>
+    <li>Given TRUE: "No composite number is a prime number." → O statement?</li>
+    <li>Given FALSE: "All swans are white birds." → I statement? (apply superalternation logic)</li>
+  </ol>
+
+  <p><strong>Part B — Superalternation.</strong> For each particular statement, determine what follows by superalternation.</p>
+  <ol>
+    <li>Given FALSE: "Some equilateral triangles are scalene triangles." → A statement?</li>
+    <li>Given FALSE: "Some prime numbers are even numbers greater than 2." → A statement?</li>
+  </ol>
+
+  <p><strong>Part C — Full Square Analysis.</strong> Use the complete Square of Opposition to determine the truth value of all four statements, given the starting condition. Use the same subject and predicate terms for all four statements. Name the relationship used for each inference.</p>
+
+  <p><em>Given:</em> The E statement is TRUE: "No act of genuine deception is an act of honesty."</p>
+  <ol>
+    <li>A statement: "All acts of genuine deception are acts of honesty." → Truth value and relationship?</li>
+    <li>I statement: "Some acts of genuine deception are acts of honesty." → Truth value and relationship?</li>
+    <li>O statement: "Some acts of genuine deception are not acts of honesty." → Truth value and relationship?</li>
+  </ol>
+
+  <p><strong>Part D — Synthesis.</strong> In 4–5 sentences, explain why the phrase "truth flows downward, falsity flows upward" accurately describes the subalternation relationship. Use an original example to illustrate each direction. Do not merely restate the rule — explain why the rule makes logical sense.</p>
+</div>
+
+<div class="looking-ahead">
+  <strong>Looking Ahead:</strong> With the Square of Opposition complete and all five relationships mastered, you are ready for the Midterm Examination, which covers the full range of Q1 material: reasoning and argument types from Weeks 1–2, informal fallacies from Weeks 3–6, terms and statements from Weeks 7–8, and the Square of Opposition from this week. Review the complete distribution table from Lesson 3.03d and the inference table from this lesson as your primary reference points.
+</div>
+
+</body>
+</html>

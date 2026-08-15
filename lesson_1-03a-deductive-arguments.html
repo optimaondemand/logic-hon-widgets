@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1.03a — Deductive Arguments</title>
+<style>
+body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
+h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
+h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
+.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
+.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
+.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.error-example { background: #fff8f8; border: 1px solid #e8c0c0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+.error-example .label { font-weight: bold; font-size: 0.85em; color: #a04040; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
+.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
+.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+ol li, ul li { margin-bottom: 0.5em; }
+table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
+th { background: #f0f0f0; font-family: Arial, sans-serif; font-size: 0.9em; }
+</style>
+</head>
+<body>
+
+<h1>Lesson 1.03a — Deductive Arguments</h1>
+
+<div class="benchmark">
+  <strong>CPALMS Benchmarks:</strong> ELA.11.R.2.4 — Compare development of multiple arguments; evaluate effectiveness and validity of reasoning &nbsp;|&nbsp; ELA.K12.EE.1.1 — Cite evidence to explain and justify reasoning
+</div>
+
+<p class="objective"><strong>Learning Objective:</strong> Students will be able to identify deductive arguments, explain what it means for a deductive argument to be valid, and distinguish valid from invalid deductive reasoning.</p>
+
+<h2>Orientation: Where We Are</h2>
+
+<p>Week 1 established what an argument is: a set of statements in which premises are offered as reasons for a conclusion. You also learned why that structure matters — arguments differ from mere persuasion because they address the intellect, offering reasons that can be examined rather than pressure that can only be resisted or accepted. Now a new question opens: not all arguments work the same way. The standard by which an argument succeeds depends entirely on what kind of argument it is. Today focuses on the strongest possible kind, the deductive argument, in which the conclusion, if the premises are true, cannot be otherwise. Understanding deductive reasoning is not just one chapter in a longer story; it is the foundation on which all formal logic rests.</p>
+
+<h2>Intuitive Entry: The "Must Follow" Feeling</h2>
+
+<p>Before the formal vocabulary, consider this scenario. Someone tells you two things: "Every student enrolled in this course has completed the prerequisite" and "You are enrolled in this course." Does it follow that you completed the prerequisite? Stop for a moment and notice what happens in your mind. You do not need to gather more evidence. You do not need to poll other students or consult a database. You cannot coherently accept both statements and deny the conclusion. The conclusion is not probable or likely — it is locked in. Accepting the two premises and rejecting the conclusion is not just wrong; it is contradictory.</p>
+
+<p>That sense of inevitability is exactly what deductive reasoning is about. You have experienced it many times without knowing the formal name for it. A mathematician proves that if a number is divisible by 4, it is divisible by 2 — and you see immediately that it could not be otherwise. A geometry proof tells you that if these two triangles share two sides and the included angle, they must be congruent. The word "must" is the fingerprint of deductive reasoning. Formal logic does not invent this experience; it takes it seriously enough to study it rigorously.</p>
+
+<h2>The Formal Concept</h2>
+
+<p>A <strong>deductive argument</strong> is one in which the premises are intended to guarantee the conclusion: not merely to make it likely, not merely to provide evidence for it, but to make it necessary. If the premises are true, the conclusion cannot be false. This is the highest standard an argument can meet.</p>
+
+<p>The word comes from the Latin <em>deducere</em>, meaning "to lead down" or "to lead from." The image is of a conclusion being led down from the premises the way a consequence follows from a principle. The premises stand above, the conclusion descends from them, and the descent is inescapable.</p>
+
+<h2>Validity: The Core Concept</h2>
+
+<p>When logicians evaluate a deductive argument, the central question is not whether the premises are true. The central question is whether the argument's <em>form</em> guarantees the conclusion. This property has a precise name: <strong>validity</strong>.</p>
+
+<p>A deductive argument is <strong>valid</strong> if and only if it is impossible for all the premises to be true while the conclusion is false. Validity is a property of the logical structure of the argument, not of its content. It answers a conditional question: <em>if</em> the premises were all true, would the conclusion have to be true?</p>
+
+<p>Two consequences of this definition deserve emphasis, because both run counter to students' first instincts.</p>
+
+<p>First: an argument can be valid even when its premises are false. Validity does not require true premises. It requires only that the structure is such that true premises could not lead to a false conclusion. If the form is correct, the argument is valid, full stop, regardless of whether anyone believes the premises or whether they happen to be true in the actual world.</p>
+
+<p>Second: an argument can have all true premises and a true conclusion and still be invalid. This surprises almost everyone the first time they encounter it. Truth in the premises and truth in the conclusion do not guarantee that the conclusion follows from the premises. The connection must be there in the form of the argument, not just in the facts of the matter. We will see exactly what this looks like in the worked examples below.</p>
+
+<h2>The Aristotelian Origin</h2>
+
+<p>The theory of deductive argument originates with Aristotle (384–322 BCE) in the <em>Prior Analytics</em>, where he developed the first systematic account of the <strong>syllogism</strong>. The word comes from the Greek <em>syllogismos</em>, meaning "a reckoning together" — a thinking-through in which separate premises are brought together to yield a conclusion. The canonical example, though Aristotle himself did not use this exact wording, is:</p>
+
+<div class="example">
+  <span class="label">The Classic Syllogism</span>
+  <p>P1: All men are mortal.<br>
+  P2: Socrates is a man.<br>
+  C: Therefore, Socrates is mortal.</p>
+</div>
+
+<p>The structure here is worth examining. P1 asserts something about a whole category ("all men"). P2 places an individual within that category ("Socrates is a man"). The conclusion follows necessarily: if every member of the category has a certain property, and this individual is a member of the category, then this individual has that property. The form is airtight. This course will build the full theory of categorical syllogisms — the formal rules that determine when this kind of argument succeeds and when it fails.</p>
+
+<p>A second classical deductive form is worth introducing here: <strong>modus ponens</strong> (Latin: "the mode that affirms"). Its structure is: "If P, then Q; P; therefore Q." For example: "If this metal is heated, it will expand; this metal is being heated; therefore it will expand." Like the syllogism, the form locks in the conclusion. If you accept both premises, you cannot coherently deny the conclusion.</p>
+
+<h2>Worked Examples</h2>
+
+<div class="example">
+  <span class="label">Example 1 — Valid Argument with False Premises</span>
+  <p>P1: All planets are made of cheese.<br>
+  P2: Mars is a planet.<br>
+  C: Therefore, Mars is made of cheese.</p>
+  <p><strong>Analysis:</strong> Both premises are false. The conclusion is false. And yet this argument is <em>valid</em>. If the premises were true — if planets really were made of cheese, and Mars really were a planet (which it is, but set that aside) — the conclusion would have to be true. The form is correct: the same structure as the Socrates syllogism. This example makes a useful point: validity is about structure, not substance. You can have a structurally perfect argument built on nonsense premises. That is not a good argument, but it is a valid one.</p>
+</div>
+
+<div class="example">
+  <span class="label">Example 2 — Valid Argument with True Premises (a Good Argument)</span>
+  <p>P1: All mammals are warm-blooded.<br>
+  P2: Whales are mammals.<br>
+  C: Therefore, whales are warm-blooded.</p>
+  <p><strong>Analysis:</strong> This argument is valid and its premises are true. The conclusion is therefore guaranteed to be true as well. This is what logicians call a <strong>sound</strong> argument: valid form plus true premises. Soundness is the full success condition for a deductive argument. We will return to this concept in a later lesson; for now, recognize that this example passes every test.</p>
+</div>
+
+<div class="error-example">
+  <span class="label">Common Error — Invalid Form Mistaken for Valid</span>
+  <p>P1: Some birds can fly.<br>
+  P2: A penguin is a bird.<br>
+  C: Therefore, a penguin can fly.</p>
+  <p><strong>Analysis:</strong> Students sometimes accept this as valid because it <em>looks</em> like a syllogism: it has two premises and a conclusion, and P2 places the penguin in a category mentioned in P1. But examine P1 carefully. It says <em>some</em> birds can fly — not all of them. That single word destroys the form. P1 would need to say "all birds can fly" for the conclusion to follow necessarily. As it stands, even if both premises are true, the conclusion is not guaranteed: penguins are birds, and some birds fly, but that tells us nothing about penguins specifically. The form is invalid. Note that the invalidity is in the structure, not merely in the false conclusion — even if the conclusion happened to be true, the argument would still be invalid because the form does not lock it in.</p>
+</div>
+
+<div class="error-example">
+  <span class="label">Common Error — True Premises and True Conclusion, Yet Invalid</span>
+  <p>P1: All squares are rectangles.<br>
+  P2: This shape is a rectangle.<br>
+  C: Therefore, this shape is a square.</p>
+  <p><strong>Analysis:</strong> Every statement here is or could be true, and yet the argument is invalid. P1 tells you that squares are a subset of rectangles. It does not tell you that rectangles are squares. Being a rectangle is consistent with being a square, but it does not guarantee it. The premises do not rule out the shape being an oblong rectangle, which is a rectangle and not a square. This error — accepting the premises and then assuming the relationship runs in both directions when it only runs one way — is a famous logical mistake called <strong>affirming the consequent</strong>. You will study it by name in a later lesson. For now, the lesson is this: never assume that an argument is valid because the conclusion happens to be true. The conclusion might be true for entirely separate reasons. Validity requires that the form itself force the conclusion; nothing else will do.</p>
+</div>
+
+<h2>Why Validity Is the Right First Question</h2>
+
+<p>When you encounter a deductive argument, the first question is not "do I agree with the premises?" or "is the conclusion one I find plausible?" The first question is: does the conclusion actually follow from the premises? This question is prior to all the others, because if the answer is no, the argument fails on its own terms — regardless of whether you happen to believe the conclusion through some other chain of reasoning.</p>
+
+<p>This matters practically. In a legal argument, a philosophical debate, a mathematical proof, or a scientific paper making a formal inference, the author is implicitly claiming that the conclusion follows from the stated reasons. Spotting an invalid form means exposing a flaw in the argument's structure, and that is a decisive objection. The critic who identifies an invalid form does not need to dispute the premises; the argument collapses on its own.</p>
+
+<p>This is what makes formal logic different from mere opinion or persuasion. Opinion can be accepted or rejected based on feeling; a structural critique of a deductive argument cannot be answered by asserting the conclusion more confidently. The form either holds or it does not, and that question has a determinate answer.</p>
+
+<div class="practice">
+  <h2>Practice Problems</h2>
+
+  <p><strong>Recognition</strong></p>
+  <ol>
+    <li>"All even numbers are divisible by 2. The number 14 is even. Therefore, 14 is divisible by 2." Is this argument deductive? How can you tell?</li>
+    <li>"Every time I have studied the night before a test, I have done well. I studied last night. So I will probably do well today." Is this deductive reasoning? Explain. What word in the conclusion is your key clue?</li>
+  </ol>
+
+  <p><strong>Analysis</strong></p>
+  <ol start="3">
+    <li>Examine this argument:<br>
+    P1: All reptiles are cold-blooded.<br>
+    P2: Snakes are reptiles.<br>
+    C: Therefore, snakes are cold-blooded.<br>
+    (a) Is the argument valid? (b) Are the premises true? (c) If you replaced "snakes" with a made-up creature called a "glorbfish" and kept everything else the same, would the argument still be valid? What does your answer tell you about the relationship between validity and facts about the world?</li>
+    <li>Examine this argument:<br>
+    P1: All athletes exercise regularly.<br>
+    P2: Maria exercises regularly.<br>
+    C: Therefore, Maria is an athlete.<br>
+    Is this valid or invalid? Identify the specific flaw in the reasoning. Consider: what does P1 actually say about the relationship between athletes and regular exercise? Does it say that <em>only</em> athletes exercise regularly?</li>
+  </ol>
+
+  <p><strong>Construction</strong></p>
+  <ol start="5">
+    <li>Write a valid deductive argument in standard form (P1, P2, C) using the following conclusion: "Therefore, this triangle has angles that sum to 180 degrees." Supply two premises that make the argument valid. Then check: if your premises were true, could the conclusion be false?</li>
+    <li>Write one valid deductive argument with false premises. Then write one invalid argument with all true premises. Label each clearly. Below each, write one sentence explaining what makes the first valid and the second invalid.</li>
+  </ol>
+</div>
+
+<div class="looking-ahead">
+  <strong>Looking Ahead:</strong> Deductive arguments represent one end of a spectrum: the end where the conclusion is guaranteed. In Lesson 1.03b, we examine inductive and abductive arguments, where the conclusion is supported without being guaranteed. That distinction is not a defect in those argument types — it is simply a different relationship between premises and conclusion, governed by different standards of evaluation. Understanding the full spectrum is what allows you to apply the right test to any argument you encounter.
+</div>
+
+</body>
+</html>

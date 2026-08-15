@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5.02d — Venn Diagram Practice</title>
+<style>
+body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
+h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
+h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
+h3 { font-size: 1.05em; margin-top: 1.4em; margin-bottom: 0.3em; color: #2a2a2a; }
+.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
+.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
+.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.error-example { background: #fff8f8; border: 1px solid #e8c0c0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+.error-example .label { font-weight: bold; font-size: 0.85em; color: #a04040; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
+.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
+.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+ol li, ul li { margin-bottom: 0.5em; }
+.checklist { background: #f0f4e8; border: 1px solid #b8cca0; padding: 14px 20px; border-radius: 4px; margin: 1.2em 0; }
+.checklist h3 { margin-top: 0; color: #3a5a20; font-size: 1em; }
+.verdict-valid { color: #2a6a2a; font-weight: bold; }
+.verdict-invalid { color: #8a2020; font-weight: bold; }
+.syllogism-block { border-left: 3px solid #aaa; padding-left: 14px; margin: 0.8em 0; font-style: italic; }
+.widget-embed { margin: 2em 0; border: 1px solid #d0d7e3; border-radius: 4px; overflow: hidden; }
+.widget-embed p { margin: 0; padding: 8px 14px; background: #f2f2f2; font-family: Arial, sans-serif; font-size: 0.82em; color: #555; }
+</style>
+</head>
+<body>
+
+<h1>Lesson 5.02d — Venn Diagram Practice</h1>
+
+<div class="benchmark">
+  <strong>CPALMS Benchmarks:</strong> ELA.11.C.1.5 — Improve writing by planning, revising, and editing, attending to what is most significant for a specific purpose and audience. &nbsp;|&nbsp; ELA.K12.EE.4.1 — Use appropriate collaborative techniques and active listening skills when engaging in discussions in a variety of situations.
+</div>
+
+<p class="objective">
+  <strong>Learning Objective:</strong> By the end of this lesson, you will be able to diagram any standard-form categorical syllogism using a three-circle Venn diagram, determine whether the argument is valid or invalid by inspecting the completed diagram, and explain in writing what the diagram reveals about the logical relationship between premises and conclusion.
+</p>
+
+<h2>Orientation</h2>
+
+<p>
+  Over the past three lessons you have acquired the full toolkit for diagramming categorical syllogisms. In Lesson 5.02a you reviewed the structure of a syllogism — major term, minor term, middle term, major premise, minor premise. In Lesson 5.02b you learned to construct and label a three-circle diagram and to represent each of the four categorical statement types: universal affirmative (A), universal negative (E), particular affirmative (I), and particular negative (O). In Lesson 5.02c you applied the validity test: a syllogism is valid if and only if the information contained in the diagrammed premises already shows the conclusion to be true, without requiring any additional marks.
+</p>
+
+<p>
+  What you have not yet done is work through a range of cases systematically. A single type of syllogism, practiced once, is not enough to build reliable diagramming skill. Categorical logic contains 256 possible syllogistic forms, and while only a fraction of those are valid, the variation in statement type, order, and term placement is wide enough to produce genuine surprises. This lesson consolidates the technique through five worked examples — moving from a clean valid form through an invalid case involving two particular premises — followed by three exercises you will complete on your own.
+</p>
+
+<div class="checklist">
+  <h3>Step-by-Step Diagramming Procedure</h3>
+  <ol>
+    <li><strong>Identify the three terms.</strong> The major term (P) is the predicate of the conclusion. The minor term (S) is the subject of the conclusion. The middle term (M) appears in both premises and nowhere in the conclusion.</li>
+    <li><strong>Write each premise in standard form.</strong> Determine which categorical statement type each premise is: A (All S are M), E (No S are M), I (Some S are M), or O (Some S are not M). Rewrite if necessary before drawing anything.</li>
+    <li><strong>Identify major and minor premises.</strong> The major premise states a relationship between M and P. The minor premise states a relationship between S and M.</li>
+    <li><strong>Draw and label the three-circle diagram.</strong> Place the S-circle on the left, the P-circle on the right, and the M-circle at the bottom center, overlapping both. Label each circle clearly before making any marks.</li>
+    <li><strong>Diagram universal premises first (shading).</strong> Shade out any region that a universal statement (A or E) declares to be empty. Shading means: nothing exists here. Handle all universal premises before placing any X-marks.</li>
+    <li><strong>Diagram particular premises second (X-marks).</strong> Place an X in the region where a particular statement (I or O) asserts that something exists. If the X is forced between two sub-regions by prior shading, it belongs in the unshaded sub-region. If both sub-regions remain open, place the X on the boundary line between them.</li>
+    <li><strong>Inspect the diagram for the conclusion.</strong> Ask: does the completed diagram already show the conclusion to be true? For a universal conclusion, check whether the relevant region is shaded. For a particular conclusion, check whether an X appears in the relevant region.</li>
+    <li><strong>State your verdict with justification.</strong> If the conclusion is visible in the diagram, the argument is valid. If it is not — if additional marks would be needed to show it — the argument is invalid. Write one sentence explaining what the diagram does or does not show.</li>
+  </ol>
+</div>
+
+<h2>Worked Examples</h2>
+
+<p>For each example below, read through the analysis carefully before moving to the next. Notice how the procedure applies consistently, even as the statement types and outcomes vary.</p>
+
+<h3>Example 1 — EAE-1 (Celarent) — Valid</h3>
+
+<div class="syllogism-block">
+  Major premise: No reptiles are warm-blooded. (E)<br>
+  Minor premise: All lizards are reptiles. (A)<br>
+  Conclusion: Therefore, no lizards are warm-blooded. (E)
+</div>
+
+<div class="example">
+  <span class="label">Step-by-Step Analysis</span>
+  <p><strong>Terms:</strong> S = lizards (subject of conclusion), P = warm-blooded (predicate of conclusion), M = reptiles (middle term, appears in both premises).</p>
+  <p><strong>Statement types:</strong> Major premise is E ("No reptiles are warm-blooded" = No M are P). Minor premise is A ("All lizards are reptiles" = All S are M).</p>
+  <p><strong>Diagram the E-premise first (universal).</strong> "No M are P" means the region where M and P overlap is entirely empty — shade the entire M∩P region. This includes both the part of that overlap that S also shares (the triple-overlap region S∩M∩P) and the part that S does not share (M∩P minus S). Both sub-regions of M∩P receive shading.</p>
+  <p><strong>Diagram the A-premise second (universal).</strong> "All S are M" means everything that is S is also M — the part of S that lies outside M is empty. Shade the S-only region (S minus M, minus P) and the S∩P region that does not include M (S∩P minus M). These two sub-regions of S that fall outside the M-circle are now shaded.</p>
+  <p><strong>Test the conclusion.</strong> The conclusion is "No lizards are warm-blooded" = No S are P. This requires that the entire S∩P overlap region be shaded. The S∩P region has two sub-regions: (1) S∩P∩M (the triple overlap) and (2) S∩P minus M. The E-premise shaded S∩P∩M; the A-premise shaded S∩P minus M. Both are shaded. The conclusion is already visible in the diagram.</p>
+  <div class="venn-container" style="display:flex;justify-content:center;margin:1.2em 0;">
+    <svg viewBox="0 0 420 330" width="320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Completed Venn diagram for Celarent: S minus M shaded, and M intersect P shaded">
+      <!-- Subtractive layer: S \ M (from the A-premise) -->
+      <circle cx="140" cy="130" r="95" fill="#808080" fill-opacity="0.35"/>
+      <circle cx="210" cy="205" r="95" fill="#fff"/>
+      <!-- Additive layer drawn on top: M ∩ P directly (from the E-premise) -->
+      <defs>
+        <clipPath id="ex1-clipM"><circle cx="210" cy="205" r="95"/></clipPath>
+        <clipPath id="ex1-clipP"><circle cx="280" cy="130" r="95"/></clipPath>
+      </defs>
+      <g clip-path="url(#ex1-clipM)"><g clip-path="url(#ex1-clipP)"><rect x="0" y="0" width="420" height="330" fill="#808080" fill-opacity="0.35"/></g></g>
+      <circle cx="140" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="280" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="210" cy="205" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <text x="62" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">S</text>
+      <text x="348" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">P</text>
+      <text x="204" y="318" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">M</text>
+    </svg>
+  </div>
+  <p><span class="verdict-valid">VALID.</span> The diagrammed premises fully account for every part of the S∩P region, leaving no unshaded area where a lizard could be warm-blooded.</p>
+</div>
+
+<h3>Example 2 — AII-1 (Darii) — Valid</h3>
+
+<div class="syllogism-block">
+  Major premise: All mammals are warm-blooded. (A)<br>
+  Minor premise: Some quadrupeds are mammals. (I)<br>
+  Conclusion: Therefore, some quadrupeds are warm-blooded. (I)
+</div>
+
+<div class="example">
+  <span class="label">Step-by-Step Analysis</span>
+  <p><strong>Terms:</strong> S = quadrupeds, P = warm-blooded, M = mammals.</p>
+  <p><strong>Statement types:</strong> Major premise is A (All M are P). Minor premise is I (Some S are M).</p>
+  <p><strong>Diagram the A-premise first (universal).</strong> "All mammals are warm-blooded" = All M are P. The part of M that lies outside P is empty. Shade the M-only region (M minus P, minus S) and the S∩M region that does not include P (S∩M minus P). These are the parts of M that fall outside the P-circle.</p>
+  <p><strong>Diagram the I-premise second (particular).</strong> "Some quadrupeds are mammals" = Some S are M. An X must go in the S∩M overlap region. The S∩M region has two sub-regions: (1) S∩M∩P (the triple overlap) and (2) S∩M minus P. The A-premise just shaded S∩M minus P. Since that sub-region is shaded (declared empty), the X cannot go there. It is forced into the only remaining open sub-region: S∩M∩P, the triple overlap.</p>
+  <p><strong>Test the conclusion.</strong> The conclusion is "Some quadrupeds are warm-blooded" = Some S are P. This requires an X somewhere in the S∩P overlap. There is an X in S∩M∩P, which is a sub-region of S∩P. The X is present.</p>
+  <div class="venn-container" style="display:flex;justify-content:center;margin:1.2em 0;">
+    <svg viewBox="0 0 420 330" width="320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Completed Venn diagram for Darii: M minus P shaded, with an X forced into the triple overlap">
+      <circle cx="210" cy="205" r="95" fill="#808080" fill-opacity="0.35"/>
+      <circle cx="280" cy="130" r="95" fill="#fff"/>
+      <circle cx="140" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="280" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="210" cy="205" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <text x="210" y="170" font-size="18" font-weight="bold" font-family="Arial, sans-serif" fill="#2a5a9b" text-anchor="middle">X</text>
+      <text x="62" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">S</text>
+      <text x="348" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">P</text>
+      <text x="204" y="318" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">M</text>
+    </svg>
+  </div>
+  <p><span class="verdict-valid">VALID.</span> The A-premise forced the particular premise's X into the triple-overlap region, which is inside S∩P — the conclusion is already shown by the premises.</p>
+</div>
+
+<h3>Example 3 — Two Particular Premises (II) — Invalid</h3>
+
+<div class="syllogism-block">
+  Major premise: Some mammals are carnivores. (I)<br>
+  Minor premise: Some reptiles are mammals. (I)<br>
+  Conclusion: Therefore, some reptiles are carnivores. (I)
+</div>
+
+<div class="error-example">
+  <span class="label">Step-by-Step Analysis — Invalid Form</span>
+  <p><strong>Terms:</strong> S = reptiles, P = carnivores, M = mammals.</p>
+  <p><strong>Statement types:</strong> Both premises are I-statements. There are no universal premises. Note that the minor premise is factually unusual (few reptiles are mammals), but logical validity is entirely independent of factual truth. We diagram the form as given.</p>
+  <p><strong>Diagram the first I-premise.</strong> "Some mammals are carnivores" = Some M are P. Place an X in the M∩P region. The M∩P region has two sub-regions: M∩P∩S (triple overlap) and M∩P minus S. Neither has been shaded by a prior universal premise. The X cannot be pinned to either sub-region alone. Place the X on the boundary between them, indicating it belongs to M∩P but its exact location within that region is undetermined.</p>
+  <p><strong>Diagram the second I-premise.</strong> "Some reptiles are mammals" = Some S are M. Place an X in the S∩M region. Again, S∩M has two sub-regions: S∩M∩P and S∩M minus P. Neither is shaded. Place the X on the boundary between them.</p>
+  <p><strong>Test the conclusion.</strong> The conclusion is "Some reptiles are carnivores" = Some S are P. This requires an X firmly within S∩P. Examine the diagram. The first X sits on the boundary of M∩P — it might be in S∩M∩P or it might not be. The second X sits on the boundary of S∩M — it might be in S∩M∩P or it might not be. Neither X is definitively located in S∩P. To conclude that some reptile is a carnivore, we would need to add a new mark — and adding a new mark means drawing on information not contained in the premises.</p>
+  <div class="venn-container" style="display:flex;justify-content:center;margin:1.2em 0;">
+    <svg viewBox="0 0 420 330" width="320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Venn diagram with two X marks both on boundary lines, neither definitively inside S intersect P">
+      <circle cx="140" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="280" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="210" cy="205" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <text x="224" y="180" font-size="16" font-weight="bold" font-family="Arial, sans-serif" fill="#8c1c1c" text-anchor="middle">X</text>
+      <text x="196" y="180" font-size="16" font-weight="bold" font-family="Arial, sans-serif" fill="#8c1c1c" text-anchor="middle">X</text>
+      <text x="62" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">S</text>
+      <text x="348" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">P</text>
+      <text x="204" y="318" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">M</text>
+    </svg>
+  </div>
+  <p><span class="verdict-invalid">INVALID.</span> Two particular premises cannot pin any X into the required region; the conclusion is not shown by the diagrammed premises. This illustrates a general rule: a syllogism with two particular premises is never valid.</p>
+</div>
+
+<h3>Example 4 — AEE-2 (Camestres) — Valid</h3>
+
+<div class="syllogism-block">
+  Major premise: All triangles are polygons. (A)<br>
+  Minor premise: No circles are polygons. (E)<br>
+  Conclusion: Therefore, no circles are triangles. (E)
+</div>
+
+<div class="example">
+  <span class="label">Step-by-Step Analysis</span>
+  <p><strong>Terms:</strong> S = circles (subject of conclusion), P = triangles (predicate of conclusion), M = polygons (middle term). This is a Figure 2 syllogism: the middle term is the predicate of both premises.</p>
+  <p><strong>Restate in standard subject-predicate form:</strong> Major premise = All P are M (All triangles are polygons). Minor premise = No S are M (No circles are polygons).</p>
+  <p><strong>Diagram the A-premise first (universal).</strong> "All P are M" means the part of P outside M is empty. Shade the P-only region (P minus M, minus S) and the S∩P region that does not include M (S∩P minus M).</p>
+  <p><strong>Diagram the E-premise second (universal).</strong> "No S are M" means the entire S∩M region is empty. Shade the S∩M region — both sub-regions of it: S∩M∩P (triple overlap) and S∩M minus P.</p>
+  <p><strong>Test the conclusion.</strong> The conclusion is "No circles are triangles" = No S are P. The entire S∩P region must be shaded. The S∩P region has two sub-regions: (1) S∩P∩M (triple overlap) and (2) S∩P minus M. The E-premise shaded S∩M∩P (triple overlap). The A-premise shaded S∩P minus M. Both sub-regions of S∩P are now shaded.</p>
+  <div class="venn-container" style="display:flex;justify-content:center;margin:1.2em 0;">
+    <svg viewBox="0 0 420 330" width="320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Completed Venn diagram for Camestres: P minus M shaded, and S intersect M shaded">
+      <!-- Subtractive layer: P \ M (from the A-premise) -->
+      <circle cx="280" cy="130" r="95" fill="#808080" fill-opacity="0.35"/>
+      <circle cx="210" cy="205" r="95" fill="#fff"/>
+      <!-- Additive layer on top: S ∩ M directly (from the E-premise) -->
+      <defs>
+        <clipPath id="ex4-clipS"><circle cx="140" cy="130" r="95"/></clipPath>
+        <clipPath id="ex4-clipM"><circle cx="210" cy="205" r="95"/></clipPath>
+      </defs>
+      <g clip-path="url(#ex4-clipS)"><g clip-path="url(#ex4-clipM)"><rect x="0" y="0" width="420" height="330" fill="#808080" fill-opacity="0.35"/></g></g>
+      <circle cx="140" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="280" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="210" cy="205" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <text x="62" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">S</text>
+      <text x="348" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">P</text>
+      <text x="204" y="318" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">M</text>
+    </svg>
+  </div>
+  <p><span class="verdict-valid">VALID.</span> The combination of the A-premise (which eliminates the part of P outside M) and the E-premise (which eliminates all of S∩M) together eliminate the entire S∩P region — exactly what the E-conclusion requires.</p>
+</div>
+
+<h3>Example 5 — AII-1 (Darii Variant with Different Content) — Valid</h3>
+
+<div class="syllogism-block">
+  Major premise: All conductors are shiny. (A)<br>
+  Minor premise: Some metals are conductors. (I)<br>
+  Conclusion: Therefore, some metals are shiny. (I)
+</div>
+
+<div class="example">
+  <span class="label">Step-by-Step Analysis</span>
+  <p><strong>Terms:</strong> S = metals, P = shiny, M = conductors.</p>
+  <p><strong>Statement types:</strong> Major premise is A (All M are P). Minor premise is I (Some S are M). This form is structurally identical to Example 2 but uses different content — a deliberate choice, because the same valid form should yield the same verdict regardless of subject matter. Recognizing structural equivalence is itself a logical skill.</p>
+  <p><strong>Diagram the A-premise first (universal).</strong> "All conductors are shiny" = All M are P. Shade every part of M that lies outside P: shade M-only (M minus P, minus S) and shade S∩M minus P.</p>
+  <p><strong>Diagram the I-premise second (particular).</strong> "Some metals are conductors" = Some S are M. An X belongs in S∩M. The sub-region S∩M minus P is now shaded (from the previous step). The X is forced into the only open sub-region of S∩M: the triple overlap S∩M∩P.</p>
+  <p><strong>Test the conclusion.</strong> "Some metals are shiny" = Some S are P. Is there an X in S∩P? Yes — the X sits in S∩M∩P, which is a part of S∩P.</p>
+  <div class="venn-container" style="display:flex;justify-content:center;margin:1.2em 0;">
+    <svg viewBox="0 0 420 330" width="320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Completed Venn diagram for the second Darii example: M minus P shaded, with an X forced into the triple overlap">
+      <circle cx="210" cy="205" r="95" fill="#808080" fill-opacity="0.35"/>
+      <circle cx="280" cy="130" r="95" fill="#fff"/>
+      <circle cx="140" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="280" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="210" cy="205" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <text x="210" y="170" font-size="18" font-weight="bold" font-family="Arial, sans-serif" fill="#2a5a9b" text-anchor="middle">X</text>
+      <text x="62" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">S</text>
+      <text x="348" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">P</text>
+      <text x="204" y="318" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">M</text>
+    </svg>
+  </div>
+  <p><span class="verdict-valid">VALID.</span> As in Example 2, the universal A-premise forces the particular premise's X into the triple-overlap region, making the particular conclusion visible. The content changed; the form and verdict did not. This stability is the point of formal logic.</p>
+</div>
+
+<h2>Common Diagramming Errors to Avoid</h2>
+
+<ul>
+  <li><strong>Mislabeling the circles.</strong> Assigning S, P, and M incorrectly at the start contaminates every subsequent step. Always identify your terms from the conclusion first (S is the subject, P is the predicate), then confirm that M appears in both premises. Label before you draw.</li>
+  <li><strong>Diagramming particular premises before universal ones.</strong> If you place an X in a region and then shade part of that region with a subsequent universal premise, you have introduced a contradiction. Universal premises (shading) always come first. This is not a convention but a requirement: shading constrains where X-marks can legitimately land.</li>
+  <li><strong>Placing an X in a shaded region.</strong> A shaded region is empty by definition; nothing can exist there. If your X lands in a shaded area, either the order of operations was wrong or you misidentified the region. Back up and check which premise forces the X and which premise did the shading.</li>
+  <li><strong>Forgetting to diagram one premise.</strong> Each premise contributes independent information. Omitting a premise produces an incomplete diagram, and the validity test on an incomplete diagram is meaningless. Verify that both premises have been represented before inspecting for the conclusion.</li>
+  <li><strong>Testing the conclusion before the diagram is complete.</strong> Reading the diagram for the conclusion before both premises are fully represented is a category error. The test asks what the premises together show. If even one premise is undiagrammed, the answer is not yet available.</li>
+</ul>
+
+<h2>Widget: Build the Diagram, Then Reveal Validity</h2>
+
+<div class="widget-embed">
+  <p>Interactive practice — diagram the two premises of each syllogism yourself, check your work, then reveal whether the argument is valid.</p>
+  <iframe src="https://optimaondemand.github.io/logic-hon-widgets/widget_venn-syllogism-builder.html" width="100%" height="700" style="border:none; display:block;" title="Venn Diagram Builder: Syllogism Validity"></iframe>
+</div>
+
+<div class="practice">
+  <h2>Practice: Diagram These Syllogisms Yourself</h2>
+
+  <p>For each syllogism below, follow the eight-step procedure from the checklist. Work on paper: draw the three-circle diagram, label your circles, shade and mark according to the premises, and then inspect for the conclusion. Record your verdict before reading the answer.</p>
+
+  <h3>Practice A</h3>
+  <div class="syllogism-block">
+    All quadrilaterals are polygons. (A)<br>
+    Some rhombuses are quadrilaterals. (I)<br>
+    Therefore, some rhombuses are polygons. (I)
+  </div>
+  <p><strong>Terms:</strong> S = rhombuses, P = polygons, M = quadrilaterals.</p>
+  <p><strong>Procedure reminder:</strong> Diagram the A-premise first (shade M outside P). Then place the X from the I-premise in S∩M; check whether the shading forces it into a specific sub-region.</p>
+  <div class="example">
+    <span class="label">Answer</span>
+    <div class="venn-container" style="display:flex;justify-content:center;margin:1.2em 0;">
+      <svg viewBox="0 0 420 330" width="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Completed Venn diagram for Practice A: M minus P shaded, with an X forced into the triple overlap">
+        <circle cx="210" cy="205" r="95" fill="#808080" fill-opacity="0.35"/>
+        <circle cx="280" cy="130" r="95" fill="#fff"/>
+        <circle cx="140" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <circle cx="280" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <circle cx="210" cy="205" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <text x="210" y="170" font-size="18" font-weight="bold" font-family="Arial, sans-serif" fill="#2a5a9b" text-anchor="middle">X</text>
+        <text x="62" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">S</text>
+        <text x="348" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">P</text>
+        <text x="204" y="318" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">M</text>
+      </svg>
+    </div>
+    <p><span class="verdict-valid">VALID — AII-1 (Darii).</span> "All quadrilaterals are polygons" shades S∩M minus P (the part of S∩M outside P). The I-premise places an X in S∩M; since S∩M minus P is shaded, the X migrates to S∩M∩P. S∩M∩P is a sub-region of S∩P, so the conclusion "Some rhombuses are polygons" is already visible in the diagram. This is the same valid form as Examples 2 and 5.</p>
+  </div>
+
+  <h3>Practice B</h3>
+  <div class="syllogism-block">
+    All oaks are deciduous. (A)<br>
+    No pines are deciduous. (E)<br>
+    Therefore, no pines are oaks. (E)
+  </div>
+  <p><strong>Terms:</strong> S = pines, P = oaks, M = deciduous. Note the figure: M is the predicate of both premises, making this a Figure 2 syllogism.</p>
+  <p><strong>Procedure reminder:</strong> Restate in standard form. Major premise: All P are M (All oaks are deciduous). Minor premise: No S are M (No pines are deciduous). Diagram universals in either order — both are universal here — and check that all sub-regions of S∩P end up shaded.</p>
+  <div class="example">
+    <span class="label">Answer</span>
+    <div class="venn-container" style="display:flex;justify-content:center;margin:1.2em 0;">
+      <svg viewBox="0 0 420 330" width="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Completed Venn diagram for Practice B: P minus M shaded, and S intersect M shaded">
+        <circle cx="280" cy="130" r="95" fill="#808080" fill-opacity="0.35"/>
+        <circle cx="210" cy="205" r="95" fill="#fff"/>
+        <defs>
+          <clipPath id="pb-clipS"><circle cx="140" cy="130" r="95"/></clipPath>
+          <clipPath id="pb-clipM"><circle cx="210" cy="205" r="95"/></clipPath>
+        </defs>
+        <g clip-path="url(#pb-clipS)"><g clip-path="url(#pb-clipM)"><rect x="0" y="0" width="420" height="330" fill="#808080" fill-opacity="0.35"/></g></g>
+        <circle cx="140" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <circle cx="280" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <circle cx="210" cy="205" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <text x="62" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">S</text>
+        <text x="348" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">P</text>
+        <text x="204" y="318" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">M</text>
+      </svg>
+    </div>
+    <p><span class="verdict-valid">VALID — AEE-2 (Camestres).</span> "All P are M" shades P outside M, including S∩P minus M. "No S are M" shades all of S∩M, including S∩M∩P (the triple overlap). Together, these two premises shade both sub-regions of S∩P — the conclusion "No pines are oaks" requires exactly that, and it is already present in the diagram. This is the same valid form as Example 4.</p>
+  </div>
+
+  <h3>Practice C</h3>
+  <div class="syllogism-block">
+    Some stones are heavy. (I)<br>
+    All boulders are heavy. (A)<br>
+    Therefore, some boulders are stones. (I)
+  </div>
+  <p><strong>Terms:</strong> S = boulders, P = stones, M = heavy.</p>
+  <p><strong>Procedure reminder:</strong> Identify the universal premise (A) and diagram it first. Then place the X from the I-premise and check whether it lands in S∩P.</p>
+  <div class="error-example">
+    <span class="label">Answer</span>
+    <div class="venn-container" style="display:flex;justify-content:center;margin:1.2em 0;">
+      <svg viewBox="0 0 420 330" width="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Completed Venn diagram for Practice C: S minus M shaded, with an X on the boundary within P intersect M, not definitively in S intersect P">
+        <circle cx="140" cy="130" r="95" fill="#808080" fill-opacity="0.35"/>
+        <circle cx="210" cy="205" r="95" fill="#fff"/>
+        <circle cx="140" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <circle cx="280" cy="130" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <circle cx="210" cy="205" r="95" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <text x="224" y="180" font-size="18" font-weight="bold" font-family="Arial, sans-serif" fill="#8c1c1c" text-anchor="middle">X</text>
+        <text x="62" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">S</text>
+        <text x="348" y="50" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">P</text>
+        <text x="204" y="318" font-size="16" font-family="Georgia, serif" font-weight="bold" fill="#1a1a1a">M</text>
+      </svg>
+    </div>
+    <p><span class="verdict-invalid">INVALID — Undistributed Middle.</span> "All boulders are heavy" = All S are M. Shade S outside M: shade S-only and S∩P minus M. Now place the X from "Some stones are heavy" = Some P are M into P∩M. The P∩M region has two sub-regions: P∩M∩S (triple overlap) and P∩M minus S. Neither is shaded, so the X sits on the boundary between them — it might be in S∩P or it might not be. The conclusion "Some boulders are stones" requires an X definitively in S∩P, but the X is merely possibly there. The argument is invalid. The error is the Undistributed Middle: the middle term "heavy" is particular in both premises, which allows M to refer to different parts of the heavy-things class in each premise, leaving S and P without a definite logical connection.</p>
+  </div>
+</div>
+
+<h2>Self-Assessment</h2>
+
+<p>Before moving to the assignment, answer the following three questions in writing. Write in complete sentences; your answers need not be long, but they should be precise. These are not graded here — they are a tool for identifying what you understand clearly and what requires more attention.</p>
+
+<ol>
+  <li>
+    <strong>Which statement type is hardest to diagram correctly, and why?</strong> Consider each of the four types — A, E, I, O — and identify the one that most consistently causes confusion in your work. Explain the specific source of difficulty. Is it the placement of the X in relation to shaded regions? Is it identifying which sub-regions to shade? Being precise about the source of difficulty is the first step toward correcting it.
+  </li>
+  <li>
+    <strong>What does it mean, in your own words, for an argument to be valid? How does the Venn diagram make this visible?</strong> Do not define validity by quoting the technical rule. Explain what it means — what is actually happening logically when a conclusion follows from premises — and then explain how the diagram represents that relationship geometrically. The diagram is a spatial model of logical containment; your answer should reflect that.
+  </li>
+  <li>
+    <strong>Can you think of a real argument someone might make that has the same structure as the Undistributed Middle fallacy?</strong> Recall Practice C: the flaw occurs when the middle term connects the premises only partially — each premise puts something in relation to M, but M's two appearances refer to different subsets, leaving the major and minor terms with no definite connection. Construct an example using neutral, non-controversial subject matter. State it in the same three-line form used throughout this lesson, then briefly identify which term is the undistributed middle and why the conclusion does not follow.
+  </li>
+</ol>
+
+<div class="looking-ahead">
+  The next step is Assignment 502, where you will apply this diagramming procedure to a set of syllogisms drawn from the full range of statement types and figures — putting the complete skill to work under assessment conditions.
+</div>
+
+</body>
+</html>
