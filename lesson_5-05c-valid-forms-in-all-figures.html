@@ -1,159 +1,148 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lesson 5.05c — Valid Forms in All Four Figures</title>
 <style>
-body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
-h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
-h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
-.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
-.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
-.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
-.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.error-example { background: #fff8f8; border: 1px solid #e8c0c0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 820px; margin: 0 auto; padding: 0 0 24px 0; line-height: 1.7; color: #1a2340; background: #fff; }
+h1 { display: none; }
+h2 { font-size: 1.25em; margin: 0 0 14px 0; color: #0e1c42; border-left: 4px solid #C7922C; padding-left: 12px; }
+.benchmark { background: #EEF1F8; border-left: 4px solid #0E1C42; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.8em; color: #1a2340; }
+.objective { font-style: italic; color: #1a2340; border-left: 4px solid #C7922C; padding-left: 12px; margin-bottom: 0; font-size: 0.98em; }
+.example { background: #E8F6FB; border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #C7922C; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.error-example { background: #FDECEC; border: 1px solid #F5C6C6; border-left: 5px solid #C0392B; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
 .error-example .label { font-weight: bold; font-size: 0.85em; color: #a04040; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
-.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
-.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+.practice { background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; padding: 18px 22px; margin: 0; border-radius: 8px; }
+.practice h2 { margin-top: 0; border-left: none; padding-left: 0; }
+.looking-ahead { background: #EEF1F8; border-left: 5px solid #0E1C42; padding: 16px 20px; font-style: italic; font-size: 0.98em; border-radius: 0 6px 6px 0; color: #1a2340; }
 ol li, ul li { margin-bottom: 0.5em; }
 .syllogism-block { background: #f0f4f0; border-left: 4px solid #4a7a4a; padding: 14px 18px; margin: 1em 0; font-style: italic; border-radius: 0 3px 3px 0; }
 .syllogism-block strong { font-style: normal; }
 .term-table { width: 100%; border-collapse: collapse; margin: 1.2em 0; font-size: 0.95em; }
-.term-table th { background: #e8e8e8; padding: 8px 12px; text-align: left; border: 1px solid #ccc; }
-.term-table td { padding: 8px 12px; border: 1px solid #ccc; }
+.term-table th { background: #EEF1F8; font-weight: bold; border: 1px solid #D0D9E8; padding: 8px 12px; text-align: left; }
+.term-table td { border: 1px solid #D0D9E8; padding: 8px 12px; }
 .rules-box { background: #f0f4ee; border: 1px solid #b0c8a8; padding: 16px 20px; margin: 1.2em 0; border-radius: 4px; }
 .rules-box ol { margin: 0.5em 0 0 0; }
-</style>
+
+h3 { font-size: 1.05em; margin-top: 1.2em; color: #0e1c42; }
+blockquote { border-left: 3px solid #D0D9E8; margin: 1em 0; padding-left: 1em; color: #1a2340; font-style: italic; }
+.widget-embed { margin: 1.2em 0; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.widget-embed p { margin: 0; padding: 8px 14px; background: #EEF1F8; font-size: 0.85em; color: #1a2340; }</style>
 </head>
 <body>
-
-<h1>Lesson 5.05c — Valid Forms in All Four Figures</h1>
-
-<div class="benchmark">
-  <strong>CPALMS Benchmarks:</strong> ELA.11.R.3.3 — Analyze and evaluate the effectiveness of an author's argument; ELA.11.C.1.4 — Write arguments to support claims using valid reasoning; ELA.12.R.3.4 — Evaluate an author's reasoning; ELA.K12.EE.1.1 — Cite evidence to explain and justify reasoning
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 28px;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+<div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img alt="Optima Academy" src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" style="width: 50px; height: 40px; object-fit: contain;"/></div>
+<div>
+<div style="font-size: 26px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+<div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
 </div>
-
-<p class="objective"><strong>Learning Objective:</strong> Students will be able to state the five rules of valid categorical syllogisms, apply them to determine whether a given syllogism is valid, identify which rule(s) an invalid syllogism violates, and name the fallacy that results from each type of violation.</p>
-
-<h2>Orientation</h2>
-
-<p>You can now characterize any categorical syllogism by its mood-figure pair. The natural next question is: which pairs are valid? There are 256 possible mood combinations across the four figures — most are invalid. Rather than memorizing a long list of valid forms by rote, this lesson introduces the five rules that explain which forms are valid and why. These rules are not arbitrary conventions; each follows from the meaning of the categorical statement types and the concept of distribution. Aristotle worked out these constraints in the <em>Prior Analytics</em>; the medieval Scholastic tradition organized them into the numbered list below and identified the fallacy associated with each violation.</p>
-
-<h2>Distribution: A Brief Review</h2>
-
-<p>A term is <strong>distributed</strong> in a statement if the statement makes a claim about every member of that term's class. Distribution patterns for each statement type:</p>
-<ul>
-  <li><strong>A</strong> (All S are P): S is distributed; P is not</li>
-  <li><strong>E</strong> (No S are P): both S and P are distributed</li>
-  <li><strong>I</strong> (Some S are P): neither S nor P is distributed</li>
-  <li><strong>O</strong> (Some S are not P): P is distributed; S is not</li>
-</ul>
-
-<h2>The Five Rules of Valid Categorical Syllogisms</h2>
-
-<div class="rules-box">
-  <ol>
-    <li><strong>The middle term must be distributed in at least one premise.</strong> Violation: Fallacy of the Undistributed Middle.</li>
-    <li><strong>If a term is distributed in the conclusion, it must be distributed in its premise.</strong> Violation: Illicit Major (if the major term is over-distributed) or Illicit Minor (if the minor term is over-distributed).</li>
-    <li><strong>No valid syllogism has two negative premises.</strong> Violation: Fallacy of Exclusive Premises.</li>
-    <li><strong>If either premise is negative, the conclusion must be negative.</strong> (Equivalently: if the conclusion is affirmative, both premises must be affirmative.) Violation: Drawing an Affirmative Conclusion from a Negative Premise.</li>
-    <li><strong>If both premises are universal, the conclusion cannot be particular.</strong> (This rule is needed only when existential import — whether universal statements commit to the existence of their subjects — is at stake. It is sometimes expressed as: a particular conclusion requires at least one particular premise.) Violation: Existential Fallacy.</li>
-  </ol>
 </div>
-
-<h2>Applying the Rules</h2>
-
-<p>To test a syllogism for validity using the five rules, work through each rule in order. If the syllogism violates any rule, it is invalid — and the first rule it violates names the fallacy. Note that a syllogism can violate multiple rules simultaneously, in which case the most fundamental violation (typically Rule 1 or 2) is the primary fallacy.</p>
-
-<div class="example">
-  <span class="label">Example 1 — Valid: AAA-1 (Barbara)</span>
-  <div class="syllogism-block">
-    All mammals are warm-blooded animals. (A — M distributed, P not)<br>
-    All whales are mammals. (A — S distributed, M not)<br>
+<div style="font-size: 30px; color: #ffffff;">SEMANTICS AND LOGIC HONORS</div>
+</div>
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 130px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
+<div style="font-size: 16px; color: #0e1c42;">Q2 · Module 5</div>
+<div style="font-size: 12px; color: #666;">Mood</div>
+</div>
+<div style="flex: 1; min-width: 110px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+<div style="font-size: 16px; color: #0e1c42;">Lesson 5.05c</div>
+</div>
+<div style="flex: 2; min-width: 160px; padding: 12px 16px;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+<div style="font-size: 16px; color: #0e1c42; font-style: italic;">Valid Forms in All Four Figures</div>
+</div>
+</div>
+<div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 16px 20px; margin: 20px 28px 0 28px;">
+<div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 5.05c</div>
+<div style="font-size: 21px; color: #0e1c42;">Valid Forms in All Four Figures</div>
+</div>
+<div style="padding: 20px 28px 4px 28px;"><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><div class="benchmark">
+<strong>CPALMS Benchmarks:</strong> ELA.11.R.3.3 — Analyze and evaluate the effectiveness of an author's argument; ELA.11.C.1.4 — Write arguments to support claims using valid reasoning; ELA.12.R.3.4 — Evaluate an author's reasoning; ELA.K12.EE.1.1 — Cite evidence to explain and justify reasoning
+</div><p class="objective"><strong>Learning Objective:</strong> Students will be able to state the five rules of valid categorical syllogisms, apply them to determine whether a given syllogism is valid, identify which rule(s) an invalid syllogism violates, and name the fallacy that results from each type of violation.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Orientation</h2><p>You can now characterize any categorical syllogism by its mood-figure pair. The natural next question is: which pairs are valid? There are 256 possible mood combinations across the four figures — most are invalid. Rather than memorizing a long list of valid forms by rote, this lesson introduces the five rules that explain which forms are valid and why. These rules are not arbitrary conventions; each follows from the meaning of the categorical statement types and the concept of distribution. Aristotle worked out these constraints in the <em>Prior Analytics</em>; the medieval Scholastic tradition organized them into the numbered list below and identified the fallacy associated with each violation.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Distribution: A Brief Review</h2><p>A term is <strong>distributed</strong> in a statement if the statement makes a claim about every member of that term's class. Distribution patterns for each statement type:</p><ul>
+<li><strong>A</strong> (All S are P): S is distributed; P is not</li>
+<li><strong>E</strong> (No S are P): both S and P are distributed</li>
+<li><strong>I</strong> (Some S are P): neither S nor P is distributed</li>
+<li><strong>O</strong> (Some S are not P): P is distributed; S is not</li>
+</ul></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The Five Rules of Valid Categorical Syllogisms</h2><div class="rules-box">
+<ol>
+<li><strong>The middle term must be distributed in at least one premise.</strong> Violation: Fallacy of the Undistributed Middle.</li>
+<li><strong>If a term is distributed in the conclusion, it must be distributed in its premise.</strong> Violation: Illicit Major (if the major term is over-distributed) or Illicit Minor (if the minor term is over-distributed).</li>
+<li><strong>No valid syllogism has two negative premises.</strong> Violation: Fallacy of Exclusive Premises.</li>
+<li><strong>If either premise is negative, the conclusion must be negative.</strong> (Equivalently: if the conclusion is affirmative, both premises must be affirmative.) Violation: Drawing an Affirmative Conclusion from a Negative Premise.</li>
+<li><strong>If both premises are universal, the conclusion cannot be particular.</strong> (This rule is needed only when existential import — whether universal statements commit to the existence of their subjects — is at stake. It is sometimes expressed as: a particular conclusion requires at least one particular premise.) Violation: Existential Fallacy.</li>
+</ol>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Applying the Rules</h2><p>To test a syllogism for validity using the five rules, work through each rule in order. If the syllogism violates any rule, it is invalid — and the first rule it violates names the fallacy. Note that a syllogism can violate multiple rules simultaneously, in which case the most fundamental violation (typically Rule 1 or 2) is the primary fallacy.</p><div class="example">
+<span class="label">Example 1 — Valid: AAA-1 (Barbara)</span>
+<div class="syllogism-block">
+    All mammals are warm-blooded animals. (A — M distributed, P not)<br/>
+    All whales are mammals. (A — S distributed, M not)<br/>
     Therefore, all whales are warm-blooded animals. (A — S distributed, P not)
   </div>
-  <p><strong>Rule 1:</strong> M (mammals) is distributed in the major premise (All mammals...). ✓</p>
-  <p><strong>Rule 2:</strong> P (warm-blooded animals) is undistributed in the conclusion; it is also undistributed in the major premise — no violation. S (whales) is distributed in the conclusion; it is distributed in the minor premise — no violation. ✓</p>
-  <p><strong>Rules 3–4:</strong> No negative premises; no negative conclusion. ✓</p>
-  <p><strong>Rule 5:</strong> Both premises universal; conclusion universal. ✓ &nbsp; <strong>Valid.</strong></p>
-</div>
-
-<div class="error-example">
-  <span class="label">Example 2 — Invalid: Undistributed Middle</span>
-  <div class="syllogism-block">
-    All mammals are warm-blooded animals. (A — M distributed, P not)<br>
-    All birds are warm-blooded animals. (A — S distributed, P not)<br>
+<p><strong>Rule 1:</strong> M (mammals) is distributed in the major premise (All mammals...). ✓</p>
+<p><strong>Rule 2:</strong> P (warm-blooded animals) is undistributed in the conclusion; it is also undistributed in the major premise — no violation. S (whales) is distributed in the conclusion; it is distributed in the minor premise — no violation. ✓</p>
+<p><strong>Rules 3–4:</strong> No negative premises; no negative conclusion. ✓</p>
+<p><strong>Rule 5:</strong> Both premises universal; conclusion universal. ✓   <strong>Valid.</strong></p>
+</div><div class="error-example">
+<span class="label">Example 2 — Invalid: Undistributed Middle</span>
+<div class="syllogism-block">
+    All mammals are warm-blooded animals. (A — M distributed, P not)<br/>
+    All birds are warm-blooded animals. (A — S distributed, P not)<br/>
     Therefore, all birds are mammals. (A — S distributed, P not)
   </div>
-  <p><strong>Rule 1:</strong> M (warm-blooded animals) — is it distributed in either premise? In the major premise (All mammals are warm-blooded animals), M is the predicate of an A statement — <em>not</em> distributed. In the minor premise (All birds are warm-blooded animals), M is again the predicate of an A statement — <em>not</em> distributed. M is undistributed in both premises. Rule 1 violated. <strong>Fallacy: Undistributed Middle.</strong></p>
-  <p>This is one of the most common structural errors in real-world arguments. Both premises affirm that their subjects belong to a category, but neither tells us that the category's members are limited to those subjects. The middle term never connects S to P across the full extent of its class.</p>
-</div>
-
-<div class="error-example">
-  <span class="label">Example 3 — Invalid: Illicit Major</span>
-  <div class="syllogism-block">
-    All rectangles are quadrilaterals. (A — M=rectangles distributed, P=quadrilaterals not)<br>
-    No circles are rectangles. (E — S=circles distributed, M=rectangles distributed)<br>
+<p><strong>Rule 1:</strong> M (warm-blooded animals) — is it distributed in either premise? In the major premise (All mammals are warm-blooded animals), M is the predicate of an A statement — <em>not</em> distributed. In the minor premise (All birds are warm-blooded animals), M is again the predicate of an A statement — <em>not</em> distributed. M is undistributed in both premises. Rule 1 violated. <strong>Fallacy: Undistributed Middle.</strong></p>
+<p>This is one of the most common structural errors in real-world arguments. Both premises affirm that their subjects belong to a category, but neither tells us that the category's members are limited to those subjects. The middle term never connects S to P across the full extent of its class.</p>
+</div><div class="error-example">
+<span class="label">Example 3 — Invalid: Illicit Major</span>
+<div class="syllogism-block">
+    All rectangles are quadrilaterals. (A — M=rectangles distributed, P=quadrilaterals not)<br/>
+    No circles are rectangles. (E — S=circles distributed, M=rectangles distributed)<br/>
     Therefore, no circles are quadrilaterals. (E — S distributed, P distributed)
   </div>
-  <p><strong>Rule 1:</strong> M (rectangles) is distributed in both premises. ✓</p>
-  <p><strong>Rule 2:</strong> P (quadrilaterals) is distributed in the conclusion (E statement), but in the major premise P is the predicate of an A statement — <em>not</em> distributed. The conclusion makes a claim about all quadrilaterals, but the major premise only told us about all rectangles' membership in the quadrilateral class. <strong>Fallacy: Illicit Major.</strong></p>
+<p><strong>Rule 1:</strong> M (rectangles) is distributed in both premises. ✓</p>
+<p><strong>Rule 2:</strong> P (quadrilaterals) is distributed in the conclusion (E statement), but in the major premise P is the predicate of an A statement — <em>not</em> distributed. The conclusion makes a claim about all quadrilaterals, but the major premise only told us about all rectangles' membership in the quadrilateral class. <strong>Fallacy: Illicit Major.</strong></p>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Valid Moods by Figure</h2><p>Applying the five rules systematically across all 256 possible mood-figure combinations yields the following valid forms:</p><table class="term-table">
+<tr>
+<th>Figure 1</th>
+<th>Figure 2</th>
+<th>Figure 3</th>
+<th>Figure 4</th>
+</tr>
+<tr>
+<td>AAA, EAE, AII, EIO</td>
+<td>EAE, AEE, EIO, AOO</td>
+<td>IAI, AII, OAO, EIO</td>
+<td>AEE, IAI, EIO</td>
+</tr>
+</table><p>These 15 forms are the valid mood-figure combinations this course works with. Every other combination of mood and figure either violates the middle term rule, a distribution rule, a quality rule, or the existential rule. (Two additional patterns in Figures 3 and 4 — AAI and EAO — appear in some traditional lists of valid syllogisms, with a particular ("weakened") conclusion drawn from two universal premises. These forms require an extra existence assumption specific to drawing a weaker particular conclusion from stronger universal premises, beyond the general existential-import assumption this course already grants for the Square of Opposition, so this course's list of valid syllogistic forms does not include them.) Aristotle identified the Figure 1 forms as "perfect" syllogisms — valid by immediate intuition — and showed how forms in other figures could be reduced to Figure 1 through conversion or contraposition of premises.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Connection to Argument</h2><p>The five rules give you a systematic, exhaustive method for determining validity — no guessing, no relying on how plausible the conclusion sounds. This is essential in real argument analysis: a syllogism can have true premises and a true conclusion and still be invalid (its conclusion just happens to be true for a different reason). The five rules reveal the structure regardless of content. They also name the fallacy precisely, which is what allows you to explain in specific terms why an invalid argument fails.</p><div class="practice">
+<h2>Practice Problems</h2>
+<p><strong>Part A — Apply the Rules.</strong> For each syllogism, determine whether it is valid. If invalid, state which rule(s) it violates and name the fallacy.</p>
+<ol>
+<li>All prime numbers are integers. Some integers are even numbers. Therefore, some prime numbers are even numbers.</li>
+<li>No mammals are cold-blooded. All sharks are cold-blooded. Therefore, no sharks are mammals.</li>
+<li>All valid arguments preserve truth. No fallacious arguments preserve truth. Therefore, no fallacious arguments are valid arguments.</li>
+<li>Some geometric figures are triangles. Some triangles are equilateral. Therefore, some geometric figures are equilateral.</li>
+<li>No reptiles are warm-blooded. Some desert animals are not reptiles. Therefore, some desert animals are warm-blooded.</li>
+</ol>
+<p><strong>Part B — Identify the Fallacy.</strong> Each syllogism below is invalid. Identify the exact rule violated and name the fallacy (Undistributed Middle, Illicit Major, Illicit Minor, Exclusive Premises, or Drawing Affirmative from Negative).</p>
+<ol>
+<li>All birds are warm-blooded. All mammals are warm-blooded. Therefore, all birds are mammals.</li>
+<li>No reptiles are mammals. No fish are mammals. Therefore, no fish are reptiles.</li>
+<li>All parallelograms are quadrilaterals. No circles are parallelograms. Therefore, no circles are quadrilaterals.</li>
+</ol>
+<p><strong>Part C — Construction.</strong> Write two original syllogisms: one valid (cite which rule set it satisfies and give its mood-figure pair) and one invalid (show precisely which rule it violates and why). Use neutral subject matter.</p>
+</div></div><div style="margin-bottom: 20px;"><div class="looking-ahead">
+<strong>Looking Ahead:</strong> With the valid forms catalogued and the rules in hand, the next lesson introduces the traditional names medieval logicians gave to the valid forms — names that encode the mood and connect to a reduction scheme, and which have been used by logicians for nearly a thousand years.
+</div></div></div>
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 16px 28px; text-align: center; margin-top: 10px;">
+<div style="font-size: 16px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> · SEMANTICS AND LOGIC HONORS · Quarter 2 · Student Lesson Page</div>
+<div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 5.05c · Valid Forms in All Four Figures</div>
+<div style="font-size: 12px; color: rgba(255,255,255,0.4);">© Optima Academy Online · An Education Experience Company</div>
 </div>
-
-<h2>Valid Moods by Figure</h2>
-
-<p>Applying the five rules systematically across all 256 possible mood-figure combinations yields the following valid forms:</p>
-
-<table class="term-table">
-  <tr>
-    <th>Figure 1</th>
-    <th>Figure 2</th>
-    <th>Figure 3</th>
-    <th>Figure 4</th>
-  </tr>
-  <tr>
-    <td>AAA, EAE, AII, EIO</td>
-    <td>EAE, AEE, EIO, AOO</td>
-    <td>IAI, AII, OAO, EIO</td>
-    <td>AEE, IAI, EIO</td>
-  </tr>
-</table>
-
-<p>These 15 forms are the valid mood-figure combinations this course works with. Every other combination of mood and figure either violates the middle term rule, a distribution rule, a quality rule, or the existential rule. (Two additional patterns in Figures 3 and 4 — AAI and EAO — appear in some traditional lists of valid syllogisms, with a particular ("weakened") conclusion drawn from two universal premises. These forms require an extra existence assumption specific to drawing a weaker particular conclusion from stronger universal premises, beyond the general existential-import assumption this course already grants for the Square of Opposition, so this course's list of valid syllogistic forms does not include them.) Aristotle identified the Figure 1 forms as "perfect" syllogisms — valid by immediate intuition — and showed how forms in other figures could be reduced to Figure 1 through conversion or contraposition of premises.</p>
-
-<h2>Connection to Argument</h2>
-
-<p>The five rules give you a systematic, exhaustive method for determining validity — no guessing, no relying on how plausible the conclusion sounds. This is essential in real argument analysis: a syllogism can have true premises and a true conclusion and still be invalid (its conclusion just happens to be true for a different reason). The five rules reveal the structure regardless of content. They also name the fallacy precisely, which is what allows you to explain in specific terms why an invalid argument fails.</p>
-
-<div class="practice">
-  <h2>Practice Problems</h2>
-
-  <p><strong>Part A — Apply the Rules.</strong> For each syllogism, determine whether it is valid. If invalid, state which rule(s) it violates and name the fallacy.</p>
-
-  <ol>
-    <li>All prime numbers are integers. Some integers are even numbers. Therefore, some prime numbers are even numbers.</li>
-    <li>No mammals are cold-blooded. All sharks are cold-blooded. Therefore, no sharks are mammals.</li>
-    <li>All valid arguments preserve truth. No fallacious arguments preserve truth. Therefore, no fallacious arguments are valid arguments.</li>
-    <li>Some geometric figures are triangles. Some triangles are equilateral. Therefore, some geometric figures are equilateral.</li>
-    <li>No reptiles are warm-blooded. Some desert animals are not reptiles. Therefore, some desert animals are warm-blooded.</li>
-  </ol>
-
-  <p><strong>Part B — Identify the Fallacy.</strong> Each syllogism below is invalid. Identify the exact rule violated and name the fallacy (Undistributed Middle, Illicit Major, Illicit Minor, Exclusive Premises, or Drawing Affirmative from Negative).</p>
-
-  <ol>
-    <li>All birds are warm-blooded. All mammals are warm-blooded. Therefore, all birds are mammals.</li>
-    <li>No reptiles are mammals. No fish are mammals. Therefore, no fish are reptiles.</li>
-    <li>All parallelograms are quadrilaterals. No circles are parallelograms. Therefore, no circles are quadrilaterals.</li>
-  </ol>
-
-  <p><strong>Part C — Construction.</strong> Write two original syllogisms: one valid (cite which rule set it satisfies and give its mood-figure pair) and one invalid (show precisely which rule it violates and why). Use neutral subject matter.</p>
-</div>
-
-<div class="looking-ahead">
-  <strong>Looking Ahead:</strong> With the valid forms catalogued and the rules in hand, the next lesson introduces the traditional names medieval logicians gave to the valid forms — names that encode the mood and connect to a reduction scheme, and which have been used by logicians for nearly a thousand years.
-</div>
-
 </body>
 </html>

@@ -1,173 +1,159 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lesson 5.01d — Reading and Interpreting Venn Diagrams</title>
 <style>
-body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
-h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
-h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
-.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
-.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
-.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
-.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.error-example { background: #fff8f8; border: 1px solid #e8c0c0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 820px; margin: 0 auto; padding: 0 0 24px 0; line-height: 1.7; color: #1a2340; background: #fff; }
+h1 { display: none; }
+h2 { font-size: 1.25em; margin: 0 0 14px 0; color: #0e1c42; border-left: 4px solid #C7922C; padding-left: 12px; }
+.benchmark { background: #EEF1F8; border-left: 4px solid #0E1C42; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.8em; color: #1a2340; }
+.objective { font-style: italic; color: #1a2340; border-left: 4px solid #C7922C; padding-left: 12px; margin-bottom: 0; font-size: 0.98em; }
+.example { background: #E8F6FB; border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #C7922C; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.error-example { background: #FDECEC; border: 1px solid #F5C6C6; border-left: 5px solid #C0392B; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
 .error-example .label { font-weight: bold; font-size: 0.85em; color: #a04040; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
-.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
-.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+.practice { background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; padding: 18px 22px; margin: 0; border-radius: 8px; }
+.practice h2 { margin-top: 0; border-left: none; padding-left: 0; }
+.looking-ahead { background: #EEF1F8; border-left: 5px solid #0E1C42; padding: 16px 20px; font-style: italic; font-size: 0.98em; border-radius: 0 6px 6px 0; color: #1a2340; }
 ol li, ul li { margin-bottom: 0.5em; }
 .venn-row { display: flex; justify-content: center; gap: 2em; margin: 1.5em 0; flex-wrap: wrap; align-items: flex-start; }
 .venn-figure { text-align: center; }
 .venn-caption { font-family: Arial, sans-serif; font-size: 0.82em; color: #444; margin-top: 0.4em; max-width: 200px; margin-left: auto; margin-right: auto; }
-.widget-embed { margin: 2em 0; border: 1px solid #d0d7e3; border-radius: 4px; overflow: hidden; }
-.widget-embed p { margin: 0; padding: 8px 14px; background: #f2f2f2; font-family: Arial, sans-serif; font-size: 0.82em; color: #555; }
-</style>
+.widget-embed { margin: 1.2em 0; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.widget-embed p { margin: 0; padding: 8px 14px; background: #EEF1F8; font-size: 0.85em; color: #1a2340; }
+
+h3 { font-size: 1.05em; margin-top: 1.2em; color: #0e1c42; }
+blockquote { border-left: 3px solid #D0D9E8; margin: 1em 0; padding-left: 1em; color: #1a2340; font-style: italic; }
+th { background: #EEF1F8; font-weight: bold; border: 1px solid #D0D9E8; padding: 8px 12px; text-align: left; }
+td { border: 1px solid #D0D9E8; padding: 8px 12px; }</style>
 </head>
 <body>
-
-<h1>Lesson 5.01d — Reading and Interpreting Venn Diagrams</h1>
-
-<div class="benchmark">
-  <strong>CPALMS Benchmarks:</strong> ELA.11.R.2.3 — Analyze how an author develops and refines a claim; ELA.11.C.1.5 — Improve writing by planning, revising, and editing, attending to precision and clarity
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 28px;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+<div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img alt="Optima Academy" src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" style="width: 50px; height: 40px; object-fit: contain;"/></div>
+<div>
+<div style="font-size: 26px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+<div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
 </div>
-
-<p class="objective"><strong>Learning Objective:</strong> Students will be able to read a given two-circle Venn diagram and identify which categorical statement(s) it represents, interpret partial diagrams, and recognize when a diagram is consistent or inconsistent with a given statement.</p>
-
-<h2>Orientation</h2>
-
-<p>The first three lessons of this week moved from statement to diagram: you were given a categorical statement and asked to produce the correct Venn diagram. This lesson reverses that direction. You are given a diagram — with shading, X-marks, or both — and asked to read what it means. This bidirectional fluency is essential: in formal logic, you will regularly encounter diagrams produced by others and need to interpret them accurately.</p>
-
-<h2>Intuitive Entry</h2>
-
-<p>A chemist looking at a structural formula can read off the properties of a compound — not by memorizing the molecule, but by knowing what each symbol means. The formula is a language, and fluency in a language includes the ability to read as well as to write. Venn diagrams are a language in the same sense. You have learned to write them; this lesson teaches you to read them with equal precision.</p>
-
-<h2>Reading a Diagram: The Procedure</h2>
-
-<p>When given a two-circle Venn diagram, follow this sequence:</p>
+</div>
+<div style="font-size: 30px; color: #ffffff;">SEMANTICS AND LOGIC HONORS</div>
+</div>
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 130px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
+<div style="font-size: 16px; color: #0e1c42;">Q2 · Module 1</div>
+<div style="font-size: 12px; color: #666;">Venn Diagrams Of Statements</div>
+</div>
+<div style="flex: 1; min-width: 110px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+<div style="font-size: 16px; color: #0e1c42;">Lesson 5.01d</div>
+</div>
+<div style="flex: 2; min-width: 160px; padding: 12px 16px;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+<div style="font-size: 16px; color: #0e1c42; font-style: italic;">Reading and Interpreting Venn Diagrams</div>
+</div>
+</div>
+<div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 16px 20px; margin: 20px 28px 0 28px;">
+<div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 5.01d</div>
+<div style="font-size: 21px; color: #0e1c42;">Reading and Interpreting Venn Diagrams</div>
+</div>
+<div style="padding: 20px 28px 4px 28px;"><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><div class="benchmark">
+<strong>CPALMS Benchmarks:</strong> ELA.11.R.2.3 — Analyze how an author develops and refines a claim; ELA.11.C.1.5 — Improve writing by planning, revising, and editing, attending to precision and clarity
+</div><p class="objective"><strong>Learning Objective:</strong> Students will be able to read a given two-circle Venn diagram and identify which categorical statement(s) it represents, interpret partial diagrams, and recognize when a diagram is consistent or inconsistent with a given statement.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Orientation</h2><p>The first three lessons of this week moved from statement to diagram: you were given a categorical statement and asked to produce the correct Venn diagram. This lesson reverses that direction. You are given a diagram — with shading, X-marks, or both — and asked to read what it means. This bidirectional fluency is essential: in formal logic, you will regularly encounter diagrams produced by others and need to interpret them accurately.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Intuitive Entry</h2><p>A chemist looking at a structural formula can read off the properties of a compound — not by memorizing the molecule, but by knowing what each symbol means. The formula is a language, and fluency in a language includes the ability to read as well as to write. Venn diagrams are a language in the same sense. You have learned to write them; this lesson teaches you to read them with equal precision.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Reading a Diagram: The Procedure</h2><p>When given a two-circle Venn diagram, follow this sequence:</p><ol>
+<li><strong>Note the labels.</strong> Identify which circle is S (subject class) and which is P (predicate class).</li>
+<li><strong>Identify all marks.</strong> Which regions are shaded? Which have X-marks? Which are blank?</li>
+<li><strong>Translate each mark.</strong> Shading = that region is empty. X = at least one thing exists in that region.</li>
+<li><strong>Match to a statement type.</strong> The mark and its region together identify the statement (see the summary table).</li>
+</ol><p>A diagram with one mark (shading or X) in one region corresponds to exactly one categorical statement type. Occasionally a diagram carries two marks — this represents information about two different categorical relationships simultaneously, which we will encounter when working with syllogisms.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Reading Each Statement Type from Its Diagram</h2><div class="example">
+<span class="label">Diagram 1 — Shading in Left Crescent</span>
+<div class="venn-row">
+<svg height="120" viewbox="0 0 240 130" width="220" xmlns="http://www.w3.org/2000/svg">
+<!-- Fully shade circle S, then white-out circle P on top so only the true S-only crescent stays shaded -->
+<circle cx="82" cy="65" fill="#bbb" opacity="0.4" r="54"></circle>
+<circle cx="158" cy="65" fill="#fff" r="54"></circle>
+<circle cx="82" cy="65" fill="none" r="54" stroke="#333" stroke-width="2"></circle>
+<circle cx="158" cy="65" fill="none" r="54" stroke="#333" stroke-width="2"></circle>
+<text fill="#333" font-family="Georgia,serif" font-size="18" font-weight="bold" x="35" y="70">S</text>
+<text fill="#333" font-family="Georgia,serif" font-size="18" font-weight="bold" x="196" y="70">P</text>
+</svg>
+</div>
+<p><strong>Reading:</strong> The left crescent (S outside P) is fully shaded — empty, right up to the curved boundary with the overlap, with no bleed into the overlap itself. This means every S is inside P. Statement: <strong>"All S are P"</strong> (A statement).</p>
+</div><div class="example">
+<span class="label">Diagram 2 — Shading in Overlap</span>
+<div class="venn-row">
+<svg height="120" viewbox="0 0 240 130" width="220" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<clippath id="r2-s"><circle cx="82" cy="65" r="54"></circle></clippath>
+</defs>
+<circle clip-path="url(#r2-s)" cx="158" cy="65" fill="#bbb" opacity="0.4" r="54"></circle>
+<circle cx="82" cy="65" fill="none" r="54" stroke="#333" stroke-width="2"></circle>
+<circle cx="158" cy="65" fill="none" r="54" stroke="#333" stroke-width="2"></circle>
+<text fill="#333" font-family="Georgia,serif" font-size="18" font-weight="bold" x="35" y="70">S</text>
+<text fill="#333" font-family="Georgia,serif" font-size="18" font-weight="bold" x="196" y="70">P</text>
+</svg>
+</div>
+<p><strong>Reading:</strong> The overlap (S ∩ P) is shaded — empty. Nothing is both S and P. Statement: <strong>"No S are P"</strong> (E statement).</p>
+</div><div class="example">
+<span class="label">Diagram 3 — X in Overlap</span>
+<div class="venn-row">
+<svg height="120" viewbox="0 0 240 130" width="220" xmlns="http://www.w3.org/2000/svg">
+<circle cx="82" cy="65" fill="none" r="54" stroke="#333" stroke-width="2"></circle>
+<circle cx="158" cy="65" fill="none" r="54" stroke="#333" stroke-width="2"></circle>
+<text fill="#333" font-family="Georgia,serif" font-size="18" font-weight="bold" x="35" y="70">S</text>
+<text fill="#333" font-family="Georgia,serif" font-size="18" font-weight="bold" x="196" y="70">P</text>
+<text fill="#333" font-family="Arial,sans-serif" font-size="16" font-weight="bold" x="110" y="72">✕</text>
+</svg>
+</div>
+<p><strong>Reading:</strong> An X in the overlap — at least one thing is both S and P. Statement: <strong>"Some S are P"</strong> (I statement).</p>
+</div><div class="example">
+<span class="label">Diagram 4 — X in Left Crescent</span>
+<div class="venn-row">
+<svg height="120" viewbox="0 0 240 130" width="220" xmlns="http://www.w3.org/2000/svg">
+<circle cx="82" cy="65" fill="none" r="54" stroke="#333" stroke-width="2"></circle>
+<circle cx="158" cy="65" fill="none" r="54" stroke="#333" stroke-width="2"></circle>
+<text fill="#333" font-family="Georgia,serif" font-size="18" font-weight="bold" x="35" y="70">S</text>
+<text fill="#333" font-family="Georgia,serif" font-size="18" font-weight="bold" x="196" y="70">P</text>
+<text fill="#333" font-family="Arial,sans-serif" font-size="16" font-weight="bold" x="44" y="72">✕</text>
+</svg>
+</div>
+<p><strong>Reading:</strong> An X in the left crescent — at least one S is outside P. Statement: <strong>"Some S are not P"</strong> (O statement).</p>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>What a Blank Region Tells You</h2><p>A region with no mark — neither shading nor X — is logically undetermined. It says nothing about whether that region is occupied or empty. This is not the same as saying the region is empty; it means the statement simply does not address it. When reading a diagram, treat blank regions as "unknown" — the statement is silent about them. This restraint is important: do not read more information out of a diagram than it contains.</p><div class="error-example">
+<span class="label">Common Error — Over-reading Blank Regions</span>
+<p>A blank region does not mean "we know that region is occupied" any more than it means "we know that region is empty." A diagram of "All S are P" shades only the left crescent and leaves the overlap blank. This does not mean there are definitely things in the overlap — it means the A statement is silent about the overlap. Students sometimes conclude that because the overlap is unshaded, it must be occupied. That inference is not warranted by the diagram alone.</p>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Checking Consistency: Does a Statement Match a Diagram?</h2><p>A common task is to determine whether a given categorical statement is <em>consistent</em> with a given diagram. A statement is consistent with a diagram if the diagram does not contradict what the statement says. The test:</p><ul>
+<li>If the statement says a region is empty (shading), check that the diagram does not have an X in that region.</li>
+<li>If the statement says a region is occupied (X), check that the diagram does not shade that region.</li>
+<li>If neither mark is present in the diagram for the relevant region, the statement and diagram are consistent — the diagram simply doesn't speak to that claim.</li>
+</ul></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Widget: Build the Diagram Yourself</h2><div class="widget-embed">
+<p>Interactive practice — click a region to cycle it through blank, shaded, and X. Build the correct diagram for each statement, then check your answer.</p>
+<iframe height="620" src="https://optimaondemand.github.io/logic-hon-widgets/widget_venn-statement-builder.html" style="border:none; display:block;" title="Venn Diagram Builder: Categorical Statements" width="100%"></iframe>
+</div><div class="practice">
+<h2>Practice Problems</h2>
+<p><strong>Part A — Read the Diagram.</strong> For each description below, write the categorical statement it represents. Use "S" and "P" as the class labels.</p>
 <ol>
-  <li><strong>Note the labels.</strong> Identify which circle is S (subject class) and which is P (predicate class).</li>
-  <li><strong>Identify all marks.</strong> Which regions are shaded? Which have X-marks? Which are blank?</li>
-  <li><strong>Translate each mark.</strong> Shading = that region is empty. X = at least one thing exists in that region.</li>
-  <li><strong>Match to a statement type.</strong> The mark and its region together identify the statement (see the summary table).</li>
+<li>The overlap region is shaded. No other marks are present.</li>
+<li>The left crescent (S outside P) has an X. No other marks are present.</li>
+<li>The left crescent is shaded. No other marks are present.</li>
+<li>The overlap region has an X. No other marks are present.</li>
 </ol>
-
-<p>A diagram with one mark (shading or X) in one region corresponds to exactly one categorical statement type. Occasionally a diagram carries two marks — this represents information about two different categorical relationships simultaneously, which we will encounter when working with syllogisms.</p>
-
-<h2>Reading Each Statement Type from Its Diagram</h2>
-
-<div class="example">
-  <span class="label">Diagram 1 — Shading in Left Crescent</span>
-  <div class="venn-row">
-  <svg viewBox="0 0 240 130" xmlns="http://www.w3.org/2000/svg" width="220" height="120">
-    <!-- Fully shade circle S, then white-out circle P on top so only the true S-only crescent stays shaded -->
-    <circle cx="82" cy="65" r="54" fill="#bbb" opacity="0.4"/>
-    <circle cx="158" cy="65" r="54" fill="#fff"/>
-    <circle cx="82" cy="65" r="54" fill="none" stroke="#333" stroke-width="2"/>
-    <circle cx="158" cy="65" r="54" fill="none" stroke="#333" stroke-width="2"/>
-    <text x="35" y="70" font-family="Georgia,serif" font-size="18" fill="#333" font-weight="bold">S</text>
-    <text x="196" y="70" font-family="Georgia,serif" font-size="18" fill="#333" font-weight="bold">P</text>
-  </svg>
-  </div>
-  <p><strong>Reading:</strong> The left crescent (S outside P) is fully shaded — empty, right up to the curved boundary with the overlap, with no bleed into the overlap itself. This means every S is inside P. Statement: <strong>"All S are P"</strong> (A statement).</p>
+<p><strong>Part B — Consistency Check.</strong> For each pair below, state whether the statement is consistent with the diagram description. Explain your answer in one sentence.</p>
+<ol>
+<li>Statement: "All S are P" | Diagram: Overlap has an X; left crescent is blank.</li>
+<li>Statement: "No S are P" | Diagram: Overlap is shaded; left crescent has an X.</li>
+<li>Statement: "Some S are P" | Diagram: Overlap is shaded.</li>
+<li>Statement: "Some S are not P" | Diagram: Left crescent is blank; overlap is blank.</li>
+</ol>
+<p><strong>Part C — Square of Opposition Revisited.</strong> In Q1, you learned that A and O statements are contradictories — they cannot both be true or both be false. Using what you know about Venn diagrams, explain in 3–5 sentences how this relationship shows up visually: what happens to the diagram of A if O is simultaneously true? What does that tell you about contradictories?</p>
+</div></div><div style="margin-bottom: 20px;"><div class="looking-ahead">
+<strong>Looking Ahead:</strong> Next week, you will extend this skill to three-circle Venn diagrams — the tool for representing two-premise syllogisms and testing whether their conclusions follow necessarily from their premises.
+</div></div></div>
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 16px 28px; text-align: center; margin-top: 10px;">
+<div style="font-size: 16px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> · SEMANTICS AND LOGIC HONORS · Quarter 2 · Student Lesson Page</div>
+<div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 5.01d · Reading and Interpreting Venn Diagrams</div>
+<div style="font-size: 12px; color: rgba(255,255,255,0.4);">© Optima Academy Online · An Education Experience Company</div>
 </div>
-
-<div class="example">
-  <span class="label">Diagram 2 — Shading in Overlap</span>
-  <div class="venn-row">
-  <svg viewBox="0 0 240 130" xmlns="http://www.w3.org/2000/svg" width="220" height="120">
-    <defs>
-      <clipPath id="r2-s"><circle cx="82" cy="65" r="54"/></clipPath>
-    </defs>
-    <circle cx="158" cy="65" r="54" fill="#bbb" opacity="0.4" clip-path="url(#r2-s)"/>
-    <circle cx="82" cy="65" r="54" fill="none" stroke="#333" stroke-width="2"/>
-    <circle cx="158" cy="65" r="54" fill="none" stroke="#333" stroke-width="2"/>
-    <text x="35" y="70" font-family="Georgia,serif" font-size="18" fill="#333" font-weight="bold">S</text>
-    <text x="196" y="70" font-family="Georgia,serif" font-size="18" fill="#333" font-weight="bold">P</text>
-  </svg>
-  </div>
-  <p><strong>Reading:</strong> The overlap (S ∩ P) is shaded — empty. Nothing is both S and P. Statement: <strong>"No S are P"</strong> (E statement).</p>
-</div>
-
-<div class="example">
-  <span class="label">Diagram 3 — X in Overlap</span>
-  <div class="venn-row">
-  <svg viewBox="0 0 240 130" xmlns="http://www.w3.org/2000/svg" width="220" height="120">
-    <circle cx="82" cy="65" r="54" fill="none" stroke="#333" stroke-width="2"/>
-    <circle cx="158" cy="65" r="54" fill="none" stroke="#333" stroke-width="2"/>
-    <text x="35" y="70" font-family="Georgia,serif" font-size="18" fill="#333" font-weight="bold">S</text>
-    <text x="196" y="70" font-family="Georgia,serif" font-size="18" fill="#333" font-weight="bold">P</text>
-    <text x="110" y="72" font-family="Arial,sans-serif" font-size="16" fill="#333" font-weight="bold">✕</text>
-  </svg>
-  </div>
-  <p><strong>Reading:</strong> An X in the overlap — at least one thing is both S and P. Statement: <strong>"Some S are P"</strong> (I statement).</p>
-</div>
-
-<div class="example">
-  <span class="label">Diagram 4 — X in Left Crescent</span>
-  <div class="venn-row">
-  <svg viewBox="0 0 240 130" xmlns="http://www.w3.org/2000/svg" width="220" height="120">
-    <circle cx="82" cy="65" r="54" fill="none" stroke="#333" stroke-width="2"/>
-    <circle cx="158" cy="65" r="54" fill="none" stroke="#333" stroke-width="2"/>
-    <text x="35" y="70" font-family="Georgia,serif" font-size="18" fill="#333" font-weight="bold">S</text>
-    <text x="196" y="70" font-family="Georgia,serif" font-size="18" fill="#333" font-weight="bold">P</text>
-    <text x="44" y="72" font-family="Arial,sans-serif" font-size="16" fill="#333" font-weight="bold">✕</text>
-  </svg>
-  </div>
-  <p><strong>Reading:</strong> An X in the left crescent — at least one S is outside P. Statement: <strong>"Some S are not P"</strong> (O statement).</p>
-</div>
-
-<h2>What a Blank Region Tells You</h2>
-
-<p>A region with no mark — neither shading nor X — is logically undetermined. It says nothing about whether that region is occupied or empty. This is not the same as saying the region is empty; it means the statement simply does not address it. When reading a diagram, treat blank regions as "unknown" — the statement is silent about them. This restraint is important: do not read more information out of a diagram than it contains.</p>
-
-<div class="error-example">
-  <span class="label">Common Error — Over-reading Blank Regions</span>
-  <p>A blank region does not mean "we know that region is occupied" any more than it means "we know that region is empty." A diagram of "All S are P" shades only the left crescent and leaves the overlap blank. This does not mean there are definitely things in the overlap — it means the A statement is silent about the overlap. Students sometimes conclude that because the overlap is unshaded, it must be occupied. That inference is not warranted by the diagram alone.</p>
-</div>
-
-<h2>Checking Consistency: Does a Statement Match a Diagram?</h2>
-
-<p>A common task is to determine whether a given categorical statement is <em>consistent</em> with a given diagram. A statement is consistent with a diagram if the diagram does not contradict what the statement says. The test:</p>
-<ul>
-  <li>If the statement says a region is empty (shading), check that the diagram does not have an X in that region.</li>
-  <li>If the statement says a region is occupied (X), check that the diagram does not shade that region.</li>
-  <li>If neither mark is present in the diagram for the relevant region, the statement and diagram are consistent — the diagram simply doesn't speak to that claim.</li>
-</ul>
-
-<h2>Widget: Build the Diagram Yourself</h2>
-
-<div class="widget-embed">
-  <p>Interactive practice — click a region to cycle it through blank, shaded, and X. Build the correct diagram for each statement, then check your answer.</p>
-  <iframe src="https://optimaondemand.github.io/logic-hon-widgets/widget_venn-statement-builder.html" width="100%" height="620" style="border:none; display:block;" title="Venn Diagram Builder: Categorical Statements"></iframe>
-</div>
-
-<div class="practice">
-  <h2>Practice Problems</h2>
-
-  <p><strong>Part A — Read the Diagram.</strong> For each description below, write the categorical statement it represents. Use "S" and "P" as the class labels.</p>
-  <ol>
-    <li>The overlap region is shaded. No other marks are present.</li>
-    <li>The left crescent (S outside P) has an X. No other marks are present.</li>
-    <li>The left crescent is shaded. No other marks are present.</li>
-    <li>The overlap region has an X. No other marks are present.</li>
-  </ol>
-
-  <p><strong>Part B — Consistency Check.</strong> For each pair below, state whether the statement is consistent with the diagram description. Explain your answer in one sentence.</p>
-  <ol>
-    <li>Statement: "All S are P" | Diagram: Overlap has an X; left crescent is blank.</li>
-    <li>Statement: "No S are P" | Diagram: Overlap is shaded; left crescent has an X.</li>
-    <li>Statement: "Some S are P" | Diagram: Overlap is shaded.</li>
-    <li>Statement: "Some S are not P" | Diagram: Left crescent is blank; overlap is blank.</li>
-  </ol>
-
-  <p><strong>Part C — Square of Opposition Revisited.</strong> In Q1, you learned that A and O statements are contradictories — they cannot both be true or both be false. Using what you know about Venn diagrams, explain in 3–5 sentences how this relationship shows up visually: what happens to the diagram of A if O is simultaneously true? What does that tell you about contradictories?</p>
-</div>
-
-<div class="looking-ahead">
-  <strong>Looking Ahead:</strong> Next week, you will extend this skill to three-circle Venn diagrams — the tool for representing two-premise syllogisms and testing whether their conclusions follow necessarily from their premises.
-</div>
-
 </body>
 </html>

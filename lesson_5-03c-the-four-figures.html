@@ -1,167 +1,156 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lesson 5.03c — The Four Figures of the Syllogism</title>
 <style>
-body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
-h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
-h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
-.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
-.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
-.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
-.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.error-example { background: #fff8f8; border: 1px solid #e8c0c0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 820px; margin: 0 auto; padding: 0 0 24px 0; line-height: 1.7; color: #1a2340; background: #fff; }
+h1 { display: none; }
+h2 { font-size: 1.25em; margin: 0 0 14px 0; color: #0e1c42; border-left: 4px solid #C7922C; padding-left: 12px; }
+.benchmark { background: #EEF1F8; border-left: 4px solid #0E1C42; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.8em; color: #1a2340; }
+.objective { font-style: italic; color: #1a2340; border-left: 4px solid #C7922C; padding-left: 12px; margin-bottom: 0; font-size: 0.98em; }
+.example { background: #E8F6FB; border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #C7922C; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.error-example { background: #FDECEC; border: 1px solid #F5C6C6; border-left: 5px solid #C0392B; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
 .error-example .label { font-weight: bold; font-size: 0.85em; color: #a04040; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
-.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
-.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+.practice { background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; padding: 18px 22px; margin: 0; border-radius: 8px; }
+.practice h2 { margin-top: 0; border-left: none; padding-left: 0; }
+.looking-ahead { background: #EEF1F8; border-left: 5px solid #0E1C42; padding: 16px 20px; font-style: italic; font-size: 0.98em; border-radius: 0 6px 6px 0; color: #1a2340; }
 ol li, ul li { margin-bottom: 0.5em; }
 .figure-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin: 1.2em 0; }
 .figure-card { border: 1px solid #ccc; border-radius: 4px; padding: 14px 16px; background: #fafafa; }
-.figure-card h3 { margin: 0 0 0.5em 0; font-size: 1em; border-bottom: 1px solid #ddd; padding-bottom: 0.3em; }
+.figure-card h3 { font-size: 1.05em; margin-top: 1.2em; color: #0e1c42; }
 .schema { font-family: 'Courier New', monospace; font-size: 0.95em; line-height: 1.8; margin: 0.5em 0; }
 .schema .line { display: flex; gap: 1.5em; }
 .syllogism-block { background: #f0f4f0; border-left: 4px solid #4a7a4a; padding: 14px 18px; margin: 1em 0; font-style: italic; border-radius: 0 3px 3px 0; }
 .syllogism-block strong { font-style: normal; }
-.widget-embed { margin: 2em 0; border: 1px solid #d0d7e3; border-radius: 4px; overflow: hidden; }
-.widget-embed p { margin: 0; padding: 8px 14px; background: #f2f2f2; font-family: Arial, sans-serif; font-size: 0.82em; color: #555; }
-</style>
+.widget-embed { margin: 1.2em 0; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.widget-embed p { margin: 0; padding: 8px 14px; background: #EEF1F8; font-size: 0.85em; color: #1a2340; }
+
+blockquote { border-left: 3px solid #D0D9E8; margin: 1em 0; padding-left: 1em; color: #1a2340; font-style: italic; }
+th { background: #EEF1F8; font-weight: bold; border: 1px solid #D0D9E8; padding: 8px 12px; text-align: left; }
+td { border: 1px solid #D0D9E8; padding: 8px 12px; }</style>
 </head>
 <body>
-
-<h1>Lesson 5.03c — The Four Figures of the Syllogism</h1>
-
-<div class="benchmark">
-  <strong>CPALMS Benchmarks:</strong> ELA.11.R.3.3 — Explain how an author's perspective shapes style and meaning; ELA.12.C.1.3 — Write arguments that use logical structure and valid reasoning
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 28px;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+<div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img alt="Optima Academy" src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" style="width: 50px; height: 40px; object-fit: contain;"/></div>
+<div>
+<div style="font-size: 26px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+<div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
 </div>
-
-<p class="objective"><strong>Learning Objective:</strong> Students will be able to identify the figure of a categorical syllogism in standard form and explain how the position of the middle term determines each figure.</p>
-
-<h2>Orientation</h2>
-
-<p>You can now identify the three terms of a syllogism and convert any argument to standard form. The next question is: how does the middle term sit within the two premises? Its position — whether it appears as subject or predicate in each premise — defines the <strong>figure</strong> of the syllogism. Figure is one of two structural properties (the other is mood, coming in a later lesson) that together determine whether a syllogism is valid.</p>
-
-<h2>Intuitive Entry</h2>
-
-<p>Think of a relay race. Each runner hands a baton to the next. The middle runner is the link: she receives the baton from the first runner and passes it to the third. How she positions herself in relation to the first and third runners determines the shape of the handoff. In a syllogism, the middle term (M) plays the same role — it receives from one premise and passes to another. But the <em>position</em> M occupies (subject or predicate in each premise) can vary, producing four distinct structural shapes. Those shapes are the four figures.</p>
-
-<h2>What a Figure Is</h2>
-
-<p>The <strong>figure</strong> of a syllogism is determined entirely by the position of the middle term (M) in the major and minor premises. In each premise, a term occupies either the subject position or the predicate position. Since M appears in both premises, there are four possible combinations:</p>
-
-<div class="figure-grid">
-  <div class="figure-card">
-    <h3>Figure 1</h3>
-    <div class="schema">
-      Major: <strong>M</strong> — P<br>
-      Minor: S — <strong>M</strong><br>
+</div>
+<div style="font-size: 30px; color: #ffffff;">SEMANTICS AND LOGIC HONORS</div>
+</div>
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 130px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
+<div style="font-size: 16px; color: #0e1c42;">Q2 · Module 3</div>
+<div style="font-size: 12px; color: #666;">Parts And Types Of Syllogisms</div>
+</div>
+<div style="flex: 1; min-width: 110px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+<div style="font-size: 16px; color: #0e1c42;">Lesson 5.03c</div>
+</div>
+<div style="flex: 2; min-width: 160px; padding: 12px 16px;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+<div style="font-size: 16px; color: #0e1c42; font-style: italic;">The Four Figures of the Syllogism</div>
+</div>
+</div>
+<div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 16px 20px; margin: 20px 28px 0 28px;">
+<div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 5.03c</div>
+<div style="font-size: 21px; color: #0e1c42;">The Four Figures of the Syllogism</div>
+</div>
+<div style="padding: 20px 28px 4px 28px;"><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><div class="benchmark">
+<strong>CPALMS Benchmarks:</strong> ELA.11.R.3.3 — Explain how an author's perspective shapes style and meaning; ELA.12.C.1.3 — Write arguments that use logical structure and valid reasoning
+</div><p class="objective"><strong>Learning Objective:</strong> Students will be able to identify the figure of a categorical syllogism in standard form and explain how the position of the middle term determines each figure.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Orientation</h2><p>You can now identify the three terms of a syllogism and convert any argument to standard form. The next question is: how does the middle term sit within the two premises? Its position — whether it appears as subject or predicate in each premise — defines the <strong>figure</strong> of the syllogism. Figure is one of two structural properties (the other is mood, coming in a later lesson) that together determine whether a syllogism is valid.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Intuitive Entry</h2><p>Think of a relay race. Each runner hands a baton to the next. The middle runner is the link: she receives the baton from the first runner and passes it to the third. How she positions herself in relation to the first and third runners determines the shape of the handoff. In a syllogism, the middle term (M) plays the same role — it receives from one premise and passes to another. But the <em>position</em> M occupies (subject or predicate in each premise) can vary, producing four distinct structural shapes. Those shapes are the four figures.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>What a Figure Is</h2><p>The <strong>figure</strong> of a syllogism is determined entirely by the position of the middle term (M) in the major and minor premises. In each premise, a term occupies either the subject position or the predicate position. Since M appears in both premises, there are four possible combinations:</p><div class="figure-grid">
+<div class="figure-card">
+<h3>Figure 1</h3>
+<div class="schema">
+      Major: <strong>M</strong> — P<br/>
+      Minor: S — <strong>M</strong><br/>
       Conc.: S — P
     </div>
-    <p style="font-size:0.9em; margin: 0.5em 0 0 0;">M is <em>subject</em> of major premise, <em>predicate</em> of minor premise.</p>
-  </div>
-  <div class="figure-card">
-    <h3>Figure 2</h3>
-    <div class="schema">
-      Major: P — <strong>M</strong><br>
-      Minor: S — <strong>M</strong><br>
+<p style="font-size:0.9em; margin: 0.5em 0 0 0;">M is <em>subject</em> of major premise, <em>predicate</em> of minor premise.</p>
+</div>
+<div class="figure-card">
+<h3>Figure 2</h3>
+<div class="schema">
+      Major: P — <strong>M</strong><br/>
+      Minor: S — <strong>M</strong><br/>
       Conc.: S — P
     </div>
-    <p style="font-size:0.9em; margin: 0.5em 0 0 0;">M is <em>predicate</em> of both premises.</p>
-  </div>
-  <div class="figure-card">
-    <h3>Figure 3</h3>
-    <div class="schema">
-      Major: <strong>M</strong> — P<br>
-      Minor: <strong>M</strong> — S<br>
+<p style="font-size:0.9em; margin: 0.5em 0 0 0;">M is <em>predicate</em> of both premises.</p>
+</div>
+<div class="figure-card">
+<h3>Figure 3</h3>
+<div class="schema">
+      Major: <strong>M</strong> — P<br/>
+      Minor: <strong>M</strong> — S<br/>
       Conc.: S — P
     </div>
-    <p style="font-size:0.9em; margin: 0.5em 0 0 0;">M is <em>subject</em> of both premises.</p>
-  </div>
-  <div class="figure-card">
-    <h3>Figure 4</h3>
-    <div class="schema">
-      Major: P — <strong>M</strong><br>
-      Minor: <strong>M</strong> — S<br>
+<p style="font-size:0.9em; margin: 0.5em 0 0 0;">M is <em>subject</em> of both premises.</p>
+</div>
+<div class="figure-card">
+<h3>Figure 4</h3>
+<div class="schema">
+      Major: P — <strong>M</strong><br/>
+      Minor: <strong>M</strong> — S<br/>
       Conc.: S — P
     </div>
-    <p style="font-size:0.9em; margin: 0.5em 0 0 0;">M is <em>predicate</em> of major, <em>subject</em> of minor.</p>
+<p style="font-size:0.9em; margin: 0.5em 0 0 0;">M is <em>predicate</em> of major, <em>subject</em> of minor.</p>
+</div>
+</div><p>The conclusion is always written S — P (subject of conclusion — predicate of conclusion) regardless of figure. Only the arrangement of M in the premises varies.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>A Brief History of the Four Figures</h2><p>Aristotle, in the <em>Prior Analytics</em>, identified three figures of the syllogism. He recognized that Figure 4 was logically possible but considered it an indirect or awkward arrangement — effectively the inverse of Figure 1. Most Scholastic logicians working in the Aristotelian tradition treated Figure 4 as a legitimate fourth figure, though there was debate. It is sometimes attributed to Galen of Pergamon (2nd century CE), though the attribution is disputed. By the high medieval period, all four figures were standard in the Scholastic curriculum, and logic textbooks from the 13th century onward treated them as a complete system. The mnemonic devices for valid moods — Barbara, Celarent, Darii, and so on — were organized by figure in these texts.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Identifying the Figure: Procedure</h2><p>To determine the figure of a syllogism in standard form:</p><ol>
+<li>Confirm the syllogism is in standard form (major premise first).</li>
+<li>Identify the middle term (M) — the term that appears in both premises.</li>
+<li>In the major premise: is M the subject or the predicate?</li>
+<li>In the minor premise: is M the subject or the predicate?</li>
+<li>Match the pattern to the four figures above.</li>
+</ol><div class="example">
+<span class="label">Example 1 — Figure 1</span>
+<div class="syllogism-block">
+<strong>Major premise:</strong> All <u>mammals</u> are warm-blooded.<br/>
+<strong>Minor premise:</strong> All dogs are <u>mammals</u>.<br/>
+<strong>Conclusion:</strong> Therefore, all dogs are warm-blooded.
   </div>
-</div>
-
-<p>The conclusion is always written S — P (subject of conclusion — predicate of conclusion) regardless of figure. Only the arrangement of M in the premises varies.</p>
-
-<h2>A Brief History of the Four Figures</h2>
-
-<p>Aristotle, in the <em>Prior Analytics</em>, identified three figures of the syllogism. He recognized that Figure 4 was logically possible but considered it an indirect or awkward arrangement — effectively the inverse of Figure 1. Most Scholastic logicians working in the Aristotelian tradition treated Figure 4 as a legitimate fourth figure, though there was debate. It is sometimes attributed to Galen of Pergamon (2nd century CE), though the attribution is disputed. By the high medieval period, all four figures were standard in the Scholastic curriculum, and logic textbooks from the 13th century onward treated them as a complete system. The mnemonic devices for valid moods — Barbara, Celarent, Darii, and so on — were organized by figure in these texts.</p>
-
-<h2>Identifying the Figure: Procedure</h2>
-
-<p>To determine the figure of a syllogism in standard form:</p>
-<ol>
-  <li>Confirm the syllogism is in standard form (major premise first).</li>
-  <li>Identify the middle term (M) — the term that appears in both premises.</li>
-  <li>In the major premise: is M the subject or the predicate?</li>
-  <li>In the minor premise: is M the subject or the predicate?</li>
-  <li>Match the pattern to the four figures above.</li>
-</ol>
-
-<div class="example">
-  <span class="label">Example 1 — Figure 1</span>
-  <div class="syllogism-block">
-    <strong>Major premise:</strong> All <u>mammals</u> are warm-blooded.<br>
-    <strong>Minor premise:</strong> All dogs are <u>mammals</u>.<br>
-    <strong>Conclusion:</strong> Therefore, all dogs are warm-blooded.
+<p><strong>Analysis:</strong> Middle term = <em>mammals</em>. In major premise, <em>mammals</em> is the <strong>subject</strong>. In minor premise, <em>mammals</em> is the <strong>predicate</strong>. Pattern: M–P / S–M → S–P. This is <strong>Figure 1</strong>.</p>
+</div><div class="example">
+<span class="label">Example 2 — Figure 2</span>
+<div class="syllogism-block">
+<strong>Major premise:</strong> No fish are <u>warm-blooded</u>.<br/>
+<strong>Minor premise:</strong> All dolphins are <u>warm-blooded</u>.<br/>
+<strong>Conclusion:</strong> Therefore, no dolphins are fish.
   </div>
-  <p><strong>Analysis:</strong> Middle term = <em>mammals</em>. In major premise, <em>mammals</em> is the <strong>subject</strong>. In minor premise, <em>mammals</em> is the <strong>predicate</strong>. Pattern: M–P / S–M → S–P. This is <strong>Figure 1</strong>.</p>
-</div>
-
-<div class="example">
-  <span class="label">Example 2 — Figure 2</span>
-  <div class="syllogism-block">
-    <strong>Major premise:</strong> No fish are <u>warm-blooded</u>.<br>
-    <strong>Minor premise:</strong> All dolphins are <u>warm-blooded</u>.<br>
-    <strong>Conclusion:</strong> Therefore, no dolphins are fish.
+<p><strong>Analysis:</strong> Wait — the conclusion here has "dolphins" as subject and "fish" as predicate, so P = <em>fish</em> and S = <em>dolphins</em>. The middle term = <em>warm-blooded</em>. In major premise: "No fish are warm-blooded" — wait, let me re-identify. Major premise contains P (fish): "No fish are warm-blooded." M (<em>warm-blooded</em>) is the <strong>predicate</strong> of the major premise. Minor premise contains S (dolphins): "All dolphins are warm-blooded." M is the <strong>predicate</strong> of the minor premise. Pattern: P–M / S–M → S–P. This is <strong>Figure 2</strong>.</p>
+</div><div class="example">
+<span class="label">Example 3 — Figure 3</span>
+<div class="syllogism-block">
+<strong>Major premise:</strong> All <u>crows</u> are black.<br/>
+<strong>Minor premise:</strong> All <u>crows</u> are birds.<br/>
+<strong>Conclusion:</strong> Therefore, some birds are black.
   </div>
-  <p><strong>Analysis:</strong> Wait — the conclusion here has "dolphins" as subject and "fish" as predicate, so P = <em>fish</em> and S = <em>dolphins</em>. The middle term = <em>warm-blooded</em>. In major premise: "No fish are warm-blooded" — wait, let me re-identify. Major premise contains P (fish): "No fish are warm-blooded." M (<em>warm-blooded</em>) is the <strong>predicate</strong> of the major premise. Minor premise contains S (dolphins): "All dolphins are warm-blooded." M is the <strong>predicate</strong> of the minor premise. Pattern: P–M / S–M → S–P. This is <strong>Figure 2</strong>.</p>
-</div>
-
-<div class="example">
-  <span class="label">Example 3 — Figure 3</span>
-  <div class="syllogism-block">
-    <strong>Major premise:</strong> All <u>crows</u> are black.<br>
-    <strong>Minor premise:</strong> All <u>crows</u> are birds.<br>
-    <strong>Conclusion:</strong> Therefore, some birds are black.
+<p><strong>Analysis:</strong> Conclusion: subject = <em>birds</em> (S), predicate = <em>black</em> (P). Middle term = <em>crows</em>. In major premise: <em>crows</em> is the <strong>subject</strong>. In minor premise: <em>crows</em> is the <strong>subject</strong>. Pattern: M–P / M–S → S–P. This is <strong>Figure 3</strong>.</p>
+</div><div class="example">
+<span class="label">Example 4 — Figure 4</span>
+<div class="syllogism-block">
+<strong>Major premise:</strong> All vertebrates are <u>animals with backbones</u>.<br/>
+<strong>Minor premise:</strong> All <u>animals with backbones</u> have a nervous system.<br/>
+<strong>Conclusion:</strong> Therefore, some things with a nervous system are vertebrates.
   </div>
-  <p><strong>Analysis:</strong> Conclusion: subject = <em>birds</em> (S), predicate = <em>black</em> (P). Middle term = <em>crows</em>. In major premise: <em>crows</em> is the <strong>subject</strong>. In minor premise: <em>crows</em> is the <strong>subject</strong>. Pattern: M–P / M–S → S–P. This is <strong>Figure 3</strong>.</p>
-</div>
-
-<div class="example">
-  <span class="label">Example 4 — Figure 4</span>
-  <div class="syllogism-block">
-    <strong>Major premise:</strong> All vertebrates are <u>animals with backbones</u>.<br>
-    <strong>Minor premise:</strong> All <u>animals with backbones</u> have a nervous system.<br>
-    <strong>Conclusion:</strong> Therefore, some things with a nervous system are vertebrates.
-  </div>
-  <p><strong>Analysis:</strong> Conclusion: S = <em>things with a nervous system</em>, P = <em>vertebrates</em>. Middle term = <em>animals with backbones</em>. In major premise: M is the <strong>predicate</strong>. In minor premise: M is the <strong>subject</strong>. Pattern: P–M / M–S → S–P. This is <strong>Figure 4</strong>.</p>
-</div>
-
-<div class="error-example">
-  <span class="label">Common Error — Confusing Figure with Validity</span>
-  <p>Figure is not the same as validity. Each figure contains both valid and invalid syllogistic forms. Knowing the figure does not tell you whether the argument is valid — that depends on the figure <em>combined</em> with the mood (the pattern of A, E, I, O statement types in the premises and conclusion). Figure is one axis; mood is the other. Together they uniquely identify every categorical syllogism and determine its validity.</p>
-</div>
-
-<h2>Interactive Widget: Figure Identifier</h2>
-
-<div class="widget-embed">
-  <p>Practice identifying syllogism figures — embedded below. Read each syllogism and select the correct figure.</p>
+<p><strong>Analysis:</strong> Conclusion: S = <em>things with a nervous system</em>, P = <em>vertebrates</em>. Middle term = <em>animals with backbones</em>. In major premise: M is the <strong>predicate</strong>. In minor premise: M is the <strong>subject</strong>. Pattern: P–M / M–S → S–P. This is <strong>Figure 4</strong>.</p>
+</div><div class="error-example">
+<span class="label">Common Error — Confusing Figure with Validity</span>
+<p>Figure is not the same as validity. Each figure contains both valid and invalid syllogistic forms. Knowing the figure does not tell you whether the argument is valid — that depends on the figure <em>combined</em> with the mood (the pattern of A, E, I, O statement types in the premises and conclusion). Figure is one axis; mood is the other. Together they uniquely identify every categorical syllogism and determine its validity.</p>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Interactive Widget: Figure Identifier</h2><div class="widget-embed">
+<p>Practice identifying syllogism figures — embedded below. Read each syllogism and select the correct figure.</p>
 <div style="padding:16px; background:#fff;">
 <div id="fig-quiz">
-  <div id="fq-question" style="font-family: Georgia, serif; font-size: 1em; line-height: 1.6; margin-bottom: 1em;"></div>
-  <div id="fq-choices" style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:1em;"></div>
-  <div id="fq-feedback" style="font-weight:bold; min-height:1.4em; margin-bottom:1em; font-family: Arial, sans-serif; font-size:0.9em;"></div>
-  <button id="fq-next" onclick="fqNext()" style="background:#2a5a8c; color:#fff; border:none; padding:8px 20px; border-radius:3px; cursor:pointer; font-size:0.9em; display:none;">Next Question</button>
+<div id="fq-question" style="font-family: Georgia, serif; font-size: 1em; line-height: 1.6; margin-bottom: 1em;"></div>
+<div id="fq-choices" style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:1em;"></div>
+<div id="fq-feedback" style="font-weight:bold; min-height:1.4em; margin-bottom:1em; font-family: Arial, sans-serif; font-size:0.9em;"></div>
+<button id="fq-next" onclick="fqNext()" style="background:#2a5a8c; color:#fff; border:none; padding:8px 20px; border-radius:3px; cursor:pointer; font-size:0.9em; display:none;">Next Question</button>
 </div>
 <script>
 const fqProblems = [
@@ -206,28 +195,25 @@ function fqNext(){
 fqRender();
 </script>
 </div>
+</div><div class="practice">
+<h2>Practice Problems</h2>
+<p><strong>Part A — Figure Identification.</strong> Place each syllogism in standard form (if not already) and identify its figure (1, 2, 3, or 4).</p>
+<ol>
+<li>All philosophers are careful thinkers. All Stoics are philosophers. Therefore, all Stoics are careful thinkers.</li>
+<li>No triangles are quadrilaterals. All squares are quadrilaterals. Therefore, no squares are triangles.</li>
+<li>All whales are mammals. All whales are aquatic animals. Therefore, some aquatic animals are mammals.</li>
+<li>All carnivores are meat-eaters. Some meat-eaters are domesticated animals. Therefore, some domesticated animals are carnivores.</li>
+<li>No reptiles are endothermic. All snakes are reptiles. Therefore, no snakes are endothermic.</li>
+</ol>
+<p><strong>Part B — Explanation.</strong> In 3–4 sentences, explain why knowing the figure of a syllogism is analytically useful. Why isn't it sufficient to just know whether the argument is valid or invalid?</p>
+<p><strong>Part C — Construction.</strong> Write one original syllogism in each of the four figures. Each syllogism should be in standard form, and you should label the figure for each. Use neutral subject matter (science, mathematics, history, or everyday objects).</p>
+</div></div><div style="margin-bottom: 20px;"><div class="looking-ahead">
+<strong>Looking Ahead:</strong> Figure tells us the structural shape of a syllogism; mood tells us what types of statements (A, E, I, O) fill that shape. The next unit on inferences will deepen your understanding of what each statement type can and cannot support, preparing you to master mood and the valid syllogistic forms.
+</div></div></div>
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 16px 28px; text-align: center; margin-top: 10px;">
+<div style="font-size: 16px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> · SEMANTICS AND LOGIC HONORS · Quarter 2 · Student Lesson Page</div>
+<div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 5.03c · The Four Figures of the Syllogism</div>
+<div style="font-size: 12px; color: rgba(255,255,255,0.4);">© Optima Academy Online · An Education Experience Company</div>
 </div>
-
-<div class="practice">
-  <h2>Practice Problems</h2>
-
-  <p><strong>Part A — Figure Identification.</strong> Place each syllogism in standard form (if not already) and identify its figure (1, 2, 3, or 4).</p>
-  <ol>
-    <li>All philosophers are careful thinkers. All Stoics are philosophers. Therefore, all Stoics are careful thinkers.</li>
-    <li>No triangles are quadrilaterals. All squares are quadrilaterals. Therefore, no squares are triangles.</li>
-    <li>All whales are mammals. All whales are aquatic animals. Therefore, some aquatic animals are mammals.</li>
-    <li>All carnivores are meat-eaters. Some meat-eaters are domesticated animals. Therefore, some domesticated animals are carnivores.</li>
-    <li>No reptiles are endothermic. All snakes are reptiles. Therefore, no snakes are endothermic.</li>
-  </ol>
-
-  <p><strong>Part B — Explanation.</strong> In 3–4 sentences, explain why knowing the figure of a syllogism is analytically useful. Why isn't it sufficient to just know whether the argument is valid or invalid?</p>
-
-  <p><strong>Part C — Construction.</strong> Write one original syllogism in each of the four figures. Each syllogism should be in standard form, and you should label the figure for each. Use neutral subject matter (science, mathematics, history, or everyday objects).</p>
-</div>
-
-<div class="looking-ahead">
-  <strong>Looking Ahead:</strong> Figure tells us the structural shape of a syllogism; mood tells us what types of statements (A, E, I, O) fill that shape. The next unit on inferences will deepen your understanding of what each statement type can and cannot support, preparing you to master mood and the valid syllogistic forms.
-</div>
-
 </body>
 </html>

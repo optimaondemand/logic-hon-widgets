@@ -1,178 +1,168 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lesson 5.01b — Diagramming Universal Statements (A and E)</title>
 <style>
-body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
-h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
-h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
-.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
-.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
-.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
-.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.error-example { background: #fff8f8; border: 1px solid #e8c0c0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 820px; margin: 0 auto; padding: 0 0 24px 0; line-height: 1.7; color: #1a2340; background: #fff; }
+h1 { display: none; }
+h2 { font-size: 1.25em; margin: 0 0 14px 0; color: #0e1c42; border-left: 4px solid #C7922C; padding-left: 12px; }
+.benchmark { background: #EEF1F8; border-left: 4px solid #0E1C42; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.8em; color: #1a2340; }
+.objective { font-style: italic; color: #1a2340; border-left: 4px solid #C7922C; padding-left: 12px; margin-bottom: 0; font-size: 0.98em; }
+.example { background: #E8F6FB; border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #C7922C; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.error-example { background: #FDECEC; border: 1px solid #F5C6C6; border-left: 5px solid #C0392B; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
 .error-example .label { font-weight: bold; font-size: 0.85em; color: #a04040; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
-.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
-.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+.practice { background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; padding: 18px 22px; margin: 0; border-radius: 8px; }
+.practice h2 { margin-top: 0; border-left: none; padding-left: 0; }
+.looking-ahead { background: #EEF1F8; border-left: 5px solid #0E1C42; padding: 16px 20px; font-style: italic; font-size: 0.98em; border-radius: 0 6px 6px 0; color: #1a2340; }
 ol li, ul li { margin-bottom: 0.5em; }
 .venn-row { display: flex; justify-content: center; gap: 3em; margin: 1.5em 0; flex-wrap: wrap; align-items: flex-start; }
 .venn-figure { text-align: center; }
 .venn-caption { font-family: Arial, sans-serif; font-size: 0.85em; color: #444; margin-top: 0.5em; max-width: 220px; margin-left: auto; margin-right: auto; }
 .venn-statement { font-style: italic; font-size: 0.95em; margin-bottom: 0.3em; }
-</style>
+
+h3 { font-size: 1.05em; margin-top: 1.2em; color: #0e1c42; }
+blockquote { border-left: 3px solid #D0D9E8; margin: 1em 0; padding-left: 1em; color: #1a2340; font-style: italic; }
+th { background: #EEF1F8; font-weight: bold; border: 1px solid #D0D9E8; padding: 8px 12px; text-align: left; }
+td { border: 1px solid #D0D9E8; padding: 8px 12px; }
+.widget-embed { margin: 1.2em 0; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.widget-embed p { margin: 0; padding: 8px 14px; background: #EEF1F8; font-size: 0.85em; color: #1a2340; }</style>
 </head>
 <body>
-
-<h1>Lesson 5.01b — Diagramming Universal Statements (A and E)</h1>
-
-<div class="benchmark">
-  <strong>CPALMS Benchmarks:</strong> ELA.11.R.2.2 — Analyze the structure an author uses to organize a text &nbsp;|&nbsp; ELA.11.C.1.4 — Write arguments that demonstrate logical structure and valid reasoning
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 28px;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+<div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img alt="Optima Academy" src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" style="width: 50px; height: 40px; object-fit: contain;"/></div>
+<div>
+<div style="font-size: 26px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+<div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
 </div>
-
-<p class="objective"><strong>Learning Objective:</strong> Students will be able to diagram the universal affirmative (A) and universal negative (E) categorical statements using the correct shading conventions, and will be able to explain why shading — not X-marks — is the appropriate representation for universal claims.</p>
-
-<h2>Orientation</h2>
-
-<p>You now know what the regions of a Venn diagram represent and what shading and X-marks mean. This lesson applies those conventions to the two universal statement types: the A statement ("All S are P") and the E statement ("No S are P"). These statements make claims about <em>all</em> members of a class — which means they are making claims about what does not exist in certain regions, and shading is the appropriate tool for expressing that absence.</p>
-
-<h2>Intuitive Entry</h2>
-
-<p>Suppose a museum curator announces: "Every artifact in this collection is authenticated." If you then check the shelf of items labeled "unauthenticated artifacts from this collection" — you would find it empty. The curator's claim, if true, implies that no member of the collection occupies the unauthenticated region. The shelf is bare. Universal claims work this way: they tell you certain regions are empty, not that they are full. That is exactly what shading communicates: "This region is empty — no members here."</p>
-
-<h2>The A Statement: "All S are P"</h2>
-
-<p>The <strong>A statement</strong> — universal affirmative — asserts that every member of class S is also a member of class P. It says nothing about members of P that are not S; it is silent about the P-only region. What it does say is that nothing belongs to S without also belonging to P. In other words, the region of S that falls <em>outside</em> P — the left crescent — contains no members. That region is empty.</p>
-
-<p><strong>Diagramming rule for A ("All S are P"):</strong> Shade the region of S that lies outside P (left crescent).</p>
-
-<div class="venn-row">
+</div>
+<div style="font-size: 30px; color: #ffffff;">SEMANTICS AND LOGIC HONORS</div>
+</div>
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 130px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
+<div style="font-size: 16px; color: #0e1c42;">Q2 · Module 1</div>
+<div style="font-size: 12px; color: #666;">Venn Diagrams Of Statements</div>
+</div>
+<div style="flex: 1; min-width: 110px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+<div style="font-size: 16px; color: #0e1c42;">Lesson 5.01b</div>
+</div>
+<div style="flex: 2; min-width: 160px; padding: 12px 16px;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+<div style="font-size: 16px; color: #0e1c42; font-style: italic;">Diagramming Universal Statements (A and E)</div>
+</div>
+</div>
+<div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 16px 20px; margin: 20px 28px 0 28px;">
+<div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 5.01b</div>
+<div style="font-size: 21px; color: #0e1c42;">Diagramming Universal Statements (A and E)</div>
+</div>
+<div style="padding: 20px 28px 4px 28px;"><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><div class="benchmark">
+<strong>CPALMS Benchmarks:</strong> ELA.11.R.2.2 — Analyze the structure an author uses to organize a text  |  ELA.11.C.1.4 — Write arguments that demonstrate logical structure and valid reasoning
+</div><p class="objective"><strong>Learning Objective:</strong> Students will be able to diagram the universal affirmative (A) and universal negative (E) categorical statements using the correct shading conventions, and will be able to explain why shading — not X-marks — is the appropriate representation for universal claims.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Orientation</h2><p>You now know what the regions of a Venn diagram represent and what shading and X-marks mean. This lesson applies those conventions to the two universal statement types: the A statement ("All S are P") and the E statement ("No S are P"). These statements make claims about <em>all</em> members of a class — which means they are making claims about what does not exist in certain regions, and shading is the appropriate tool for expressing that absence.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Intuitive Entry</h2><p>Suppose a museum curator announces: "Every artifact in this collection is authenticated." If you then check the shelf of items labeled "unauthenticated artifacts from this collection" — you would find it empty. The curator's claim, if true, implies that no member of the collection occupies the unauthenticated region. The shelf is bare. Universal claims work this way: they tell you certain regions are empty, not that they are full. That is exactly what shading communicates: "This region is empty — no members here."</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The A Statement: "All S are P"</h2><p>The <strong>A statement</strong> — universal affirmative — asserts that every member of class S is also a member of class P. It says nothing about members of P that are not S; it is silent about the P-only region. What it does say is that nothing belongs to S without also belonging to P. In other words, the region of S that falls <em>outside</em> P — the left crescent — contains no members. That region is empty.</p><p><strong>Diagramming rule for A ("All S are P"):</strong> Shade the region of S that lies outside P (left crescent).</p><div class="venn-row">
 <div class="venn-figure">
-  <div class="venn-statement">"All S are P"</div>
-  <svg viewBox="0 0 280 155" xmlns="http://www.w3.org/2000/svg" width="260" height="145">
-    <defs>
-      <clipPath id="a-left-crescent">
-        <circle cx="98" cy="77" r="62"/>
-      </clipPath>
-      <clipPath id="a-exclude-right">
-        <rect x="0" y="0" width="160" height="155"/>
-      </clipPath>
-    </defs>
-    <!-- Shade left crescent: S minus overlap -->
-    <path d="M98,15 A62,62,0,0,0,98,139 A62,62,0,0,1,98,15 Z" fill="#aaa" opacity="0.5"/>
-    <!-- More accurate left crescent shading -->
-    <circle cx="98" cy="77" r="62" fill="#aaa" opacity="0.45" clip-path="url(#a-exclude-right)"/>
-    <!-- Overlap white-out -->
-    <circle cx="182" cy="77" r="62" fill="#fff" clip-path="url(#a-left-crescent)"/>
-    <!-- Circle outlines -->
-    <circle cx="98" cy="77" r="62" fill="none" stroke="#333" stroke-width="2"/>
-    <circle cx="182" cy="77" r="62" fill="none" stroke="#333" stroke-width="2"/>
-    <!-- Labels -->
-    <text x="42" y="82" font-family="Georgia, serif" font-size="20" fill="#333" font-weight="bold">S</text>
-    <text x="224" y="82" font-family="Georgia, serif" font-size="20" fill="#333" font-weight="bold">P</text>
-  </svg>
-  <div class="venn-caption">The left crescent (S outside P) is shaded — empty. Every S is inside P.</div>
+<div class="venn-statement">"All S are P"</div>
+<svg height="145" viewbox="0 0 280 155" width="260" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<clippath id="a-left-crescent">
+<circle cx="98" cy="77" r="62"></circle>
+</clippath>
+<clippath id="a-exclude-right">
+<rect height="155" width="160" x="0" y="0"></rect>
+</clippath>
+</defs>
+<!-- Shade left crescent: S minus overlap -->
+<path d="M98,15 A62,62,0,0,0,98,139 A62,62,0,0,1,98,15 Z" fill="#aaa" opacity="0.5"></path>
+<!-- More accurate left crescent shading -->
+<circle clip-path="url(#a-exclude-right)" cx="98" cy="77" fill="#aaa" opacity="0.45" r="62"></circle>
+<!-- Overlap white-out -->
+<circle clip-path="url(#a-left-crescent)" cx="182" cy="77" fill="#fff" r="62"></circle>
+<!-- Circle outlines -->
+<circle cx="98" cy="77" fill="none" r="62" stroke="#333" stroke-width="2"></circle>
+<circle cx="182" cy="77" fill="none" r="62" stroke="#333" stroke-width="2"></circle>
+<!-- Labels -->
+<text fill="#333" font-family="Georgia, serif" font-size="20" font-weight="bold" x="42" y="82">S</text>
+<text fill="#333" font-family="Georgia, serif" font-size="20" font-weight="bold" x="224" y="82">P</text>
+</svg>
+<div class="venn-caption">The left crescent (S outside P) is shaded — empty. Every S is inside P.</div>
 </div>
-</div>
-
-<p>Notice that the overlap region — written <strong>S ∩ P</strong>, using the symbol "∩" to mean "overlaps with" (the set of things belonging to both S and P at once) — is <em>not</em> shaded. The A statement does not tell us whether that region is occupied or empty. It only tells us the left crescent is empty. There may be many S's inside P, or very few — the A statement guarantees that none fall outside P, but says nothing further.</p>
-
-<div class="example">
-  <span class="label">Example — Diagramming an A Statement</span>
-  <p>Statement: "All mammals are warm-blooded animals."</p>
-  <p>S = mammals, P = warm-blooded animals.</p>
-  <p><strong>Diagram:</strong> Shade the region of the S circle (mammals) that lies outside the P circle (warm-blooded animals). This represents the claim that no mammal exists outside the warm-blooded region.</p>
-  <p>The overlap region (things that are both mammals and warm-blooded) is left unshaded and unmarked — the statement does not make a specific existential claim about that zone; it only forecloses the left crescent.</p>
-</div>
-
-<h2>The E Statement: "No S are P"</h2>
-
-<p>The <strong>E statement</strong> — universal negative — asserts that no member of class S belongs to class P. The two classes are entirely separate; there is no overlap. The region where S and P intersect contains no members — it is empty.</p>
-
-<p><strong>Diagramming rule for E ("No S are P"):</strong> Shade the overlap region (S ∩ P).</p>
-
-<div class="venn-row">
+</div><p>Notice that the overlap region — written <strong>S ∩ P</strong>, using the symbol "∩" to mean "overlaps with" (the set of things belonging to both S and P at once) — is <em>not</em> shaded. The A statement does not tell us whether that region is occupied or empty. It only tells us the left crescent is empty. There may be many S's inside P, or very few — the A statement guarantees that none fall outside P, but says nothing further.</p><div class="example">
+<span class="label">Example — Diagramming an A Statement</span>
+<p>Statement: "All mammals are warm-blooded animals."</p>
+<p>S = mammals, P = warm-blooded animals.</p>
+<p><strong>Diagram:</strong> Shade the region of the S circle (mammals) that lies outside the P circle (warm-blooded animals). This represents the claim that no mammal exists outside the warm-blooded region.</p>
+<p>The overlap region (things that are both mammals and warm-blooded) is left unshaded and unmarked — the statement does not make a specific existential claim about that zone; it only forecloses the left crescent.</p>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The E Statement: "No S are P"</h2><p>The <strong>E statement</strong> — universal negative — asserts that no member of class S belongs to class P. The two classes are entirely separate; there is no overlap. The region where S and P intersect contains no members — it is empty.</p><p><strong>Diagramming rule for E ("No S are P"):</strong> Shade the overlap region (S ∩ P).</p><div class="venn-row">
 <div class="venn-figure">
-  <div class="venn-statement">"No S are P"</div>
-  <svg viewBox="0 0 280 155" xmlns="http://www.w3.org/2000/svg" width="260" height="145">
-    <defs>
-      <clipPath id="e-s-circle">
-        <circle cx="98" cy="77" r="62"/>
-      </clipPath>
-    </defs>
-    <!-- Shade the overlap region -->
-    <circle cx="182" cy="77" r="62" fill="#aaa" opacity="0.5" clip-path="url(#e-s-circle)"/>
-    <!-- Circle outlines -->
-    <circle cx="98" cy="77" r="62" fill="none" stroke="#333" stroke-width="2"/>
-    <circle cx="182" cy="77" r="62" fill="none" stroke="#333" stroke-width="2"/>
-    <!-- Labels -->
-    <text x="42" y="82" font-family="Georgia, serif" font-size="20" fill="#333" font-weight="bold">S</text>
-    <text x="224" y="82" font-family="Georgia, serif" font-size="20" fill="#333" font-weight="bold">P</text>
-  </svg>
-  <div class="venn-caption">The overlap region (S ∩ P) is shaded — empty. Nothing is both S and P.</div>
+<div class="venn-statement">"No S are P"</div>
+<svg height="145" viewbox="0 0 280 155" width="260" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<clippath id="e-s-circle">
+<circle cx="98" cy="77" r="62"></circle>
+</clippath>
+</defs>
+<!-- Shade the overlap region -->
+<circle clip-path="url(#e-s-circle)" cx="182" cy="77" fill="#aaa" opacity="0.5" r="62"></circle>
+<!-- Circle outlines -->
+<circle cx="98" cy="77" fill="none" r="62" stroke="#333" stroke-width="2"></circle>
+<circle cx="182" cy="77" fill="none" r="62" stroke="#333" stroke-width="2"></circle>
+<!-- Labels -->
+<text fill="#333" font-family="Georgia, serif" font-size="20" font-weight="bold" x="42" y="82">S</text>
+<text fill="#333" font-family="Georgia, serif" font-size="20" font-weight="bold" x="224" y="82">P</text>
+</svg>
+<div class="venn-caption">The overlap region (S ∩ P) is shaded — empty. Nothing is both S and P.</div>
 </div>
+</div><p>The E statement is symmetric: "No S are P" and "No P are S" say the same thing about membership. This is why the E statement converts simply — the diagram looks the same regardless of which class you call S and which you call P.</p><div class="example">
+<span class="label">Example — Diagramming an E Statement</span>
+<p>Statement: "No reptiles are warm-blooded."</p>
+<p>S = reptiles, P = warm-blooded animals.</p>
+<p><strong>Diagram:</strong> Shade the overlap of the S circle (reptiles) and the P circle (warm-blooded animals). This represents the claim that no reptile falls in the warm-blooded region — the overlap is entirely empty.</p>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Comparing A and E</h2><div class="example">
+<span class="label">Side-by-Side Comparison</span>
+<table style="width:100%; border-collapse:collapse; font-size:0.95em;">
+<tr style="background:#eee;">
+<th style="padding:8px 12px; border:1px solid #ccc; text-align:left;">Statement</th>
+<th style="padding:8px 12px; border:1px solid #ccc; text-align:left;">Claim</th>
+<th style="padding:8px 12px; border:1px solid #ccc; text-align:left;">Region Shaded</th>
+</tr>
+<tr>
+<td style="padding:8px 12px; border:1px solid #ccc;"><strong>A:</strong> "All S are P"</td>
+<td style="padding:8px 12px; border:1px solid #ccc;">Every S is in P</td>
+<td style="padding:8px 12px; border:1px solid #ccc;">Left crescent (S outside P)</td>
+</tr>
+<tr style="background:#fafafa;">
+<td style="padding:8px 12px; border:1px solid #ccc;"><strong>E:</strong> "No S are P"</td>
+<td style="padding:8px 12px; border:1px solid #ccc;">No S is in P</td>
+<td style="padding:8px 12px; border:1px solid #ccc;">Overlap (S ∩ P)</td>
+</tr>
+</table>
+</div><div class="error-example">
+<span class="label">Common Error — Shading the Wrong Region for A Statements</span>
+<p>A frequent mistake is to shade the <em>overlap</em> for an A statement, as if "All S are P" meant "S and P are the same." They are not the same — A only says every S falls inside P; it says nothing about whether there are P's outside S. Shading the overlap would incorrectly represent a <em>biconditional</em> claim ("All S are P and all P are S") — much stronger than the A statement actually asserts.</p>
+<p>Always ask: <em>which region does the statement say is empty?</em> For A ("All S are P"), the empty region is the part of S that would be outside P — the left crescent.</p>
+</div><div class="practice">
+<h2>Practice Problems</h2>
+<p><strong>Part A — Diagram Description.</strong> For each statement, describe in words which region you would shade (do not draw — describe precisely). Identify the statement type (A or E) and name the region.</p>
+<ol>
+<li>"All migratory birds are animals that travel seasonally."</li>
+<li>"No prime numbers are even numbers." (Note: this is false for the number 2, but treat it as a categorical statement and diagram as given.)</li>
+<li>"All cephalopods are invertebrates."</li>
+<li>"No sedimentary rocks are igneous rocks."</li>
+<li>"All objects in free fall experience weightlessness."</li>
+</ol>
+<p><strong>Part B — Reading Diagrams.</strong> A classmate shows you a diagram with only the left crescent of the S circle shaded. Write the A or E statement that the diagram represents, using S and P as placeholders. Explain in one sentence why this could not be an E statement.</p>
+<p><strong>Part C — Explanation.</strong> In 3–4 sentences, explain why universal statements use shading rather than X-marks. What would it mean if you placed an X in a region instead of shading it when diagramming "All S are P"?</p>
+</div></div><div style="margin-bottom: 20px;"><div class="looking-ahead">
+<strong>Looking Ahead:</strong> The next lesson applies Venn diagram conventions to particular statements — I ("Some S are P") and O ("Some S are not P") — which make existential rather than universal claims and require X-marks rather than shading.
+</div></div></div>
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 16px 28px; text-align: center; margin-top: 10px;">
+<div style="font-size: 16px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> · SEMANTICS AND LOGIC HONORS · Quarter 2 · Student Lesson Page</div>
+<div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 5.01b · Diagramming Universal Statements (A and E)</div>
+<div style="font-size: 12px; color: rgba(255,255,255,0.4);">© Optima Academy Online · An Education Experience Company</div>
 </div>
-
-<p>The E statement is symmetric: "No S are P" and "No P are S" say the same thing about membership. This is why the E statement converts simply — the diagram looks the same regardless of which class you call S and which you call P.</p>
-
-<div class="example">
-  <span class="label">Example — Diagramming an E Statement</span>
-  <p>Statement: "No reptiles are warm-blooded."</p>
-  <p>S = reptiles, P = warm-blooded animals.</p>
-  <p><strong>Diagram:</strong> Shade the overlap of the S circle (reptiles) and the P circle (warm-blooded animals). This represents the claim that no reptile falls in the warm-blooded region — the overlap is entirely empty.</p>
-</div>
-
-<h2>Comparing A and E</h2>
-
-<div class="example">
-  <span class="label">Side-by-Side Comparison</span>
-  <table style="width:100%; border-collapse:collapse; font-size:0.95em;">
-    <tr style="background:#eee;">
-      <th style="padding:8px 12px; border:1px solid #ccc; text-align:left;">Statement</th>
-      <th style="padding:8px 12px; border:1px solid #ccc; text-align:left;">Claim</th>
-      <th style="padding:8px 12px; border:1px solid #ccc; text-align:left;">Region Shaded</th>
-    </tr>
-    <tr>
-      <td style="padding:8px 12px; border:1px solid #ccc;"><strong>A:</strong> "All S are P"</td>
-      <td style="padding:8px 12px; border:1px solid #ccc;">Every S is in P</td>
-      <td style="padding:8px 12px; border:1px solid #ccc;">Left crescent (S outside P)</td>
-    </tr>
-    <tr style="background:#fafafa;">
-      <td style="padding:8px 12px; border:1px solid #ccc;"><strong>E:</strong> "No S are P"</td>
-      <td style="padding:8px 12px; border:1px solid #ccc;">No S is in P</td>
-      <td style="padding:8px 12px; border:1px solid #ccc;">Overlap (S ∩ P)</td>
-    </tr>
-  </table>
-</div>
-
-<div class="error-example">
-  <span class="label">Common Error — Shading the Wrong Region for A Statements</span>
-  <p>A frequent mistake is to shade the <em>overlap</em> for an A statement, as if "All S are P" meant "S and P are the same." They are not the same — A only says every S falls inside P; it says nothing about whether there are P's outside S. Shading the overlap would incorrectly represent a <em>biconditional</em> claim ("All S are P and all P are S") — much stronger than the A statement actually asserts.</p>
-  <p>Always ask: <em>which region does the statement say is empty?</em> For A ("All S are P"), the empty region is the part of S that would be outside P — the left crescent.</p>
-</div>
-
-<div class="practice">
-  <h2>Practice Problems</h2>
-
-  <p><strong>Part A — Diagram Description.</strong> For each statement, describe in words which region you would shade (do not draw — describe precisely). Identify the statement type (A or E) and name the region.</p>
-  <ol>
-    <li>"All migratory birds are animals that travel seasonally."</li>
-    <li>"No prime numbers are even numbers." (Note: this is false for the number 2, but treat it as a categorical statement and diagram as given.)</li>
-    <li>"All cephalopods are invertebrates."</li>
-    <li>"No sedimentary rocks are igneous rocks."</li>
-    <li>"All objects in free fall experience weightlessness."</li>
-  </ol>
-
-  <p><strong>Part B — Reading Diagrams.</strong> A classmate shows you a diagram with only the left crescent of the S circle shaded. Write the A or E statement that the diagram represents, using S and P as placeholders. Explain in one sentence why this could not be an E statement.</p>
-
-  <p><strong>Part C — Explanation.</strong> In 3–4 sentences, explain why universal statements use shading rather than X-marks. What would it mean if you placed an X in a region instead of shading it when diagramming "All S are P"?</p>
-</div>
-
-<div class="looking-ahead">
-  <strong>Looking Ahead:</strong> The next lesson applies Venn diagram conventions to particular statements — I ("Some S are P") and O ("Some S are not P") — which make existential rather than universal claims and require X-marks rather than shading.
-</div>
-
 </body>
 </html>

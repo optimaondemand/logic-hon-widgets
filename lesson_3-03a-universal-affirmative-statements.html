@@ -1,187 +1,151 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lesson 3.03a — Universal Affirmative Statements (A Statements)</title>
 <style>
-body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
-h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
-h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
-h3 { font-size: 1.05em; margin-top: 1.4em; color: #1a1a1a; }
-.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
-.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
-.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
-.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 820px; margin: 0 auto; padding: 0 0 24px 0; line-height: 1.7; color: #1a2340; background: #fff; }
+h1 { display: none; }
+h2 { font-size: 1.25em; margin: 0 0 14px 0; color: #0e1c42; border-left: 4px solid #C7922C; padding-left: 12px; }
+h3 { font-size: 1.05em; margin-top: 1.2em; color: #0e1c42; }
+.benchmark { background: #EEF1F8; border-left: 4px solid #0E1C42; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.8em; color: #1a2340; }
+.objective { font-style: italic; color: #1a2340; border-left: 4px solid #C7922C; padding-left: 12px; margin-bottom: 0; font-size: 0.98em; }
+.example { background: #E8F6FB; border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #C7922C; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
 .distribution-table { width: 100%; border-collapse: collapse; margin: 1.2em 0; }
-.distribution-table th, .distribution-table td { border: 1px solid #ccc; padding: 8px 12px; text-align: center; }
-.distribution-table th { background: #f0f0f0; font-weight: bold; }
-.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
-.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
-.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+.distribution-table th, .distribution-table td { border: 1px solid #D0D9E8; padding: 8px 12px; }
+.distribution-table th { background: #EEF1F8; font-weight: bold; border: 1px solid #D0D9E8; padding: 8px 12px; text-align: left; }
+.practice { background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; padding: 18px 22px; margin: 0; border-radius: 8px; }
+.practice h2 { margin-top: 0; border-left: none; padding-left: 0; }
+.looking-ahead { background: #EEF1F8; border-left: 5px solid #0E1C42; padding: 16px 20px; font-style: italic; font-size: 0.98em; border-radius: 0 6px 6px 0; color: #1a2340; }
 ol li, ul li { margin-bottom: 0.5em; }
 .mnemonic { background: #fdf8ee; border: 1px solid #e0d0a0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
 .venn-wrap { display: flex; align-items: center; gap: 32px; margin: 1.2em 0 0.6em 0; flex-wrap: wrap; }
 .venn-svg { flex-shrink: 0; }
 .venn-caption { font-family: Arial, sans-serif; font-size: 0.9em; color: #333; flex: 1; min-width: 200px; }
 .venn-caption .rule { font-weight: bold; color: #1a1a1a; display: block; margin-bottom: 4px; }
-</style>
+
+blockquote { border-left: 3px solid #D0D9E8; margin: 1em 0; padding-left: 1em; color: #1a2340; font-style: italic; }
+.error-example { background: #FDECEC; border: 1px solid #F5C6C6; border-left: 5px solid #C0392B; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
+.widget-embed { margin: 1.2em 0; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.widget-embed p { margin: 0; padding: 8px 14px; background: #EEF1F8; font-size: 0.85em; color: #1a2340; }</style>
 </head>
 <body>
-
-<h1>Lesson 3.03a — Universal Affirmative Statements (A Statements)</h1>
-
-<div class="benchmark">
-  <strong>CPALMS Benchmarks:</strong> ELA.K12.EE.1.1 &nbsp;|&nbsp; ELA.11.V.1.1 &nbsp;|&nbsp; ELA.11.R.2.4
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 28px;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+<div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img alt="Optima Academy" src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" style="width: 50px; height: 40px; object-fit: contain;"/></div>
+<div>
+<div style="font-size: 26px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+<div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
 </div>
-
-<p class="objective"><strong>Learning Objective:</strong> Students will be able to identify and write A statements, translate natural-language sentences into standard A-statement form, and explain why the subject term is distributed while the predicate term is not.</p>
-
-<h2>Where We Are</h2>
-
-<p>In Week 7 you worked with terms — the units that categorical logic is built from. You learned to distinguish the subject term from the predicate term, and you practiced spotting ambiguity and vagueness that can undermine an argument before it even begins. Now it is time to put two terms together into a statement. A categorical statement takes a subject term and a predicate term and makes a claim about how they relate. That claim — its form, its scope, its logical force — is what this week is entirely about. There are exactly four forms a categorical statement can take, and mastering them is the direct preparation for everything that follows: the Square of Opposition in Week 9, and the syllogism in Q2.</p>
-
-<h2>The Four-Statement System and Its Origin</h2>
-
-<p>The framework you are about to learn is not a modern invention. It is the logical skeleton of Aristotle's <em>Prior Analytics</em>, written around 350 BCE — roughly 2,400 years ago. Aristotle identified four and only four basic forms that a universal categorical claim can take, and those four forms have been the foundation of formal logic in the Western tradition ever since. The medieval Scholastics who systematized the tradition gave these four forms a pair of Latin words as a mnemonic device: <em>affirmo</em> ("I affirm") and <em>nego</em> ("I deny").</p>
-
-<div class="mnemonic">
-  <strong>The AEIO Mnemonic</strong><br><br>
-  From <em>aff<strong>i</strong>rm<strong>o</strong></em> — "I affirm": the vowels <strong>I</strong> and <strong>O</strong> give us the two affirmative statement types.<br>
-  From <em>n<strong>e</strong>g<strong>o</strong></em> — "I deny": the vowels <strong>E</strong> and <strong>O</strong> give us the two negative statement types.<br><br>
-  Rearranging by scope (universal first, then particular):<br>
-  &nbsp;&nbsp;<strong>A</strong> — Universal Affirmative &nbsp;(first vowel of <em>affirmo</em>)<br>
-  &nbsp;&nbsp;<strong>E</strong> — Universal Negative &nbsp;&nbsp;&nbsp;(first vowel of <em>nego</em>)<br>
-  &nbsp;&nbsp;<strong>I</strong> — Particular Affirmative &nbsp;(second vowel of <em>affirmo</em>)<br>
-  &nbsp;&nbsp;<strong>O</strong> — Particular Negative &nbsp;&nbsp;&nbsp;(second vowel of <em>nego</em>)<br><br>
+</div>
+<div style="font-size: 30px; color: #ffffff;">SEMANTICS AND LOGIC HONORS</div>
+</div>
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 130px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
+<div style="font-size: 16px; color: #0e1c42;">Q1 · Module 8</div>
+<div style="font-size: 12px; color: #666;">Statements</div>
+</div>
+<div style="flex: 1; min-width: 110px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+<div style="font-size: 16px; color: #0e1c42;">Lesson 3.03a</div>
+</div>
+<div style="flex: 2; min-width: 160px; padding: 12px 16px;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+<div style="font-size: 16px; color: #0e1c42; font-style: italic;">Universal Affirmative Statements (A Statements)</div>
+</div>
+</div>
+<div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 16px 20px; margin: 20px 28px 0 28px;">
+<div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 3.03a</div>
+<div style="font-size: 21px; color: #0e1c42;">Universal Affirmative Statements (A Statements)</div>
+</div>
+<div style="padding: 20px 28px 4px 28px;"><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><div class="benchmark">
+<strong>CPALMS Benchmarks:</strong> ELA.K12.EE.1.1  |  ELA.11.V.1.1  |  ELA.11.R.2.4
+</div><p class="objective"><strong>Learning Objective:</strong> Students will be able to identify and write A statements, translate natural-language sentences into standard A-statement form, and explain why the subject term is distributed while the predicate term is not.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Where We Are</h2><p>In Week 7 you worked with terms — the units that categorical logic is built from. You learned to distinguish the subject term from the predicate term, and you practiced spotting ambiguity and vagueness that can undermine an argument before it even begins. Now it is time to put two terms together into a statement. A categorical statement takes a subject term and a predicate term and makes a claim about how they relate. That claim — its form, its scope, its logical force — is what this week is entirely about. There are exactly four forms a categorical statement can take, and mastering them is the direct preparation for everything that follows: the Square of Opposition in Week 9, and the syllogism in Q2.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The Four-Statement System and Its Origin</h2><p>The framework you are about to learn is not a modern invention. It is the logical skeleton of Aristotle's <em>Prior Analytics</em>, written around 350 BCE — roughly 2,400 years ago. Aristotle identified four and only four basic forms that a universal categorical claim can take, and those four forms have been the foundation of formal logic in the Western tradition ever since. The medieval Scholastics who systematized the tradition gave these four forms a pair of Latin words as a mnemonic device: <em>affirmo</em> ("I affirm") and <em>nego</em> ("I deny").</p><div class="mnemonic">
+<strong>The AEIO Mnemonic</strong><br/><br/>
+  From <em>aff<strong>i</strong>rm<strong>o</strong></em> — "I affirm": the vowels <strong>I</strong> and <strong>O</strong> give us the two affirmative statement types.<br/>
+  From <em>n<strong>e</strong>g<strong>o</strong></em> — "I deny": the vowels <strong>E</strong> and <strong>O</strong> give us the two negative statement types.<br/><br/>
+  Rearranging by scope (universal first, then particular):<br/>
+    <strong>A</strong> — Universal Affirmative  (first vowel of <em>affirmo</em>)<br/>
+    <strong>E</strong> — Universal Negative    (first vowel of <em>nego</em>)<br/>
+    <strong>I</strong> — Particular Affirmative  (second vowel of <em>affirmo</em>)<br/>
+    <strong>O</strong> — Particular Negative    (second vowel of <em>nego</em>)<br/><br/>
   AEIO: four forms, two Latin words, one compact system.
+</div><p>This week introduces all four. This lesson takes the first one.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>An Intuitive Starting Point</h2><p>Consider this claim: <em>All swans are white.</em> For centuries, people in Europe had every reason to believe it. Every swan they had ever seen was white; every report they had read confirmed it. Then in 1697, Dutch explorers reached Western Australia and found black swans. The claim was false — and it was false because of exactly one counterexample. One non-white swan was enough to overturn a universal statement that had seemed ironclad.</p><p>This is what an "all" claim really is: a claim so strong that a single exception destroys it. You already know, intuitively, that when someone says "All teenagers exaggerate," the right response is "Oh, all of them? Every single one?" That skeptical instinct is logically sound. Universal statements are strong, which means they are vulnerable. Learning their formal structure is partly about learning to respect — and to test — exactly that strength.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The A Statement: "All S are P"</h2><p>The <strong>A statement</strong> is the universal affirmative categorical statement. Its standard form is:</p><p style="text-align:center; font-size: 1.1em; margin: 1.2em 0;"><strong>All S are P</strong></p><p>where S is the <strong>subject term</strong> (what the statement is about) and P is the <strong>predicate term</strong> (what is claimed about S). The A statement asserts that every member of the S class belongs to the P class — without exception.</p><h3>Distribution of Terms in the A Statement</h3><p>A term is <strong>distributed</strong> in a statement when that statement makes a claim about <em>all</em> members of the class the term names. In an A statement:</p><ul>
+<li><strong>S is distributed.</strong> The word "all" in front of S means we are making a claim that covers every member of S — none are left out. The statement speaks to the entire subject class.</li>
+<li><strong>P is not distributed.</strong> The statement says that S is located inside the P class. It says nothing about the members of P that are not S. There may be many things in P that have nothing to do with S, and this statement is silent about them.</li>
+</ul><div class="example">
+<span class="label">Worked Example 1 — Correct Application</span>
+<p><strong>Statement:</strong> "All dogs are mammals."</p>
+<p><strong>Subject (S):</strong> dogs    <strong>Predicate (P):</strong> mammals</p>
+<p><strong>Distribution:</strong> S (dogs) is distributed — the statement covers every dog without exception. P (mammals) is not distributed — the statement says nothing about the mammals that aren't dogs. Cats, whales, and bats are all mammals, and this statement has nothing to say about them.</p>
+<p><strong>Diagram of the claim:</strong> Think of a large circle labeled "mammals" with a smaller circle labeled "dogs" entirely inside it. The A statement says: every dog is inside the mammal circle. It does not say the mammal circle contains only dogs.</p>
+</div><div class="example">
+<span class="label">Worked Example 2 — Common Misreading</span>
+<p><strong>Statement:</strong> "All squares are rectangles."</p>
+<p>A student might be tempted to read this as also saying that all rectangles are squares — after all, isn't the relationship mutual? It is not. The A statement "All squares are rectangles" makes a claim about squares (distributed) and locates them inside the rectangle class. It says nothing about the rectangles that are not squares. The predicate "rectangles" is not distributed. The converse — "All rectangles are squares" — is a separate, and false, statement.</p>
+<p>This is a consequential logical point: from "All S are P" alone, you cannot conclude "All P are S." The undistributed predicate is why.</p>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Venn Diagram for the A Statement</h2><p>Recall the shading and X conventions from Week 2: shading a region asserts it is empty; an X asserts at least one member exists there; a blank region asserts nothing.</p><div class="venn-wrap">
+<svg aria-label="Venn diagram: All S are P" class="venn-svg" height="110" viewbox="0 0 200 110" width="200" xmlns="http://www.w3.org/2000/svg">
+<circle cx="75" cy="55" fill="#bbb" fill-opacity="0.45" r="42"></circle>
+<circle cx="125" cy="55" fill="#fff" r="42"></circle>
+<circle cx="75" cy="55" fill="none" r="42" stroke="#555" stroke-width="1.5"></circle>
+<circle cx="125" cy="55" fill="none" r="42" stroke="#555" stroke-width="1.5"></circle>
+<text fill="#333" font-family="Arial" font-size="13" text-anchor="middle" x="58" y="59">S</text>
+<text fill="#333" font-family="Arial" font-size="13" text-anchor="middle" x="142" y="59">P</text>
+</svg>
+<div class="venn-caption">
+<span class="rule">The part of S that falls outside P is shaded (empty).</span>
+    Nothing is an S that is not a P — every member of S is also a member of P. The overlap and the P-only region are left blank: the diagram makes no claim about members of P that are not S.<br/>
+<em>"All dogs are mammals": the region of dogs outside "mammals" is shaded, because it is empty.</em>
 </div>
-
-<p>This week introduces all four. This lesson takes the first one.</p>
-
-<h2>An Intuitive Starting Point</h2>
-
-<p>Consider this claim: <em>All swans are white.</em> For centuries, people in Europe had every reason to believe it. Every swan they had ever seen was white; every report they had read confirmed it. Then in 1697, Dutch explorers reached Western Australia and found black swans. The claim was false — and it was false because of exactly one counterexample. One non-white swan was enough to overturn a universal statement that had seemed ironclad.</p>
-
-<p>This is what an "all" claim really is: a claim so strong that a single exception destroys it. You already know, intuitively, that when someone says "All teenagers exaggerate," the right response is "Oh, all of them? Every single one?" That skeptical instinct is logically sound. Universal statements are strong, which means they are vulnerable. Learning their formal structure is partly about learning to respect — and to test — exactly that strength.</p>
-
-<h2>The A Statement: "All S are P"</h2>
-
-<p>The <strong>A statement</strong> is the universal affirmative categorical statement. Its standard form is:</p>
-
-<p style="text-align:center; font-size: 1.1em; margin: 1.2em 0;"><strong>All S are P</strong></p>
-
-<p>where S is the <strong>subject term</strong> (what the statement is about) and P is the <strong>predicate term</strong> (what is claimed about S). The A statement asserts that every member of the S class belongs to the P class — without exception.</p>
-
-<h3>Distribution of Terms in the A Statement</h3>
-
-<p>A term is <strong>distributed</strong> in a statement when that statement makes a claim about <em>all</em> members of the class the term names. In an A statement:</p>
-
-<ul>
-  <li><strong>S is distributed.</strong> The word "all" in front of S means we are making a claim that covers every member of S — none are left out. The statement speaks to the entire subject class.</li>
-  <li><strong>P is not distributed.</strong> The statement says that S is located inside the P class. It says nothing about the members of P that are not S. There may be many things in P that have nothing to do with S, and this statement is silent about them.</li>
-</ul>
-
-<div class="example">
-  <span class="label">Worked Example 1 — Correct Application</span>
-  <p><strong>Statement:</strong> "All dogs are mammals."</p>
-  <p><strong>Subject (S):</strong> dogs &nbsp;&nbsp; <strong>Predicate (P):</strong> mammals</p>
-  <p><strong>Distribution:</strong> S (dogs) is distributed — the statement covers every dog without exception. P (mammals) is not distributed — the statement says nothing about the mammals that aren't dogs. Cats, whales, and bats are all mammals, and this statement has nothing to say about them.</p>
-  <p><strong>Diagram of the claim:</strong> Think of a large circle labeled "mammals" with a smaller circle labeled "dogs" entirely inside it. The A statement says: every dog is inside the mammal circle. It does not say the mammal circle contains only dogs.</p>
-</div>
-
-<div class="example">
-  <span class="label">Worked Example 2 — Common Misreading</span>
-  <p><strong>Statement:</strong> "All squares are rectangles."</p>
-  <p>A student might be tempted to read this as also saying that all rectangles are squares — after all, isn't the relationship mutual? It is not. The A statement "All squares are rectangles" makes a claim about squares (distributed) and locates them inside the rectangle class. It says nothing about the rectangles that are not squares. The predicate "rectangles" is not distributed. The converse — "All rectangles are squares" — is a separate, and false, statement.</p>
-  <p>This is a consequential logical point: from "All S are P" alone, you cannot conclude "All P are S." The undistributed predicate is why.</p>
-</div>
-
-<h2>Venn Diagram for the A Statement</h2>
-
-<p>Recall the shading and X conventions from Week 2: shading a region asserts it is empty; an X asserts at least one member exists there; a blank region asserts nothing.</p>
-
-<div class="venn-wrap">
-  <svg class="venn-svg" width="200" height="110" viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg" aria-label="Venn diagram: All S are P">
-    <circle cx="75" cy="55" r="42" fill="#bbb" fill-opacity="0.45"/>
-    <circle cx="125" cy="55" r="42" fill="#fff"/>
-    <circle cx="75" cy="55" r="42" fill="none" stroke="#555" stroke-width="1.5"/>
-    <circle cx="125" cy="55" r="42" fill="none" stroke="#555" stroke-width="1.5"/>
-    <text x="58" y="59" text-anchor="middle" font-family="Arial" font-size="13" fill="#333">S</text>
-    <text x="142" y="59" text-anchor="middle" font-family="Arial" font-size="13" fill="#333">P</text>
-  </svg>
-  <div class="venn-caption">
-    <span class="rule">The part of S that falls outside P is shaded (empty).</span>
-    Nothing is an S that is not a P — every member of S is also a member of P. The overlap and the P-only region are left blank: the diagram makes no claim about members of P that are not S.<br>
-    <em>"All dogs are mammals": the region of dogs outside "mammals" is shaded, because it is empty.</em>
-  </div>
-</div>
-
-<h2>Natural-Language Forms of the A Statement</h2>
-
-<p>Not every A statement announces itself with the word "all." The following expressions typically signal an A statement:</p>
-
-<ul>
-  <li>"Every X is Y" → "All X are Y"</li>
-  <li>"X is always Y" → "All X are Y"</li>
-  <li>"Whenever X, then Y" → "All cases of X are cases of Y"</li>
-  <li>"Without exception, X is Y" → "All X are Y"</li>
-  <li>"Any X is Y" → "All X are Y"</li>
-</ul>
-
-<h2>Standard-Form Translation</h2>
-
-<p>Standard form requires the structure <em>All S are P</em>, where S and P are both noun phrases (not verb phrases). When the predicate is expressed as a verb or adjective, it must be rephrased as a noun phrase.</p>
-
-<div class="example">
-  <span class="label">Translation Examples</span>
-  <p>"Teenagers always exaggerate."<br>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Natural-Language Forms of the A Statement</h2><p>Not every A statement announces itself with the word "all." The following expressions typically signal an A statement:</p><ul>
+<li>"Every X is Y" → "All X are Y"</li>
+<li>"X is always Y" → "All X are Y"</li>
+<li>"Whenever X, then Y" → "All cases of X are cases of Y"</li>
+<li>"Without exception, X is Y" → "All X are Y"</li>
+<li>"Any X is Y" → "All X are Y"</li>
+</ul></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Standard-Form Translation</h2><p>Standard form requires the structure <em>All S are P</em>, where S and P are both noun phrases (not verb phrases). When the predicate is expressed as a verb or adjective, it must be rephrased as a noun phrase.</p><div class="example">
+<span class="label">Translation Examples</span>
+<p>"Teenagers always exaggerate."<br/>
   → Identify S: teenagers. Identify predicate action: exaggerating. Rephrase: <strong>All teenagers are people who exaggerate.</strong></p>
-
-  <p>"Every member of the committee voted in favor."<br>
+<p>"Every member of the committee voted in favor."<br/>
   → S: members of the committee. Predicate: voted in favor. Rephrase: <strong>All members of the committee are people who voted in favor.</strong></p>
-
-  <p>"Whenever there is smoke, there is fire."<br>
+<p>"Whenever there is smoke, there is fire."<br/>
   → S: situations where there is smoke. P: situations where there is fire. Standard form: <strong>All situations in which there is smoke are situations in which there is fire.</strong></p>
+</div><p>The rephrased predicate may sound awkward at first. It is supposed to: standard form is a technical notation that makes the logical structure transparent, not an exercise in elegant prose.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Why This Matters for Argument</h2><p>A statements are the most powerful categorical claim you can make — and therefore the most dangerous to use carelessly. In an argument, a universal premise like "All politicians are self-serving" does enormous work. If it can be shown that even one politician was not self-serving, the premise fails and the argument collapses. Knowing that S is distributed in an A statement means knowing that a single counterexample is enough to falsify it. When you evaluate an argument that relies on an A statement, the first question to ask is: is the universal claim actually sustainable, or can it be broken by a single exception? This discipline — testing universal claims — is one of the fundamental habits of rigorous argumentation.</p><div class="practice">
+<h2>Practice</h2>
+<p><strong>Part A — Recognition.</strong> For each statement, state whether it is an A statement. If it is not, explain briefly why not.</p>
+<ol>
+<li>"All prime numbers greater than 2 are odd numbers."</li>
+<li>"Some birds can fly."</li>
+<li>"Every equilateral triangle is equiangular."</li>
+<li>"No fish are mammals."</li>
+<li>"Whenever water is heated to 100°C at sea level, it boils."</li>
+</ol>
+<p><strong>Part B — Distribution.</strong> For each A statement, identify S and P and state which is distributed.</p>
+<ol>
+<li>"All vertebrates are animals with backbones."</li>
+<li>"Every valid argument is an argument whose conclusion follows necessarily from its premises."</li>
+<li>"All acts of deliberate deception are acts that undermine trust."</li>
+</ol>
+<p><strong>Part C — Translation.</strong> Translate each sentence into standard A-statement form. Then identify S and P.</p>
+<ol>
+<li>"Athletes always train."</li>
+<li>"Whenever a number is divisible by 4, it is divisible by 2."</li>
+<li>"Any act of kindness strengthens community bonds."</li>
+<li>"Without exception, parallel lines never meet on a flat plane."</li>
+</ol>
+</div></div><div style="margin-bottom: 20px;"><div class="looking-ahead">
+<strong>Looking Ahead:</strong> The A statement places all of S inside P while leaving P's other members unaddressed. The E statement — coming next — goes in the opposite direction: it separates S and P entirely, and in doing so, makes a claim about the full extent of <em>both</em> classes. Understanding why becomes clear when you see how the E statement distributes its predicate in a way the A statement does not.
+</div></div></div>
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 16px 28px; text-align: center; margin-top: 10px;">
+<div style="font-size: 16px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> · SEMANTICS AND LOGIC HONORS · Quarter 1 · Student Lesson Page</div>
+<div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 3.03a · Universal Affirmative Statements (A Statements)</div>
+<div style="font-size: 12px; color: rgba(255,255,255,0.4);">© Optima Academy Online · An Education Experience Company</div>
 </div>
-
-<p>The rephrased predicate may sound awkward at first. It is supposed to: standard form is a technical notation that makes the logical structure transparent, not an exercise in elegant prose.</p>
-
-<h2>Why This Matters for Argument</h2>
-
-<p>A statements are the most powerful categorical claim you can make — and therefore the most dangerous to use carelessly. In an argument, a universal premise like "All politicians are self-serving" does enormous work. If it can be shown that even one politician was not self-serving, the premise fails and the argument collapses. Knowing that S is distributed in an A statement means knowing that a single counterexample is enough to falsify it. When you evaluate an argument that relies on an A statement, the first question to ask is: is the universal claim actually sustainable, or can it be broken by a single exception? This discipline — testing universal claims — is one of the fundamental habits of rigorous argumentation.</p>
-
-<div class="practice">
-  <h2>Practice</h2>
-
-  <p><strong>Part A — Recognition.</strong> For each statement, state whether it is an A statement. If it is not, explain briefly why not.</p>
-  <ol>
-    <li>"All prime numbers greater than 2 are odd numbers."</li>
-    <li>"Some birds can fly."</li>
-    <li>"Every equilateral triangle is equiangular."</li>
-    <li>"No fish are mammals."</li>
-    <li>"Whenever water is heated to 100°C at sea level, it boils."</li>
-  </ol>
-
-  <p><strong>Part B — Distribution.</strong> For each A statement, identify S and P and state which is distributed.</p>
-  <ol>
-    <li>"All vertebrates are animals with backbones."</li>
-    <li>"Every valid argument is an argument whose conclusion follows necessarily from its premises."</li>
-    <li>"All acts of deliberate deception are acts that undermine trust."</li>
-  </ol>
-
-  <p><strong>Part C — Translation.</strong> Translate each sentence into standard A-statement form. Then identify S and P.</p>
-  <ol>
-    <li>"Athletes always train."</li>
-    <li>"Whenever a number is divisible by 4, it is divisible by 2."</li>
-    <li>"Any act of kindness strengthens community bonds."</li>
-    <li>"Without exception, parallel lines never meet on a flat plane."</li>
-  </ol>
-</div>
-
-<div class="looking-ahead">
-  <strong>Looking Ahead:</strong> The A statement places all of S inside P while leaving P's other members unaddressed. The E statement — coming next — goes in the opposite direction: it separates S and P entirely, and in doing so, makes a claim about the full extent of <em>both</em> classes. Understanding why becomes clear when you see how the E statement distributes its predicate in a way the A statement does not.
-</div>
-
 </body>
 </html>

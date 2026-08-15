@@ -1,141 +1,138 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lesson 5.05b — Figure and Mood Together</title>
 <style>
-body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
-h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
-h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
-.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
-.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
-.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
-.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.error-example { background: #fff8f8; border: 1px solid #e8c0c0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 820px; margin: 0 auto; padding: 0 0 24px 0; line-height: 1.7; color: #1a2340; background: #fff; }
+h1 { display: none; }
+h2 { font-size: 1.25em; margin: 0 0 14px 0; color: #0e1c42; border-left: 4px solid #C7922C; padding-left: 12px; }
+.benchmark { background: #EEF1F8; border-left: 4px solid #0E1C42; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.8em; color: #1a2340; }
+.objective { font-style: italic; color: #1a2340; border-left: 4px solid #C7922C; padding-left: 12px; margin-bottom: 0; font-size: 0.98em; }
+.example { background: #E8F6FB; border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #C7922C; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.error-example { background: #FDECEC; border: 1px solid #F5C6C6; border-left: 5px solid #C0392B; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
 .error-example .label { font-weight: bold; font-size: 0.85em; color: #a04040; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
-.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
-.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+.practice { background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; padding: 18px 22px; margin: 0; border-radius: 8px; }
+.practice h2 { margin-top: 0; border-left: none; padding-left: 0; }
+.looking-ahead { background: #EEF1F8; border-left: 5px solid #0E1C42; padding: 16px 20px; font-style: italic; font-size: 0.98em; border-radius: 0 6px 6px 0; color: #1a2340; }
 ol li, ul li { margin-bottom: 0.5em; }
 .syllogism-block { background: #f0f4f0; border-left: 4px solid #4a7a4a; padding: 14px 18px; margin: 1em 0; font-style: italic; border-radius: 0 3px 3px 0; }
 .syllogism-block strong { font-style: normal; }
 .term-table { width: 100%; border-collapse: collapse; margin: 1.2em 0; font-size: 0.95em; }
-.term-table th { background: #e8e8e8; padding: 8px 12px; text-align: left; border: 1px solid #ccc; }
-.term-table td { padding: 8px 12px; border: 1px solid #ccc; }
-</style>
+.term-table th { background: #EEF1F8; font-weight: bold; border: 1px solid #D0D9E8; padding: 8px 12px; text-align: left; }
+.term-table td { border: 1px solid #D0D9E8; padding: 8px 12px; }
+
+h3 { font-size: 1.05em; margin-top: 1.2em; color: #0e1c42; }
+blockquote { border-left: 3px solid #D0D9E8; margin: 1em 0; padding-left: 1em; color: #1a2340; font-style: italic; }
+.widget-embed { margin: 1.2em 0; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.widget-embed p { margin: 0; padding: 8px 14px; background: #EEF1F8; font-size: 0.85em; color: #1a2340; }</style>
 </head>
 <body>
-
-<h1>Lesson 5.05b — Figure and Mood Together</h1>
-
-<div class="benchmark">
-  <strong>CPALMS Benchmarks:</strong> ELA.11.R.2.2 — Analyze the structure an author uses to organize a text; ELA.11.R.3.3 — Analyze and evaluate the effectiveness of an author's argument; ELA.11.C.1.4 — Write arguments to support claims using valid reasoning
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 28px;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+<div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img alt="Optima Academy" src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" style="width: 50px; height: 40px; object-fit: contain;"/></div>
+<div>
+<div style="font-size: 26px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+<div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
 </div>
-
-<p class="objective"><strong>Learning Objective:</strong> Students will be able to determine both the figure and the mood of any standard-form categorical syllogism in a single integrated analysis, express the result as a mood-figure pair (e.g., AAA-1), and explain why the combination — not either property alone — determines a syllogism's formal validity.</p>
-
-<h2>Orientation</h2>
-
-<p>You can now identify a syllogism's figure (from Week 3) and its mood (from the previous lesson). This lesson brings the two analyses together. A mood-figure pair — written as a three-letter mood code followed by a hyphen and the figure number — gives a complete formal description of a categorical syllogism's structure. AAA-1, EIO-3, AII-2: these compact codes carry everything needed to determine whether the syllogism is valid, without knowing anything about its content. The logical tradition recognized a fixed, finite list of valid mood-figure combinations; the next two lessons catalogue them. This lesson builds the skill of deriving the code.</p>
-
-<h2>Intuitive Entry Point</h2>
-
-<p>A chess position can be described by two independent pieces of information: which pieces are on the board (their types), and where each piece is located (their positions). Neither description alone tells you whether the position is advantageous or winning — you need both together. A categorical syllogism is similar. The types of statements (mood) and the arrangement of the middle term (figure) are independent properties, but it is their combination that determines whether the syllogism is valid. A given mood can be valid in one figure and invalid in another. Understanding both properties together is what makes formal syllogistic analysis possible.</p>
-
-<h2>The Combined Analysis Procedure</h2>
-
-<p>To determine a syllogism's mood-figure pair, work through the following steps in order:</p>
-
-<ol>
-  <li><strong>Find the conclusion.</strong> The conclusion contains the minor term (S) as subject and the major term (P) as predicate.</li>
-  <li><strong>Identify the three terms.</strong> S = subject of conclusion; P = predicate of conclusion; M = the remaining term (appears in both premises, not in conclusion).</li>
-  <li><strong>Arrange in standard form</strong> if not already: major premise (containing P) first; minor premise (containing S) second; conclusion last.</li>
-  <li><strong>Determine the figure</strong> by locating M in each premise:
+</div>
+<div style="font-size: 30px; color: #ffffff;">SEMANTICS AND LOGIC HONORS</div>
+</div>
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 130px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
+<div style="font-size: 16px; color: #0e1c42;">Q2 · Module 5</div>
+<div style="font-size: 12px; color: #666;">Mood</div>
+</div>
+<div style="flex: 1; min-width: 110px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+<div style="font-size: 16px; color: #0e1c42;">Lesson 5.05b</div>
+</div>
+<div style="flex: 2; min-width: 160px; padding: 12px 16px;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+<div style="font-size: 16px; color: #0e1c42; font-style: italic;">Figure and Mood Together</div>
+</div>
+</div>
+<div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 16px 20px; margin: 20px 28px 0 28px;">
+<div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 5.05b</div>
+<div style="font-size: 21px; color: #0e1c42;">Figure and Mood Together</div>
+</div>
+<div style="padding: 20px 28px 4px 28px;"><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><div class="benchmark">
+<strong>CPALMS Benchmarks:</strong> ELA.11.R.2.2 — Analyze the structure an author uses to organize a text; ELA.11.R.3.3 — Analyze and evaluate the effectiveness of an author's argument; ELA.11.C.1.4 — Write arguments to support claims using valid reasoning
+</div><p class="objective"><strong>Learning Objective:</strong> Students will be able to determine both the figure and the mood of any standard-form categorical syllogism in a single integrated analysis, express the result as a mood-figure pair (e.g., AAA-1), and explain why the combination — not either property alone — determines a syllogism's formal validity.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Orientation</h2><p>You can now identify a syllogism's figure (from Week 3) and its mood (from the previous lesson). This lesson brings the two analyses together. A mood-figure pair — written as a three-letter mood code followed by a hyphen and the figure number — gives a complete formal description of a categorical syllogism's structure. AAA-1, EIO-3, AII-2: these compact codes carry everything needed to determine whether the syllogism is valid, without knowing anything about its content. The logical tradition recognized a fixed, finite list of valid mood-figure combinations; the next two lessons catalogue them. This lesson builds the skill of deriving the code.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Intuitive Entry Point</h2><p>A chess position can be described by two independent pieces of information: which pieces are on the board (their types), and where each piece is located (their positions). Neither description alone tells you whether the position is advantageous or winning — you need both together. A categorical syllogism is similar. The types of statements (mood) and the arrangement of the middle term (figure) are independent properties, but it is their combination that determines whether the syllogism is valid. A given mood can be valid in one figure and invalid in another. Understanding both properties together is what makes formal syllogistic analysis possible.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The Combined Analysis Procedure</h2><p>To determine a syllogism's mood-figure pair, work through the following steps in order:</p><ol>
+<li><strong>Find the conclusion.</strong> The conclusion contains the minor term (S) as subject and the major term (P) as predicate.</li>
+<li><strong>Identify the three terms.</strong> S = subject of conclusion; P = predicate of conclusion; M = the remaining term (appears in both premises, not in conclusion).</li>
+<li><strong>Arrange in standard form</strong> if not already: major premise (containing P) first; minor premise (containing S) second; conclusion last.</li>
+<li><strong>Determine the figure</strong> by locating M in each premise:
     <ul>
-      <li>Figure 1: M is subject of major, predicate of minor (M–P / S–M)</li>
-      <li>Figure 2: M is predicate of both premises (P–M / S–M)</li>
-      <li>Figure 3: M is subject of both premises (M–P / M–S)</li>
-      <li>Figure 4: M is predicate of major, subject of minor (P–M / M–S)</li>
-    </ul>
-  </li>
-  <li><strong>Determine the mood</strong> by reading the statement types in order: major premise → minor premise → conclusion.</li>
-  <li><strong>Write the mood-figure pair.</strong></li>
-</ol>
-
-<h2>Worked Examples</h2>
-
-<div class="example">
-  <span class="label">Example 1 — Full Analysis: AAA-1</span>
-  <div class="syllogism-block">
-    All mammals are warm-blooded animals.<br>
-    All whales are mammals.<br>
+<li>Figure 1: M is subject of major, predicate of minor (M–P / S–M)</li>
+<li>Figure 2: M is predicate of both premises (P–M / S–M)</li>
+<li>Figure 3: M is subject of both premises (M–P / M–S)</li>
+<li>Figure 4: M is predicate of major, subject of minor (P–M / M–S)</li>
+</ul>
+</li>
+<li><strong>Determine the mood</strong> by reading the statement types in order: major premise → minor premise → conclusion.</li>
+<li><strong>Write the mood-figure pair.</strong></li>
+</ol></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Worked Examples</h2><div class="example">
+<span class="label">Example 1 — Full Analysis: AAA-1</span>
+<div class="syllogism-block">
+    All mammals are warm-blooded animals.<br/>
+    All whales are mammals.<br/>
     Therefore, all whales are warm-blooded animals.
   </div>
-  <p><strong>Step 1 — Conclusion:</strong> "All whales are warm-blooded animals." S = whales; P = warm-blooded animals.</p>
-  <p><strong>Step 2 — Terms:</strong> M = mammals (appears in both premises, not in conclusion).</p>
-  <p><strong>Step 3 — Standard form:</strong> Major premise = "All mammals are warm-blooded animals" (contains P). Minor premise = "All whales are mammals" (contains S). Already in standard form.</p>
-  <p><strong>Step 4 — Figure:</strong> M (mammals) is the subject of the major premise and the predicate of the minor premise. Figure 1.</p>
-  <p><strong>Step 5 — Mood:</strong> Major = A, Minor = A, Conclusion = A. Mood: AAA.</p>
-  <p><strong>Mood-figure pair: AAA-1.</strong> This is the valid form named <em>Barbara</em> — the first and most fundamental valid syllogistic form.</p>
-</div>
-
-<div class="example">
-  <span class="label">Example 2 — Full Analysis: EIO-2</span>
-  <div class="syllogism-block">
-    No reptiles are warm-blooded animals.<br>
-    Some lizards are warm-blooded animals.<br>
+<p><strong>Step 1 — Conclusion:</strong> "All whales are warm-blooded animals." S = whales; P = warm-blooded animals.</p>
+<p><strong>Step 2 — Terms:</strong> M = mammals (appears in both premises, not in conclusion).</p>
+<p><strong>Step 3 — Standard form:</strong> Major premise = "All mammals are warm-blooded animals" (contains P). Minor premise = "All whales are mammals" (contains S). Already in standard form.</p>
+<p><strong>Step 4 — Figure:</strong> M (mammals) is the subject of the major premise and the predicate of the minor premise. Figure 1.</p>
+<p><strong>Step 5 — Mood:</strong> Major = A, Minor = A, Conclusion = A. Mood: AAA.</p>
+<p><strong>Mood-figure pair: AAA-1.</strong> This is the valid form named <em>Barbara</em> — the first and most fundamental valid syllogistic form.</p>
+</div><div class="example">
+<span class="label">Example 2 — Full Analysis: EIO-2</span>
+<div class="syllogism-block">
+    No reptiles are warm-blooded animals.<br/>
+    Some lizards are warm-blooded animals.<br/>
     Therefore, some lizards are not reptiles.
   </div>
-  <p>Wait — before proceeding, check standard form. The conclusion is "Some lizards are not reptiles." S = lizards; P = reptiles. M = warm-blooded animals.</p>
-  <p><strong>Figure:</strong> In the major premise, P (reptiles) is the subject and M (warm-blooded animals) is the predicate. In the minor premise, S (lizards) is the subject and M is the predicate. M is predicate of both premises: <strong>Figure 2</strong>.</p>
-  <p><strong>Mood:</strong> Major = E (No reptiles are warm-blooded); Minor = I (Some lizards are warm-blooded); Conclusion = O (Some lizards are not reptiles). Mood: <strong>EIO</strong>.</p>
-  <p><strong>Mood-figure pair: EIO-2.</strong> This is the valid form named <em>Festino</em>.</p>
-</div>
-
-<div class="example">
-  <span class="label">Example 3 — Non-Standard Form Requiring Rearrangement</span>
-  <div class="syllogism-block">
+<p>Wait — before proceeding, check standard form. The conclusion is "Some lizards are not reptiles." S = lizards; P = reptiles. M = warm-blooded animals.</p>
+<p><strong>Figure:</strong> In the major premise, P (reptiles) is the subject and M (warm-blooded animals) is the predicate. In the minor premise, S (lizards) is the subject and M is the predicate. M is predicate of both premises: <strong>Figure 2</strong>.</p>
+<p><strong>Mood:</strong> Major = E (No reptiles are warm-blooded); Minor = I (Some lizards are warm-blooded); Conclusion = O (Some lizards are not reptiles). Mood: <strong>EIO</strong>.</p>
+<p><strong>Mood-figure pair: EIO-2.</strong> This is the valid form named <em>Festino</em>.</p>
+</div><div class="example">
+<span class="label">Example 3 — Non-Standard Form Requiring Rearrangement</span>
+<div class="syllogism-block">
     Some philosophers are historians. All Stoics are philosophers. Therefore, some Stoics are historians.
   </div>
-  <p><strong>Conclusion:</strong> "Some Stoics are historians." S = Stoics; P = historians; M = philosophers.</p>
-  <p><strong>Standard form check:</strong> The major premise should contain P (historians). "Some philosophers are historians" — yes, this contains P. The minor premise should contain S (Stoics). "All Stoics are philosophers" — yes. Already in standard form.</p>
-  <p><strong>Figure:</strong> M (philosophers) is subject of major premise; M (philosophers) is predicate of minor premise. <strong>Figure 1.</strong></p>
-  <p><strong>Mood:</strong> Major = I; Minor = A; Conclusion = I. Mood: <strong>IAI</strong>.</p>
-  <p><strong>Mood-figure pair: IAI-1.</strong></p>
+<p><strong>Conclusion:</strong> "Some Stoics are historians." S = Stoics; P = historians; M = philosophers.</p>
+<p><strong>Standard form check:</strong> The major premise should contain P (historians). "Some philosophers are historians" — yes, this contains P. The minor premise should contain S (Stoics). "All Stoics are philosophers" — yes. Already in standard form.</p>
+<p><strong>Figure:</strong> M (philosophers) is subject of major premise; M (philosophers) is predicate of minor premise. <strong>Figure 1.</strong></p>
+<p><strong>Mood:</strong> Major = I; Minor = A; Conclusion = I. Mood: <strong>IAI</strong>.</p>
+<p><strong>Mood-figure pair: IAI-1.</strong></p>
+</div><div class="error-example">
+<span class="label">Common Error — Confusing Figure from Mood</span>
+<p>A persistent error is treating the statement types as if they indicate term positions, or treating term positions as if they indicate statement types. The two analyses are completely independent: figure is about <em>where M appears</em> in the premises; mood is about <em>what type</em> each statement is. Work through them separately before writing the combined code.</p>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Connection to Argument</h2><p>The mood-figure pair is the "address" of a syllogism in the logical tradition. Once you can read this address fluently, you can cross-reference any syllogism against the list of known valid forms — a list that medieval logicians spent considerable effort cataloguing, and which Aristotle first worked out systematically in the <em>Prior Analytics</em>. The next lesson builds that catalogue. Every valid syllogism in history — from Euclid's geometric proofs to Aquinas's theological arguments — can be assigned a mood-figure pair, and its validity checked against the same fixed list.</p><div class="practice">
+<h2>Practice Problems</h2>
+<p><strong>Part A — Full Analysis.</strong> For each syllogism, determine the mood-figure pair. Show all steps: identify conclusion, label terms, arrange in standard form if needed, determine figure, determine mood.</p>
+<ol>
+<li>All birds are vertebrates. No fish are birds. Therefore, no fish are vertebrates. (Note: evaluate carefully.)</li>
+<li>No inert gases are elements that form compounds. All noble gases are inert gases. Therefore, no noble gases are elements that form compounds.</li>
+<li>Some ancient documents are forgeries. All forgeries are items of dubious historical value. Therefore, some ancient documents are items of dubious historical value.</li>
+<li>All prime numbers are integers. Some numbers in set R are not integers. Therefore, some numbers in set R are not prime numbers.</li>
+<li>Some marine animals are mammals. All mammals are warm-blooded organisms. Therefore, some marine animals are warm-blooded organisms.</li>
+</ol>
+<p><strong>Part B — Same Mood, Different Figures.</strong> The mood AEE appears in both Figure 2 (where it is valid) and Figure 1 (where it is invalid). Write two syllogisms — one in each figure — both with mood AEE. For each, state the mood-figure pair and indicate whether the form is valid.</p>
+<p><strong>Part C — Construct from Code.</strong> Write a valid categorical syllogism instantiating each of the following mood-figure descriptions. Use neutral subject matter. You may need to experiment with which term goes where. State the mood-figure pair when done.
+  <br/>(a) EAE with Figure 1   (b) AII with Figure 1   (c) EIO with Figure 3</p>
+</div></div><div style="margin-bottom: 20px;"><div class="looking-ahead">
+<strong>Looking Ahead:</strong> Now that you can derive mood-figure pairs, the next lesson surveys which combinations are valid and which are invalid — and introduces the five rules of the syllogism that explain the pattern.
+</div></div></div>
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 16px 28px; text-align: center; margin-top: 10px;">
+<div style="font-size: 16px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> · SEMANTICS AND LOGIC HONORS · Quarter 2 · Student Lesson Page</div>
+<div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 5.05b · Figure and Mood Together</div>
+<div style="font-size: 12px; color: rgba(255,255,255,0.4);">© Optima Academy Online · An Education Experience Company</div>
 </div>
-
-<div class="error-example">
-  <span class="label">Common Error — Confusing Figure from Mood</span>
-  <p>A persistent error is treating the statement types as if they indicate term positions, or treating term positions as if they indicate statement types. The two analyses are completely independent: figure is about <em>where M appears</em> in the premises; mood is about <em>what type</em> each statement is. Work through them separately before writing the combined code.</p>
-</div>
-
-<h2>Connection to Argument</h2>
-
-<p>The mood-figure pair is the "address" of a syllogism in the logical tradition. Once you can read this address fluently, you can cross-reference any syllogism against the list of known valid forms — a list that medieval logicians spent considerable effort cataloguing, and which Aristotle first worked out systematically in the <em>Prior Analytics</em>. The next lesson builds that catalogue. Every valid syllogism in history — from Euclid's geometric proofs to Aquinas's theological arguments — can be assigned a mood-figure pair, and its validity checked against the same fixed list.</p>
-
-<div class="practice">
-  <h2>Practice Problems</h2>
-
-  <p><strong>Part A — Full Analysis.</strong> For each syllogism, determine the mood-figure pair. Show all steps: identify conclusion, label terms, arrange in standard form if needed, determine figure, determine mood.</p>
-
-  <ol>
-    <li>All birds are vertebrates. No fish are birds. Therefore, no fish are vertebrates. (Note: evaluate carefully.)</li>
-    <li>No inert gases are elements that form compounds. All noble gases are inert gases. Therefore, no noble gases are elements that form compounds.</li>
-    <li>Some ancient documents are forgeries. All forgeries are items of dubious historical value. Therefore, some ancient documents are items of dubious historical value.</li>
-    <li>All prime numbers are integers. Some numbers in set R are not integers. Therefore, some numbers in set R are not prime numbers.</li>
-    <li>Some marine animals are mammals. All mammals are warm-blooded organisms. Therefore, some marine animals are warm-blooded organisms.</li>
-  </ol>
-
-  <p><strong>Part B — Same Mood, Different Figures.</strong> The mood AEE appears in both Figure 2 (where it is valid) and Figure 1 (where it is invalid). Write two syllogisms — one in each figure — both with mood AEE. For each, state the mood-figure pair and indicate whether the form is valid.</p>
-
-  <p><strong>Part C — Construct from Code.</strong> Write a valid categorical syllogism instantiating each of the following mood-figure descriptions. Use neutral subject matter. You may need to experiment with which term goes where. State the mood-figure pair when done.
-  <br>(a) EAE with Figure 1 &nbsp; (b) AII with Figure 1 &nbsp; (c) EIO with Figure 3</p>
-</div>
-
-<div class="looking-ahead">
-  <strong>Looking Ahead:</strong> Now that you can derive mood-figure pairs, the next lesson surveys which combinations are valid and which are invalid — and introduces the five rules of the syllogism that explain the pattern.
-</div>
-
 </body>
 </html>

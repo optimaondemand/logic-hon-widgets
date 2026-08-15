@@ -1,117 +1,100 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lesson 2.06a — False Cause: Confusing Sequence with Causation</title>
 <style>
-body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
-h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
-h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
-h3 { font-size: 1.05em; margin-top: 1.4em; color: #1a1a1a; }
-.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
-.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
-.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
-.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.error-example { background: #fff8f8; border: 1px solid #e8c0c0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 820px; margin: 0 auto; padding: 0 0 24px 0; line-height: 1.7; color: #1a2340; background: #fff; }
+h1 { display: none; }
+h2 { font-size: 1.25em; margin: 0 0 14px 0; color: #0e1c42; border-left: 4px solid #C7922C; padding-left: 12px; }
+h3 { font-size: 1.05em; margin-top: 1.2em; color: #0e1c42; }
+.benchmark { background: #EEF1F8; border-left: 4px solid #0E1C42; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.8em; color: #1a2340; }
+.objective { font-style: italic; color: #1a2340; border-left: 4px solid #C7922C; padding-left: 12px; margin-bottom: 0; font-size: 0.98em; }
+.example { background: #E8F6FB; border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #C7922C; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.error-example { background: #FDECEC; border: 1px solid #F5C6C6; border-left: 5px solid #C0392B; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
 .error-example .label { font-weight: bold; font-size: 0.85em; color: #a04040; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
-.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
-.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+.practice { background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; padding: 18px 22px; margin: 0; border-radius: 8px; }
+.practice h2 { margin-top: 0; border-left: none; padding-left: 0; }
+.looking-ahead { background: #EEF1F8; border-left: 5px solid #0E1C42; padding: 16px 20px; font-style: italic; font-size: 0.98em; border-radius: 0 6px 6px 0; color: #1a2340; }
 ol li, ul li { margin-bottom: 0.5em; }
-</style>
+
+blockquote { border-left: 3px solid #D0D9E8; margin: 1em 0; padding-left: 1em; color: #1a2340; font-style: italic; }
+th { background: #EEF1F8; font-weight: bold; border: 1px solid #D0D9E8; padding: 8px 12px; text-align: left; }
+td { border: 1px solid #D0D9E8; padding: 8px 12px; }
+.widget-embed { margin: 1.2em 0; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.widget-embed p { margin: 0; padding: 8px 14px; background: #EEF1F8; font-size: 0.85em; color: #1a2340; }</style>
 </head>
 <body>
-
-<h1>Lesson 2.06a — False Cause: Confusing Sequence with Causation</h1>
-
-<div class="benchmark">
-  <strong>CPALMS Benchmarks:</strong> ELA.11.R.2.4 — Compare development of multiple arguments; evaluate effectiveness and validity of reasoning &nbsp;|&nbsp; ELA.K12.EE.3.1 — Make inferences to support comprehension
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 28px;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+<div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img alt="Optima Academy" src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" style="width: 50px; height: 40px; object-fit: contain;"/></div>
+<div>
+<div style="font-size: 26px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+<div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
 </div>
-
-<p class="objective"><strong>Learning Objective:</strong> Students will be able to identify the false cause fallacy in its two principal forms, explain why temporal sequence and correlation do not establish causation, and distinguish fallacious from legitimate causal reasoning.</p>
-
-<h2>Orientation: Where We Are</h2>
-
-<p>The previous two lessons introduced begging the question and the complex question — fallacies of presumption in which an argument smuggles an unestablished conclusion into its own premises. Both involved circular or leading assumptions about what is already known to be true. This lesson opens a new cluster of three fallacies of presumption. What unites them is that each assumes an unestablished <em>relationship</em> — causal, exhaustive, or authoritative. The false cause fallacy assumes, without justification, that one thing caused another.</p>
-
-<h2>Before the Definition: A Familiar Pattern</h2>
-
-<p>Consider a sequence of events you have probably observed without naming it. A student begins wearing a particular pair of shoes to every exam after doing well once while wearing them. A team adopts an unusual pre-game ritual after a winning streak that coincided with it. A town notes that its crime rate fell in the years after a new park was built, and the town council credits the park.</p>
-
-<p>Each of these involves the same mental move: because Y came after X, or because X and Y seem to go together, the person concludes that X caused Y. The pattern feels persuasive. We are pattern-seeking creatures, and causation is the most natural pattern to find. But the feeling of a causal connection and the existence of one are entirely different things. The fallacy exploits exactly that gap.</p>
-
-<h2>The Formal Concept: Two Latin Names, Two Errors</h2>
-
-<p>The family of false cause fallacies has two classical forms, each named in Latin in a way that encodes the precise error.</p>
-
-<p>The first and most common form is <em>post hoc ergo propter hoc</em>, which translates as "after this, therefore because of this." The component words repay attention: <em>post</em> means "after"; <em>hoc</em> means "this"; <em>ergo</em> means "therefore"; <em>propter</em> means "because of" or "on account of." The name is the argument: it follows Y, therefore Y was caused by it. The error is in that step. Sequence in time is a necessary condition for one event to cause another — a cause must precede its effect — but sequence is not a sufficient condition. Many things follow each other in time without any causal connection at all.</p>
-
-<p>The second form is <em>cum hoc ergo propter hoc</em>, meaning "with this, therefore because of this." Here <em>cum</em> means "with" or "together with." The error is assuming that because two things occur together, correlate, or move in parallel, one of them causes the other. This is the confusion of correlation with causation. As with the temporal form, correlation can be evidence worth investigating, but it does not establish causation on its own.</p>
-
-<p>Both forms are fallacies of presumption because they assume a causal connection that the argument has not actually established. The implicit warrant — "if B regularly follows or accompanies A, then A caused B" — is simply false as a general principle.</p>
-
-<h2>Why Sequence and Correlation Are Insufficient</h2>
-
-<p>Three alternative explanations are always worth considering when you observe a regular sequence or correlation. First, the direction of causation may be reversed: instead of A causing B, B (or anticipation of B) may have caused A. Second, a third factor C may be causing both A and B independently, producing the correlation without any direct connection between them. Third, the co-occurrence may be coincidental, with no causal relationship in either direction.</p>
-
-<p>A famous example from public health illustrates the second possibility. Cities with more hospitals tend to have higher death rates than cities with fewer hospitals. The correlation is real. But hospitals do not cause death; both the number of hospitals and the death rate correlate with a third factor — population size. Large populations need more hospitals and also produce more deaths in absolute numbers. Strip out population size, and the correlation between hospitals and death rates disappears. The third factor — called a confounding variable in statistical analysis — was doing all the explanatory work.</p>
-
-<h2>Worked Examples</h2>
-
-<div class="example">
-  <span class="label">Example 1 — Classic Post Hoc</span>
-  <p>"After the town installed a new traffic light at the intersection, accident reports at that location increased over the following six months. The traffic light is causing more accidents."</p>
-  <p><strong>Analysis:</strong> This is a <em>post hoc ergo propter hoc</em> error. The accident increase followed the light's installation, but that sequence does not establish the light as the cause. Two alternative explanations immediately suggest themselves. The traffic light may have been installed precisely because accidents were already trending upward, in which case the causal direction is reversed: rising accidents prompted the light, not the other way around. Alternatively, increased traffic volume may be driving both the higher accident rate and the city's decision to add a light. Establishing that the light causes accidents would require controlling for these variables, not simply noting the sequence.</p>
 </div>
-
-<div class="example">
-  <span class="label">Example 2 — Correlation Confused with Causation</span>
-  <p>"Students who take private music lessons tend to earn higher scores on standardized mathematics assessments. Music lessons must improve mathematical ability."</p>
-  <p><strong>Analysis:</strong> This is a <em>cum hoc ergo propter hoc</em> error. The correlation between music study and math performance is real and has been documented. But the causal claim does not follow from the correlation alone. One plausible confounding variable: households that invest in private music lessons may also invest more heavily in academic tutoring, structured study time, and other educational resources. If family investment in education is a common cause of both music study and math performance, that would explain the correlation without music causing the math improvement. Researchers investigating this question use controlled study designs specifically to separate these explanations. The correlation is interesting; it is not a conclusion.</p>
+<div style="font-size: 30px; color: #ffffff;">SEMANTICS AND LOGIC HONORS</div>
 </div>
-
-<div class="error-example">
-  <span class="label">Common Confusion — When Causal Reasoning Is Legitimate</span>
-  <p>"In controlled laboratory experiments, plants exposed to additional carbon dioxide showed significantly faster growth rates than control plants. Additional carbon dioxide causes accelerated plant growth."</p>
-  <p><strong>Analysis:</strong> This is <em>not</em> a false cause fallacy, and identifying why matters. The argument does not rest on sequence or correlation alone. The controlled experiment is specifically designed to eliminate confounding variables: all conditions are held constant except the one being tested. When the only difference between two groups of plants is the CO2 level, and the growth difference is consistently observed across repeated trials, there is genuine evidence of a causal mechanism. The controlled experiment is, historically, the formal intellectual response to the false cause problem: it is precisely what you do when you want to rule out the alternative explanations that would otherwise make your causal claim a fallacy.</p>
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 130px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
+<div style="font-size: 16px; color: #0e1c42;">Q1 · Module 5</div>
+<div style="font-size: 12px; color: #666;">Fallacies Of Presumption</div>
 </div>
-
-<h2>Connection to Argument Structure</h2>
-
-<p>In the language of warrants you have studied, the false cause fallacy involves a defective implicit warrant: "If B regularly follows or accompanies A, then A caused B." Exposing this warrant is the analytical task. When you reconstruct a false cause argument explicitly, you make the hidden assumption visible, and then the question becomes: is this warrant defensible? In almost every case, it is not defensible unless additional evidence of a causal mechanism is present.</p>
-
-<p>This is why distinguishing false cause from legitimate causal reasoning is not simply a matter of whether A precedes B, but of what else you know. Does a plausible mechanism connect A to B? Have confounding variables been ruled out? Is the correlation or sequence consistent across varied conditions? These are the questions that move an argument from presumption to evidence.</p>
-
-<h2>Connection to the History of Science</h2>
-
-<p>The problem of distinguishing correlation from causation was central to the development of the modern experimental method in the seventeenth century. Francis Bacon's critique of the "idols of the mind" — including the tendency to see patterns and connections that are not there — was a direct attack on the same cognitive habit that produces <em>post hoc</em> reasoning. The randomized controlled trial, now the standard for medical research, is the institutional embodiment of the answer to this fallacy: hold everything constant, randomize the one variable you care about, and see what happens. Understanding false cause is not just a logical exercise; it is understanding why modern empirical science is designed the way it is.</p>
-
-<div class="practice">
-  <h2>Practice Problems</h2>
-
-  <p><strong>Recognition</strong></p>
-  <ol>
-    <li>A homeowner notes that his roof began leaking in the weeks after a new cellular tower was installed two miles away. He concludes the tower is causing the leak. Identify the fallacy and name its Latin form.</li>
-    <li>A study finds that people who drink coffee in the morning tend to report higher levels of daytime productivity than those who do not. A journalist reports: "Coffee drives productivity." What form of false cause does this illustrate? What confounding variable might explain the correlation?</li>
-    <li>Every winter, the number of coats sold in stores increases. Every winter, the number of people diagnosed with colds also increases. Coat sales do not cause colds. What does this example demonstrate about correlation?</li>
-  </ol>
-
-  <p><strong>Analysis</strong></p>
-  <ol start="4">
-    <li>Read this argument: "Since the town adopted a new recycling program last year, its average household energy bills have dropped. The recycling program is reducing household energy costs." Reconstruct the argument's implicit warrant. Explain why the warrant fails and supply at least two alternative explanations for the correlation.</li>
-    <li>A researcher observes that students who eat a full breakfast before school score higher on morning assessments than those who skip breakfast. The researcher concludes that eating breakfast improves cognitive performance. Evaluate this reasoning: is it a false cause, or is it a legitimate causal claim? What additional evidence or study design would be required to make it legitimate?</li>
-  </ol>
-
-  <p><strong>Construction</strong></p>
-  <ol start="6">
-    <li>Write one original <em>post hoc ergo propter hoc</em> argument on any neutral topic (not related to health, politics, or religion). Then write one original <em>cum hoc ergo propter hoc</em> argument on a different neutral topic. For each argument, write two sentences identifying the alternative explanation that exposes the fallacy.</li>
-  </ol>
+<div style="flex: 1; min-width: 110px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+<div style="font-size: 16px; color: #0e1c42;">Lesson 2.06a</div>
 </div>
-
-<div class="looking-ahead">
-  <strong>Looking Ahead:</strong> The next fallacy of presumption is the false dilemma, which assumes not a false causal relationship but a false exhaustion of options. Where the false cause error says "A must have caused B," the false dilemma error says "there are only two possibilities here" — when in fact the range of options is wider than the argument acknowledges.
+<div style="flex: 2; min-width: 160px; padding: 12px 16px;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+<div style="font-size: 16px; color: #0e1c42; font-style: italic;">False Cause: Confusing Sequence with Causation</div>
 </div>
-
+</div>
+<div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 16px 20px; margin: 20px 28px 0 28px;">
+<div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 2.06a</div>
+<div style="font-size: 21px; color: #0e1c42;">False Cause: Confusing Sequence with Causation</div>
+</div>
+<div style="padding: 20px 28px 4px 28px;"><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><div class="benchmark">
+<strong>CPALMS Benchmarks:</strong> ELA.11.R.2.4 — Compare development of multiple arguments; evaluate effectiveness and validity of reasoning  |  ELA.K12.EE.3.1 — Make inferences to support comprehension
+</div><p class="objective"><strong>Learning Objective:</strong> Students will be able to identify the false cause fallacy in its two principal forms, explain why temporal sequence and correlation do not establish causation, and distinguish fallacious from legitimate causal reasoning.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Orientation: Where We Are</h2><p>The previous two lessons introduced begging the question and the complex question — fallacies of presumption in which an argument smuggles an unestablished conclusion into its own premises. Both involved circular or leading assumptions about what is already known to be true. This lesson opens a new cluster of three fallacies of presumption. What unites them is that each assumes an unestablished <em>relationship</em> — causal, exhaustive, or authoritative. The false cause fallacy assumes, without justification, that one thing caused another.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Before the Definition: A Familiar Pattern</h2><p>Consider a sequence of events you have probably observed without naming it. A student begins wearing a particular pair of shoes to every exam after doing well once while wearing them. A team adopts an unusual pre-game ritual after a winning streak that coincided with it. A town notes that its crime rate fell in the years after a new park was built, and the town council credits the park.</p><p>Each of these involves the same mental move: because Y came after X, or because X and Y seem to go together, the person concludes that X caused Y. The pattern feels persuasive. We are pattern-seeking creatures, and causation is the most natural pattern to find. But the feeling of a causal connection and the existence of one are entirely different things. The fallacy exploits exactly that gap.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The Formal Concept: Two Latin Names, Two Errors</h2><p>The family of false cause fallacies has two classical forms, each named in Latin in a way that encodes the precise error.</p><p>The first and most common form is <em>post hoc ergo propter hoc</em>, which translates as "after this, therefore because of this." The component words repay attention: <em>post</em> means "after"; <em>hoc</em> means "this"; <em>ergo</em> means "therefore"; <em>propter</em> means "because of" or "on account of." The name is the argument: it follows Y, therefore Y was caused by it. The error is in that step. Sequence in time is a necessary condition for one event to cause another — a cause must precede its effect — but sequence is not a sufficient condition. Many things follow each other in time without any causal connection at all.</p><p>The second form is <em>cum hoc ergo propter hoc</em>, meaning "with this, therefore because of this." Here <em>cum</em> means "with" or "together with." The error is assuming that because two things occur together, correlate, or move in parallel, one of them causes the other. This is the confusion of correlation with causation. As with the temporal form, correlation can be evidence worth investigating, but it does not establish causation on its own.</p><p>Both forms are fallacies of presumption because they assume a causal connection that the argument has not actually established. The implicit warrant — "if B regularly follows or accompanies A, then A caused B" — is simply false as a general principle.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Why Sequence and Correlation Are Insufficient</h2><p>Three alternative explanations are always worth considering when you observe a regular sequence or correlation. First, the direction of causation may be reversed: instead of A causing B, B (or anticipation of B) may have caused A. Second, a third factor C may be causing both A and B independently, producing the correlation without any direct connection between them. Third, the co-occurrence may be coincidental, with no causal relationship in either direction.</p><p>A famous example from public health illustrates the second possibility. Cities with more hospitals tend to have higher death rates than cities with fewer hospitals. The correlation is real. But hospitals do not cause death; both the number of hospitals and the death rate correlate with a third factor — population size. Large populations need more hospitals and also produce more deaths in absolute numbers. Strip out population size, and the correlation between hospitals and death rates disappears. The third factor — called a confounding variable in statistical analysis — was doing all the explanatory work.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Worked Examples</h2><div class="example">
+<span class="label">Example 1 — Classic Post Hoc</span>
+<p>"After the town installed a new traffic light at the intersection, accident reports at that location increased over the following six months. The traffic light is causing more accidents."</p>
+<p><strong>Analysis:</strong> This is a <em>post hoc ergo propter hoc</em> error. The accident increase followed the light's installation, but that sequence does not establish the light as the cause. Two alternative explanations immediately suggest themselves. The traffic light may have been installed precisely because accidents were already trending upward, in which case the causal direction is reversed: rising accidents prompted the light, not the other way around. Alternatively, increased traffic volume may be driving both the higher accident rate and the city's decision to add a light. Establishing that the light causes accidents would require controlling for these variables, not simply noting the sequence.</p>
+</div><div class="example">
+<span class="label">Example 2 — Correlation Confused with Causation</span>
+<p>"Students who take private music lessons tend to earn higher scores on standardized mathematics assessments. Music lessons must improve mathematical ability."</p>
+<p><strong>Analysis:</strong> This is a <em>cum hoc ergo propter hoc</em> error. The correlation between music study and math performance is real and has been documented. But the causal claim does not follow from the correlation alone. One plausible confounding variable: households that invest in private music lessons may also invest more heavily in academic tutoring, structured study time, and other educational resources. If family investment in education is a common cause of both music study and math performance, that would explain the correlation without music causing the math improvement. Researchers investigating this question use controlled study designs specifically to separate these explanations. The correlation is interesting; it is not a conclusion.</p>
+</div><div class="error-example">
+<span class="label">Common Confusion — When Causal Reasoning Is Legitimate</span>
+<p>"In controlled laboratory experiments, plants exposed to additional carbon dioxide showed significantly faster growth rates than control plants. Additional carbon dioxide causes accelerated plant growth."</p>
+<p><strong>Analysis:</strong> This is <em>not</em> a false cause fallacy, and identifying why matters. The argument does not rest on sequence or correlation alone. The controlled experiment is specifically designed to eliminate confounding variables: all conditions are held constant except the one being tested. When the only difference between two groups of plants is the CO2 level, and the growth difference is consistently observed across repeated trials, there is genuine evidence of a causal mechanism. The controlled experiment is, historically, the formal intellectual response to the false cause problem: it is precisely what you do when you want to rule out the alternative explanations that would otherwise make your causal claim a fallacy.</p>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Connection to Argument Structure</h2><p>In the language of warrants you have studied, the false cause fallacy involves a defective implicit warrant: "If B regularly follows or accompanies A, then A caused B." Exposing this warrant is the analytical task. When you reconstruct a false cause argument explicitly, you make the hidden assumption visible, and then the question becomes: is this warrant defensible? In almost every case, it is not defensible unless additional evidence of a causal mechanism is present.</p><p>This is why distinguishing false cause from legitimate causal reasoning is not simply a matter of whether A precedes B, but of what else you know. Does a plausible mechanism connect A to B? Have confounding variables been ruled out? Is the correlation or sequence consistent across varied conditions? These are the questions that move an argument from presumption to evidence.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Connection to the History of Science</h2><p>The problem of distinguishing correlation from causation was central to the development of the modern experimental method in the seventeenth century. Francis Bacon's critique of the "idols of the mind" — including the tendency to see patterns and connections that are not there — was a direct attack on the same cognitive habit that produces <em>post hoc</em> reasoning. The randomized controlled trial, now the standard for medical research, is the institutional embodiment of the answer to this fallacy: hold everything constant, randomize the one variable you care about, and see what happens. Understanding false cause is not just a logical exercise; it is understanding why modern empirical science is designed the way it is.</p><div class="practice">
+<h2>Practice Problems</h2>
+<p><strong>Recognition</strong></p>
+<ol>
+<li>A homeowner notes that his roof began leaking in the weeks after a new cellular tower was installed two miles away. He concludes the tower is causing the leak. Identify the fallacy and name its Latin form.</li>
+<li>A study finds that people who drink coffee in the morning tend to report higher levels of daytime productivity than those who do not. A journalist reports: "Coffee drives productivity." What form of false cause does this illustrate? What confounding variable might explain the correlation?</li>
+<li>Every winter, the number of coats sold in stores increases. Every winter, the number of people diagnosed with colds also increases. Coat sales do not cause colds. What does this example demonstrate about correlation?</li>
+</ol>
+<p><strong>Analysis</strong></p>
+<ol start="4">
+<li>Read this argument: "Since the town adopted a new recycling program last year, its average household energy bills have dropped. The recycling program is reducing household energy costs." Reconstruct the argument's implicit warrant. Explain why the warrant fails and supply at least two alternative explanations for the correlation.</li>
+<li>A researcher observes that students who eat a full breakfast before school score higher on morning assessments than those who skip breakfast. The researcher concludes that eating breakfast improves cognitive performance. Evaluate this reasoning: is it a false cause, or is it a legitimate causal claim? What additional evidence or study design would be required to make it legitimate?</li>
+</ol>
+<p><strong>Construction</strong></p>
+<ol start="6">
+<li>Write one original <em>post hoc ergo propter hoc</em> argument on any neutral topic (not related to health, politics, or religion). Then write one original <em>cum hoc ergo propter hoc</em> argument on a different neutral topic. For each argument, write two sentences identifying the alternative explanation that exposes the fallacy.</li>
+</ol>
+</div></div><div style="margin-bottom: 20px;"><div class="looking-ahead">
+<strong>Looking Ahead:</strong> The next fallacy of presumption is the false dilemma, which assumes not a false causal relationship but a false exhaustion of options. Where the false cause error says "A must have caused B," the false dilemma error says "there are only two possibilities here" — when in fact the range of options is wider than the argument acknowledges.
+</div></div></div>
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 16px 28px; text-align: center; margin-top: 10px;">
+<div style="font-size: 16px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> · SEMANTICS AND LOGIC HONORS · Quarter 1 · Student Lesson Page</div>
+<div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 2.06a · False Cause: Confusing Sequence with Causation</div>
+<div style="font-size: 12px; color: rgba(255,255,255,0.4);">© Optima Academy Online · An Education Experience Company</div>
+</div>
 </body>
 </html>

@@ -1,173 +1,138 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lesson 3.04a — Introducing the Square of Opposition</title>
 <style>
-body{font-family:Georgia,'Times New Roman',serif;max-width:820px;margin:0 auto;padding:24px 28px;line-height:1.7;color:#1a1a1a;background:#fff}
-h1{font-size:1.55em;border-bottom:2px solid #2a2a2a;padding-bottom:.3em;margin-bottom:.4em}
-h2{font-size:1.2em;margin-top:1.8em;margin-bottom:.4em;color:#1a1a1a}
-h3{font-size:1.05em;margin-top:1.4em;color:#1a1a1a}
-.benchmark{background:#f2f2f2;border-left:4px solid #555;padding:8px 14px;font-size:.88em;margin-bottom:.5em;font-family:Arial,sans-serif}
-.objective{font-style:italic;color:#333;margin-bottom:1.8em;font-size:.95em}
-.example{background:#f9f9f9;border:1px solid #ddd;padding:14px 18px;margin:1em 0;border-radius:3px}
-.example .label{font-weight:bold;font-size:.85em;color:#555;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:6px}
-.practice{background:#f5f7fa;border:1px solid #d0d7e3;padding:18px 22px;margin:2em 0;border-radius:4px}
-.practice h2{margin-top:0;border-bottom:1px solid #d0d7e3;padding-bottom:.3em}
-.looking-ahead{background:#eef3f9;border-left:4px solid #4a7fb5;padding:12px 18px;margin-top:2.5em;font-style:italic;font-size:.95em;border-radius:0 4px 4px 0}
+body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 820px; margin: 0 auto; padding: 0 0 24px 0; line-height: 1.7; color: #1a2340; background: #fff; }
+h1 { display: none; }
+h2 { font-size: 1.25em; margin: 0 0 14px 0; color: #0e1c42; border-left: 4px solid #C7922C; padding-left: 12px; }
+h3 { font-size: 1.05em; margin-top: 1.2em; color: #0e1c42; }
+.benchmark { background: #EEF1F8; border-left: 4px solid #0E1C42; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.8em; color: #1a2340; }
+.objective { font-style: italic; color: #1a2340; border-left: 4px solid #C7922C; padding-left: 12px; margin-bottom: 0; font-size: 0.98em; }
+.example { background: #E8F6FB; border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #C7922C; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.practice { background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; padding: 18px 22px; margin: 0; border-radius: 8px; }
+.practice h2 { margin-top: 0; border-left: none; padding-left: 0; }
+.looking-ahead { background: #EEF1F8; border-left: 5px solid #0E1C42; padding: 16px 20px; font-style: italic; font-size: 0.98em; border-radius: 0 6px 6px 0; color: #1a2340; }
 .square-container{margin:2em auto;max-width:560px;text-align:center}
 .sq-label{font-size:.78em;font-weight:normal;display:block;color:#666;margin-top:2px}
 ol li,ul li{margin-bottom:.5em}
 .rel-summary{width:100%;border-collapse:collapse;margin:1.4em 0;font-size:.92em}
-.rel-summary th,.rel-summary td{border:1px solid #ccc;padding:8px 12px}
-.rel-summary th{background:#f0f0f0;font-weight:bold;text-align:left}
-.widget-embed{margin:2em 0;border:1px solid #d0d7e3;border-radius:4px;overflow:hidden}
-.widget-embed p{margin:0;padding:8px 14px;background:#f2f2f2;font-family:Arial,sans-serif;font-size:.82em;color:#555}
-</style>
+.rel-summary th,.rel-summary td { border: 1px solid #D0D9E8; padding: 8px 12px; }
+.rel-summary th { background: #EEF1F8; font-weight: bold; border: 1px solid #D0D9E8; padding: 8px 12px; text-align: left; }
+.widget-embed { margin: 1.2em 0; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.widget-embed p { margin: 0; padding: 8px 14px; background: #EEF1F8; font-size: 0.85em; color: #1a2340; }
+
+blockquote { border-left: 3px solid #D0D9E8; margin: 1em 0; padding-left: 1em; color: #1a2340; font-style: italic; }
+.error-example { background: #FDECEC; border: 1px solid #F5C6C6; border-left: 5px solid #C0392B; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }</style>
 </head>
 <body>
-
-<h1>Lesson 3.04a — Introducing the Square of Opposition</h1>
-
-<div class="benchmark">
-  <strong>CPALMS Benchmarks:</strong> ELA.11.R.2.4 — Analyze claims and use evidence to evaluate them &nbsp;|&nbsp; ELA.K12.EE.1.1 — Cite evidence to explain and justify reasoning &nbsp;|&nbsp; ELA.11.C.5.1 — Improve writing and reasoning through revision
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 28px;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+<div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img alt="Optima Academy" src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" style="width: 50px; height: 40px; object-fit: contain;"/></div>
+<div>
+<div style="font-size: 26px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+<div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
 </div>
-
-<p class="objective"><strong>Learning Objective:</strong> Students will be able to describe the Square of Opposition, identify the four corners of the Square and the statement type at each corner, name the five inferential relationships the Square maps, and explain what it means for two statements to stand in a logical relationship on the Square.</p>
-
-<h2>Where We Are</h2>
-
-<p>You now have the full AEIO system: four categorical statement types, each with a known form, a known distribution pattern, and a known relationship to what it asserts about two classes of things. What you do not yet have is a map of how these four statement types relate to each other when they share the same subject and predicate terms. That map is the Square of Opposition.</p>
-
-<p>The Square is the culmination of Week 8's work and the gateway to Q2. Every syllogism you will analyze in Q2 depends on understanding what follows from what. The Square teaches you exactly that — but at the level of single statements rather than multi-premise arguments. It answers the question: if I know whether one of these four statements is true or false, what can I infer about the other three?</p>
-
-<h2>Intuitive Entry Point</h2>
-
-<p>Consider the statement "All ravens are black birds." Now consider these three variations on the same terms:</p>
-<ul>
-  <li>"No ravens are black birds." (E)</li>
-  <li>"Some ravens are black birds." (I)</li>
-  <li>"Some ravens are not black birds." (O)</li>
-</ul>
-
-<p>If you know that the A statement is true — that all ravens really are black — what follows about the other three? You immediately sense that the E statement must be false (you can't have all ravens black and also no ravens black). The I statement must be true (if all ravens are black, then certainly some are). The O statement must also be false (if all are black, you cannot have some that are not). You have just used the Square of Opposition informally. The Square is the formal system that makes these inferences rigorous and extends them to all four statement types, including cases where the initial truth value is uncertain.</p>
-
-<h2>The History of the Square</h2>
-
-<p>Aristotle laid the groundwork for the Square in his <em>Prior Analytics</em> and <em>On Interpretation</em>, where he analyzed the logical relations between universal and particular statements with the same subject and predicate terms. The Square as a geometric diagram — four corners, five relationships — was systematized by Apuleius (second century CE) and later by the medieval Scholastics who incorporated it into the standard logic curriculum. Porphyry's <em>Isagoge</em> and Boethius's commentaries helped transmit it to the Latin West, where it became a staple of university logic instruction from the twelfth century onward.</p>
-
-<p>The Square is not merely a historical curiosity. It is a practical tool — a compressed map of the inferential consequences of categorical claims. Any time you evaluate whether a particular statement follows from a universal one, or whether one statement contradicts another, you are using the Square.</p>
-
-<h2>The Four Corners</h2>
-
-<p>The Square of Opposition is built on a single condition: all four statements must share the same subject term (S) and the same predicate term (P). The four corners correspond to the four AEIO types:</p>
-
-<div class="square-container">
-  <svg width="100%" height="420" viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Square of Opposition diagram">
-    <!-- Diagonals (Contradictories) -->
-    <line x1="100" y1="70" x2="380" y2="330" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4"/>
-    <line x1="380" y1="70" x2="100" y2="330" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4"/>
-    <text x="175" y="145" font-family="Arial" font-size="12.5" fill="#666" text-anchor="middle">A &#8596; O</text>
-    <text x="175" y="160" font-family="Arial" font-size="11" fill="#666" text-anchor="middle">Contradictories</text>
-    <text x="305" y="145" font-family="Arial" font-size="12.5" fill="#666" text-anchor="middle">E &#8596; I</text>
-    <text x="305" y="160" font-family="Arial" font-size="11" fill="#666" text-anchor="middle">Contradictories</text>
-
-    <!-- Top edge: Contraries -->
-    <line x1="130" y1="60" x2="350" y2="60" stroke="#555" stroke-width="1.5"/>
-    <text x="240" y="42" font-family="Arial" font-size="13" fill="#333" text-anchor="middle">Contraries (A &#8596; E)</text>
-
-    <!-- Bottom edge: Subcontraries -->
-    <line x1="130" y1="340" x2="350" y2="340" stroke="#555" stroke-width="1.5"/>
-    <text x="240" y="378" font-family="Arial" font-size="13" fill="#333" text-anchor="middle">Subcontraries (I &#8596; O)</text>
-
-    <!-- Left edge: Subalternation/Superalternation A-I -->
-    <line x1="100" y1="90" x2="100" y2="310" stroke="#555" stroke-width="1.5"/>
-    <text x="55" y="195" font-family="Arial" font-size="11.5" fill="#333" text-anchor="middle" transform="rotate(-90 55 195)">Subalternation (A&#8595;I) / Superalternation (I&#8593;A)</text>
-
-    <!-- Right edge: Subalternation/Superalternation E-O -->
-    <line x1="380" y1="90" x2="380" y2="310" stroke="#555" stroke-width="1.5"/>
-    <text x="425" y="195" font-family="Arial" font-size="11.5" fill="#333" text-anchor="middle" transform="rotate(90 425 195)">Subalternation (E&#8595;O) / Superalternation (O&#8593;E)</text>
-
-    <!-- Corner boxes -->
-    <rect x="40" y="30" width="120" height="60" rx="4" fill="#f2f2f2" stroke="#555" stroke-width="1.5"/>
-    <text x="100" y="55" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="#1a1a1a" text-anchor="middle">A</text>
-    <text x="100" y="72" font-family="Arial" font-size="11" fill="#555" text-anchor="middle">"All S are P"</text>
-
-    <rect x="320" y="30" width="120" height="60" rx="4" fill="#f2f2f2" stroke="#555" stroke-width="1.5"/>
-    <text x="380" y="55" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="#1a1a1a" text-anchor="middle">E</text>
-    <text x="380" y="72" font-family="Arial" font-size="11" fill="#555" text-anchor="middle">"No S are P"</text>
-
-    <rect x="40" y="310" width="120" height="60" rx="4" fill="#f2f2f2" stroke="#555" stroke-width="1.5"/>
-    <text x="100" y="335" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="#1a1a1a" text-anchor="middle">I</text>
-    <text x="100" y="352" font-family="Arial" font-size="11" fill="#555" text-anchor="middle">"Some S are P"</text>
-
-    <rect x="320" y="310" width="120" height="60" rx="4" fill="#f2f2f2" stroke="#555" stroke-width="1.5"/>
-    <text x="380" y="335" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="#1a1a1a" text-anchor="middle">O</text>
-    <text x="380" y="352" font-family="Arial" font-size="11" fill="#555" text-anchor="middle">"Some S are not P"</text>
-  </svg>
 </div>
-
-<p>The two diagonals are the <strong>contradictories</strong>: A stands in the contradictory relationship to O, and E stands in the contradictory relationship to I. These are the two pairs for which knowing the truth value of one statement always tells you the truth value of the other, with no exceptions and no cases left undetermined.</p>
-
-<p>The arrangement is not arbitrary. Affirmative statements (A and I) are on the left; negative statements (E and O) are on the right. Universal statements (A and E) are on top; particular statements (I and O) are on the bottom. This layout makes the five relationships visible as spatial relationships: two diagonals, one top horizontal, one bottom horizontal, and two verticals.</p>
-
-<h2>The Five Relationships — Overview</h2>
-
-<p>The Square maps five inferential relationships between pairs of statements. Each relationship specifies what follows when one statement is known to be true, false, or undetermined:</p>
-
-<table class="rel-summary">
-  <thead>
-    <tr><th>Relationship</th><th>Pair</th><th>Key Rule</th></tr>
-  </thead>
-  <tbody>
-    <tr><td><strong>Contradictories</strong></td><td>A ↔ O (diagonal)<br>E ↔ I (diagonal)</td><td>Cannot both be true; cannot both be false. Knowing one determines the other.</td></tr>
-    <tr><td><strong>Contraries</strong></td><td>A ↔ E (top)</td><td>Cannot both be true; can both be false. If one is true, the other is false — but falsity of one leaves the other undetermined.</td></tr>
-    <tr><td><strong>Subcontraries</strong></td><td>I ↔ O (bottom)</td><td>Cannot both be false; can both be true. If one is false, the other is true — but truth of one leaves the other undetermined.</td></tr>
-    <tr><td><strong>Subalternation</strong></td><td>A → I (vertical)<br>E → O (vertical)</td><td>Truth flows downward: if the universal is true, the particular must be true.</td></tr>
-    <tr><td><strong>Superalternation</strong></td><td>I → (affects A)<br>O → (affects E)</td><td>Falsity flows upward: if the particular is false, the universal must be false.</td></tr>
-  </tbody>
-</table>
-
-<p>These five relationships are studied in detail across Lessons 3.04b–3.04d. This lesson introduces the full architecture so you can see where each piece fits before examining each relationship in turn.</p>
-
-<h2>A Critical Condition: The Classical Square and Existential Import</h2>
-
-<p>The Square as described above follows the <strong>classical (traditional) interpretation</strong> of categorical logic, which assumes that the subject class is non-empty — that there are actually things that the subject term applies to. Under this assumption, all five relationships hold as described. This is the interpretation used in this course, consistent with Aristotle's original framework and the medieval Scholastic tradition.</p>
-
-<p>Modern (Boolean) logic adopts a different interpretation that does not assume non-empty subject classes, and under that interpretation, subalternation does not hold. This is a genuine and important difference, but it is a topic for a later logic course. For now: we work within the classical Square, with the assumption that the subject class has at least one member.</p>
-
-<h2>Connection to Argument</h2>
-
-<p>Every formal argument built from categorical statements relies on the inferential relationships the Square maps. When you construct a syllogism in Q2, you are working with two premises and a conclusion — all of which are categorical statements. The rules that govern what follows from what in a syllogism are the rules of the Square applied across three statements at once. Understanding the Square thoroughly is the preparation that makes syllogistic reasoning intelligible rather than merely mechanical.</p>
-
-<h2>Widget: Square of Opposition Explorer</h2>
-
-<div class="widget-embed">
-  <p>Interactive practice — set the truth value of any corner and watch the inferences propagate around the Square, including which cases remain undetermined.</p>
-  <iframe src="https://optimaondemand.github.io/logic-hon-widgets/widget_square-of-opposition.html" width="100%" height="620" style="border:none; display:block;" title="Square of Opposition — Interactive Inference Explorer"></iframe>
+<div style="font-size: 30px; color: #ffffff;">SEMANTICS AND LOGIC HONORS</div>
 </div>
-
-<div class="practice">
-  <h2>Practice</h2>
-
-  <p><strong>Part A — Architecture.</strong> Draw the Square of Opposition from memory. At each corner, write the statement type, its name (Universal Affirmative, etc.), and its standard form. Label all five relationships on the appropriate sides and diagonals.</p>
-
-  <p><strong>Part B — Placing Statements on the Square.</strong> For each pair of statements below, identify which relationship on the Square they stand in (Contradictories, Contraries, Subcontraries, Subalternation, or Superalternation). Both statements in each pair share the same S and P terms.</p>
-  <ol>
-    <li>"All acts of courage are virtuous acts." / "Some acts of courage are not virtuous acts."</li>
-    <li>"No philosophers are athletes." / "Some philosophers are not athletes."</li>
-    <li>"All prime numbers greater than 2 are odd numbers." / "Some prime numbers greater than 2 are odd numbers."</li>
-    <li>"No mammals are reptiles." / "Some mammals are reptiles."</li>
-    <li>"Some geometric figures are triangles." / "Some geometric figures are not triangles."</li>
-  </ol>
-
-  <p><strong>Part C — Reflection.</strong> In 3–4 sentences, explain why the Square of Opposition requires all four statements to share the same subject and predicate terms. What goes wrong if the terms differ? Give one example to illustrate.</p>
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 130px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
+<div style="font-size: 16px; color: #0e1c42;">Q1 · Module 9</div>
+<div style="font-size: 12px; color: #666;">Square Of Opposition</div>
 </div>
-
-<div class="looking-ahead">
-  <strong>Looking Ahead:</strong> Lesson 3.04b examines the most powerful relationship on the Square — the contradictory — in detail. Understanding why contradictories cannot both be true and cannot both be false, and how to use that relationship to infer a statement's truth value from its contradictory, is the first formal inference skill of the Square.
+<div style="flex: 1; min-width: 110px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+<div style="font-size: 16px; color: #0e1c42;">Lesson 3.04a</div>
 </div>
-
+<div style="flex: 2; min-width: 160px; padding: 12px 16px;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+<div style="font-size: 16px; color: #0e1c42; font-style: italic;">Introducing the Square of Opposition</div>
+</div>
+</div>
+<div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 16px 20px; margin: 20px 28px 0 28px;">
+<div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 3.04a</div>
+<div style="font-size: 21px; color: #0e1c42;">Introducing the Square of Opposition</div>
+</div>
+<div style="padding: 20px 28px 4px 28px;"><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><div class="benchmark">
+<strong>CPALMS Benchmarks:</strong> ELA.11.R.2.4 — Analyze claims and use evidence to evaluate them  |  ELA.K12.EE.1.1 — Cite evidence to explain and justify reasoning  |  ELA.11.C.5.1 — Improve writing and reasoning through revision
+</div><p class="objective"><strong>Learning Objective:</strong> Students will be able to describe the Square of Opposition, identify the four corners of the Square and the statement type at each corner, name the five inferential relationships the Square maps, and explain what it means for two statements to stand in a logical relationship on the Square.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Where We Are</h2><p>You now have the full AEIO system: four categorical statement types, each with a known form, a known distribution pattern, and a known relationship to what it asserts about two classes of things. What you do not yet have is a map of how these four statement types relate to each other when they share the same subject and predicate terms. That map is the Square of Opposition.</p><p>The Square is the culmination of Week 8's work and the gateway to Q2. Every syllogism you will analyze in Q2 depends on understanding what follows from what. The Square teaches you exactly that — but at the level of single statements rather than multi-premise arguments. It answers the question: if I know whether one of these four statements is true or false, what can I infer about the other three?</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Intuitive Entry Point</h2><p>Consider the statement "All ravens are black birds." Now consider these three variations on the same terms:</p><ul>
+<li>"No ravens are black birds." (E)</li>
+<li>"Some ravens are black birds." (I)</li>
+<li>"Some ravens are not black birds." (O)</li>
+</ul><p>If you know that the A statement is true — that all ravens really are black — what follows about the other three? You immediately sense that the E statement must be false (you can't have all ravens black and also no ravens black). The I statement must be true (if all ravens are black, then certainly some are). The O statement must also be false (if all are black, you cannot have some that are not). You have just used the Square of Opposition informally. The Square is the formal system that makes these inferences rigorous and extends them to all four statement types, including cases where the initial truth value is uncertain.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The History of the Square</h2><p>Aristotle laid the groundwork for the Square in his <em>Prior Analytics</em> and <em>On Interpretation</em>, where he analyzed the logical relations between universal and particular statements with the same subject and predicate terms. The Square as a geometric diagram — four corners, five relationships — was systematized by Apuleius (second century CE) and later by the medieval Scholastics who incorporated it into the standard logic curriculum. Porphyry's <em>Isagoge</em> and Boethius's commentaries helped transmit it to the Latin West, where it became a staple of university logic instruction from the twelfth century onward.</p><p>The Square is not merely a historical curiosity. It is a practical tool — a compressed map of the inferential consequences of categorical claims. Any time you evaluate whether a particular statement follows from a universal one, or whether one statement contradicts another, you are using the Square.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The Four Corners</h2><p>The Square of Opposition is built on a single condition: all four statements must share the same subject term (S) and the same predicate term (P). The four corners correspond to the four AEIO types:</p><div class="square-container">
+<svg aria-label="Square of Opposition diagram" height="420" role="img" viewbox="0 0 480 420" width="100%" xmlns="http://www.w3.org/2000/svg">
+<!-- Diagonals (Contradictories) -->
+<line stroke="#999" stroke-dasharray="5,4" stroke-width="1.5" x1="100" x2="380" y1="70" y2="330"></line>
+<line stroke="#999" stroke-dasharray="5,4" stroke-width="1.5" x1="380" x2="100" y1="70" y2="330"></line>
+<text fill="#666" font-family="Arial" font-size="12.5" text-anchor="middle" x="175" y="145">A ↔ O</text>
+<text fill="#666" font-family="Arial" font-size="11" text-anchor="middle" x="175" y="160">Contradictories</text>
+<text fill="#666" font-family="Arial" font-size="12.5" text-anchor="middle" x="305" y="145">E ↔ I</text>
+<text fill="#666" font-family="Arial" font-size="11" text-anchor="middle" x="305" y="160">Contradictories</text>
+<!-- Top edge: Contraries -->
+<line stroke="#555" stroke-width="1.5" x1="130" x2="350" y1="60" y2="60"></line>
+<text fill="#333" font-family="Arial" font-size="13" text-anchor="middle" x="240" y="42">Contraries (A ↔ E)</text>
+<!-- Bottom edge: Subcontraries -->
+<line stroke="#555" stroke-width="1.5" x1="130" x2="350" y1="340" y2="340"></line>
+<text fill="#333" font-family="Arial" font-size="13" text-anchor="middle" x="240" y="378">Subcontraries (I ↔ O)</text>
+<!-- Left edge: Subalternation/Superalternation A-I -->
+<line stroke="#555" stroke-width="1.5" x1="100" x2="100" y1="90" y2="310"></line>
+<text fill="#333" font-family="Arial" font-size="11.5" text-anchor="middle" transform="rotate(-90 55 195)" x="55" y="195">Subalternation (A↓I) / Superalternation (I↑A)</text>
+<!-- Right edge: Subalternation/Superalternation E-O -->
+<line stroke="#555" stroke-width="1.5" x1="380" x2="380" y1="90" y2="310"></line>
+<text fill="#333" font-family="Arial" font-size="11.5" text-anchor="middle" transform="rotate(90 425 195)" x="425" y="195">Subalternation (E↓O) / Superalternation (O↑E)</text>
+<!-- Corner boxes -->
+<rect fill="#f2f2f2" height="60" rx="4" stroke="#555" stroke-width="1.5" width="120" x="40" y="30"></rect>
+<text fill="#1a1a1a" font-family="Georgia,serif" font-size="15" font-weight="bold" text-anchor="middle" x="100" y="55">A</text>
+<text fill="#555" font-family="Arial" font-size="11" text-anchor="middle" x="100" y="72">"All S are P"</text>
+<rect fill="#f2f2f2" height="60" rx="4" stroke="#555" stroke-width="1.5" width="120" x="320" y="30"></rect>
+<text fill="#1a1a1a" font-family="Georgia,serif" font-size="15" font-weight="bold" text-anchor="middle" x="380" y="55">E</text>
+<text fill="#555" font-family="Arial" font-size="11" text-anchor="middle" x="380" y="72">"No S are P"</text>
+<rect fill="#f2f2f2" height="60" rx="4" stroke="#555" stroke-width="1.5" width="120" x="40" y="310"></rect>
+<text fill="#1a1a1a" font-family="Georgia,serif" font-size="15" font-weight="bold" text-anchor="middle" x="100" y="335">I</text>
+<text fill="#555" font-family="Arial" font-size="11" text-anchor="middle" x="100" y="352">"Some S are P"</text>
+<rect fill="#f2f2f2" height="60" rx="4" stroke="#555" stroke-width="1.5" width="120" x="320" y="310"></rect>
+<text fill="#1a1a1a" font-family="Georgia,serif" font-size="15" font-weight="bold" text-anchor="middle" x="380" y="335">O</text>
+<text fill="#555" font-family="Arial" font-size="11" text-anchor="middle" x="380" y="352">"Some S are not P"</text>
+</svg>
+</div><p>The two diagonals are the <strong>contradictories</strong>: A stands in the contradictory relationship to O, and E stands in the contradictory relationship to I. These are the two pairs for which knowing the truth value of one statement always tells you the truth value of the other, with no exceptions and no cases left undetermined.</p><p>The arrangement is not arbitrary. Affirmative statements (A and I) are on the left; negative statements (E and O) are on the right. Universal statements (A and E) are on top; particular statements (I and O) are on the bottom. This layout makes the five relationships visible as spatial relationships: two diagonals, one top horizontal, one bottom horizontal, and two verticals.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The Five Relationships — Overview</h2><p>The Square maps five inferential relationships between pairs of statements. Each relationship specifies what follows when one statement is known to be true, false, or undetermined:</p><table class="rel-summary">
+<thead>
+<tr><th>Relationship</th><th>Pair</th><th>Key Rule</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Contradictories</strong></td><td>A ↔ O (diagonal)<br/>E ↔ I (diagonal)</td><td>Cannot both be true; cannot both be false. Knowing one determines the other.</td></tr>
+<tr><td><strong>Contraries</strong></td><td>A ↔ E (top)</td><td>Cannot both be true; can both be false. If one is true, the other is false — but falsity of one leaves the other undetermined.</td></tr>
+<tr><td><strong>Subcontraries</strong></td><td>I ↔ O (bottom)</td><td>Cannot both be false; can both be true. If one is false, the other is true — but truth of one leaves the other undetermined.</td></tr>
+<tr><td><strong>Subalternation</strong></td><td>A → I (vertical)<br/>E → O (vertical)</td><td>Truth flows downward: if the universal is true, the particular must be true.</td></tr>
+<tr><td><strong>Superalternation</strong></td><td>I → (affects A)<br/>O → (affects E)</td><td>Falsity flows upward: if the particular is false, the universal must be false.</td></tr>
+</tbody>
+</table><p>These five relationships are studied in detail across Lessons 3.04b–3.04d. This lesson introduces the full architecture so you can see where each piece fits before examining each relationship in turn.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>A Critical Condition: The Classical Square and Existential Import</h2><p>The Square as described above follows the <strong>classical (traditional) interpretation</strong> of categorical logic, which assumes that the subject class is non-empty — that there are actually things that the subject term applies to. Under this assumption, all five relationships hold as described. This is the interpretation used in this course, consistent with Aristotle's original framework and the medieval Scholastic tradition.</p><p>Modern (Boolean) logic adopts a different interpretation that does not assume non-empty subject classes, and under that interpretation, subalternation does not hold. This is a genuine and important difference, but it is a topic for a later logic course. For now: we work within the classical Square, with the assumption that the subject class has at least one member.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Connection to Argument</h2><p>Every formal argument built from categorical statements relies on the inferential relationships the Square maps. When you construct a syllogism in Q2, you are working with two premises and a conclusion — all of which are categorical statements. The rules that govern what follows from what in a syllogism are the rules of the Square applied across three statements at once. Understanding the Square thoroughly is the preparation that makes syllogistic reasoning intelligible rather than merely mechanical.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Widget: Square of Opposition Explorer</h2><div class="widget-embed">
+<p>Interactive practice — set the truth value of any corner and watch the inferences propagate around the Square, including which cases remain undetermined.</p>
+<iframe height="620" src="https://optimaondemand.github.io/logic-hon-widgets/widget_square-of-opposition.html" style="border:none; display:block;" title="Square of Opposition — Interactive Inference Explorer" width="100%"></iframe>
+</div><div class="practice">
+<h2>Practice</h2>
+<p><strong>Part A — Architecture.</strong> Draw the Square of Opposition from memory. At each corner, write the statement type, its name (Universal Affirmative, etc.), and its standard form. Label all five relationships on the appropriate sides and diagonals.</p>
+<p><strong>Part B — Placing Statements on the Square.</strong> For each pair of statements below, identify which relationship on the Square they stand in (Contradictories, Contraries, Subcontraries, Subalternation, or Superalternation). Both statements in each pair share the same S and P terms.</p>
+<ol>
+<li>"All acts of courage are virtuous acts." / "Some acts of courage are not virtuous acts."</li>
+<li>"No philosophers are athletes." / "Some philosophers are not athletes."</li>
+<li>"All prime numbers greater than 2 are odd numbers." / "Some prime numbers greater than 2 are odd numbers."</li>
+<li>"No mammals are reptiles." / "Some mammals are reptiles."</li>
+<li>"Some geometric figures are triangles." / "Some geometric figures are not triangles."</li>
+</ol>
+<p><strong>Part C — Reflection.</strong> In 3–4 sentences, explain why the Square of Opposition requires all four statements to share the same subject and predicate terms. What goes wrong if the terms differ? Give one example to illustrate.</p>
+</div></div><div style="margin-bottom: 20px;"><div class="looking-ahead">
+<strong>Looking Ahead:</strong> Lesson 3.04b examines the most powerful relationship on the Square — the contradictory — in detail. Understanding why contradictories cannot both be true and cannot both be false, and how to use that relationship to infer a statement's truth value from its contradictory, is the first formal inference skill of the Square.
+</div></div></div>
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 16px 28px; text-align: center; margin-top: 10px;">
+<div style="font-size: 16px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> · SEMANTICS AND LOGIC HONORS · Quarter 1 · Student Lesson Page</div>
+<div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 3.04a · Introducing the Square of Opposition</div>
+<div style="font-size: 12px; color: rgba(255,255,255,0.4);">© Optima Academy Online · An Education Experience Company</div>
+</div>
 </body>
 </html>

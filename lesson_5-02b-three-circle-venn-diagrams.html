@@ -1,270 +1,240 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lesson 5.02b — Three-Circle Venn Diagrams</title>
 <style>
-body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
-h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
-h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
-.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
-.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
-.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
-.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.error-example { background: #fff8f8; border: 1px solid #e8c0c0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 820px; margin: 0 auto; padding: 0 0 24px 0; line-height: 1.7; color: #1a2340; background: #fff; }
+h1 { display: none; }
+h2 { font-size: 1.25em; margin: 0 0 14px 0; color: #0e1c42; border-left: 4px solid #C7922C; padding-left: 12px; }
+.benchmark { background: #EEF1F8; border-left: 4px solid #0E1C42; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.8em; color: #1a2340; }
+.objective { font-style: italic; color: #1a2340; border-left: 4px solid #C7922C; padding-left: 12px; margin-bottom: 0; font-size: 0.98em; }
+.example { background: #E8F6FB; border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #C7922C; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.error-example { background: #FDECEC; border: 1px solid #F5C6C6; border-left: 5px solid #C0392B; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
 .error-example .label { font-weight: bold; font-size: 0.85em; color: #a04040; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
-.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
-.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+.practice { background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; padding: 18px 22px; margin: 0; border-radius: 8px; }
+.practice h2 { margin-top: 0; border-left: none; padding-left: 0; }
+.looking-ahead { background: #EEF1F8; border-left: 5px solid #0E1C42; padding: 16px 20px; font-style: italic; font-size: 0.98em; border-radius: 0 6px 6px 0; color: #1a2340; }
 ol li, ul li { margin-bottom: 0.5em; }
 .venn-container { display: flex; justify-content: center; margin: 1.5em 0; }
 .venn-svg { max-width: 400px; width: 100%; }
 .region-table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 0.92em; }
-.region-table th { background: #f2f2f2; padding: 7px 12px; text-align: left; border: 1px solid #ddd; font-family: Arial, sans-serif; }
-.region-table td { padding: 7px 12px; border: 1px solid #ddd; }
+.region-table th { background: #EEF1F8; font-weight: bold; border: 1px solid #D0D9E8; padding: 8px 12px; text-align: left; }
+.region-table td { border: 1px solid #D0D9E8; padding: 8px 12px; }
 .region-table tr:nth-child(even) { background: #fafafa; }
-</style>
+
+h3 { font-size: 1.05em; margin-top: 1.2em; color: #0e1c42; }
+blockquote { border-left: 3px solid #D0D9E8; margin: 1em 0; padding-left: 1em; color: #1a2340; font-style: italic; }
+.widget-embed { margin: 1.2em 0; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.widget-embed p { margin: 0; padding: 8px 14px; background: #EEF1F8; font-size: 0.85em; color: #1a2340; }</style>
 </head>
 <body>
-
-<h1>Lesson 5.02b — Three-Circle Venn Diagrams</h1>
-
-<div class="benchmark">
-  <strong>CPALMS Benchmarks:</strong> ELA.11.C.1.4 — Use appropriate organizational structure for the task &nbsp;|&nbsp; ELA.K12.EE.2.1 — Read and comprehend grade-level complex texts proficiently
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 28px;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+<div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img alt="Optima Academy" src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" style="width: 50px; height: 40px; object-fit: contain;"/></div>
+<div>
+<div style="font-size: 26px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+<div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
 </div>
-
-<p class="objective">By the end of this lesson, you will be able to: construct a correctly labeled three-circle Venn diagram for a categorical syllogism; identify and name all eight regions of that diagram; and apply the rules for shading and X-marks to represent universal and particular premises accurately.</p>
-
-<h2>Orientation</h2>
-
-<p>In Lesson 5.02a, you reviewed the structure of a categorical syllogism: three terms (the minor term S, the major term P, and the middle term M), two premises, and a conclusion. You know that the premises each express a categorical relationship between two of those terms, and that the conclusion expresses a relationship between S and P.</p>
-
-<p>The question this lesson addresses is a practical one: how do you make that structure visible? The answer Aristotelian logicians and their successors worked out is the three-circle Venn diagram — a spatial representation of the three-term system that makes the logical relationships between classes literally seeable. Once you can draw and read this diagram, you will have a tool for testing the validity of any categorical syllogism without algebraic manipulation or rule-counting. That testing procedure is the subject of the next lesson; today you build the instrument.</p>
-
-<h2>Intuitive Entry</h2>
-
-<p>You have already used a two-circle Venn diagram to represent a single categorical statement. If someone says "All dogs are mammals," you draw one circle for dogs and one for mammals, and you shade the portion of the dogs circle that falls outside the mammals circle — showing that no dog exists outside the mammals class.</p>
-
-<p>Now suppose you are told two things at once: "All dogs are mammals" and "All mammals are warm-blooded." You want to keep track of all three groups — dogs, mammals, warm-blooded things — and show where each group stands relative to the others. A single pair of circles cannot do this; you would need to draw two separate diagrams and then mentally combine them, which is exactly the kind of inferential step you are trying to make visible and checkable. The natural solution is to add a third circle. With three circles properly overlapping, you can represent all three relationships simultaneously on a single diagram and ask whether the conclusion is already visible in what the premises drew.</p>
-
-<h2>The Formal Concept</h2>
-
-<p>A <strong>three-circle Venn diagram</strong> is a graphic representation of a three-term categorical system. The diagram consists of three circles, each representing one of the three terms of a syllogism, arranged so that every circle overlaps with every other circle. This arrangement produces regions corresponding to every possible combination of class membership and non-membership across the three terms.</p>
-
-<p>The standard layout assigns fixed positions to the three circles:</p>
-<ul>
-  <li><strong>S (Subject / minor term)</strong> — left circle</li>
-  <li><strong>P (Predicate / major term)</strong> — right circle</li>
-  <li><strong>M (Middle term)</strong> — bottom-center circle</li>
-</ul>
-
-<p>This arrangement is conventional, not logical necessity — any consistent layout that preserves the pairwise overlaps would work — but following the standard layout makes diagrams legible to others and makes comparison of diagrams straightforward. S and P overlap in the upper-center area; S and M overlap in the lower-left area; P and M overlap in the lower-right area; and all three overlap in a central region.</p>
-
-<div class="venn-container">
-  <svg viewBox="0 0 360 280" xmlns="http://www.w3.org/2000/svg" class="venn-svg" aria-label="Blank three-circle Venn diagram with circles labeled S (left), P (right), and M (bottom-center)">
-    <!-- S circle: left -->
-    <circle cx="120" cy="120" r="90" fill="none" stroke="#333" stroke-width="2"/>
-    <!-- P circle: right -->
-    <circle cx="240" cy="120" r="90" fill="none" stroke="#333" stroke-width="2"/>
-    <!-- M circle: bottom center -->
-    <circle cx="180" cy="190" r="90" fill="none" stroke="#333" stroke-width="2"/>
-    <!-- Labels -->
-    <text x="52" y="90" font-family="Georgia, serif" font-size="18" fill="#333">S</text>
-    <text x="285" y="90" font-family="Georgia, serif" font-size="18" fill="#333">P</text>
-    <text x="168" y="278" font-family="Georgia, serif" font-size="18" fill="#333">M</text>
-  </svg>
 </div>
-
-<p>Three circles with pairwise overlaps divide the plane into eight distinct regions. Each region corresponds to a unique combination of membership and non-membership in S, P, and M. Every point inside the diagram belongs to exactly one of these eight regions.</p>
-
-<table class="region-table">
-  <thead>
-    <tr>
-      <th>Region</th>
-      <th>Membership</th>
-      <th>What it means</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>S only</td>
-      <td>In S; not in P; not in M</td>
-      <td>Things that are S but neither P nor M</td>
-    </tr>
-    <tr>
-      <td>P only</td>
-      <td>In P; not in S; not in M</td>
-      <td>Things that are P but neither S nor M</td>
-    </tr>
-    <tr>
-      <td>M only</td>
-      <td>In M; not in S; not in P</td>
-      <td>Things that are M but neither S nor P</td>
-    </tr>
-    <tr>
-      <td>S &#x2229; M only</td>
-      <td>In S and M; not in P</td>
-      <td>Things that are both S and M but not P</td>
-    </tr>
-    <tr>
-      <td>P &#x2229; M only</td>
-      <td>In P and M; not in S</td>
-      <td>Things that are both P and M but not S</td>
-    </tr>
-    <tr>
-      <td>S &#x2229; P only</td>
-      <td>In S and P; not in M</td>
-      <td>Things that are both S and P but not M — the region the conclusion concerns</td>
-    </tr>
-    <tr>
-      <td>S &#x2229; P &#x2229; M</td>
-      <td>In S, P, and M</td>
-      <td>Things that belong to all three classes simultaneously</td>
-    </tr>
-    <tr>
-      <td>Outside all</td>
-      <td>Not in S, P, or M</td>
-      <td>Things that belong to none of the three classes</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Note the special role of the S &#x2229; P region (the two sub-regions inside both S and P): this is where the conclusion will be read. The conclusion of any categorical syllogism makes a claim about the relationship between S and P, so after you diagram both premises, you look at the S &#x2229; P area to see whether the conclusion was forced by what you drew.</p>
-
-<h2>Diagramming Premises</h2>
-
-<p>Two marks are used to diagram categorical statements on the three-circle template: <strong>shading</strong> and the <strong>X-mark</strong>.</p>
-
-<p><strong>Shading</strong> means a region is <em>empty</em> — there are no members there. When you shade a region, you are asserting that the class of things in that region has zero members. Shading represents the force of universal statements (A-form: "All S are M"; E-form: "No S are M"), which make claims about entire classes.</p>
-
-<p><strong>The X-mark</strong> means a region is <em>non-empty</em> — at least one member exists there. An X in a region asserts that something occupying that intersection exists. X-marks represent particular statements (I-form: "Some S are M"; O-form: "Some S are not M"), which claim existence without specifying the whole class.</p>
-
-<p>There is a strict procedural rule for diagramming a syllogism with two premises:</p>
-
+<div style="font-size: 30px; color: #ffffff;">SEMANTICS AND LOGIC HONORS</div>
+</div>
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 130px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
+<div style="font-size: 16px; color: #0e1c42;">Q2 · Module 2</div>
+<div style="font-size: 12px; color: #666;">Syllogisms And Venns</div>
+</div>
+<div style="flex: 1; min-width: 110px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+<div style="font-size: 16px; color: #0e1c42;">Lesson 5.02b</div>
+</div>
+<div style="flex: 2; min-width: 160px; padding: 12px 16px;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+<div style="font-size: 16px; color: #0e1c42; font-style: italic;">Three-Circle Venn Diagrams</div>
+</div>
+</div>
+<div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 16px 20px; margin: 20px 28px 0 28px;">
+<div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 5.02b</div>
+<div style="font-size: 21px; color: #0e1c42;">Three-Circle Venn Diagrams</div>
+</div>
+<div style="padding: 20px 28px 4px 28px;"><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><div class="benchmark">
+<strong>CPALMS Benchmarks:</strong> ELA.11.C.1.4 — Use appropriate organizational structure for the task  |  ELA.K12.EE.2.1 — Read and comprehend grade-level complex texts proficiently
+</div><p class="objective">By the end of this lesson, you will be able to: construct a correctly labeled three-circle Venn diagram for a categorical syllogism; identify and name all eight regions of that diagram; and apply the rules for shading and X-marks to represent universal and particular premises accurately.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Orientation</h2><p>In Lesson 5.02a, you reviewed the structure of a categorical syllogism: three terms (the minor term S, the major term P, and the middle term M), two premises, and a conclusion. You know that the premises each express a categorical relationship between two of those terms, and that the conclusion expresses a relationship between S and P.</p><p>The question this lesson addresses is a practical one: how do you make that structure visible? The answer Aristotelian logicians and their successors worked out is the three-circle Venn diagram — a spatial representation of the three-term system that makes the logical relationships between classes literally seeable. Once you can draw and read this diagram, you will have a tool for testing the validity of any categorical syllogism without algebraic manipulation or rule-counting. That testing procedure is the subject of the next lesson; today you build the instrument.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Intuitive Entry</h2><p>You have already used a two-circle Venn diagram to represent a single categorical statement. If someone says "All dogs are mammals," you draw one circle for dogs and one for mammals, and you shade the portion of the dogs circle that falls outside the mammals circle — showing that no dog exists outside the mammals class.</p><p>Now suppose you are told two things at once: "All dogs are mammals" and "All mammals are warm-blooded." You want to keep track of all three groups — dogs, mammals, warm-blooded things — and show where each group stands relative to the others. A single pair of circles cannot do this; you would need to draw two separate diagrams and then mentally combine them, which is exactly the kind of inferential step you are trying to make visible and checkable. The natural solution is to add a third circle. With three circles properly overlapping, you can represent all three relationships simultaneously on a single diagram and ask whether the conclusion is already visible in what the premises drew.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The Formal Concept</h2><p>A <strong>three-circle Venn diagram</strong> is a graphic representation of a three-term categorical system. The diagram consists of three circles, each representing one of the three terms of a syllogism, arranged so that every circle overlaps with every other circle. This arrangement produces regions corresponding to every possible combination of class membership and non-membership across the three terms.</p><p>The standard layout assigns fixed positions to the three circles:</p><ul>
+<li><strong>S (Subject / minor term)</strong> — left circle</li>
+<li><strong>P (Predicate / major term)</strong> — right circle</li>
+<li><strong>M (Middle term)</strong> — bottom-center circle</li>
+</ul><p>This arrangement is conventional, not logical necessity — any consistent layout that preserves the pairwise overlaps would work — but following the standard layout makes diagrams legible to others and makes comparison of diagrams straightforward. S and P overlap in the upper-center area; S and M overlap in the lower-left area; P and M overlap in the lower-right area; and all three overlap in a central region.</p><div class="venn-container">
+<svg aria-label="Blank three-circle Venn diagram with circles labeled S (left), P (right), and M (bottom-center)" class="venn-svg" viewbox="0 0 360 280" xmlns="http://www.w3.org/2000/svg">
+<!-- S circle: left -->
+<circle cx="120" cy="120" fill="none" r="90" stroke="#333" stroke-width="2"></circle>
+<!-- P circle: right -->
+<circle cx="240" cy="120" fill="none" r="90" stroke="#333" stroke-width="2"></circle>
+<!-- M circle: bottom center -->
+<circle cx="180" cy="190" fill="none" r="90" stroke="#333" stroke-width="2"></circle>
+<!-- Labels -->
+<text fill="#333" font-family="Georgia, serif" font-size="18" x="52" y="90">S</text>
+<text fill="#333" font-family="Georgia, serif" font-size="18" x="285" y="90">P</text>
+<text fill="#333" font-family="Georgia, serif" font-size="18" x="168" y="278">M</text>
+</svg>
+</div><p>Three circles with pairwise overlaps divide the plane into eight distinct regions. Each region corresponds to a unique combination of membership and non-membership in S, P, and M. Every point inside the diagram belongs to exactly one of these eight regions.</p><table class="region-table">
+<thead>
+<tr>
+<th>Region</th>
+<th>Membership</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S only</td>
+<td>In S; not in P; not in M</td>
+<td>Things that are S but neither P nor M</td>
+</tr>
+<tr>
+<td>P only</td>
+<td>In P; not in S; not in M</td>
+<td>Things that are P but neither S nor M</td>
+</tr>
+<tr>
+<td>M only</td>
+<td>In M; not in S; not in P</td>
+<td>Things that are M but neither S nor P</td>
+</tr>
+<tr>
+<td>S ∩ M only</td>
+<td>In S and M; not in P</td>
+<td>Things that are both S and M but not P</td>
+</tr>
+<tr>
+<td>P ∩ M only</td>
+<td>In P and M; not in S</td>
+<td>Things that are both P and M but not S</td>
+</tr>
+<tr>
+<td>S ∩ P only</td>
+<td>In S and P; not in M</td>
+<td>Things that are both S and P but not M — the region the conclusion concerns</td>
+</tr>
+<tr>
+<td>S ∩ P ∩ M</td>
+<td>In S, P, and M</td>
+<td>Things that belong to all three classes simultaneously</td>
+</tr>
+<tr>
+<td>Outside all</td>
+<td>Not in S, P, or M</td>
+<td>Things that belong to none of the three classes</td>
+</tr>
+</tbody>
+</table><p>Note the special role of the S ∩ P region (the two sub-regions inside both S and P): this is where the conclusion will be read. The conclusion of any categorical syllogism makes a claim about the relationship between S and P, so after you diagram both premises, you look at the S ∩ P area to see whether the conclusion was forced by what you drew.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Diagramming Premises</h2><p>Two marks are used to diagram categorical statements on the three-circle template: <strong>shading</strong> and the <strong>X-mark</strong>.</p><p><strong>Shading</strong> means a region is <em>empty</em> — there are no members there. When you shade a region, you are asserting that the class of things in that region has zero members. Shading represents the force of universal statements (A-form: "All S are M"; E-form: "No S are M"), which make claims about entire classes.</p><p><strong>The X-mark</strong> means a region is <em>non-empty</em> — at least one member exists there. An X in a region asserts that something occupying that intersection exists. X-marks represent particular statements (I-form: "Some S are M"; O-form: "Some S are not M"), which claim existence without specifying the whole class.</p><p>There is a strict procedural rule for diagramming a syllogism with two premises:</p><ol>
+<li><strong>Diagram all universal premises first</strong> (shading), then diagram particular premises (X-marks).</li>
+<li>Reason: shading eliminates regions; an X-mark must be placed in a region that is not shaded (since a shaded region is empty, placing an X there would be a contradiction). If you place an X before shading, and then shade that region afterward, you erase a claim about existence. Doing the shading first ensures the X is placed only where existence is still possible.</li>
+</ol><p>There is also a rule for placing X-marks when a particular statement is ambiguous between two sub-regions:</p><ul>
+<li>If a statement such as "Some S are M" could be satisfied by something in S ∩ M only <em>or</em> by something in S ∩ P ∩ M, and neither sub-region has been shaded, place the X <strong>on the boundary line</strong> between the two sub-regions. This signals that at least one member exists somewhere in the combined area, without over-committing to a specific location.</li>
+<li>If one of the two candidate sub-regions has been shaded (is known to be empty), place the X in the <em>remaining</em>, unshaded sub-region — the shading has resolved the ambiguity for you.</li>
+</ul><div class="venn-container">
+<svg aria-label="Three-circle Venn diagram showing an X placed on the boundary between S-intersect-M-only and S-intersect-P-intersect-M, representing an unresolved ambiguous particular statement" class="venn-svg" viewbox="0 0 360 280" xmlns="http://www.w3.org/2000/svg">
+<circle cx="120" cy="120" fill="none" r="90" stroke="#333" stroke-width="2"></circle>
+<circle cx="240" cy="120" fill="none" r="90" stroke="#333" stroke-width="2"></circle>
+<circle cx="180" cy="190" fill="none" r="90" stroke="#333" stroke-width="2"></circle>
+<text fill="#2a5a9b" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" x="170" y="180">X</text>
+<text fill="#333" font-family="Georgia, serif" font-size="18" x="52" y="90">S</text>
+<text fill="#333" font-family="Georgia, serif" font-size="18" x="285" y="90">P</text>
+<text fill="#333" font-family="Georgia, serif" font-size="18" x="168" y="278">M</text>
+</svg>
+</div><p class="venn-caption" style="text-align:center;font-family:Arial,sans-serif;font-size:.85em;color:#555;">"Some S are M" with no prior shading: the X sits directly on the arc of circle P, inside both S and M — the boundary between S ∩ M only and S ∩ P ∩ M — since either sub-region could be where the "some" member actually is.</p><div class="venn-container">
+<svg aria-label="Three-circle Venn diagram showing the S-intersect-P-intersect-M region shaded and an X resolved into the remaining S-intersect-M-only region" class="venn-svg" viewbox="0 0 360 280" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clipSb)">
+<g clip-path="url(#clipPb)">
+<g clip-path="url(#clipMb)">
+<rect fill="#bbb" height="280" opacity="0.45" width="360" x="0" y="0"></rect>
+</g>
+</g>
+</g>
+<defs>
+<clippath id="clipSb"><circle cx="120" cy="120" r="90"></circle></clippath>
+<clippath id="clipPb"><circle cx="240" cy="120" r="90"></circle></clippath>
+<clippath id="clipMb"><circle cx="180" cy="190" r="90"></circle></clippath>
+</defs>
+<circle cx="120" cy="120" fill="none" r="90" stroke="#333" stroke-width="2"></circle>
+<circle cx="240" cy="120" fill="none" r="90" stroke="#333" stroke-width="2"></circle>
+<circle cx="180" cy="190" fill="none" r="90" stroke="#333" stroke-width="2"></circle>
+<text fill="#2a5a9b" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" x="150" y="200">X</text>
+<text fill="#333" font-family="Georgia, serif" font-size="18" x="52" y="90">S</text>
+<text fill="#333" font-family="Georgia, serif" font-size="18" x="285" y="90">P</text>
+<text fill="#333" font-family="Georgia, serif" font-size="18" x="168" y="278">M</text>
+</svg>
+</div><p class="venn-caption" style="text-align:center;font-family:Arial,sans-serif;font-size:.85em;color:#555;">Same statement, "Some S are M," but now a prior universal premise has already shaded S ∩ P ∩ M as empty. Only S ∩ M only remains open, so the X moves there — no ambiguity is left once the shading has ruled out one of the two candidate sub-regions.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Worked Example: Diagramming "All S are M"</h2><div class="example">
+<span class="label">Worked Example — Universal Affirmative on the Three-Circle Diagram</span>
+<p><strong>Statement:</strong> All S are M (A-form; major premise in many syllogisms)</p>
+<p><strong>What this means:</strong> Every member of S is also a member of M. No S exists outside M. The regions of S that fall outside M must be empty.</p>
+<p><strong>Which regions to shade:</strong> Look at the S circle. The portions of S that do <em>not</em> overlap with M are: (1) S only — the part of S that falls outside both P and M, and (2) S ∩ P only — the part of S that overlaps with P but not with M. Both of these regions are outside M, so both must be shaded.</p>
+<p><strong>Step-by-step:</strong></p>
 <ol>
-  <li><strong>Diagram all universal premises first</strong> (shading), then diagram particular premises (X-marks).</li>
-  <li>Reason: shading eliminates regions; an X-mark must be placed in a region that is not shaded (since a shaded region is empty, placing an X there would be a contradiction). If you place an X before shading, and then shade that region afterward, you erase a claim about existence. Doing the shading first ensures the X is placed only where existence is still possible.</li>
+<li>Locate the S-only region (the crescent of S that does not touch P or M). Shade it.</li>
+<li>Locate the S ∩ P only region (the lens-shaped overlap of S and P that sits above M, not touching M). Shade it.</li>
+<li>Leave the S ∩ M and S ∩ P ∩ M regions unshaded — these are inside M, so they are consistent with "All S are M."</li>
 </ol>
-
-<p>There is also a rule for placing X-marks when a particular statement is ambiguous between two sub-regions:</p>
-
-<ul>
-  <li>If a statement such as "Some S are M" could be satisfied by something in S &#x2229; M only <em>or</em> by something in S &#x2229; P &#x2229; M, and neither sub-region has been shaded, place the X <strong>on the boundary line</strong> between the two sub-regions. This signals that at least one member exists somewhere in the combined area, without over-committing to a specific location.</li>
-  <li>If one of the two candidate sub-regions has been shaded (is known to be empty), place the X in the <em>remaining</em>, unshaded sub-region — the shading has resolved the ambiguity for you.</li>
-</ul>
-
+<p><strong>Result:</strong> The only parts of S left unshaded are those that lie inside M. The diagram now visually asserts that S is entirely contained within M — which is exactly what "All S are M" says.</p>
 <div class="venn-container">
-  <svg viewBox="0 0 360 280" xmlns="http://www.w3.org/2000/svg" class="venn-svg" aria-label="Three-circle Venn diagram showing an X placed on the boundary between S-intersect-M-only and S-intersect-P-intersect-M, representing an unresolved ambiguous particular statement">
-    <circle cx="120" cy="120" r="90" fill="none" stroke="#333" stroke-width="2"/>
-    <circle cx="240" cy="120" r="90" fill="none" stroke="#333" stroke-width="2"/>
-    <circle cx="180" cy="190" r="90" fill="none" stroke="#333" stroke-width="2"/>
-    <text x="170" y="180" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2a5a9b" text-anchor="middle">X</text>
-    <text x="52" y="90" font-family="Georgia, serif" font-size="18" fill="#333">S</text>
-    <text x="285" y="90" font-family="Georgia, serif" font-size="18" fill="#333">P</text>
-    <text x="168" y="278" font-family="Georgia, serif" font-size="18" fill="#333">M</text>
-  </svg>
+<svg aria-label="Three-circle Venn diagram with All S are M shaded: circle S filled, circle M white-out on top, leaving only the S-only and S-P-only crescents shaded" class="venn-svg" viewbox="0 0 360 280" xmlns="http://www.w3.org/2000/svg">
+<circle cx="120" cy="120" fill="#bbb" opacity="0.45" r="90"></circle>
+<circle cx="180" cy="190" fill="#fff" r="90"></circle>
+<circle cx="120" cy="120" fill="none" r="90" stroke="#333" stroke-width="2"></circle>
+<circle cx="240" cy="120" fill="none" r="90" stroke="#333" stroke-width="2"></circle>
+<circle cx="180" cy="190" fill="none" r="90" stroke="#333" stroke-width="2"></circle>
+<text fill="#333" font-family="Georgia, serif" font-size="18" x="52" y="90">S</text>
+<text fill="#333" font-family="Georgia, serif" font-size="18" x="285" y="90">P</text>
+<text fill="#333" font-family="Georgia, serif" font-size="18" x="168" y="278">M</text>
+</svg>
 </div>
-<p class="venn-caption" style="text-align:center;font-family:Arial,sans-serif;font-size:.85em;color:#555;">"Some S are M" with no prior shading: the X sits directly on the arc of circle P, inside both S and M — the boundary between S &#x2229; M only and S &#x2229; P &#x2229; M — since either sub-region could be where the "some" member actually is.</p>
-
-<div class="venn-container">
-  <svg viewBox="0 0 360 280" xmlns="http://www.w3.org/2000/svg" class="venn-svg" aria-label="Three-circle Venn diagram showing the S-intersect-P-intersect-M region shaded and an X resolved into the remaining S-intersect-M-only region">
-    <g clip-path="url(#clipSb)">
-      <g clip-path="url(#clipPb)">
-        <g clip-path="url(#clipMb)">
-          <rect x="0" y="0" width="360" height="280" fill="#bbb" opacity="0.45"/>
-        </g>
-      </g>
-    </g>
-    <defs>
-      <clipPath id="clipSb"><circle cx="120" cy="120" r="90"/></clipPath>
-      <clipPath id="clipPb"><circle cx="240" cy="120" r="90"/></clipPath>
-      <clipPath id="clipMb"><circle cx="180" cy="190" r="90"/></clipPath>
-    </defs>
-    <circle cx="120" cy="120" r="90" fill="none" stroke="#333" stroke-width="2"/>
-    <circle cx="240" cy="120" r="90" fill="none" stroke="#333" stroke-width="2"/>
-    <circle cx="180" cy="190" r="90" fill="none" stroke="#333" stroke-width="2"/>
-    <text x="150" y="200" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2a5a9b" text-anchor="middle">X</text>
-    <text x="52" y="90" font-family="Georgia, serif" font-size="18" fill="#333">S</text>
-    <text x="285" y="90" font-family="Georgia, serif" font-size="18" fill="#333">P</text>
-    <text x="168" y="278" font-family="Georgia, serif" font-size="18" fill="#333">M</text>
-  </svg>
-</div>
-<p class="venn-caption" style="text-align:center;font-family:Arial,sans-serif;font-size:.85em;color:#555;">Same statement, "Some S are M," but now a prior universal premise has already shaded S &#x2229; P &#x2229; M as empty. Only S &#x2229; M only remains open, so the X moves there — no ambiguity is left once the shading has ruled out one of the two candidate sub-regions.</p>
-
-<h2>Worked Example: Diagramming "All S are M"</h2>
-
-<div class="example">
-  <span class="label">Worked Example — Universal Affirmative on the Three-Circle Diagram</span>
-  <p><strong>Statement:</strong> All S are M (A-form; major premise in many syllogisms)</p>
-  <p><strong>What this means:</strong> Every member of S is also a member of M. No S exists outside M. The regions of S that fall outside M must be empty.</p>
-  <p><strong>Which regions to shade:</strong> Look at the S circle. The portions of S that do <em>not</em> overlap with M are: (1) S only — the part of S that falls outside both P and M, and (2) S &#x2229; P only — the part of S that overlaps with P but not with M. Both of these regions are outside M, so both must be shaded.</p>
-  <p><strong>Step-by-step:</strong></p>
-  <ol>
-    <li>Locate the S-only region (the crescent of S that does not touch P or M). Shade it.</li>
-    <li>Locate the S &#x2229; P only region (the lens-shaped overlap of S and P that sits above M, not touching M). Shade it.</li>
-    <li>Leave the S &#x2229; M and S &#x2229; P &#x2229; M regions unshaded — these are inside M, so they are consistent with "All S are M."</li>
-  </ol>
-  <p><strong>Result:</strong> The only parts of S left unshaded are those that lie inside M. The diagram now visually asserts that S is entirely contained within M — which is exactly what "All S are M" says.</p>
-  <div class="venn-container">
-    <svg viewBox="0 0 360 280" xmlns="http://www.w3.org/2000/svg" class="venn-svg" aria-label="Three-circle Venn diagram with All S are M shaded: circle S filled, circle M white-out on top, leaving only the S-only and S-P-only crescents shaded">
-      <circle cx="120" cy="120" r="90" fill="#bbb" opacity="0.45"/>
-      <circle cx="180" cy="190" r="90" fill="#fff"/>
-      <circle cx="120" cy="120" r="90" fill="none" stroke="#333" stroke-width="2"/>
-      <circle cx="240" cy="120" r="90" fill="none" stroke="#333" stroke-width="2"/>
-      <circle cx="180" cy="190" r="90" fill="none" stroke="#333" stroke-width="2"/>
-      <text x="52" y="90" font-family="Georgia, serif" font-size="18" fill="#333">S</text>
-      <text x="285" y="90" font-family="Georgia, serif" font-size="18" fill="#333">P</text>
-      <text x="168" y="278" font-family="Georgia, serif" font-size="18" fill="#333">M</text>
-    </svg>
-  </div>
-  <p class="venn-caption" style="text-align:center;font-family:Arial,sans-serif;font-size:.85em;color:#555;">Shading circle S in full, then white-out circle M on top, leaves exactly the S-only and S &#x2229; P-only regions shaded — everything in S that lies outside M — because those are the two sub-regions the rule in Step 1 above requires you to shade.</p>
-
+<p class="venn-caption" style="text-align:center;font-family:Arial,sans-serif;font-size:.85em;color:#555;">Shading circle S in full, then white-out circle M on top, leaves exactly the S-only and S ∩ P-only regions shaded — everything in S that lies outside M — because those are the two sub-regions the rule in Step 1 above requires you to shade.</p>
 <div class="error-example">
-  <span class="label">Common Error — Shading the Entire S Circle</span>
-  <p><strong>The mistake:</strong> A student reads "All S are M" and shades the entire S circle — every region that contains S, including S &#x2229; M and S &#x2229; P &#x2229; M.</p>
-  <p><strong>Why this is wrong:</strong> Shading a region means it is empty — no members exist there. If you shade the entire S circle, you are claiming that S has <em>no members at all</em>. That is a much stronger claim than "All S are M." The A-form statement does not say S is empty; it says every member of S (if any) is also a member of M. The interior of S that overlaps with M must remain unshaded, because that is precisely where S's members are permitted to be.</p>
-  <p><strong>Correction:</strong> Shade only the portions of S that fall <em>outside</em> M. The S &#x2229; M region and the S &#x2229; P &#x2229; M region are inside M and must remain open.</p>
+<span class="label">Common Error — Shading the Entire S Circle</span>
+<p><strong>The mistake:</strong> A student reads "All S are M" and shades the entire S circle — every region that contains S, including S ∩ M and S ∩ P ∩ M.</p>
+<p><strong>Why this is wrong:</strong> Shading a region means it is empty — no members exist there. If you shade the entire S circle, you are claiming that S has <em>no members at all</em>. That is a much stronger claim than "All S are M." The A-form statement does not say S is empty; it says every member of S (if any) is also a member of M. The interior of S that overlaps with M must remain unshaded, because that is precisely where S's members are permitted to be.</p>
+<p><strong>Correction:</strong> Shade only the portions of S that fall <em>outside</em> M. The S ∩ M region and the S ∩ P ∩ M region are inside M and must remain open.</p>
 </div>
-
 <h2>Connection to Argument</h2>
-
 <p>A categorical syllogism is valid if and only if its conclusion is <em>already implicit</em> in the two premises — that is, if accepting both premises gives you no logical room to deny the conclusion. The three-circle Venn diagram makes this relationship spatial and visible. When you diagram both premises correctly, you have drawn everything the premises assert about the three classes. If the conclusion is then readable directly from the diagram — if the diagram shows what the conclusion claims without any additional inference — the argument is valid. If you have to add something to see the conclusion, the argument is invalid.</p>
-
 <p>This means the diagram is not merely an illustration of an argument; it is a <em>proof procedure</em>. It works because the diagram is a complete representation of the class relationships asserted by the premises. Learning to draw it correctly is learning to make the logic of a syllogism transparent.</p>
-
 <div class="practice">
-  <h2>Practice Problems</h2>
-
-  <p><strong>Level 1 — Recognition</strong></p>
-  <p>For each description below, identify which categorical statement-form (A, E, I, or O) the described shading or mark represents. Then identify which two terms the statement is about.</p>
-  <ol>
-    <li>On a three-circle diagram with circles S, P, and M: the M-only region is shaded, and the S &#x2229; M only region is shaded. No other marks are present. What statement about M and S does this diagram portion represent, and in which form?</li>
-    <li>On the same diagram: the S &#x2229; P only region is shaded, and the S &#x2229; P &#x2229; M region is shaded. What statement does this represent, and in which form?</li>
-    <li>On the same diagram: an X appears in the S &#x2229; M region (sitting on the boundary between S &#x2229; M only and S &#x2229; P &#x2229; M). No regions involving S and M have been shaded. What statement does this X represent, and in which form?</li>
-  </ol>
-
-  <p><strong>Level 2 — Analysis</strong></p>
-  <p>For each categorical statement below, describe precisely — in words — which region or regions of the three-circle diagram you would shade or mark with an X, and explain why. Assume all three circles (S, P, M) are present.</p>
-  <ol>
-    <li>"No M are P" (E-form, major premise). Which regions must be shaded? Which regions are left open? Explain your reasoning in terms of what the E-form asserts about class membership.</li>
-    <li>"Some S are not M" (O-form, minor premise). Which region or regions could the X occupy? Are both sub-regions open, or has any prior shading (from the statement in problem 1 above) affected where the X must go? Explain.</li>
-    <li>A student diagrams "All P are M" by shading the P-only region and the S &#x2229; P only region. Another student shades only the P-only region. Which student is correct, and why? What did the incorrect student fail to shade, and what error in reasoning produced that omission?</li>
-  </ol>
-
-  <p><strong>Level 3 — Construction</strong></p>
-  <p>Describe, in words, the complete three-circle diagram layout you would use to represent each of the following relationships. For each, specify: (a) which regions you would shade (and why), (b) where you would place any X-marks (and why), and (c) which regions remain open after your marks are placed.</p>
-  <ol>
-    <li>"All S are M" — the A-form relationship between S and M.</li>
-    <li>"No P are M" — the E-form relationship between P and M.</li>
-    <li>"Some S are P" — the I-form relationship between S and P. After the shading from statements (a) and (b) above has been applied to the diagram, does the ambiguity in the X's placement get resolved? Explain.</li>
-  </ol>
-  <p><em>Note: For problem 3, work in sequence — apply (a), then (b), then (c) — and observe how each step changes the diagram before you proceed to the next.</em></p>
+<h2>Practice Problems</h2>
+<p><strong>Level 1 — Recognition</strong></p>
+<p>For each description below, identify which categorical statement-form (A, E, I, or O) the described shading or mark represents. Then identify which two terms the statement is about.</p>
+<ol>
+<li>On a three-circle diagram with circles S, P, and M: the M-only region is shaded, and the S ∩ M only region is shaded. No other marks are present. What statement about M and S does this diagram portion represent, and in which form?</li>
+<li>On the same diagram: the S ∩ P only region is shaded, and the S ∩ P ∩ M region is shaded. What statement does this represent, and in which form?</li>
+<li>On the same diagram: an X appears in the S ∩ M region (sitting on the boundary between S ∩ M only and S ∩ P ∩ M). No regions involving S and M have been shaded. What statement does this X represent, and in which form?</li>
+</ol>
+<p><strong>Level 2 — Analysis</strong></p>
+<p>For each categorical statement below, describe precisely — in words — which region or regions of the three-circle diagram you would shade or mark with an X, and explain why. Assume all three circles (S, P, M) are present.</p>
+<ol>
+<li>"No M are P" (E-form, major premise). Which regions must be shaded? Which regions are left open? Explain your reasoning in terms of what the E-form asserts about class membership.</li>
+<li>"Some S are not M" (O-form, minor premise). Which region or regions could the X occupy? Are both sub-regions open, or has any prior shading (from the statement in problem 1 above) affected where the X must go? Explain.</li>
+<li>A student diagrams "All P are M" by shading the P-only region and the S ∩ P only region. Another student shades only the P-only region. Which student is correct, and why? What did the incorrect student fail to shade, and what error in reasoning produced that omission?</li>
+</ol>
+<p><strong>Level 3 — Construction</strong></p>
+<p>Describe, in words, the complete three-circle diagram layout you would use to represent each of the following relationships. For each, specify: (a) which regions you would shade (and why), (b) where you would place any X-marks (and why), and (c) which regions remain open after your marks are placed.</p>
+<ol>
+<li>"All S are M" — the A-form relationship between S and M.</li>
+<li>"No P are M" — the E-form relationship between P and M.</li>
+<li>"Some S are P" — the I-form relationship between S and P. After the shading from statements (a) and (b) above has been applied to the diagram, does the ambiguity in the X's placement get resolved? Explain.</li>
+</ol>
+<p><em>Note: For problem 3, work in sequence — apply (a), then (b), then (c) — and observe how each step changes the diagram before you proceed to the next.</em></p>
 </div>
 
-<div class="looking-ahead">
-  In Lesson 5.02c, you will apply the completed three-circle diagram as a proof procedure: by diagramming both premises of a categorical syllogism and then reading the S &#x2229; P region, you will be able to determine — without any additional reasoning — whether the syllogism is valid or invalid.
+</div></div><div style="margin-bottom: 20px;"><div class="looking-ahead">
+  In Lesson 5.02c, you will apply the completed three-circle diagram as a proof procedure: by diagramming both premises of a categorical syllogism and then reading the S ∩ P region, you will be able to determine — without any additional reasoning — whether the syllogism is valid or invalid.
+</div></div></div>
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 16px 28px; text-align: center; margin-top: 10px;">
+<div style="font-size: 16px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> · SEMANTICS AND LOGIC HONORS · Quarter 2 · Student Lesson Page</div>
+<div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 5.02b · Three-Circle Venn Diagrams</div>
+<div style="font-size: 12px; color: rgba(255,255,255,0.4);">© Optima Academy Online · An Education Experience Company</div>
 </div>
-
 </body>
 </html>

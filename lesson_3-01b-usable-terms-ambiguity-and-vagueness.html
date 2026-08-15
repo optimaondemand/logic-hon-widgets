@@ -1,145 +1,116 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lesson 3.01b — Usable Terms: Ambiguity and Vagueness</title>
 <style>
-body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
-h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
-h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
-h3 { font-size: 1.05em; margin-top: 1.4em; color: #1a1a1a; }
-.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
-.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
-.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
-.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.error-example { background: #fff8f8; border: 1px solid #e8c0c0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 820px; margin: 0 auto; padding: 0 0 24px 0; line-height: 1.7; color: #1a2340; background: #fff; }
+h1 { display: none; }
+h2 { font-size: 1.25em; margin: 0 0 14px 0; color: #0e1c42; border-left: 4px solid #C7922C; padding-left: 12px; }
+h3 { font-size: 1.05em; margin-top: 1.2em; color: #0e1c42; }
+.benchmark { background: #EEF1F8; border-left: 4px solid #0E1C42; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.8em; color: #1a2340; }
+.objective { font-style: italic; color: #1a2340; border-left: 4px solid #C7922C; padding-left: 12px; margin-bottom: 0; font-size: 0.98em; }
+.example { background: #E8F6FB; border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #C7922C; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.error-example { background: #FDECEC; border: 1px solid #F5C6C6; border-left: 5px solid #C0392B; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
 .error-example .label { font-weight: bold; font-size: 0.85em; color: #a04040; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
 .contrast-table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 0.93em; }
-.contrast-table th { background: #2a2a2a; color: #fff; padding: 9px 14px; text-align: left; font-family: Arial, sans-serif; }
-.contrast-table td { padding: 9px 14px; border-bottom: 1px solid #ddd; vertical-align: top; }
+.contrast-table th { background: #EEF1F8; font-weight: bold; border: 1px solid #D0D9E8; padding: 8px 12px; text-align: left; }
+.contrast-table td { border: 1px solid #D0D9E8; padding: 8px 12px; }
 .contrast-table tr:nth-child(even) td { background: #f9f9f9; }
-.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
-.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
-.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+.practice { background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; padding: 18px 22px; margin: 0; border-radius: 8px; }
+.practice h2 { margin-top: 0; border-left: none; padding-left: 0; }
+.looking-ahead { background: #EEF1F8; border-left: 5px solid #0E1C42; padding: 16px 20px; font-style: italic; font-size: 0.98em; border-radius: 0 6px 6px 0; color: #1a2340; }
 .key-distinction { background: #f0f4f0; border-left: 4px solid #4a7a4a; padding: 14px 18px; margin: 1.5em 0; border-radius: 0 4px 4px 0; }
 ol li, ul li { margin-bottom: 0.5em; }
-</style>
+
+blockquote { border-left: 3px solid #D0D9E8; margin: 1em 0; padding-left: 1em; color: #1a2340; font-style: italic; }
+.widget-embed { margin: 1.2em 0; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.widget-embed p { margin: 0; padding: 8px 14px; background: #EEF1F8; font-size: 0.85em; color: #1a2340; }</style>
 </head>
 <body>
-
-<h1>Lesson 3.01b — Usable Terms: Ambiguity and Vagueness</h1>
-
-<div class="benchmark">
-  <strong>CPALMS Benchmarks:</strong> ELA.11.V.1.1 — Integrate academic vocabulary to achieve precise meaning &nbsp;|&nbsp; ELA.11.V.1.2 — Apply knowledge of etymology and morphology &nbsp;|&nbsp; ELA.11.V.1.3 — Apply knowledge of context clues to determine meaning
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 28px;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+<div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img alt="Optima Academy" src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" style="width: 50px; height: 40px; object-fit: contain;"/></div>
+<div>
+<div style="font-size: 26px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+<div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
 </div>
-
-<p class="objective"><strong>Learning Objective:</strong> Students will be able to distinguish ambiguous from vague terms, explain why both create problems for arguments, and identify terms in a given argument that need clarification before the argument can be evaluated.</p>
-
-<h2>Orientation: From What a Term Is to What Makes One Usable</h2>
-
-<p>Lesson 3.01a established that a term is any word or phrase that can function as a subject or predicate in a categorical statement — and that terms are the foundational units of formal argument. But knowing what a term is does not yet tell us which terms are ready to do logical work. Not all terms are. Some appear to be doing their job in an argument while in fact generating only the illusion of reasoning. This lesson examines two specific ways terms fail: ambiguity and vagueness. They are distinct problems with distinct remedies, and confusing them is itself a logical error.</p>
-
-<h2>Intuitive Entry: When a Word Does Not Stay Still</h2>
-
-<p>Consider the word "right." In a moral argument about what someone ought to do, "right" means morally correct. In a geometry lesson, "right" means a ninety-degree angle. In a navigation problem, "right" means the direction opposite to left. These are not three versions of one meaning — they are three different concepts that happen to share a spelling and a pronunciation. An argument that uses "right" to mean one thing in a premise and something else in a conclusion looks like it is connecting ideas, but it is actually jumping between categories without the reader noticing.</p>
-
-<p>Now consider a different kind of problem. The word "tall" does not have multiple unrelated meanings. Everyone who uses it means roughly the same thing: greater than average height. But when does a person become tall? At six feet? At six feet two? There is no sharp line. This is not ambiguity — "tall" is not secretly two different concepts. It is <em>vague</em>: its single meaning has fuzzy edges. These two problems — ambiguity (multiple meanings) and vagueness (unclear edges) — look similar but require completely different responses.</p>
-
-<h2>Usable Terms: The Standard</h2>
-
-<p>For a term to function reliably in an argument, it must meet a basic standard of <strong>precision</strong>: the term must be clear enough that we know what it includes and what it excludes. An argument built on a term that fails this standard is a <strong>pseudo-argument</strong> — it has the grammatical form of reasoning without the logical substance. You cannot assess whether a conclusion follows from premises when the terms connecting them are unstable.</p>
-
-<p>Note that this standard is relative to the argument's purpose. A casual conversation may not need a term as precise as a formal proof does. The question is always: does this argument's conclusion depend on the term drawing a clear enough line? If it does, the term must be made precise. If the conclusion would hold regardless of where the line is drawn, the vagueness may not matter.</p>
-
-<h2>Ambiguous Terms</h2>
-
-<p>A term is <strong>ambiguous</strong> when it has more than one distinct, established meaning. The same word picks out different concepts in different contexts. This is a feature of language — almost every common word has multiple senses built up through centuries of usage — but it becomes a logical problem the moment those senses are mixed within a single argument.</p>
-
-<p>Ambiguity comes in several forms. A word may be <strong>lexically ambiguous</strong> — the dictionary lists more than one meaning, as with "note" (a written message / a musical pitch / a currency) or "bank" (a financial institution / the edge of a river). A phrase may be <strong>structurally ambiguous</strong> — its grammatical structure allows two different interpretations, as with "visiting relatives can be annoying" (the relatives visit, or we visit them). Either type creates the same logical problem.</p>
-
-<div class="example">
-  <span class="label">Example 1 — Ambiguity in an Argument</span>
-  <p>Consider this argument: "The law is blind to personal circumstance. Justice requires seeing each case clearly. Therefore, the law cannot serve justice."</p>
-  <p><strong>Analysis:</strong> The term "blind" is doing two different jobs. In the first premise, it means the law applies uniformly regardless of personal circumstance — a virtue, on some views. In the conclusion, it implies a kind of failure to see clearly. The argument appears to connect, but it exploits a shift in the meaning of "blind." This is the fallacy of equivocation, now seen at the term level: one word, two concepts, one manufactured conclusion.</p>
-  <p><strong>Remedy:</strong> Specify the meaning of "blind" in the first premise and use that same sense consistently. Once pinned down, the argument may or may not succeed — but at least it can be evaluated honestly.</p>
 </div>
-
-<p>The connection to Week 4 is worth making explicit. When you studied <strong>equivocation</strong> as an informal fallacy, you learned to spot arguments that switch meanings of a word. Now you can describe the source of that fallacy at the structural level: equivocation is what happens when an ambiguous term is used in an argument without being fixed to a single meaning.</p>
-
-<h2>Vague Terms</h2>
-
-<p>A term is <strong>vague</strong> when its single meaning has unclear boundaries of application — when there is no sharp line between cases where the term applies and cases where it does not. The problem is not that the term has multiple meanings; it is that its one meaning fades out rather than stopping at a clear edge.</p>
-
-<p>Classic examples: "tall," "young," "many," "nearby," "significant," "substantial," "a large number of." These terms are not ambiguous — no one is confusing "tall" with a musical pitch — but their edges are genuinely unclear. In most everyday uses, this does not matter. It matters precisely when an argument's conclusion depends on a vague term making a sharp distinction it cannot make.</p>
-
-<div class="example">
-  <span class="label">Example 2 — Vagueness in an Argument</span>
-  <p>Consider: "This policy would require a significant tax increase. Any significant tax increase is harmful to growth. Therefore, this policy is harmful to growth."</p>
-  <p><strong>Analysis:</strong> The term "significant" appears in both premises. If someone disputes whether a given increase is "significant," the argument cannot proceed — but neither side is necessarily confused about what the word means. They are disputing where to draw the boundary of a term whose meaning does not supply one. The argument does not fail because "significant" has two meanings; it fails because one meaning has no clear edge.</p>
-  <p><strong>Remedy:</strong> Stipulate a boundary for the purposes of this argument: "By 'significant' I mean an increase of more than three percentage points." The stipulation may be contested, but at least it can be examined. Without it, the argument cannot be evaluated at all.</p>
+<div style="font-size: 30px; color: #ffffff;">SEMANTICS AND LOGIC HONORS</div>
 </div>
-
-<h2>The Sorites Paradox</h2>
-
-<p>The problem of vagueness is ancient. The Greek philosopher Eubulides (a contemporary of Aristotle) posed what is called the <strong>Sorites Paradox</strong> — from the Greek <em>soros</em>, "heap." The paradox runs as follows:</p>
-
-<ul>
-  <li>One grain of sand is not a heap.</li>
-  <li>Adding a single grain of sand to a non-heap never produces a heap.</li>
-  <li>Therefore, no number of grains constitutes a heap.</li>
-</ul>
-
-<p>The conclusion is obviously wrong — a pile of a million grains of sand is a heap. But the premises seem reasonable. The paradox does not arise because "heap" is ambiguous; it means one thing consistently. It arises because "heap" is vague: its meaning provides no sharp cutoff point. The Sorites Paradox shows that vagueness is not a trivial linguistic inconvenience. It is a genuine feature of the relationship between language and reality that formal argument must handle carefully.</p>
-
-<h2>The Critical Distinction</h2>
-
-<div class="key-distinction">
-  <strong>Ambiguity vs. Vagueness — The Central Contrast</strong><br>
-  Ambiguity is a problem of <em>meaning</em>: one word, more than one concept. The remedy is <strong>definition</strong> — specify which meaning you intend.<br><br>
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 130px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
+<div style="font-size: 16px; color: #0e1c42;">Q1 · Module 7</div>
+<div style="font-size: 12px; color: #666;">Terms</div>
+</div>
+<div style="flex: 1; min-width: 110px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+<div style="font-size: 16px; color: #0e1c42;">Lesson 3.01b</div>
+</div>
+<div style="flex: 2; min-width: 160px; padding: 12px 16px;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+<div style="font-size: 16px; color: #0e1c42; font-style: italic;">Usable Terms: Ambiguity and Vagueness</div>
+</div>
+</div>
+<div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 16px 20px; margin: 20px 28px 0 28px;">
+<div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 3.01b</div>
+<div style="font-size: 21px; color: #0e1c42;">Usable Terms: Ambiguity and Vagueness</div>
+</div>
+<div style="padding: 20px 28px 4px 28px;"><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><div class="benchmark">
+<strong>CPALMS Benchmarks:</strong> ELA.11.V.1.1 — Integrate academic vocabulary to achieve precise meaning  |  ELA.11.V.1.2 — Apply knowledge of etymology and morphology  |  ELA.11.V.1.3 — Apply knowledge of context clues to determine meaning
+</div><p class="objective"><strong>Learning Objective:</strong> Students will be able to distinguish ambiguous from vague terms, explain why both create problems for arguments, and identify terms in a given argument that need clarification before the argument can be evaluated.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Orientation: From What a Term Is to What Makes One Usable</h2><p>Lesson 3.01a established that a term is any word or phrase that can function as a subject or predicate in a categorical statement — and that terms are the foundational units of formal argument. But knowing what a term is does not yet tell us which terms are ready to do logical work. Not all terms are. Some appear to be doing their job in an argument while in fact generating only the illusion of reasoning. This lesson examines two specific ways terms fail: ambiguity and vagueness. They are distinct problems with distinct remedies, and confusing them is itself a logical error.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Intuitive Entry: When a Word Does Not Stay Still</h2><p>Consider the word "right." In a moral argument about what someone ought to do, "right" means morally correct. In a geometry lesson, "right" means a ninety-degree angle. In a navigation problem, "right" means the direction opposite to left. These are not three versions of one meaning — they are three different concepts that happen to share a spelling and a pronunciation. An argument that uses "right" to mean one thing in a premise and something else in a conclusion looks like it is connecting ideas, but it is actually jumping between categories without the reader noticing.</p><p>Now consider a different kind of problem. The word "tall" does not have multiple unrelated meanings. Everyone who uses it means roughly the same thing: greater than average height. But when does a person become tall? At six feet? At six feet two? There is no sharp line. This is not ambiguity — "tall" is not secretly two different concepts. It is <em>vague</em>: its single meaning has fuzzy edges. These two problems — ambiguity (multiple meanings) and vagueness (unclear edges) — look similar but require completely different responses.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Usable Terms: The Standard</h2><p>For a term to function reliably in an argument, it must meet a basic standard of <strong>precision</strong>: the term must be clear enough that we know what it includes and what it excludes. An argument built on a term that fails this standard is a <strong>pseudo-argument</strong> — it has the grammatical form of reasoning without the logical substance. You cannot assess whether a conclusion follows from premises when the terms connecting them are unstable.</p><p>Note that this standard is relative to the argument's purpose. A casual conversation may not need a term as precise as a formal proof does. The question is always: does this argument's conclusion depend on the term drawing a clear enough line? If it does, the term must be made precise. If the conclusion would hold regardless of where the line is drawn, the vagueness may not matter.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Ambiguous Terms</h2><p>A term is <strong>ambiguous</strong> when it has more than one distinct, established meaning. The same word picks out different concepts in different contexts. This is a feature of language — almost every common word has multiple senses built up through centuries of usage — but it becomes a logical problem the moment those senses are mixed within a single argument.</p><p>Ambiguity comes in several forms. A word may be <strong>lexically ambiguous</strong> — the dictionary lists more than one meaning, as with "note" (a written message / a musical pitch / a currency) or "bank" (a financial institution / the edge of a river). A phrase may be <strong>structurally ambiguous</strong> — its grammatical structure allows two different interpretations, as with "visiting relatives can be annoying" (the relatives visit, or we visit them). Either type creates the same logical problem.</p><div class="example">
+<span class="label">Example 1 — Ambiguity in an Argument</span>
+<p>Consider this argument: "The law is blind to personal circumstance. Justice requires seeing each case clearly. Therefore, the law cannot serve justice."</p>
+<p><strong>Analysis:</strong> The term "blind" is doing two different jobs. In the first premise, it means the law applies uniformly regardless of personal circumstance — a virtue, on some views. In the conclusion, it implies a kind of failure to see clearly. The argument appears to connect, but it exploits a shift in the meaning of "blind." This is the fallacy of equivocation, now seen at the term level: one word, two concepts, one manufactured conclusion.</p>
+<p><strong>Remedy:</strong> Specify the meaning of "blind" in the first premise and use that same sense consistently. Once pinned down, the argument may or may not succeed — but at least it can be evaluated honestly.</p>
+</div><p>The connection to Week 4 is worth making explicit. When you studied <strong>equivocation</strong> as an informal fallacy, you learned to spot arguments that switch meanings of a word. Now you can describe the source of that fallacy at the structural level: equivocation is what happens when an ambiguous term is used in an argument without being fixed to a single meaning.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Vague Terms</h2><p>A term is <strong>vague</strong> when its single meaning has unclear boundaries of application — when there is no sharp line between cases where the term applies and cases where it does not. The problem is not that the term has multiple meanings; it is that its one meaning fades out rather than stopping at a clear edge.</p><p>Classic examples: "tall," "young," "many," "nearby," "significant," "substantial," "a large number of." These terms are not ambiguous — no one is confusing "tall" with a musical pitch — but their edges are genuinely unclear. In most everyday uses, this does not matter. It matters precisely when an argument's conclusion depends on a vague term making a sharp distinction it cannot make.</p><div class="example">
+<span class="label">Example 2 — Vagueness in an Argument</span>
+<p>Consider: "This policy would require a significant tax increase. Any significant tax increase is harmful to growth. Therefore, this policy is harmful to growth."</p>
+<p><strong>Analysis:</strong> The term "significant" appears in both premises. If someone disputes whether a given increase is "significant," the argument cannot proceed — but neither side is necessarily confused about what the word means. They are disputing where to draw the boundary of a term whose meaning does not supply one. The argument does not fail because "significant" has two meanings; it fails because one meaning has no clear edge.</p>
+<p><strong>Remedy:</strong> Stipulate a boundary for the purposes of this argument: "By 'significant' I mean an increase of more than three percentage points." The stipulation may be contested, but at least it can be examined. Without it, the argument cannot be evaluated at all.</p>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The Sorites Paradox</h2><p>The problem of vagueness is ancient. The Greek philosopher Eubulides (a contemporary of Aristotle) posed what is called the <strong>Sorites Paradox</strong> — from the Greek <em>soros</em>, "heap." The paradox runs as follows:</p><ul>
+<li>One grain of sand is not a heap.</li>
+<li>Adding a single grain of sand to a non-heap never produces a heap.</li>
+<li>Therefore, no number of grains constitutes a heap.</li>
+</ul><p>The conclusion is obviously wrong — a pile of a million grains of sand is a heap. But the premises seem reasonable. The paradox does not arise because "heap" is ambiguous; it means one thing consistently. It arises because "heap" is vague: its meaning provides no sharp cutoff point. The Sorites Paradox shows that vagueness is not a trivial linguistic inconvenience. It is a genuine feature of the relationship between language and reality that formal argument must handle carefully.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The Critical Distinction</h2><div class="key-distinction">
+<strong>Ambiguity vs. Vagueness — The Central Contrast</strong><br/>
+  Ambiguity is a problem of <em>meaning</em>: one word, more than one concept. The remedy is <strong>definition</strong> — specify which meaning you intend.<br/><br/>
   Vagueness is a problem of <em>boundary</em>: one concept, no sharp edge. The remedy is <strong>stipulation</strong> — draw a boundary for the purposes of the argument.
+</div><table class="contrast-table">
+<thead>
+<tr><th>Feature</th><th>Ambiguous Term</th><th>Vague Term</th></tr>
+</thead>
+<tbody>
+<tr><td>Number of meanings</td><td>More than one distinct meaning</td><td>One meaning, unclear edges</td></tr>
+<tr><td>Sample terms</td><td>"bank," "light," "right," "note"</td><td>"tall," "many," "significant," "nearby"</td></tr>
+<tr><td>Error type</td><td>Equivocation (shifting meanings)</td><td>False precision / Sorites-type confusion</td></tr>
+<tr><td>Remedy</td><td>Define: commit to one meaning</td><td>Stipulate: set a boundary for this argument</td></tr>
+</tbody>
+</table></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Connection to Argument Evaluation</h2><p>Why do these distinctions belong in a formal logic course? Because identifying ambiguous and vague terms is a prerequisite for evaluating any argument that contains them. You cannot assess whether a conclusion follows from premises if the terms connecting those premises are shifting or underdetermined. The skill this lesson builds — recognizing imprecise terms and knowing what kind of remedy they require — is not decorative. It is the work you must do before the formal machinery of categorical logic can run cleanly.</p><p>This is also why informal fallacy analysis (which you completed in Weeks 4–6) and formal term analysis (which you are beginning now) are two aspects of the same project. In fallacy analysis, you learned to spot the result of term-level failure from the outside: equivocation produces a certain kind of bad argument. In term logic, you are learning to understand that failure from the inside — at the level of the terms themselves.</p><div class="practice">
+<h2>Practice Problems</h2>
+<p><strong>Part A — Classification.</strong> For each term below, write "Ambiguous," "Vague," or "Precise enough for argument." For each ambiguous term, name its two most common distinct meanings. For each vague term, write the boundary question that makes it vague.</p>
+<ol>
+<li>"Everyone has a <strong>right</strong> to pursue happiness." Consider that the same word also names a direction (turn right) and a claim of correctness (you are right).</li>
+<li>"Seventeen is a <strong>prime number</strong>." An integer greater than 1 with no positive divisors other than 1 and itself.</li>
+<li>"<strong>Several</strong> students missed the exam." More than a couple, but the passage gives no exact count.</li>
+<li>"The case was brought before the <strong>court</strong>." Consider that the same word also names the residence of a monarch and a marked playing surface for sports like tennis or basketball.</li>
+<li>"The figure is a <strong>triangle</strong> because it has exactly three straight sides." A closed plane figure with exactly three straight sides and three angles.</li>
+<li>"<strong>Young</strong> people should not be allowed to vote." The passage gives no age at which a person stops counting as young.</li>
+</ol>
+<p><strong>Part B — Analysis.</strong> Read the following argument. Identify any term that is either ambiguous or vague. Explain what kind of problem it creates and what remedy would be needed before the argument could be properly evaluated.</p>
+<blockquote style="margin-left: 1.5em; border-left: 3px solid #ccc; padding-left: 1em; font-style: italic;">"A fair tax system burdens those who can bear it. Wealthy individuals can bear a greater burden. Therefore, a fair tax system should charge wealthy individuals more."</blockquote>
+<p><strong>Part C — Construction.</strong> Write two short arguments (2–3 sentences each) — one that fails because of an ambiguous term and one that fails because of a vague term. After each, write one sentence identifying the problematic term and naming the type of failure.</p>
+</div></div><div style="margin-bottom: 20px;"><div class="looking-ahead">
+<strong>Looking Ahead:</strong> Lesson 3.01b has addressed the precision of individual terms. Lesson 3.02a introduces a different kind of distinction among terms: the difference between universal and particular terms. This distinction is not about clarity of meaning but about scope — how many members of a category a term is making a claim about. It is foundational to the formal analysis of categorical statements that begins in Week 8.
+</div></div></div>
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 16px 28px; text-align: center; margin-top: 10px;">
+<div style="font-size: 16px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> · SEMANTICS AND LOGIC HONORS · Quarter 1 · Student Lesson Page</div>
+<div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 3.01b · Usable Terms: Ambiguity and Vagueness</div>
+<div style="font-size: 12px; color: rgba(255,255,255,0.4);">© Optima Academy Online · An Education Experience Company</div>
 </div>
-
-<table class="contrast-table">
-  <thead>
-    <tr><th>Feature</th><th>Ambiguous Term</th><th>Vague Term</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Number of meanings</td><td>More than one distinct meaning</td><td>One meaning, unclear edges</td></tr>
-    <tr><td>Sample terms</td><td>"bank," "light," "right," "note"</td><td>"tall," "many," "significant," "nearby"</td></tr>
-    <tr><td>Error type</td><td>Equivocation (shifting meanings)</td><td>False precision / Sorites-type confusion</td></tr>
-    <tr><td>Remedy</td><td>Define: commit to one meaning</td><td>Stipulate: set a boundary for this argument</td></tr>
-  </tbody>
-</table>
-
-<h2>Connection to Argument Evaluation</h2>
-
-<p>Why do these distinctions belong in a formal logic course? Because identifying ambiguous and vague terms is a prerequisite for evaluating any argument that contains them. You cannot assess whether a conclusion follows from premises if the terms connecting those premises are shifting or underdetermined. The skill this lesson builds — recognizing imprecise terms and knowing what kind of remedy they require — is not decorative. It is the work you must do before the formal machinery of categorical logic can run cleanly.</p>
-
-<p>This is also why informal fallacy analysis (which you completed in Weeks 4–6) and formal term analysis (which you are beginning now) are two aspects of the same project. In fallacy analysis, you learned to spot the result of term-level failure from the outside: equivocation produces a certain kind of bad argument. In term logic, you are learning to understand that failure from the inside — at the level of the terms themselves.</p>
-
-<div class="practice">
-  <h2>Practice Problems</h2>
-
-  <p><strong>Part A — Classification.</strong> For each term below, write "Ambiguous," "Vague," or "Precise enough for argument." For each ambiguous term, name its two most common distinct meanings. For each vague term, write the boundary question that makes it vague.</p>
-  <ol>
-    <li>"Everyone has a <strong>right</strong> to pursue happiness." Consider that the same word also names a direction (turn right) and a claim of correctness (you are right).</li>
-    <li>"Seventeen is a <strong>prime number</strong>." An integer greater than 1 with no positive divisors other than 1 and itself.</li>
-    <li>"<strong>Several</strong> students missed the exam." More than a couple, but the passage gives no exact count.</li>
-    <li>"The case was brought before the <strong>court</strong>." Consider that the same word also names the residence of a monarch and a marked playing surface for sports like tennis or basketball.</li>
-    <li>"The figure is a <strong>triangle</strong> because it has exactly three straight sides." A closed plane figure with exactly three straight sides and three angles.</li>
-    <li>"<strong>Young</strong> people should not be allowed to vote." The passage gives no age at which a person stops counting as young.</li>
-  </ol>
-
-  <p><strong>Part B — Analysis.</strong> Read the following argument. Identify any term that is either ambiguous or vague. Explain what kind of problem it creates and what remedy would be needed before the argument could be properly evaluated.</p>
-  <blockquote style="margin-left: 1.5em; border-left: 3px solid #ccc; padding-left: 1em; font-style: italic;">"A fair tax system burdens those who can bear it. Wealthy individuals can bear a greater burden. Therefore, a fair tax system should charge wealthy individuals more."</blockquote>
-
-  <p><strong>Part C — Construction.</strong> Write two short arguments (2–3 sentences each) — one that fails because of an ambiguous term and one that fails because of a vague term. After each, write one sentence identifying the problematic term and naming the type of failure.</p>
-</div>
-
-<div class="looking-ahead">
-  <strong>Looking Ahead:</strong> Lesson 3.01b has addressed the precision of individual terms. Lesson 3.02a introduces a different kind of distinction among terms: the difference between universal and particular terms. This distinction is not about clarity of meaning but about scope — how many members of a category a term is making a claim about. It is foundational to the formal analysis of categorical statements that begins in Week 8.
-</div>
-
 </body>
 </html>

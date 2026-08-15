@@ -1,216 +1,157 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lesson 3.02b — Subject and Predicate: The Architecture of a Categorical Statement</title>
 <style>
-body{font-family:Georgia,'Times New Roman',serif;max-width:820px;margin:0 auto;padding:24px 28px;line-height:1.7;color:#1a1a1a;background:#fff}
-h1{font-size:1.55em;border-bottom:2px solid #2a2a2a;padding-bottom:.3em;margin-bottom:.4em}
-h2{font-size:1.2em;margin-top:1.8em;margin-bottom:.4em}
-h3{font-size:1.05em;margin-top:1.4em}
-.benchmark{background:#f2f2f2;border-left:4px solid #555;padding:8px 14px;font-size:.88em;margin-bottom:.5em;font-family:Arial,sans-serif}
-.objective{font-style:italic;color:#333;margin-bottom:1.8em;font-size:.95em}
-.example{background:#f9f9f9;border:1px solid #ddd;padding:14px 18px;margin:1em 0;border-radius:3px}
-.example .label{font-weight:bold;font-size:.85em;color:#555;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:6px}
-.practice{background:#f5f7fa;border:1px solid #d0d7e3;padding:18px 22px;margin:2em 0;border-radius:4px}
-.practice h2{margin-top:0;border-bottom:1px solid #d0d7e3;padding-bottom:.3em}
-.looking-ahead{background:#eef3f9;border-left:4px solid #4a7fb5;padding:12px 18px;margin-top:2.5em;font-style:italic;font-size:.95em;border-radius:0 4px 4px 0}
+body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 820px; margin: 0 auto; padding: 0 0 24px 0; line-height: 1.7; color: #1a2340; background: #fff; }
+h1 { display: none; }
+h2 { font-size: 1.25em; margin: 0 0 14px 0; color: #0e1c42; border-left: 4px solid #C7922C; padding-left: 12px; }
+h3 { font-size: 1.05em; margin-top: 1.2em; color: #0e1c42; }
+.benchmark { background: #EEF1F8; border-left: 4px solid #0E1C42; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.8em; color: #1a2340; }
+.objective { font-style: italic; color: #1a2340; border-left: 4px solid #C7922C; padding-left: 12px; margin-bottom: 0; font-size: 0.98em; }
+.example { background: #E8F6FB; border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #C7922C; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.practice { background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; padding: 18px 22px; margin: 0; border-radius: 8px; }
+.practice h2 { margin-top: 0; border-left: none; padding-left: 0; }
+.looking-ahead { background: #EEF1F8; border-left: 5px solid #0E1C42; padding: 16px 20px; font-style: italic; font-size: 0.98em; border-radius: 0 6px 6px 0; color: #1a2340; }
 ol li,ul li{margin-bottom:.5em}
 .standard-form{background:#fff;border:2px solid #aaa;padding:12px 18px;margin:1em 0;border-radius:3px;font-family:Georgia,serif;text-align:center;font-size:1.05em;letter-spacing:.03em}
 .standard-form .bracket{color:#555;font-style:italic;font-size:.88em}
 table{border-collapse:collapse;width:100%;margin:1em 0}
-th,td{border:1px solid #ccc;padding:8px 12px;text-align:left;font-size:.93em}
-th{background:#f2f2f2;font-weight:bold}
-</style>
+th,td { border: 1px solid #D0D9E8; padding: 8px 12px; }
+th { background: #EEF1F8; font-weight: bold; border: 1px solid #D0D9E8; padding: 8px 12px; text-align: left; }
+
+blockquote { border-left: 3px solid #D0D9E8; margin: 1em 0; padding-left: 1em; color: #1a2340; font-style: italic; }
+.error-example { background: #FDECEC; border: 1px solid #F5C6C6; border-left: 5px solid #C0392B; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
+.widget-embed { margin: 1.2em 0; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.widget-embed p { margin: 0; padding: 8px 14px; background: #EEF1F8; font-size: 0.85em; color: #1a2340; }</style>
 </head>
 <body>
-
-<div class="benchmark">
-  <strong>CPALMS Benchmark:</strong> ELA.K12.EE.2.1 — Read and comprehend grade-level complex texts proficiently.
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 28px;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+<div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img alt="Optima Academy" src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" style="width: 50px; height: 40px; object-fit: contain;"/></div>
+<div>
+<div style="font-size: 26px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+<div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
 </div>
-
-<h1>Lesson 3.02b — Subject and Predicate: The Architecture of a Categorical Statement</h1>
-
-<p class="objective"><strong>Learning Objective:</strong> Students will translate ordinary English sentences into standard categorical form, correctly identifying the subject term, predicate term, copula, quantity, and quality of each statement.</p>
-
-<h2>Orientation: Where We Are</h2>
-
-<p>We have spent this week building a vocabulary of terms. In Lessons 3.01a and 3.01b, we learned what a term is, how to distinguish extension from intension, and how terms can be univocal, equivocal, or analogous. In Lesson 3.02a, we added the crucial distinction between universal and particular scope — between claiming something about an entire class and claiming something about some portion of it. Today we put these tools to work.</p>
-
-<p>A term, on its own, makes no claim. "Justice," "argument," "courageous act" — each of these is a perfectly precise term, but none of them asserts anything yet. They become logically active only when two of them are linked together into a <strong>categorical statement</strong>: a proposition that places one term in relation to another by affirming or denying that the first class belongs to, or is excluded from, the second. The categorical statement is the basic unit of Aristotelian logic. Every premise and every conclusion in every syllogism is one. Learning to read and write them accurately is not optional — it is the entry point to all of formal logic.</p>
-
-<h2>Intuitive Entry Point</h2>
-
-<p>You have been putting terms together into statements your whole life. When you say "The argument was invalid" or "Some evidence is misleading," you are doing something that has a precise formal structure — you just have not had the vocabulary to describe it. Grammar gives us the basic picture: every sentence has a subject and a predicate. Logic refines this picture by asking more careful questions: <em>How much</em> of the subject class is being discussed? Does the predicate <em>affirm</em> or <em>deny</em> something about the subject? Are both terms clear enough to be used in a formal inference?</p>
-
-<p>Think of the categorical statement as a sentence that has been placed under a magnifying glass. The grammar is the same — subject, verb, predicate — but the logical structure beneath it becomes visible. Once you can see that structure clearly, you can begin to test it.</p>
-
-<h2>The Parts of a Categorical Statement</h2>
-
-<h3>Subject Term (S)</h3>
-
-<p>The <strong>subject term</strong> is the term the statement is <em>about</em>. It names the class we are making a claim about. In the statement "All arguments have premises," the subject term is <em>arguments</em> — that is the class we are discussing.</p>
-
-<h3>Predicate Term (P)</h3>
-
-<p>The <strong>predicate term</strong> is the term that describes or categorizes the subject. It names the class into which the subject is being placed (or from which it is being excluded). In "All arguments have premises," the predicate term is <em>things that have premises</em>. (Rewriting into noun-phrase form is often necessary, as we will see below.)</p>
-
-<h3>Copula</h3>
-
-<p>The <strong>copula</strong> (from the Latin <em>copula</em>, a bond or tie) is the linking verb that connects subject to predicate. In standard categorical form, the copula is always a form of the verb "to be": <em>are, is, are not, is not</em>. A statement like "All arguments have premises" must be rewritten so that the copula is a form of "to be" — in this case, "All arguments are things that have premises."</p>
-
-<h3>Quantity</h3>
-
-<p><strong>Quantity</strong> tells us how much of the subject class is being discussed. There are two quantities:</p>
-<ul>
-  <li><strong>Universal</strong>: the statement is about all (or no) members of the subject class. Signaled by <em>all, every, each, no, none</em>.</li>
-  <li><strong>Particular</strong>: the statement is about some (at least one) member of the subject class. Signaled by <em>some, at least one, several, a few, many</em>.</li>
-</ul>
-
-<h3>Quality</h3>
-
-<p><strong>Quality</strong> tells us whether the statement affirms or denies the predicate of the subject. There are two qualities:</p>
-<ul>
-  <li><strong>Affirmative</strong>: the subject class is placed <em>within</em> the predicate class. ("All S are P.")</li>
-  <li><strong>Negative</strong>: the subject class is <em>excluded from</em> the predicate class. ("No S are P." / "Some S are not P.")</li>
-</ul>
-
-<h2>Standard Form</h2>
-
-<p>Combining these four elements — subject, copula, predicate, quantity and quality — we arrive at the standard form of a categorical statement. Every categorical statement can be written in one of the following four patterns:</p>
-
-<div class="standard-form">
-  <strong>A</strong>: All [S] are [P] &nbsp;&nbsp;&nbsp; <span class="bracket">universal affirmative</span><br><br>
-  <strong>E</strong>: No [S] are [P] &nbsp;&nbsp;&nbsp; <span class="bracket">universal negative</span><br><br>
-  <strong>I</strong>: Some [S] are [P] &nbsp;&nbsp;&nbsp; <span class="bracket">particular affirmative</span><br><br>
-  <strong>O</strong>: Some [S] are not [P] &nbsp;&nbsp;&nbsp; <span class="bracket">particular negative</span>
 </div>
-
-<p>These four letters — A, E, I, O — come from the medieval Latin mnemonic drawn from the words <em>AffIrmo</em> (I affirm) and <em>nEgO</em> (I deny). The vowels A and I signal affirmative statements; E and O signal negative ones. You will study all four in full detail in Module 4 next week. For now, it is enough to recognize the basic pattern and be able to translate any statement into one of these four forms.</p>
-
-<table>
-  <thead>
-    <tr><th>Name</th><th>Form</th><th>Quantity</th><th>Quality</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>A proposition</td><td>All S are P</td><td>Universal</td><td>Affirmative</td></tr>
-    <tr><td>E proposition</td><td>No S are P</td><td>Universal</td><td>Negative</td></tr>
-    <tr><td>I proposition</td><td>Some S are P</td><td>Particular</td><td>Affirmative</td></tr>
-    <tr><td>O proposition</td><td>Some S are not P</td><td>Particular</td><td>Negative</td></tr>
-  </tbody>
-</table>
-
-<h2>Translating into Standard Form</h2>
-
-<p>Natural English rarely arrives already in standard form. Most ordinary sentences need to be translated before they can be used in formal logic. This translation is not a mere formality — it is an act of interpretation that clarifies exactly what is being claimed. Here are the most important translation principles.</p>
-
-<h3>Rule 1: The copula must be a form of "to be."</h3>
-
-<div class="example">
-  <span class="label">Original → Standard Form</span>
-  <p>"Dogs bark." → "All dogs are animals that bark."</p>
-  <p>The action verb "bark" must become a noun phrase in the predicate position, with "are" as the copula. The implicit universal quantifier is made explicit.</p>
+<div style="font-size: 30px; color: #ffffff;">SEMANTICS AND LOGIC HONORS</div>
 </div>
-
-<h3>Rule 2: Both terms must be noun phrases, not adjectives or verbs.</h3>
-
-<div class="example">
-  <span class="label">Original → Standard Form</span>
-  <p>"Some politicians are dishonest." → "Some politicians are dishonest people."</p>
-  <p>The adjective "dishonest" is rewritten as a noun phrase. This keeps the predicate clearly as a term — a class of things — rather than merely a description.</p>
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 130px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
+<div style="font-size: 16px; color: #0e1c42;">Q1 · Module 7</div>
+<div style="font-size: 12px; color: #666;">Terms</div>
 </div>
-
-<h3>Rule 3: Quantifiers must be made explicit.</h3>
-
-<div class="example">
-  <span class="label">Original → Standard Form</span>
-  <p>"Scientists are skeptics." → "All scientists are skeptics."</p>
-  <p>When no quantifier appears, context usually implies "all." Make it explicit. (If the context implies "some," write "some" — do not default to "all" carelessly.)</p>
+<div style="flex: 1; min-width: 110px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+<div style="font-size: 16px; color: #0e1c42;">Lesson 3.02b</div>
 </div>
-
-<h3>Rule 4: "Only" statements reverse the subject-predicate order.</h3>
-
-<div class="example">
-  <span class="label">Original → Standard Form</span>
-  <p>"Only the brave deserve the fair." → "All those who deserve the fair are brave people."</p>
-  <p>The word "only" signals that the original subject becomes the predicate and vice versa. "Only X are Y" translates as "All Y are X." This is one of the most reliable sources of error in standard-form translation.</p>
+<div style="flex: 2; min-width: 160px; padding: 12px 16px;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+<div style="font-size: 16px; color: #0e1c42; font-style: italic;">Subject and Predicate: The Architecture of a Categorical Statement</div>
 </div>
-
-<h3>Rule 5: "There are" and "There exist" constructions are particular.</h3>
-
-<div class="example">
-  <span class="label">Original → Standard Form</span>
-  <p>"There are some good lawyers." → "Some lawyers are good people."</p>
-  <p>Existential constructions ("there are," "there exist") signal particular scope. Rewrite them in standard form with "some" as the explicit quantifier.</p>
 </div>
-
-<h3>Rule 6: "Nobody," "nothing," "never" are universal negatives.</h3>
-
-<div class="example">
-  <span class="label">Original → Standard Form</span>
-  <p>"Nobody is perfect." → "No persons are perfect beings."</p>
-  <p>"Nothing ventured, nothing gained" — in this phrase, "nothing ventured" functions as a universal negative about acts of venturing. Universal negative scope always translates to an E proposition.</p>
+<div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 16px 20px; margin: 20px 28px 0 28px;">
+<div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 3.02b</div>
+<div style="font-size: 21px; color: #0e1c42;">Subject and Predicate: The Architecture of a Categorical Statement</div>
 </div>
-
-<h2>A Worked Translation: Step by Step</h2>
-
-<div class="example">
-  <span class="label">Sentence to Translate</span>
-  <p><strong>Original:</strong> "The Stoics were never pessimists."</p>
-  <ol>
-    <li><strong>Identify the subject:</strong> "The Stoics" — a proper group name, functioning as a singular/universal term.</li>
-    <li><strong>Identify the predicate:</strong> "pessimists" — a noun phrase, already a class term. Good.</li>
-    <li><strong>Identify the quantity:</strong> "never" signals universal negative scope.</li>
-    <li><strong>Identify the quality:</strong> Negative — the subject is being excluded from the predicate class.</li>
-    <li><strong>Write in standard form:</strong> "No Stoics are pessimists." (E proposition)</li>
-  </ol>
+<div style="padding: 20px 28px 4px 28px;"><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><div class="benchmark">
+<strong>CPALMS Benchmark:</strong> ELA.K12.EE.2.1 — Read and comprehend grade-level complex texts proficiently.
+</div><p class="objective"><strong>Learning Objective:</strong> Students will translate ordinary English sentences into standard categorical form, correctly identifying the subject term, predicate term, copula, quantity, and quality of each statement.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Orientation: Where We Are</h2><p>We have spent this week building a vocabulary of terms. In Lessons 3.01a and 3.01b, we learned what a term is, how to distinguish extension from intension, and how terms can be univocal, equivocal, or analogous. In Lesson 3.02a, we added the crucial distinction between universal and particular scope — between claiming something about an entire class and claiming something about some portion of it. Today we put these tools to work.</p><p>A term, on its own, makes no claim. "Justice," "argument," "courageous act" — each of these is a perfectly precise term, but none of them asserts anything yet. They become logically active only when two of them are linked together into a <strong>categorical statement</strong>: a proposition that places one term in relation to another by affirming or denying that the first class belongs to, or is excluded from, the second. The categorical statement is the basic unit of Aristotelian logic. Every premise and every conclusion in every syllogism is one. Learning to read and write them accurately is not optional — it is the entry point to all of formal logic.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Intuitive Entry Point</h2><p>You have been putting terms together into statements your whole life. When you say "The argument was invalid" or "Some evidence is misleading," you are doing something that has a precise formal structure — you just have not had the vocabulary to describe it. Grammar gives us the basic picture: every sentence has a subject and a predicate. Logic refines this picture by asking more careful questions: <em>How much</em> of the subject class is being discussed? Does the predicate <em>affirm</em> or <em>deny</em> something about the subject? Are both terms clear enough to be used in a formal inference?</p><p>Think of the categorical statement as a sentence that has been placed under a magnifying glass. The grammar is the same — subject, verb, predicate — but the logical structure beneath it becomes visible. Once you can see that structure clearly, you can begin to test it.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The Parts of a Categorical Statement</h2><h3>Subject Term (S)</h3><p>The <strong>subject term</strong> is the term the statement is <em>about</em>. It names the class we are making a claim about. In the statement "All arguments have premises," the subject term is <em>arguments</em> — that is the class we are discussing.</p><h3>Predicate Term (P)</h3><p>The <strong>predicate term</strong> is the term that describes or categorizes the subject. It names the class into which the subject is being placed (or from which it is being excluded). In "All arguments have premises," the predicate term is <em>things that have premises</em>. (Rewriting into noun-phrase form is often necessary, as we will see below.)</p><h3>Copula</h3><p>The <strong>copula</strong> (from the Latin <em>copula</em>, a bond or tie) is the linking verb that connects subject to predicate. In standard categorical form, the copula is always a form of the verb "to be": <em>are, is, are not, is not</em>. A statement like "All arguments have premises" must be rewritten so that the copula is a form of "to be" — in this case, "All arguments are things that have premises."</p><h3>Quantity</h3><p><strong>Quantity</strong> tells us how much of the subject class is being discussed. There are two quantities:</p><ul>
+<li><strong>Universal</strong>: the statement is about all (or no) members of the subject class. Signaled by <em>all, every, each, no, none</em>.</li>
+<li><strong>Particular</strong>: the statement is about some (at least one) member of the subject class. Signaled by <em>some, at least one, several, a few, many</em>.</li>
+</ul><h3>Quality</h3><p><strong>Quality</strong> tells us whether the statement affirms or denies the predicate of the subject. There are two qualities:</p><ul>
+<li><strong>Affirmative</strong>: the subject class is placed <em>within</em> the predicate class. ("All S are P.")</li>
+<li><strong>Negative</strong>: the subject class is <em>excluded from</em> the predicate class. ("No S are P." / "Some S are not P.")</li>
+</ul></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Standard Form</h2><p>Combining these four elements — subject, copula, predicate, quantity and quality — we arrive at the standard form of a categorical statement. Every categorical statement can be written in one of the following four patterns:</p><div class="standard-form">
+<strong>A</strong>: All [S] are [P]     <span class="bracket">universal affirmative</span><br/><br/>
+<strong>E</strong>: No [S] are [P]     <span class="bracket">universal negative</span><br/><br/>
+<strong>I</strong>: Some [S] are [P]     <span class="bracket">particular affirmative</span><br/><br/>
+<strong>O</strong>: Some [S] are not [P]     <span class="bracket">particular negative</span>
+</div><p>These four letters — A, E, I, O — come from the medieval Latin mnemonic drawn from the words <em>AffIrmo</em> (I affirm) and <em>nEgO</em> (I deny). The vowels A and I signal affirmative statements; E and O signal negative ones. You will study all four in full detail in Module 4 next week. For now, it is enough to recognize the basic pattern and be able to translate any statement into one of these four forms.</p><table>
+<thead>
+<tr><th>Name</th><th>Form</th><th>Quantity</th><th>Quality</th></tr>
+</thead>
+<tbody>
+<tr><td>A proposition</td><td>All S are P</td><td>Universal</td><td>Affirmative</td></tr>
+<tr><td>E proposition</td><td>No S are P</td><td>Universal</td><td>Negative</td></tr>
+<tr><td>I proposition</td><td>Some S are P</td><td>Particular</td><td>Affirmative</td></tr>
+<tr><td>O proposition</td><td>Some S are not P</td><td>Particular</td><td>Negative</td></tr>
+</tbody>
+</table></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Translating into Standard Form</h2><p>Natural English rarely arrives already in standard form. Most ordinary sentences need to be translated before they can be used in formal logic. This translation is not a mere formality — it is an act of interpretation that clarifies exactly what is being claimed. Here are the most important translation principles.</p><h3>Rule 1: The copula must be a form of "to be."</h3><div class="example">
+<span class="label">Original → Standard Form</span>
+<p>"Dogs bark." → "All dogs are animals that bark."</p>
+<p>The action verb "bark" must become a noun phrase in the predicate position, with "are" as the copula. The implicit universal quantifier is made explicit.</p>
+</div><h3>Rule 2: Both terms must be noun phrases, not adjectives or verbs.</h3><div class="example">
+<span class="label">Original → Standard Form</span>
+<p>"Some politicians are dishonest." → "Some politicians are dishonest people."</p>
+<p>The adjective "dishonest" is rewritten as a noun phrase. This keeps the predicate clearly as a term — a class of things — rather than merely a description.</p>
+</div><h3>Rule 3: Quantifiers must be made explicit.</h3><div class="example">
+<span class="label">Original → Standard Form</span>
+<p>"Scientists are skeptics." → "All scientists are skeptics."</p>
+<p>When no quantifier appears, context usually implies "all." Make it explicit. (If the context implies "some," write "some" — do not default to "all" carelessly.)</p>
+</div><h3>Rule 4: "Only" statements reverse the subject-predicate order.</h3><div class="example">
+<span class="label">Original → Standard Form</span>
+<p>"Only the brave deserve the fair." → "All those who deserve the fair are brave people."</p>
+<p>The word "only" signals that the original subject becomes the predicate and vice versa. "Only X are Y" translates as "All Y are X." This is one of the most reliable sources of error in standard-form translation.</p>
+</div><h3>Rule 5: "There are" and "There exist" constructions are particular.</h3><div class="example">
+<span class="label">Original → Standard Form</span>
+<p>"There are some good lawyers." → "Some lawyers are good people."</p>
+<p>Existential constructions ("there are," "there exist") signal particular scope. Rewrite them in standard form with "some" as the explicit quantifier.</p>
+</div><h3>Rule 6: "Nobody," "nothing," "never" are universal negatives.</h3><div class="example">
+<span class="label">Original → Standard Form</span>
+<p>"Nobody is perfect." → "No persons are perfect beings."</p>
+<p>"Nothing ventured, nothing gained" — in this phrase, "nothing ventured" functions as a universal negative about acts of venturing. Universal negative scope always translates to an E proposition.</p>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>A Worked Translation: Step by Step</h2><div class="example">
+<span class="label">Sentence to Translate</span>
+<p><strong>Original:</strong> "The Stoics were never pessimists."</p>
+<ol>
+<li><strong>Identify the subject:</strong> "The Stoics" — a proper group name, functioning as a singular/universal term.</li>
+<li><strong>Identify the predicate:</strong> "pessimists" — a noun phrase, already a class term. Good.</li>
+<li><strong>Identify the quantity:</strong> "never" signals universal negative scope.</li>
+<li><strong>Identify the quality:</strong> Negative — the subject is being excluded from the predicate class.</li>
+<li><strong>Write in standard form:</strong> "No Stoics are pessimists." (E proposition)</li>
+</ol>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Connection to Argument</h2><p>Every premise and conclusion in a categorical syllogism is a statement in standard form. When arguments appear in ordinary writing — in a newspaper editorial, a philosophical treatise, a legal brief — they almost never arrive in standard form. Before the logician can test validity, she must translate. This is not merely tidying up language; it is a substantive act that reveals what the argument actually claims, strips away rhetorical decoration, and makes equivocation or ambiguity visible. Many arguments that seem compelling in colloquial form turn out to be questionable — or flat-out invalid — once translated. The skill you are building today is the point of entry into all formal logical analysis.</p><div class="practice">
+<h2>Practice Problems</h2>
+<p><strong>Part A — Recognition: Identify the parts.</strong> For each of the following statements (already in or near standard form), identify: (1) the subject term, (2) the predicate term, (3) the quantity (universal/particular), and (4) the quality (affirmative/negative).</p>
+<ol>
+<li>"All valid arguments preserve truth."</li>
+<li>"Some premises are unstated."</li>
+<li>"No fallacies are logically sound moves."</li>
+<li>"Some acts of generosity are not recognized publicly."</li>
+<li>"All equivocal terms are potential sources of confusion in argument."</li>
+</ol>
+<p><strong>Part B — Translation: Put each sentence into standard categorical form.</strong> For each, write the standard-form statement, identify its type (A, E, I, or O), and label subject and predicate terms.</p>
+<ol>
+<li>"Cats sleep often."</li>
+<li>"There are some arguments no one can refute."</li>
+<li>"Only registered members may submit a proposal."</li>
+<li>"Few mathematicians find logic trivial."</li>
+<li>"Nobody who reasons carefully falls for obvious equivocations."</li>
+<li>"The final exam covers all topics from both quarters."</li>
+<li>"Not every law is just."</li>
+<li>"Some evidence, though relevant, is not conclusive."</li>
+<li>"Philosophers have always been interested in the nature of truth." (translate as a general claim)</li>
+<li>"Only the premise, not the conclusion, carries the burden of proof." (careful — this requires two separate statements)</li>
+</ol>
+<p><strong>Part C — Analysis: Diagnose the error.</strong></p>
+<ol>
+<li>A student translates "Only children believe in miracles" as "Some children are people who believe in miracles." What is wrong with this translation, and what is the correct standard form?</li>
+<li>A student writes the copula as "seems to be" in the statement "All valid arguments seem to be truth-preserving." Why is this not correct standard categorical form? Rewrite it correctly.</li>
+<li>Two students disagree about "Most scientists accept the theory." One says it is a universal statement because scientists as a class accept it; the other says it is particular because "most" does not mean "all." Who is correct, and why?</li>
+</ol>
+</div></div><div style="margin-bottom: 20px;"><div class="looking-ahead">
+<strong>Looking Ahead:</strong> In Module 4 next week, we combine these building blocks — terms with their scopes, and statements with their standard structure — into the four named propositions of categorical logic: the A, E, I, and O propositions. Once those four types are clearly defined and distinguished, we will be ready to map their logical relationships on the Square of Opposition — the geometric representation of how affirmative and negative, universal and particular propositions constrain one another.
+</div></div></div>
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 16px 28px; text-align: center; margin-top: 10px;">
+<div style="font-size: 16px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> · SEMANTICS AND LOGIC HONORS · Quarter 1 · Student Lesson Page</div>
+<div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 3.02b · Subject and Predicate: The Architecture of a Categorical Statement</div>
+<div style="font-size: 12px; color: rgba(255,255,255,0.4);">© Optima Academy Online · An Education Experience Company</div>
 </div>
-
-<h2>Connection to Argument</h2>
-
-<p>Every premise and conclusion in a categorical syllogism is a statement in standard form. When arguments appear in ordinary writing — in a newspaper editorial, a philosophical treatise, a legal brief — they almost never arrive in standard form. Before the logician can test validity, she must translate. This is not merely tidying up language; it is a substantive act that reveals what the argument actually claims, strips away rhetorical decoration, and makes equivocation or ambiguity visible. Many arguments that seem compelling in colloquial form turn out to be questionable — or flat-out invalid — once translated. The skill you are building today is the point of entry into all formal logical analysis.</p>
-
-<div class="practice">
-  <h2>Practice Problems</h2>
-
-  <p><strong>Part A — Recognition: Identify the parts.</strong> For each of the following statements (already in or near standard form), identify: (1) the subject term, (2) the predicate term, (3) the quantity (universal/particular), and (4) the quality (affirmative/negative).</p>
-
-  <ol>
-    <li>"All valid arguments preserve truth."</li>
-    <li>"Some premises are unstated."</li>
-    <li>"No fallacies are logically sound moves."</li>
-    <li>"Some acts of generosity are not recognized publicly."</li>
-    <li>"All equivocal terms are potential sources of confusion in argument."</li>
-  </ol>
-
-  <p><strong>Part B — Translation: Put each sentence into standard categorical form.</strong> For each, write the standard-form statement, identify its type (A, E, I, or O), and label subject and predicate terms.</p>
-
-  <ol>
-    <li>"Cats sleep often."</li>
-    <li>"There are some arguments no one can refute."</li>
-    <li>"Only registered members may submit a proposal."</li>
-    <li>"Few mathematicians find logic trivial."</li>
-    <li>"Nobody who reasons carefully falls for obvious equivocations."</li>
-    <li>"The final exam covers all topics from both quarters."</li>
-    <li>"Not every law is just."</li>
-    <li>"Some evidence, though relevant, is not conclusive."</li>
-    <li>"Philosophers have always been interested in the nature of truth." (translate as a general claim)</li>
-    <li>"Only the premise, not the conclusion, carries the burden of proof." (careful — this requires two separate statements)</li>
-  </ol>
-
-  <p><strong>Part C — Analysis: Diagnose the error.</strong></p>
-
-  <ol>
-    <li>A student translates "Only children believe in miracles" as "Some children are people who believe in miracles." What is wrong with this translation, and what is the correct standard form?</li>
-    <li>A student writes the copula as "seems to be" in the statement "All valid arguments seem to be truth-preserving." Why is this not correct standard categorical form? Rewrite it correctly.</li>
-    <li>Two students disagree about "Most scientists accept the theory." One says it is a universal statement because scientists as a class accept it; the other says it is particular because "most" does not mean "all." Who is correct, and why?</li>
-  </ol>
-</div>
-
-<div class="looking-ahead">
-  <strong>Looking Ahead:</strong> In Module 4 next week, we combine these building blocks — terms with their scopes, and statements with their standard structure — into the four named propositions of categorical logic: the A, E, I, and O propositions. Once those four types are clearly defined and distinguished, we will be ready to map their logical relationships on the Square of Opposition — the geometric representation of how affirmative and negative, universal and particular propositions constrain one another.
-</div>
-
 </body>
 </html>

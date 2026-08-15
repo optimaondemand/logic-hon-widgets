@@ -1,283 +1,228 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lesson 5.02a — Syllogisms Review</title>
 <style>
-body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
-h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
-h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
-.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
-.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
-.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
-.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.error-example { background: #fff8f8; border: 1px solid #e8c0c0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 820px; margin: 0 auto; padding: 0 0 24px 0; line-height: 1.7; color: #1a2340; background: #fff; }
+h1 { display: none; }
+h2 { font-size: 1.25em; margin: 0 0 14px 0; color: #0e1c42; border-left: 4px solid #C7922C; padding-left: 12px; }
+.benchmark { background: #EEF1F8; border-left: 4px solid #0E1C42; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.8em; color: #1a2340; }
+.objective { font-style: italic; color: #1a2340; border-left: 4px solid #C7922C; padding-left: 12px; margin-bottom: 0; font-size: 0.98em; }
+.example { background: #E8F6FB; border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #C7922C; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.error-example { background: #FDECEC; border: 1px solid #F5C6C6; border-left: 5px solid #C0392B; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
 .error-example .label { font-weight: bold; font-size: 0.85em; color: #a04040; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
-.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
-.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+.practice { background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; padding: 18px 22px; margin: 0; border-radius: 8px; }
+.practice h2 { margin-top: 0; border-left: none; padding-left: 0; }
+.looking-ahead { background: #EEF1F8; border-left: 5px solid #0E1C42; padding: 16px 20px; font-style: italic; font-size: 0.98em; border-radius: 0 6px 6px 0; color: #1a2340; }
 ol li, ul li { margin-bottom: 0.5em; }
 table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 0.93em; }
-th { background: #e8e8e8; border: 1px solid #ccc; padding: 7px 12px; text-align: left; font-family: Arial, sans-serif; font-size: 0.85em; letter-spacing: 0.04em; }
-td { border: 1px solid #ccc; padding: 7px 12px; vertical-align: top; }
+th { background: #EEF1F8; font-weight: bold; border: 1px solid #D0D9E8; padding: 8px 12px; text-align: left; }
+td { border: 1px solid #D0D9E8; padding: 8px 12px; }
 .term-label { font-family: Arial, sans-serif; font-size: 0.82em; color: #555; font-style: normal; }
 .syllogism-block { font-family: Georgia, 'Times New Roman', serif; margin: 0.6em 0 0.6em 1.5em; line-height: 2; }
 .syllogism-block .premise { display: block; }
 .syllogism-block .conclusion { display: block; border-top: 1px solid #555; padding-top: 0.3em; margin-top: 0.2em; }
-</style>
+
+h3 { font-size: 1.05em; margin-top: 1.2em; color: #0e1c42; }
+blockquote { border-left: 3px solid #D0D9E8; margin: 1em 0; padding-left: 1em; color: #1a2340; font-style: italic; }
+.widget-embed { margin: 1.2em 0; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.widget-embed p { margin: 0; padding: 8px 14px; background: #EEF1F8; font-size: 0.85em; color: #1a2340; }</style>
 </head>
 <body>
-
-<h1>Lesson 5.02a — Syllogisms Review</h1>
-
-<div class="benchmark">
-  <strong>ELA.11.R.2.2</strong> — Explain how an author develops a complex central idea, theme, or argument through the selection and ordering of claims, evidence, and reasoning.<br>
-  <strong>ELA.K12.EE.1.1</strong> — Cite evidence to explain and justify reasoning.
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 28px;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+<div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img alt="Optima Academy" src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" style="width: 50px; height: 40px; object-fit: contain;"/></div>
+<div>
+<div style="font-size: 26px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+<div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
 </div>
-
-<p class="objective">By the end of this lesson, you will be able to identify the three-term structure of a categorical syllogism, label each term and premise by its logical role, classify each statement by its type (A, E, I, or O), and distinguish a properly formed categorical syllogism from an argument that merely resembles one.</p>
-
-<h2>Orientation</h2>
-
-<p>In Q2 Week 1 you worked with two-circle Venn diagrams to represent individual categorical statements — shading out regions for universal claims (A and E) and marking an X for particular claims (I and O). Those diagrams gave you a visual vocabulary for a single proposition. This week the scope expands: you will use <em>three</em>-circle Venn diagrams to test whether a full argument — a syllogism — is valid.</p>
-
-<p>Before that diagramming technique is introduced in Lesson 5.02b, this lesson returns to the syllogism itself. You have encountered syllogisms throughout Q1; now you will examine their internal architecture precisely, because the three-circle diagram only works if you have already identified the three terms and arranged the premises in standard form. Getting the structure right is the prerequisite for everything that follows in Q2.</p>
-
-<h2>Intuitive Entry</h2>
-
-<p>Consider the following chain of reasoning, the kind that occurs naturally in everyday thought:</p>
-
-<blockquote style="margin: 1em 1.5em; padding: 0; font-style: italic; color: #222;">
+</div>
+<div style="font-size: 30px; color: #ffffff;">SEMANTICS AND LOGIC HONORS</div>
+</div>
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 130px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
+<div style="font-size: 16px; color: #0e1c42;">Q2 · Module 2</div>
+<div style="font-size: 12px; color: #666;">Syllogisms And Venns</div>
+</div>
+<div style="flex: 1; min-width: 110px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+<div style="font-size: 16px; color: #0e1c42;">Lesson 5.02a</div>
+</div>
+<div style="flex: 2; min-width: 160px; padding: 12px 16px;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+<div style="font-size: 16px; color: #0e1c42; font-style: italic;">Syllogisms Review</div>
+</div>
+</div>
+<div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 16px 20px; margin: 20px 28px 0 28px;">
+<div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 5.02a</div>
+<div style="font-size: 21px; color: #0e1c42;">Syllogisms Review</div>
+</div>
+<div style="padding: 20px 28px 4px 28px;"><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><div class="benchmark">
+<strong>ELA.11.R.2.2</strong> — Explain how an author develops a complex central idea, theme, or argument through the selection and ordering of claims, evidence, and reasoning.<br/>
+<strong>ELA.K12.EE.1.1</strong> — Cite evidence to explain and justify reasoning.
+</div><p class="objective">By the end of this lesson, you will be able to identify the three-term structure of a categorical syllogism, label each term and premise by its logical role, classify each statement by its type (A, E, I, or O), and distinguish a properly formed categorical syllogism from an argument that merely resembles one.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Orientation</h2><p>In Q2 Week 1 you worked with two-circle Venn diagrams to represent individual categorical statements — shading out regions for universal claims (A and E) and marking an X for particular claims (I and O). Those diagrams gave you a visual vocabulary for a single proposition. This week the scope expands: you will use <em>three</em>-circle Venn diagrams to test whether a full argument — a syllogism — is valid.</p><p>Before that diagramming technique is introduced in Lesson 5.02b, this lesson returns to the syllogism itself. You have encountered syllogisms throughout Q1; now you will examine their internal architecture precisely, because the three-circle diagram only works if you have already identified the three terms and arranged the premises in standard form. Getting the structure right is the prerequisite for everything that follows in Q2.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Intuitive Entry</h2><p>Consider the following chain of reasoning, the kind that occurs naturally in everyday thought:</p><blockquote style="margin: 1em 1.5em; padding: 0; font-style: italic; color: #222;">
 All reptiles are cold-blooded. All snakes are reptiles. So all snakes must be cold-blooded.
-</blockquote>
-
-<p>Most people find this compelling on first hearing, and rightly so. Notice what is happening: two facts about categories — about reptiles, cold-blooded animals, and snakes — are combined to produce a third fact that was not stated outright but follows necessarily. You did not need to examine every snake individually. The conclusion was forced by the relationship between the categories.</p>
-
-<p>This is precisely the kind of inference that Aristotle identified, named, and analyzed in systematic detail more than two thousand years ago. When you reason this way — connecting three categories through two premises to reach a conclusion — you are producing what Aristotle called a <em>syllogismos</em>. You have been doing it naturally; the formal apparatus you are about to review gives you the tools to do it deliberately and to evaluate whether any given instance of it actually works.</p>
-
-<h2>The Formal Concept</h2>
-
-<p>A <strong>categorical syllogism</strong> (from the Greek <em>syllogismos</em>, meaning "a reckoning together," derived from <em>syn</em>, "together," and <em>logos</em>, "reason" or "account") is a deductive argument consisting of exactly two premises and one conclusion, in which each statement is a categorical proposition and together the three statements contain exactly three distinct terms, each term appearing in exactly two of the three statements.</p>
-
-<p>This definition is precise, and each element of it does real work. The syllogism is the core unit of categorical logic — the simplest structure in which two separate truths about categories can be combined to yield a third. Aristotle's systematic treatment of the syllogism, set out in the <em>Prior Analytics</em> (part of the collection of logical works later called the <em>Organon</em>, or "instrument"), is the first rigorous account of formal inference in the Western tradition. The rules governing valid syllogistic inference have formed the backbone of logical education from the medieval Scholastics through the present day.</p>
-
-<h2>The Three-Term Structure</h2>
-
-<p>Every categorical syllogism contains exactly three terms. Each term names a category and appears in exactly two of the three statements:</p>
-
-<table>
-  <tr>
-    <th>Term Name</th>
-    <th>Symbol</th>
-    <th>Definition</th>
-    <th>Where It Appears</th>
-  </tr>
-  <tr>
-    <td><strong>Major term</strong></td>
-    <td><strong>P</strong></td>
-    <td>The predicate of the conclusion</td>
-    <td>Major premise and conclusion</td>
-  </tr>
-  <tr>
-    <td><strong>Minor term</strong></td>
-    <td><strong>S</strong></td>
-    <td>The subject of the conclusion</td>
-    <td>Minor premise and conclusion</td>
-  </tr>
-  <tr>
-    <td><strong>Middle term</strong></td>
-    <td><strong>M</strong></td>
-    <td>The term that links the major and minor terms; absent from the conclusion</td>
-    <td>Major premise and minor premise only</td>
-  </tr>
-</table>
-
-<p>The two premises are named by the term each shares with the conclusion:</p>
-
+</blockquote><p>Most people find this compelling on first hearing, and rightly so. Notice what is happening: two facts about categories — about reptiles, cold-blooded animals, and snakes — are combined to produce a third fact that was not stated outright but follows necessarily. You did not need to examine every snake individually. The conclusion was forced by the relationship between the categories.</p><p>This is precisely the kind of inference that Aristotle identified, named, and analyzed in systematic detail more than two thousand years ago. When you reason this way — connecting three categories through two premises to reach a conclusion — you are producing what Aristotle called a <em>syllogismos</em>. You have been doing it naturally; the formal apparatus you are about to review gives you the tools to do it deliberately and to evaluate whether any given instance of it actually works.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The Formal Concept</h2><p>A <strong>categorical syllogism</strong> (from the Greek <em>syllogismos</em>, meaning "a reckoning together," derived from <em>syn</em>, "together," and <em>logos</em>, "reason" or "account") is a deductive argument consisting of exactly two premises and one conclusion, in which each statement is a categorical proposition and together the three statements contain exactly three distinct terms, each term appearing in exactly two of the three statements.</p><p>This definition is precise, and each element of it does real work. The syllogism is the core unit of categorical logic — the simplest structure in which two separate truths about categories can be combined to yield a third. Aristotle's systematic treatment of the syllogism, set out in the <em>Prior Analytics</em> (part of the collection of logical works later called the <em>Organon</em>, or "instrument"), is the first rigorous account of formal inference in the Western tradition. The rules governing valid syllogistic inference have formed the backbone of logical education from the medieval Scholastics through the present day.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The Three-Term Structure</h2><p>Every categorical syllogism contains exactly three terms. Each term names a category and appears in exactly two of the three statements:</p><table>
+<tr>
+<th>Term Name</th>
+<th>Symbol</th>
+<th>Definition</th>
+<th>Where It Appears</th>
+</tr>
+<tr>
+<td><strong>Major term</strong></td>
+<td><strong>P</strong></td>
+<td>The predicate of the conclusion</td>
+<td>Major premise and conclusion</td>
+</tr>
+<tr>
+<td><strong>Minor term</strong></td>
+<td><strong>S</strong></td>
+<td>The subject of the conclusion</td>
+<td>Minor premise and conclusion</td>
+</tr>
+<tr>
+<td><strong>Middle term</strong></td>
+<td><strong>M</strong></td>
+<td>The term that links the major and minor terms; absent from the conclusion</td>
+<td>Major premise and minor premise only</td>
+</tr>
+</table><p>The two premises are named by the term each shares with the conclusion:</p><ul>
+<li>The <strong>major premise</strong> contains the major term (P) together with the middle term (M).</li>
+<li>The <strong>minor premise</strong> contains the minor term (S) together with the middle term (M).</li>
+</ul><p>The middle term (M) is the logical bridge. It appears in both premises and in neither. Because it connects the other two terms in the premises, it can be "left behind" in the conclusion — its work is done. An argument that lacks a genuine middle term, or that has more than three distinct terms overall, cannot be a categorical syllogism in the Aristotelian sense.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Statement Types in a Syllogism</h2><p>Each of the three statements in a syllogism — major premise, minor premise, and conclusion — is one of the four categorical statement types you identified in Q1 Week 8:</p><table>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Form</th>
+<th>Quantity / Quality</th>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td>Universal affirmative</td>
+<td>All S are P</td>
+<td>Universal / Affirmative</td>
+</tr>
+<tr>
+<td><strong>E</strong></td>
+<td>Universal negative</td>
+<td>No S are P</td>
+<td>Universal / Negative</td>
+</tr>
+<tr>
+<td><strong>I</strong></td>
+<td>Particular affirmative</td>
+<td>Some S are P</td>
+<td>Particular / Affirmative</td>
+</tr>
+<tr>
+<td><strong>O</strong></td>
+<td>Particular negative</td>
+<td>Some S are not P</td>
+<td>Particular / Negative</td>
+</tr>
+</table><p>Each of the three statements in a syllogism is assigned a letter (A, E, I, or O), and the ordered sequence of those three letters — major premise, minor premise, conclusion — constitutes the argument's <strong>mood</strong>. A syllogism in which all three statements are universal affirmatives has the mood AAA. One whose major premise is universal negative, minor premise is universal affirmative, and conclusion is universal negative has the mood EAE. You will study mood formally in Q2 Week 5; for now, simply learn to identify and label the statement type of each component.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Worked Examples</h2><div class="example">
+<span class="label">Example 1 — Barbara (Mood: AAA, Figure 1) — Valid Syllogism, Fully Labeled</span>
+<p>Barbara is the most fundamental valid syllogistic form — the one Aristotle places first in the <em>Prior Analytics</em> and the one medieval logicians remembered with the mnemonic name "Barbara" (each vowel representing the type of one statement: A-A-A).</p>
+<div class="syllogism-block">
+<span class="premise">All mammals are warm-blooded.   <span class="term-label">[Major premise — A statement; major term: <em>warm-blooded</em> (P); middle term: <em>mammals</em> (M)]</span></span>
+<span class="premise">All dogs are mammals.   <span class="term-label">[Minor premise — A statement; minor term: <em>dogs</em> (S); middle term: <em>mammals</em> (M)]</span></span>
+<span class="conclusion">∴ All dogs are warm-blooded.   <span class="term-label">[Conclusion — A statement; subject: <em>dogs</em> (S); predicate: <em>warm-blooded</em> (P)]</span></span>
+</div>
+<p><strong>Term inventory:</strong></p>
 <ul>
-  <li>The <strong>major premise</strong> contains the major term (P) together with the middle term (M).</li>
-  <li>The <strong>minor premise</strong> contains the minor term (S) together with the middle term (M).</li>
+<li>Major term (P): <em>warm-blooded</em> — appears in major premise (as predicate) and conclusion (as predicate).</li>
+<li>Minor term (S): <em>dogs</em> — appears in minor premise (as subject) and conclusion (as subject).</li>
+<li>Middle term (M): <em>mammals</em> — appears in major premise (as subject) and minor premise (as predicate); absent from conclusion.</li>
 </ul>
-
-<p>The middle term (M) is the logical bridge. It appears in both premises and in neither. Because it connects the other two terms in the premises, it can be "left behind" in the conclusion — its work is done. An argument that lacks a genuine middle term, or that has more than three distinct terms overall, cannot be a categorical syllogism in the Aristotelian sense.</p>
-
-<h2>Statement Types in a Syllogism</h2>
-
-<p>Each of the three statements in a syllogism — major premise, minor premise, and conclusion — is one of the four categorical statement types you identified in Q1 Week 8:</p>
-
-<table>
-  <tr>
-    <th>Type</th>
-    <th>Name</th>
-    <th>Form</th>
-    <th>Quantity / Quality</th>
-  </tr>
-  <tr>
-    <td><strong>A</strong></td>
-    <td>Universal affirmative</td>
-    <td>All S are P</td>
-    <td>Universal / Affirmative</td>
-  </tr>
-  <tr>
-    <td><strong>E</strong></td>
-    <td>Universal negative</td>
-    <td>No S are P</td>
-    <td>Universal / Negative</td>
-  </tr>
-  <tr>
-    <td><strong>I</strong></td>
-    <td>Particular affirmative</td>
-    <td>Some S are P</td>
-    <td>Particular / Affirmative</td>
-  </tr>
-  <tr>
-    <td><strong>O</strong></td>
-    <td>Particular negative</td>
-    <td>Some S are not P</td>
-    <td>Particular / Negative</td>
-  </tr>
-</table>
-
-<p>Each of the three statements in a syllogism is assigned a letter (A, E, I, or O), and the ordered sequence of those three letters — major premise, minor premise, conclusion — constitutes the argument's <strong>mood</strong>. A syllogism in which all three statements are universal affirmatives has the mood AAA. One whose major premise is universal negative, minor premise is universal affirmative, and conclusion is universal negative has the mood EAE. You will study mood formally in Q2 Week 5; for now, simply learn to identify and label the statement type of each component.</p>
-
-<h2>Worked Examples</h2>
-
-<div class="example">
-  <span class="label">Example 1 — Barbara (Mood: AAA, Figure 1) — Valid Syllogism, Fully Labeled</span>
-
-  <p>Barbara is the most fundamental valid syllogistic form — the one Aristotle places first in the <em>Prior Analytics</em> and the one medieval logicians remembered with the mnemonic name "Barbara" (each vowel representing the type of one statement: A-A-A).</p>
-
-  <div class="syllogism-block">
-    <span class="premise">All mammals are warm-blooded. &nbsp;&nbsp;<span class="term-label">[Major premise — A statement; major term: <em>warm-blooded</em> (P); middle term: <em>mammals</em> (M)]</span></span>
-    <span class="premise">All dogs are mammals. &nbsp;&nbsp;<span class="term-label">[Minor premise — A statement; minor term: <em>dogs</em> (S); middle term: <em>mammals</em> (M)]</span></span>
-    <span class="conclusion">&#8756; All dogs are warm-blooded. &nbsp;&nbsp;<span class="term-label">[Conclusion — A statement; subject: <em>dogs</em> (S); predicate: <em>warm-blooded</em> (P)]</span></span>
-  </div>
-
-  <p><strong>Term inventory:</strong></p>
-  <ul>
-    <li>Major term (P): <em>warm-blooded</em> — appears in major premise (as predicate) and conclusion (as predicate).</li>
-    <li>Minor term (S): <em>dogs</em> — appears in minor premise (as subject) and conclusion (as subject).</li>
-    <li>Middle term (M): <em>mammals</em> — appears in major premise (as subject) and minor premise (as predicate); absent from conclusion.</li>
-  </ul>
-
-  <p><strong>Mood:</strong> AAA (all three statements are universal affirmatives).</p>
-
-  <p>This argument is valid: if the two premises are true, the conclusion must be true. There is no possible situation in which all mammals are warm-blooded, all dogs are mammals, and some dog is not warm-blooded. The middle term "mammals" does precisely the work of connecting "dogs" to "warm-blooded."</p>
+<p><strong>Mood:</strong> AAA (all three statements are universal affirmatives).</p>
+<p>This argument is valid: if the two premises are true, the conclusion must be true. There is no possible situation in which all mammals are warm-blooded, all dogs are mammals, and some dog is not warm-blooded. The middle term "mammals" does precisely the work of connecting "dogs" to "warm-blooded."</p>
+</div><div class="example">
+<span class="label">Example 2 — Celarent (Mood: EAE, Figure 1) — Valid Syllogism, Fully Labeled</span>
+<p>Celarent is the second classic form recognized in Figure 1. Its major premise is a universal negative (E), which allows any category excluded from the major term's class to be passed along to the conclusion.</p>
+<div class="syllogism-block">
+<span class="premise">No reptiles are warm-blooded.   <span class="term-label">[Major premise — E statement; major term: <em>warm-blooded</em> (P); middle term: <em>reptiles</em> (M)]</span></span>
+<span class="premise">All lizards are reptiles.   <span class="term-label">[Minor premise — A statement; minor term: <em>lizards</em> (S); middle term: <em>reptiles</em> (M)]</span></span>
+<span class="conclusion">∴ No lizards are warm-blooded.   <span class="term-label">[Conclusion — E statement; subject: <em>lizards</em> (S); predicate: <em>warm-blooded</em> (P)]</span></span>
 </div>
-
-<div class="example">
-  <span class="label">Example 2 — Celarent (Mood: EAE, Figure 1) — Valid Syllogism, Fully Labeled</span>
-
-  <p>Celarent is the second classic form recognized in Figure 1. Its major premise is a universal negative (E), which allows any category excluded from the major term's class to be passed along to the conclusion.</p>
-
-  <div class="syllogism-block">
-    <span class="premise">No reptiles are warm-blooded. &nbsp;&nbsp;<span class="term-label">[Major premise — E statement; major term: <em>warm-blooded</em> (P); middle term: <em>reptiles</em> (M)]</span></span>
-    <span class="premise">All lizards are reptiles. &nbsp;&nbsp;<span class="term-label">[Minor premise — A statement; minor term: <em>lizards</em> (S); middle term: <em>reptiles</em> (M)]</span></span>
-    <span class="conclusion">&#8756; No lizards are warm-blooded. &nbsp;&nbsp;<span class="term-label">[Conclusion — E statement; subject: <em>lizards</em> (S); predicate: <em>warm-blooded</em> (P)]</span></span>
-  </div>
-
-  <p><strong>Term inventory:</strong></p>
-  <ul>
-    <li>Major term (P): <em>warm-blooded</em> — in major premise (as predicate) and conclusion (as predicate).</li>
-    <li>Minor term (S): <em>lizards</em> — in minor premise (as subject) and conclusion (as subject).</li>
-    <li>Middle term (M): <em>reptiles</em> — in major premise (as subject) and minor premise (as predicate); absent from conclusion.</li>
-  </ul>
-
-  <p><strong>Mood:</strong> EAE (universal negative, universal affirmative, universal negative).</p>
-
-  <p>Notice that the structure here is different from Barbara in an important way: the first premise excludes rather than includes. Because <em>lizards</em> are entirely within the category <em>reptiles</em> (minor premise), and <em>reptiles</em> are entirely outside the category <em>warm-blooded</em> (major premise), <em>lizards</em> must also be entirely outside <em>warm-blooded</em>. The exclusion transfers through the middle term exactly as inclusion does in Barbara.</p>
+<p><strong>Term inventory:</strong></p>
+<ul>
+<li>Major term (P): <em>warm-blooded</em> — in major premise (as predicate) and conclusion (as predicate).</li>
+<li>Minor term (S): <em>lizards</em> — in minor premise (as subject) and conclusion (as subject).</li>
+<li>Middle term (M): <em>reptiles</em> — in major premise (as subject) and minor premise (as predicate); absent from conclusion.</li>
+</ul>
+<p><strong>Mood:</strong> EAE (universal negative, universal affirmative, universal negative).</p>
+<p>Notice that the structure here is different from Barbara in an important way: the first premise excludes rather than includes. Because <em>lizards</em> are entirely within the category <em>reptiles</em> (minor premise), and <em>reptiles</em> are entirely outside the category <em>warm-blooded</em> (major premise), <em>lizards</em> must also be entirely outside <em>warm-blooded</em>. The exclusion transfers through the middle term exactly as inclusion does in Barbara.</p>
+</div><div class="error-example">
+<span class="label">Common Error — The Four-Term Fallacy (Quaternio Terminorum)</span>
+<p>The following argument resembles a syllogism in surface form but fails the most basic structural requirement:</p>
+<div class="syllogism-block">
+<span class="premise">All sound arguments rest on solid foundations.</span>
+<span class="premise">All buildings rest on solid foundations.</span>
+<span class="conclusion">∴ All buildings are sound arguments.</span>
 </div>
-
-<div class="error-example">
-  <span class="label">Common Error — The Four-Term Fallacy (Quaternio Terminorum)</span>
-
-  <p>The following argument resembles a syllogism in surface form but fails the most basic structural requirement:</p>
-
-  <div class="syllogism-block">
-    <span class="premise">All sound arguments rest on solid foundations.</span>
-    <span class="premise">All buildings rest on solid foundations.</span>
-    <span class="conclusion">&#8756; All buildings are sound arguments.</span>
-  </div>
-
-  <p>At first glance this looks like a three-term syllogism — one might expect <em>solid foundations</em> to be the middle term. But the conclusion is obviously absurd, and the reason reveals the structural flaw: the phrase "solid foundations" is being used in two different senses. In the major premise, "solid foundations" refers to well-supported evidence and valid reasoning — an abstract, logical sense. In the minor premise, "solid foundations" refers to physical footings in the ground — a literal, architectural sense.</p>
-
-  <p>Because the term changes meaning between the two premises, there are in fact <em>four</em> distinct terms in the argument, not three. The middle term that was supposed to bridge the major and minor terms simply does not exist as a single, stable concept. This error is called the <strong>fallacy of four terms</strong> (Latin: <em>quaternio terminorum</em>) and is a species of the informal fallacy of equivocation you studied in Q1 Week 4. No three-circle Venn diagram can save an argument with four terms; the fault lies upstream, in the failure to achieve genuine standard form.</p>
-
-  <p>The practical lesson: before you attempt to diagram a syllogism, verify that you can identify exactly three distinct terms, each with a single stable meaning throughout the argument.</p>
-</div>
-
-<h2>Connection to Argument</h2>
-
-<p>The ability to identify the three-term structure of a categorical syllogism is not an end in itself. It is the first step in a two-part skill: (1) reducing an argument to standard form, and (2) testing whether that form is valid. Neither step can be completed without the other, and neither can be completed without first locating the major, minor, and middle terms.</p>
-
-<p>Consider what you are doing when you reconstruct an argument from ordinary prose. A speaker or writer rarely labels their premises or announces their middle term. They may embed the premises in different paragraphs, reverse the conventional order, or omit one premise entirely (this omission will become the subject of study when you reach enthymemes in Q2 Week 6). Your task — as a careful reader and as a logician — is to look past the surface presentation and extract the underlying structure. Identifying the three terms and the two premises is the act of extraction. Once it is done, the tools of categorical logic — including the Venn diagram technique you will learn next — can be applied directly.</p>
-
-<p>This is also why the four-term fallacy matters. An argument cannot be valid or invalid in the categorical sense until it is a categorical syllogism. An argument with four terms has not yet been properly formed. No formal test for validity applies to it because it has not yet achieved the form that validity requires.</p>
-
-<div class="practice">
+<p>At first glance this looks like a three-term syllogism — one might expect <em>solid foundations</em> to be the middle term. But the conclusion is obviously absurd, and the reason reveals the structural flaw: the phrase "solid foundations" is being used in two different senses. In the major premise, "solid foundations" refers to well-supported evidence and valid reasoning — an abstract, logical sense. In the minor premise, "solid foundations" refers to physical footings in the ground — a literal, architectural sense.</p>
+<p>Because the term changes meaning between the two premises, there are in fact <em>four</em> distinct terms in the argument, not three. The middle term that was supposed to bridge the major and minor terms simply does not exist as a single, stable concept. This error is called the <strong>fallacy of four terms</strong> (Latin: <em>quaternio terminorum</em>) and is a species of the informal fallacy of equivocation you studied in Q1 Week 4. No three-circle Venn diagram can save an argument with four terms; the fault lies upstream, in the failure to achieve genuine standard form.</p>
+<p>The practical lesson: before you attempt to diagram a syllogism, verify that you can identify exactly three distinct terms, each with a single stable meaning throughout the argument.</p>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Connection to Argument</h2><p>The ability to identify the three-term structure of a categorical syllogism is not an end in itself. It is the first step in a two-part skill: (1) reducing an argument to standard form, and (2) testing whether that form is valid. Neither step can be completed without the other, and neither can be completed without first locating the major, minor, and middle terms.</p><p>Consider what you are doing when you reconstruct an argument from ordinary prose. A speaker or writer rarely labels their premises or announces their middle term. They may embed the premises in different paragraphs, reverse the conventional order, or omit one premise entirely (this omission will become the subject of study when you reach enthymemes in Q2 Week 6). Your task — as a careful reader and as a logician — is to look past the surface presentation and extract the underlying structure. Identifying the three terms and the two premises is the act of extraction. Once it is done, the tools of categorical logic — including the Venn diagram technique you will learn next — can be applied directly.</p><p>This is also why the four-term fallacy matters. An argument cannot be valid or invalid in the categorical sense until it is a categorical syllogism. An argument with four terms has not yet been properly formed. No formal test for validity applies to it because it has not yet achieved the form that validity requires.</p><div class="practice">
 <h2>Practice Problems</h2>
-
 <p><strong>Level 1 — Recognition:</strong> For each of the following, determine whether the argument is a properly formed categorical syllogism (exactly two premises, one conclusion, exactly three distinct terms, each term appearing in exactly two statements). Write "Valid syllogistic form" or "Not a categorical syllogism" and briefly state your reason.</p>
-
 <ol>
-  <li>
-    All prime numbers are integers.<br>
-    All even numbers are integers.<br>
+<li>
+    All prime numbers are integers.<br/>
+    All even numbers are integers.<br/>
     Therefore, all even numbers are prime numbers.
   </li>
-  <li>
-    No inert gases form compounds under normal conditions.<br>
-    All noble gases are inert gases.<br>
+<li>
+    No inert gases form compounds under normal conditions.<br/>
+    All noble gases are inert gases.<br/>
     Therefore, no noble gases form compounds under normal conditions.
   </li>
-  <li>
-    All triangles have interior angles summing to 180 degrees.<br>
-    Some quadrilaterals have equal sides.<br>
+<li>
+    All triangles have interior angles summing to 180 degrees.<br/>
+    Some quadrilaterals have equal sides.<br/>
     Therefore, some quadrilaterals have interior angles summing to 180 degrees.
   </li>
-  <li>
-    All transparent materials allow light to pass through them.<br>
-    All windows are made of transparent materials.<br>
-    Therefore, some windows allow light to pass through them.<br>
+<li>
+    All transparent materials allow light to pass through them.<br/>
+    All windows are made of transparent materials.<br/>
+    Therefore, some windows allow light to pass through them.<br/>
     And glass is transparent.
   </li>
 </ol>
-
 <p><em>Note for item 1:</em> Pay close attention to whether the middle term is genuinely doing its connecting work. An argument can have the right number of terms and still fail to produce a valid inference — but the question at this level is only about whether the structure is a properly formed categorical syllogism, not yet whether it is valid.</p>
-
-<hr style="border: none; border-top: 1px solid #c8d0dc; margin: 1.4em 0;">
-
+<hr style="border: none; border-top: 1px solid #c8d0dc; margin: 1.4em 0;"/>
 <p><strong>Level 2 — Analysis:</strong> The following argument is a valid categorical syllogism. Identify all three terms and label each as major (P), minor (S), or middle (M). Identify the statement type (A, E, I, or O) of each premise and the conclusion, and state the mood.</p>
-
 <div class="example" style="margin: 0.5em 0 1em 0;">
-  <span class="label">Argument to Analyze</span>
-  No mammals are cold-blooded.<br>
-  All whales are mammals.<br>
+<span class="label">Argument to Analyze</span>
+  No mammals are cold-blooded.<br/>
+  All whales are mammals.<br/>
   Therefore, no whales are cold-blooded.
 </div>
-
 <p>For each step, write out your reasoning: How did you identify the major term? The minor term? The middle term? What statement type is each premise and conclusion? What is the mood?</p>
-
-<hr style="border: none; border-top: 1px solid #c8d0dc; margin: 1.4em 0;">
-
+<hr style="border: none; border-top: 1px solid #c8d0dc; margin: 1.4em 0;"/>
 <p><strong>Level 3 — Construction:</strong> Write an original categorical syllogism in standard form. Your syllogism must meet all of the following requirements:</p>
-
 <ul>
-  <li>Exactly two premises and one conclusion</li>
-  <li>Exactly three distinct terms, each with a single stable meaning</li>
-  <li>The subject matter must be drawn from a neutral domain: geometry, natural science, everyday objects, or abstract categories — not politics, religion, or contested social topics</li>
-  <li>Label each statement as major premise, minor premise, or conclusion</li>
-  <li>Identify the major term (P), minor term (S), and middle term (M) in your argument</li>
-  <li>Classify each statement by type (A, E, I, or O) and state the mood of your syllogism</li>
+<li>Exactly two premises and one conclusion</li>
+<li>Exactly three distinct terms, each with a single stable meaning</li>
+<li>The subject matter must be drawn from a neutral domain: geometry, natural science, everyday objects, or abstract categories — not politics, religion, or contested social topics</li>
+<li>Label each statement as major premise, minor premise, or conclusion</li>
+<li>Identify the major term (P), minor term (S), and middle term (M) in your argument</li>
+<li>Classify each statement by type (A, E, I, or O) and state the mood of your syllogism</li>
 </ul>
-
 <p>After labeling your argument, write one sentence explaining why your middle term successfully connects the major and minor terms — that is, why the conclusion follows from the premises rather than requiring additional information.</p>
-</div>
-
-<div class="looking-ahead">
+</div></div><div style="margin-bottom: 20px;"><div class="looking-ahead">
   Lesson 5.02b introduces the three-circle Venn diagram, the standard graphical method for testing syllogistic validity — and the skill of putting a syllogism into standard form, which you practiced here, is exactly what that diagram requires as its starting point.
+</div></div></div>
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 16px 28px; text-align: center; margin-top: 10px;">
+<div style="font-size: 16px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> · SEMANTICS AND LOGIC HONORS · Quarter 2 · Student Lesson Page</div>
+<div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 5.02a · Syllogisms Review</div>
+<div style="font-size: 12px; color: rgba(255,255,255,0.4);">© Optima Academy Online · An Education Experience Company</div>
 </div>
-
 </body>
 </html>

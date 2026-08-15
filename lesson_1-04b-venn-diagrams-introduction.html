@@ -1,26 +1,27 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Lesson 1.04b — Venn Diagrams: A First Look</title>
 <style>
-body { font-family: Georgia, 'Times New Roman', serif; max-width: 820px; margin: 0 auto; padding: 24px 28px; line-height: 1.7; color: #1a1a1a; background: #fff; }
-h1 { font-size: 1.55em; border-bottom: 2px solid #2a2a2a; padding-bottom: 0.3em; margin-bottom: 0.4em; }
-h2 { font-size: 1.2em; margin-top: 1.8em; margin-bottom: 0.4em; color: #1a1a1a; }
-.benchmark { background: #f2f2f2; border-left: 4px solid #555; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.5em; font-family: Arial, sans-serif; }
-.objective { font-style: italic; color: #333; margin-bottom: 1.8em; font-size: 0.95em; }
-.example { background: #f9f9f9; border: 1px solid #ddd; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
-.example .label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.error-example { background: #fff8f8; border: 1px solid #e8c0c0; padding: 14px 18px; margin: 1em 0; border-radius: 3px; }
+body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 820px; margin: 0 auto; padding: 0 0 24px 0; line-height: 1.7; color: #1a2340; background: #fff; }
+h1 { display: none; }
+h2 { font-size: 1.25em; margin: 0 0 14px 0; color: #0e1c42; border-left: 4px solid #C7922C; padding-left: 12px; }
+.benchmark { background: #EEF1F8; border-left: 4px solid #0E1C42; padding: 8px 14px; font-size: 0.88em; margin-bottom: 0.8em; color: #1a2340; }
+.objective { font-style: italic; color: #1a2340; border-left: 4px solid #C7922C; padding-left: 12px; margin-bottom: 0; font-size: 0.98em; }
+.example { background: #E8F6FB; border: 1px solid #C5DCE5; border-left: 5px solid #2196D0; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
+.example .label { font-weight: bold; font-size: 0.85em; color: #C7922C; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+.error-example { background: #FDECEC; border: 1px solid #F5C6C6; border-left: 5px solid #C0392B; padding: 14px 18px; margin: 1em 0; border-radius: 6px; }
 .error-example .label { font-weight: bold; font-size: 0.85em; color: #a04040; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
-.practice { background: #f5f7fa; border: 1px solid #d0d7e3; padding: 18px 22px; margin: 2em 0; border-radius: 4px; }
-.practice h2 { margin-top: 0; border-bottom: 1px solid #d0d7e3; padding-bottom: 0.3em; }
-.looking-ahead { background: #eef3f9; border-left: 4px solid #4a7fb5; padding: 12px 18px; margin-top: 2.5em; font-style: italic; font-size: 0.95em; border-radius: 0 4px 4px 0; }
+.practice { background: #FFFFFF; border: 1px solid #D0D9E8; border-top: 3px solid #C7922C; padding: 18px 22px; margin: 0; border-radius: 8px; }
+.practice h2 { margin-top: 0; border-left: none; padding-left: 0; }
+.looking-ahead { background: #EEF1F8; border-left: 5px solid #0E1C42; padding: 16px 20px; font-style: italic; font-size: 0.98em; border-radius: 0 6px 6px 0; color: #1a2340; }
 ol li, ul li { margin-bottom: 0.5em; }
 table { border-collapse: collapse; width: 100%; margin: 1em 0; }
-th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
-th { background: #f0f0f0; font-family: Arial, sans-serif; font-size: 0.9em; }
+th, td { border: 1px solid #D0D9E8; padding: 8px 12px; }
+th { background: #EEF1F8; font-weight: bold; border: 1px solid #D0D9E8; padding: 8px 12px; text-align: left; }
 .source-note { font-size: 0.85em; color: #666; font-style: italic; margin-top: 4px; }
 /* Venn diagram styles */
 .venn-wrap { display: flex; align-items: center; gap: 32px; margin: 1.2em 0 0.6em 0; flex-wrap: wrap; }
@@ -29,268 +30,225 @@ th { background: #f0f0f0; font-family: Arial, sans-serif; font-size: 0.9em; }
 .venn-caption .rule { font-weight: bold; color: #1a1a1a; display: block; margin-bottom: 4px; }
 .convention-box { background: #fffbea; border: 1px solid #d4b94a; border-left: 4px solid #c8a820; padding: 12px 18px; margin: 1.2em 0; border-radius: 3px; font-family: Arial, sans-serif; font-size: 0.93em; }
 .convention-box strong { display: block; margin-bottom: 4px; }
-.widget-embed { margin: 2em 0; border: 1px solid #d0d7e3; border-radius: 4px; overflow: hidden; }
-.widget-embed p { margin: 0; padding: 8px 14px; background: #f2f2f2; font-family: Arial, sans-serif; font-size: 0.82em; color: #555; }
-</style>
+.widget-embed { margin: 1.2em 0; border: 1px solid #D0D9E8; border-radius: 8px; overflow: hidden; }
+.widget-embed p { margin: 0; padding: 8px 14px; background: #EEF1F8; font-size: 0.85em; color: #1a2340; }
+
+h3 { font-size: 1.05em; margin-top: 1.2em; color: #0e1c42; }
+blockquote { border-left: 3px solid #D0D9E8; margin: 1em 0; padding-left: 1em; color: #1a2340; font-style: italic; }</style>
 </head>
 <body>
-
-<h1>Lesson 1.04b — Venn Diagrams: A First Look</h1>
-
-<div class="benchmark">
-  <strong>CPALMS Benchmarks:</strong> ELA.K12.EE.1.1 — Cite evidence to explain and justify reasoning &nbsp;|&nbsp; ELA.11.R.2.4 — Compare development of multiple arguments; evaluate effectiveness and validity of reasoning
+<div style="background: #0E1C42; border-bottom: 5px solid #55C8E8; padding: 22px 28px;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px;">
+<div style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><img alt="Optima Academy" src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" style="width: 50px; height: 40px; object-fit: contain;"/></div>
+<div>
+<div style="font-size: 26px; color: #ffffff; line-height: 1.2;">Optima Academy Online</div>
+<div style="font-size: 12px; color: #55c8e8;">An Education Experience Company</div>
 </div>
-
-<p class="objective"><strong>Learning Objective:</strong> Students will be able to use a basic Venn diagram to represent the relationship between two categories, and begin to see how Venn diagrams can represent argumentative claims.</p>
-
-<h2>Orientation: A Visual Language for Categorical Claims</h2>
-
-<p>We have established that categorical claims — "All A are B," "No A are B," "Some A are B" — are the building blocks of deductive arguments. So far, we have expressed those claims in words. In coming weeks, we will need to test whether combinations of categorical claims produce valid conclusions. To do this efficiently, we need a visual language — one precise enough to carry logical content, not merely to illustrate it. This lesson introduces Venn diagrams, the standard visual notation for representing categorical relationships.</p>
-
-<p>They are not decorative. A Venn diagram is a formal notation with precise rules, and by the end of this course you will use it to prove whether a syllogism is valid. Learn the conventions carefully now; they do not vary.</p>
-
-<h2>Intuitive Entry: What Your Spatial Intuition Already Knows</h2>
-
-<p>Suppose you want to show the relationship between "cats" and "animals." You might naturally draw a small circle for "cats" and a larger circle for "animals," and place the cats-circle entirely inside the animals-circle — because every cat is an animal, but not every animal is a cat. That instinct is exactly right. It is the core of Venn notation. The diagram is a rigorous formalization of what spatial intuition already does with overlapping groups.</p>
-
-<p>The challenge is not the spatial intuition; the challenge is learning the conventions that make the notation precise. Two regions can be spatially overlapping — and what that means depends entirely on whether anything is claimed to be in the overlap, or whether the overlap is claimed to be empty. The conventions below govern exactly that.</p>
-
-<h2>Background: John Venn and the System</h2>
-
-<p>The notation is named after John Venn (1834–1923), a British logician and philosopher who published the formal system in 1880 in his paper "On the Diagrammatic and Mechanical Representation of Propositions and Reasonings." Venn was working in the tradition of George Boole, whose algebraic treatment of logic Venn sought to visualize geometrically. The diagrams you are learning today are essentially unchanged from his original formulation. In categorical logic, we work with two-circle and three-circle diagrams; this lesson introduces the two-circle form.</p>
-
-<h2>The Two Conventions: Shading and X</h2>
-
-<div class="convention-box">
-  <strong>The Shading Convention (critical — do not reverse these)</strong>
-  Shading a region means it is <em>empty</em>: nothing belongs to that region.<br>
-  An <strong>X</strong> in a region means at least one thing <em>is</em> in that region.<br>
+</div>
+<div style="font-size: 30px; color: #ffffff;">SEMANTICS AND LOGIC HONORS</div>
+</div>
+<div style="background: #FFFFFF; border-bottom: 2px solid #D0D9E8; display: flex; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 130px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Quarter / Module</div>
+<div style="font-size: 16px; color: #0e1c42;">Q1 · Module 2</div>
+<div style="font-size: 12px; color: #666;">Breaking Down Arguments</div>
+</div>
+<div style="flex: 1; min-width: 110px; padding: 12px 16px; border-right: 1px solid #D0D9E8;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Lesson</div>
+<div style="font-size: 16px; color: #0e1c42;">Lesson 1.04b</div>
+</div>
+<div style="flex: 2; min-width: 160px; padding: 12px 16px;">
+<div style="font-size: 11px; color: #6b7a99; margin-bottom: 4px;">Topic</div>
+<div style="font-size: 16px; color: #0e1c42; font-style: italic;">Venn Diagrams: A First Look</div>
+</div>
+</div>
+<div style="background: #EEF1F8; border-left: 5px solid #0E1C42; border-radius: 7px; padding: 16px 20px; margin: 20px 28px 0 28px;">
+<div style="font-size: 11px; color: #0e1c42; margin-bottom: 6px;">Lesson 1.04b</div>
+<div style="font-size: 21px; color: #0e1c42;">Venn Diagrams: A First Look</div>
+</div>
+<div style="padding: 20px 28px 4px 28px;"><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><div class="benchmark">
+<strong>CPALMS Benchmarks:</strong> ELA.K12.EE.1.1 — Cite evidence to explain and justify reasoning  |  ELA.11.R.2.4 — Compare development of multiple arguments; evaluate effectiveness and validity of reasoning
+</div><p class="objective"><strong>Learning Objective:</strong> Students will be able to use a basic Venn diagram to represent the relationship between two categories, and begin to see how Venn diagrams can represent argumentative claims.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Orientation: A Visual Language for Categorical Claims</h2><p>We have established that categorical claims — "All A are B," "No A are B," "Some A are B" — are the building blocks of deductive arguments. So far, we have expressed those claims in words. In coming weeks, we will need to test whether combinations of categorical claims produce valid conclusions. To do this efficiently, we need a visual language — one precise enough to carry logical content, not merely to illustrate it. This lesson introduces Venn diagrams, the standard visual notation for representing categorical relationships.</p><p>They are not decorative. A Venn diagram is a formal notation with precise rules, and by the end of this course you will use it to prove whether a syllogism is valid. Learn the conventions carefully now; they do not vary.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Intuitive Entry: What Your Spatial Intuition Already Knows</h2><p>Suppose you want to show the relationship between "cats" and "animals." You might naturally draw a small circle for "cats" and a larger circle for "animals," and place the cats-circle entirely inside the animals-circle — because every cat is an animal, but not every animal is a cat. That instinct is exactly right. It is the core of Venn notation. The diagram is a rigorous formalization of what spatial intuition already does with overlapping groups.</p><p>The challenge is not the spatial intuition; the challenge is learning the conventions that make the notation precise. Two regions can be spatially overlapping — and what that means depends entirely on whether anything is claimed to be in the overlap, or whether the overlap is claimed to be empty. The conventions below govern exactly that.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Background: John Venn and the System</h2><p>The notation is named after John Venn (1834–1923), a British logician and philosopher who published the formal system in 1880 in his paper "On the Diagrammatic and Mechanical Representation of Propositions and Reasonings." Venn was working in the tradition of George Boole, whose algebraic treatment of logic Venn sought to visualize geometrically. The diagrams you are learning today are essentially unchanged from his original formulation. In categorical logic, we work with two-circle and three-circle diagrams; this lesson introduces the two-circle form.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The Two Conventions: Shading and X</h2><div class="convention-box">
+<strong>The Shading Convention (critical — do not reverse these)</strong>
+  Shading a region means it is <em>empty</em>: nothing belongs to that region.<br/>
+  An <strong>X</strong> in a region means at least one thing <em>is</em> in that region.<br/>
   A blank (unshaded, no X) region means nothing is claimed about it — it may or may not contain members.
+</div><p>These conventions are not optional, and reversing them is the most common error beginners make. Shading does not mean "something is here"; it means the region has been ruled out. An X does not mean "this is the important region"; it is the specific claim that at least one member exists there. When a region is left blank, the diagram makes no assertion about it.</p></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>The Four Basic Relationships</h2><p>Every categorical claim expresses one of four basic relationships between two categories. Each has a specific Venn diagram representation.</p><div class="example">
+<span class="label">Relationship 1 — "All A are B"</span>
+<div class="venn-wrap">
+<svg aria-label="Venn diagram: All A are B" class="venn-svg" height="110" viewbox="0 0 200 110" width="200" xmlns="http://www.w3.org/2000/svg">
+<!-- Standard two overlapping circles, same layout as the other three relationships -->
+<!-- Step 1: fill circle A entirely (shaded) -->
+<circle cx="75" cy="55" fill="#bbb" fill-opacity="0.45" r="42"></circle>
+<!-- Step 2: cover the overlap with an opaque white circle B, leaving only the A-only crescent shaded -->
+<circle cx="125" cy="55" fill="#fff" r="42"></circle>
+<!-- Step 3: redraw both outlines cleanly on top -->
+<circle cx="75" cy="55" fill="none" r="42" stroke="#555" stroke-width="1.5"></circle>
+<circle cx="125" cy="55" fill="none" r="42" stroke="#555" stroke-width="1.5"></circle>
+<text fill="#333" font-family="Arial" font-size="13" text-anchor="middle" x="58" y="59">A</text>
+<text fill="#333" font-family="Arial" font-size="13" text-anchor="middle" x="142" y="59">B</text>
+</svg>
+<div class="venn-caption">
+<span class="rule">Circles A and B overlap; the part of A that falls outside B is shaded (empty).</span>
+      Nothing is an A that is not a B — every member of A is also a member of B. The overlap and the B-only region are left blank: B may or may not contain members outside A, and the diagram makes no claim either way.<br/>
+<em>Example: All squares are rectangles.</em>
 </div>
-
-<p>These conventions are not optional, and reversing them is the most common error beginners make. Shading does not mean "something is here"; it means the region has been ruled out. An X does not mean "this is the important region"; it is the specific claim that at least one member exists there. When a region is left blank, the diagram makes no assertion about it.</p>
-
-<h2>The Four Basic Relationships</h2>
-
-<p>Every categorical claim expresses one of four basic relationships between two categories. Each has a specific Venn diagram representation.</p>
-
-<!-- Relationship 1: All A are B -->
-<div class="example">
-  <span class="label">Relationship 1 — "All A are B"</span>
-  <div class="venn-wrap">
-    <svg class="venn-svg" width="200" height="110" viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg" aria-label="Venn diagram: All A are B">
-      <!-- Standard two overlapping circles, same layout as the other three relationships -->
-      <!-- Step 1: fill circle A entirely (shaded) -->
-      <circle cx="75" cy="55" r="42" fill="#bbb" fill-opacity="0.45"/>
-      <!-- Step 2: cover the overlap with an opaque white circle B, leaving only the A-only crescent shaded -->
-      <circle cx="125" cy="55" r="42" fill="#fff"/>
-      <!-- Step 3: redraw both outlines cleanly on top -->
-      <circle cx="75" cy="55" r="42" fill="none" stroke="#555" stroke-width="1.5"/>
-      <circle cx="125" cy="55" r="42" fill="none" stroke="#555" stroke-width="1.5"/>
-      <text x="58" y="59" text-anchor="middle" font-family="Arial" font-size="13" fill="#333">A</text>
-      <text x="142" y="59" text-anchor="middle" font-family="Arial" font-size="13" fill="#333">B</text>
-    </svg>
-    <div class="venn-caption">
-      <span class="rule">Circles A and B overlap; the part of A that falls outside B is shaded (empty).</span>
-      Nothing is an A that is not a B — every member of A is also a member of B. The overlap and the B-only region are left blank: B may or may not contain members outside A, and the diagram makes no claim either way.<br>
-      <em>Example: All squares are rectangles.</em>
-    </div>
-  </div>
 </div>
-
-<!-- Relationship 2: No A are B -->
-<div class="example">
-  <span class="label">Relationship 2 — "No A are B"</span>
-  <div class="venn-wrap">
-    <svg class="venn-svg" width="200" height="110" viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg" aria-label="Venn diagram: No A are B">
-      <circle cx="65" cy="55" r="42" fill="none" stroke="#555" stroke-width="1.5"/>
-      <circle cx="135" cy="55" r="42" fill="none" stroke="#555" stroke-width="1.5"/>
-      <!-- Shade the overlap region -->
-      <clipPath id="clipA2">
-        <circle cx="65" cy="55" r="42"/>
-      </clipPath>
-      <circle cx="135" cy="55" r="42" fill="#bbb" fill-opacity="0.45" clip-path="url(#clipA2)"/>
-      <text x="52" y="59" text-anchor="middle" font-family="Arial" font-size="13" fill="#333">A</text>
-      <text x="148" y="59" text-anchor="middle" font-family="Arial" font-size="13" fill="#333">B</text>
-    </svg>
-    <div class="venn-caption">
-      <span class="rule">The overlap region between A and B is shaded (empty).</span>
-      Nothing belongs to both A and B. The circles may be drawn entirely separate, or as here with the overlap shaded out — both convey the same claim.<br>
-      <em>Example: No mammals are insects.</em>
-    </div>
-  </div>
+</div><div class="example">
+<span class="label">Relationship 2 — "No A are B"</span>
+<div class="venn-wrap">
+<svg aria-label="Venn diagram: No A are B" class="venn-svg" height="110" viewbox="0 0 200 110" width="200" xmlns="http://www.w3.org/2000/svg">
+<circle cx="65" cy="55" fill="none" r="42" stroke="#555" stroke-width="1.5"></circle>
+<circle cx="135" cy="55" fill="none" r="42" stroke="#555" stroke-width="1.5"></circle>
+<!-- Shade the overlap region -->
+<clippath id="clipA2">
+<circle cx="65" cy="55" r="42"></circle>
+</clippath>
+<circle clip-path="url(#clipA2)" cx="135" cy="55" fill="#bbb" fill-opacity="0.45" r="42"></circle>
+<text fill="#333" font-family="Arial" font-size="13" text-anchor="middle" x="52" y="59">A</text>
+<text fill="#333" font-family="Arial" font-size="13" text-anchor="middle" x="148" y="59">B</text>
+</svg>
+<div class="venn-caption">
+<span class="rule">The overlap region between A and B is shaded (empty).</span>
+      Nothing belongs to both A and B. The circles may be drawn entirely separate, or as here with the overlap shaded out — both convey the same claim.<br/>
+<em>Example: No mammals are insects.</em>
 </div>
-
-<!-- Relationship 3: Some A are B -->
-<div class="example">
-  <span class="label">Relationship 3 — "Some A are B"</span>
-  <div class="venn-wrap">
-    <svg class="venn-svg" width="200" height="110" viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg" aria-label="Venn diagram: Some A are B">
-      <circle cx="75" cy="55" r="42" fill="none" stroke="#555" stroke-width="1.5"/>
-      <circle cx="125" cy="55" r="42" fill="none" stroke="#555" stroke-width="1.5"/>
-      <!-- X in the overlap -->
-      <text x="100" y="60" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#2a5a9b">X</text>
-      <text x="58" y="59" text-anchor="middle" font-family="Arial" font-size="13" fill="#333">A</text>
-      <text x="142" y="59" text-anchor="middle" font-family="Arial" font-size="13" fill="#333">B</text>
-    </svg>
-    <div class="venn-caption">
-      <span class="rule">An X sits in the overlap region.</span>
-      At least one thing belongs to both A and B. No region is shaded; no claim of emptiness is made anywhere.<br>
-      <em>Example: Some athletes are students.</em>
-    </div>
-  </div>
 </div>
-
-<!-- Relationship 4: Some A are not B -->
-<div class="example">
-  <span class="label">Relationship 4 — "Some A are not B"</span>
-  <div class="venn-wrap">
-    <svg class="venn-svg" width="200" height="110" viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg" aria-label="Venn diagram: Some A are not B">
-      <circle cx="75" cy="55" r="42" fill="none" stroke="#555" stroke-width="1.5"/>
-      <circle cx="125" cy="55" r="42" fill="none" stroke="#555" stroke-width="1.5"/>
-      <!-- X in A-only region (left of overlap) -->
-      <text x="46" y="60" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#2a5a9b">X</text>
-      <text x="62" y="36" text-anchor="middle" font-family="Arial" font-size="13" fill="#333">A</text>
-      <text x="142" y="36" text-anchor="middle" font-family="Arial" font-size="13" fill="#333">B</text>
-    </svg>
-    <div class="venn-caption">
-      <span class="rule">An X sits in the part of A that falls outside B.</span>
-      At least one member of A is not a member of B. The claim is about the A-only region, not the overlap.<br>
-      <em>Example: Some birds are not capable of flight.</em>
-    </div>
-  </div>
+</div><div class="example">
+<span class="label">Relationship 3 — "Some A are B"</span>
+<div class="venn-wrap">
+<svg aria-label="Venn diagram: Some A are B" class="venn-svg" height="110" viewbox="0 0 200 110" width="200" xmlns="http://www.w3.org/2000/svg">
+<circle cx="75" cy="55" fill="none" r="42" stroke="#555" stroke-width="1.5"></circle>
+<circle cx="125" cy="55" fill="none" r="42" stroke="#555" stroke-width="1.5"></circle>
+<!-- X in the overlap -->
+<text fill="#2a5a9b" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" x="100" y="60">X</text>
+<text fill="#333" font-family="Arial" font-size="13" text-anchor="middle" x="58" y="59">A</text>
+<text fill="#333" font-family="Arial" font-size="13" text-anchor="middle" x="142" y="59">B</text>
+</svg>
+<div class="venn-caption">
+<span class="rule">An X sits in the overlap region.</span>
+      At least one thing belongs to both A and B. No region is shaded; no claim of emptiness is made anywhere.<br/>
+<em>Example: Some athletes are students.</em>
 </div>
-
-<h2>A Summary Table of the Four Forms</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Claim</th>
-      <th>Diagram description</th>
-      <th>Mark used</th>
-      <th>Where</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>"All A are B"</td>
-      <td>Circles overlap</td>
-      <td>Shading (empty)</td>
-      <td>Part of A outside B</td>
-    </tr>
-    <tr>
-      <td>"No A are B"</td>
-      <td>Circles disjoint or overlap shaded</td>
-      <td>Shading (empty)</td>
-      <td>Overlap of A and B</td>
-    </tr>
-    <tr>
-      <td>"Some A are B"</td>
-      <td>Circles overlap</td>
-      <td>X (non-empty)</td>
-      <td>Overlap of A and B</td>
-    </tr>
-    <tr>
-      <td>"Some A are not B"</td>
-      <td>Circles overlap</td>
-      <td>X (non-empty)</td>
-      <td>Part of A outside B</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>Worked Examples: Reading and Constructing Diagrams</h2>
-
-<div class="example">
-  <span class="label">Worked Example 1 — "All philosophers are thinkers"</span>
-  <p>Draw two overlapping circles labeled "Philosophers" and "Thinkers." Shade the portion of the Philosophers circle that lies outside the Thinkers circle. This shading asserts: nothing is a philosopher but not a thinker. The entire Philosophers circle is contained within the Thinkers circle. No claim is made about whether there are thinkers who are not philosophers — that region is left blank.</p>
 </div>
-
-<div class="example">
-  <span class="label">Worked Example 2 — "No reptiles are warm-blooded"</span>
-  <p>Draw two overlapping circles labeled "Reptiles" and "Warm-blooded." Shade the entire overlap region. This asserts: nothing exists in both categories simultaneously. You may alternatively draw the circles as non-overlapping — that representation also conveys the claim. Either is acceptable; the shaded-overlap form is preferred in formal work because it makes the structure of the original two-circle diagram explicit.</p>
+</div><div class="example">
+<span class="label">Relationship 4 — "Some A are not B"</span>
+<div class="venn-wrap">
+<svg aria-label="Venn diagram: Some A are not B" class="venn-svg" height="110" viewbox="0 0 200 110" width="200" xmlns="http://www.w3.org/2000/svg">
+<circle cx="75" cy="55" fill="none" r="42" stroke="#555" stroke-width="1.5"></circle>
+<circle cx="125" cy="55" fill="none" r="42" stroke="#555" stroke-width="1.5"></circle>
+<!-- X in A-only region (left of overlap) -->
+<text fill="#2a5a9b" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" x="46" y="60">X</text>
+<text fill="#333" font-family="Arial" font-size="13" text-anchor="middle" x="62" y="36">A</text>
+<text fill="#333" font-family="Arial" font-size="13" text-anchor="middle" x="142" y="36">B</text>
+</svg>
+<div class="venn-caption">
+<span class="rule">An X sits in the part of A that falls outside B.</span>
+      At least one member of A is not a member of B. The claim is about the A-only region, not the overlap.<br/>
+<em>Example: Some birds are not capable of flight.</em>
 </div>
-
-<div class="example">
-  <span class="label">Worked Example 3 — "Some historians are novelists"</span>
-  <p>Draw two overlapping circles labeled "Historians" and "Novelists." Place an X in the overlap region. This asserts: at least one person is both a historian and a novelist. No region is shaded; no claim of emptiness is being made. The X does not say how many — it says at least one.</p>
 </div>
-
-<div class="example">
-  <span class="label">Worked Example 4 — "Some athletes are not professionals"</span>
-  <p>Draw two overlapping circles labeled "Athletes" and "Professionals." Place an X in the portion of the Athletes circle that falls outside the Professionals circle. This asserts: at least one athlete is not a professional. The X is in the Athletes-only region, not in the overlap. No claim is made about whether there are any athletes who are professionals.</p>
-</div>
-
-<div class="error-example">
-  <span class="label">Common Error — Reversing Shading and X</span>
-  <p>The single most frequent Venn diagram mistake is placing an X in a region to mean "this category exists here" when what is needed is shading, or shading a region to emphasize importance when what is needed is an X. Remember: shading asserts emptiness; X asserts non-emptiness. A student who shades the overlap for "Some A are B" is claiming the exact opposite of what the sentence says — they have drawn "No A are B." This error will produce wrong answers when testing syllogisms and must be caught now.</p>
-</div>
-
-<h2>Interactive Practice</h2>
-
-<div class="widget-embed">
-  <p>Interactive practice — click a region to cycle it through blank, shaded, and X. Build the correct diagram for each of the four statement types, then check your answer.</p>
-  <iframe src="https://optimaondemand.github.io/logic-hon-widgets/widget_venn-statement-builder.html" width="100%" height="620" style="border:none; display:block;" title="Venn Diagram Builder: Categorical Statements"></iframe>
-</div>
-
-<h2>Connection to Argument: Diagrams as Proof</h2>
-
-<p>Venn diagrams are not illustrations of arguments — they are a proof method for testing arguments. The technique works as follows. A categorical syllogism consists of two premises and a conclusion. You diagram the two premises in a single diagram, following the shading and X conventions precisely. Then you ask: does the diagram you have drawn already contain the information asserted by the conclusion? If it does, the syllogism is valid: the conclusion follows necessarily from the premises. If the diagram does not already show what the conclusion claims, the syllogism is invalid: the premises do not force the conclusion.</p>
-
-<p>This is a mechanical method. It does not require intuition about whether the conclusion "seems to follow." It requires only that you apply the conventions correctly, read the resulting diagram honestly, and check whether the conclusion's claim is already visible. Achieving that requires learning the conventions now, precisely and without shortcuts.</p>
-
-<p>The method was one of the great achievements of 19th-century logic. Venn did not invent the syllogism — that is Aristotle's achievement — but he gave logicians a visual language rigorous enough to serve as a decision procedure. You are learning the foundation of that language in this lesson.</p>
-
-<div class="practice">
-  <h2>Practice Problems</h2>
-
-  <p><strong>Recognition</strong></p>
-  <ol>
-    <li>For each statement below, describe the correct Venn diagram: (i) whether the circles overlap, are disjoint, or one is nested inside the other; (ii) whether to use shading or X; (iii) where exactly the shading or X goes.
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>A Summary Table of the Four Forms</h2><table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Diagram description</th>
+<th>Mark used</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"All A are B"</td>
+<td>Circles overlap</td>
+<td>Shading (empty)</td>
+<td>Part of A outside B</td>
+</tr>
+<tr>
+<td>"No A are B"</td>
+<td>Circles disjoint or overlap shaded</td>
+<td>Shading (empty)</td>
+<td>Overlap of A and B</td>
+</tr>
+<tr>
+<td>"Some A are B"</td>
+<td>Circles overlap</td>
+<td>X (non-empty)</td>
+<td>Overlap of A and B</td>
+</tr>
+<tr>
+<td>"Some A are not B"</td>
+<td>Circles overlap</td>
+<td>X (non-empty)</td>
+<td>Part of A outside B</td>
+</tr>
+</tbody>
+</table></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Worked Examples: Reading and Constructing Diagrams</h2><div class="example">
+<span class="label">Worked Example 1 — "All philosophers are thinkers"</span>
+<p>Draw two overlapping circles labeled "Philosophers" and "Thinkers." Shade the portion of the Philosophers circle that lies outside the Thinkers circle. This shading asserts: nothing is a philosopher but not a thinker. The entire Philosophers circle is contained within the Thinkers circle. No claim is made about whether there are thinkers who are not philosophers — that region is left blank.</p>
+</div><div class="example">
+<span class="label">Worked Example 2 — "No reptiles are warm-blooded"</span>
+<p>Draw two overlapping circles labeled "Reptiles" and "Warm-blooded." Shade the entire overlap region. This asserts: nothing exists in both categories simultaneously. You may alternatively draw the circles as non-overlapping — that representation also conveys the claim. Either is acceptable; the shaded-overlap form is preferred in formal work because it makes the structure of the original two-circle diagram explicit.</p>
+</div><div class="example">
+<span class="label">Worked Example 3 — "Some historians are novelists"</span>
+<p>Draw two overlapping circles labeled "Historians" and "Novelists." Place an X in the overlap region. This asserts: at least one person is both a historian and a novelist. No region is shaded; no claim of emptiness is being made. The X does not say how many — it says at least one.</p>
+</div><div class="example">
+<span class="label">Worked Example 4 — "Some athletes are not professionals"</span>
+<p>Draw two overlapping circles labeled "Athletes" and "Professionals." Place an X in the portion of the Athletes circle that falls outside the Professionals circle. This asserts: at least one athlete is not a professional. The X is in the Athletes-only region, not in the overlap. No claim is made about whether there are any athletes who are professionals.</p>
+</div><div class="error-example">
+<span class="label">Common Error — Reversing Shading and X</span>
+<p>The single most frequent Venn diagram mistake is placing an X in a region to mean "this category exists here" when what is needed is shading, or shading a region to emphasize importance when what is needed is an X. Remember: shading asserts emptiness; X asserts non-emptiness. A student who shades the overlap for "Some A are B" is claiming the exact opposite of what the sentence says — they have drawn "No A are B." This error will produce wrong answers when testing syllogisms and must be caught now.</p>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Interactive Practice</h2><div class="widget-embed">
+<p>Interactive practice — click a region to cycle it through blank, shaded, and X. Build the correct diagram for each of the four statement types, then check your answer.</p>
+<iframe height="620" src="https://optimaondemand.github.io/logic-hon-widgets/widget_venn-statement-builder.html" style="border:none; display:block;" title="Venn Diagram Builder: Categorical Statements" width="100%"></iframe>
+</div></div><div style="background: #FFFFFF; border-top: 3px solid #C7922C; border: 1px solid #D0D9E8; border-radius: 8px; padding: 20px 24px; margin-bottom: 20px;"><h2>Connection to Argument: Diagrams as Proof</h2><p>Venn diagrams are not illustrations of arguments — they are a proof method for testing arguments. The technique works as follows. A categorical syllogism consists of two premises and a conclusion. You diagram the two premises in a single diagram, following the shading and X conventions precisely. Then you ask: does the diagram you have drawn already contain the information asserted by the conclusion? If it does, the syllogism is valid: the conclusion follows necessarily from the premises. If the diagram does not already show what the conclusion claims, the syllogism is invalid: the premises do not force the conclusion.</p><p>This is a mechanical method. It does not require intuition about whether the conclusion "seems to follow." It requires only that you apply the conventions correctly, read the resulting diagram honestly, and check whether the conclusion's claim is already visible. Achieving that requires learning the conventions now, precisely and without shortcuts.</p><p>The method was one of the great achievements of 19th-century logic. Venn did not invent the syllogism — that is Aristotle's achievement — but he gave logicians a visual language rigorous enough to serve as a decision procedure. You are learning the foundation of that language in this lesson.</p><div class="practice">
+<h2>Practice Problems</h2>
+<p><strong>Recognition</strong></p>
+<ol>
+<li>For each statement below, describe the correct Venn diagram: (i) whether the circles overlap, are disjoint, or one is nested inside the other; (ii) whether to use shading or X; (iii) where exactly the shading or X goes.
       <ul>
-        <li>(a) "All mammals are vertebrates."</li>
-        <li>(b) "No fungi are animals."</li>
-        <li>(c) "Some metals are conductors."</li>
-        <li>(d) "Some vehicles are not motorized."</li>
-      </ul>
-    </li>
-  </ol>
-
-  <p><strong>Analysis</strong></p>
-  <ol start="2">
-    <li>A student draws a Venn diagram for "All cats are animals" and places an X in the overlap region between "Cats" and "Animals." What error has the student made? Describe what the correct diagram looks like, and describe what claim the student's diagram (with the X in the overlap) actually represents.</li>
-    <li>A Venn diagram has two circles labeled "Doctors" and "Runners." The overlap region is shaded. No X appears anywhere. Which of the following claims does this diagram represent?
+<li>(a) "All mammals are vertebrates."</li>
+<li>(b) "No fungi are animals."</li>
+<li>(c) "Some metals are conductors."</li>
+<li>(d) "Some vehicles are not motorized."</li>
+</ul>
+</li>
+</ol>
+<p><strong>Analysis</strong></p>
+<ol start="2">
+<li>A student draws a Venn diagram for "All cats are animals" and places an X in the overlap region between "Cats" and "Animals." What error has the student made? Describe what the correct diagram looks like, and describe what claim the student's diagram (with the X in the overlap) actually represents.</li>
+<li>A Venn diagram has two circles labeled "Doctors" and "Runners." The overlap region is shaded. No X appears anywhere. Which of the following claims does this diagram represent?
       <ul>
-        <li>(a) All doctors are runners.</li>
-        <li>(b) No doctors are runners.</li>
-        <li>(c) Some doctors are runners.</li>
-        <li>(d) Some doctors are not runners.</li>
-      </ul>
+<li>(a) All doctors are runners.</li>
+<li>(b) No doctors are runners.</li>
+<li>(c) Some doctors are runners.</li>
+<li>(d) Some doctors are not runners.</li>
+</ul>
       Explain your answer by reference to the shading convention.
     </li>
-  </ol>
-
-  <p><strong>Construction</strong></p>
-  <ol start="4">
-    <li>Describe precisely (in words, since you cannot draw inline) Venn diagrams for each of the following claims. For each, state: the circle labels, what region is shaded or marked with X, and what that mark means.
+</ol>
+<p><strong>Construction</strong></p>
+<ol start="4">
+<li>Describe precisely (in words, since you cannot draw inline) Venn diagrams for each of the following claims. For each, state: the circle labels, what region is shaded or marked with X, and what that mark means.
       <ul>
-        <li>(a) All prime numbers are integers.</li>
-        <li>(b) No even numbers are odd numbers.</li>
-        <li>(c) Some quadrilaterals are squares.</li>
-        <li>(d) Some languages are not alphabetic.</li>
-      </ul>
-    </li>
-    <li>This is a preview of two-premise diagramming, which you will complete in upcoming lessons. Describe how you would begin to diagram both premises in a single two-circle diagram:
-      <br>P1: All oaks are trees.
-      <br>P2: Some trees are deciduous.
-      <br>What mark does P1 require, and where? What mark does P2 require, and where? What difficulty do you notice when both marks must appear in the same diagram?</li>
-  </ol>
+<li>(a) All prime numbers are integers.</li>
+<li>(b) No even numbers are odd numbers.</li>
+<li>(c) Some quadrilaterals are squares.</li>
+<li>(d) Some languages are not alphabetic.</li>
+</ul>
+</li>
+<li>This is a preview of two-premise diagramming, which you will complete in upcoming lessons. Describe how you would begin to diagram both premises in a single two-circle diagram:
+      <br/>P1: All oaks are trees.
+      <br/>P2: Some trees are deciduous.
+      <br/>What mark does P1 require, and where? What mark does P2 require, and where? What difficulty do you notice when both marks must appear in the same diagram?</li>
+</ol>
+</div></div><div style="margin-bottom: 20px;"><div class="looking-ahead">
+<strong>Looking Ahead:</strong> The next lesson turns from visual tools to the living tradition of argument in Western thought. You will encounter actual arguments from Plato, Aristotle, and Aquinas, and practice reconstructing them in standard form. This connects the formal machinery you have been building to the conversation in which these thinkers are still participants.
+</div></div></div>
+<div style="background: #0E1C42; border-top: 3px solid #55C8E8; padding: 16px 28px; text-align: center; margin-top: 10px;">
+<div style="font-size: 16px; color: #ffffff; margin-bottom: 6px;"><span style="color: #55c8e8;">Optima Academy Online</span> · SEMANTICS AND LOGIC HONORS · Quarter 1 · Student Lesson Page</div>
+<div style="font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 4px;">Lesson 1.04b · Venn Diagrams: A First Look</div>
+<div style="font-size: 12px; color: rgba(255,255,255,0.4);">© Optima Academy Online · An Education Experience Company</div>
 </div>
-
-<div class="looking-ahead">
-  <strong>Looking Ahead:</strong> The next lesson turns from visual tools to the living tradition of argument in Western thought. You will encounter actual arguments from Plato, Aristotle, and Aquinas, and practice reconstructing them in standard form. This connects the formal machinery you have been building to the conversation in which these thinkers are still participants.
-</div>
-
 </body>
 </html>
